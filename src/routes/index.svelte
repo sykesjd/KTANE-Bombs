@@ -21,8 +21,8 @@
 </script>
 
 <script lang="ts">
+	import BombCard from '$lib/BombCard.svelte';
 	import type { ChallengeBomb } from '$lib/types';
-	import { formatTime, getSlug } from '$lib/util';
 
 	export let bombs: ChallengeBomb[];
 </script>
@@ -33,14 +33,8 @@
 <div class="main-content">
 	<div class="header">Challenge Bombs</div>
 	<div class="bombs">
-		{#each bombs as bomb}
-			<a class="bomb" href={`bomb/${getSlug(bomb)}`}>
-				<div>{bomb.Name}</div>
-				<div class="stats">
-					{bomb.Modules} Modules · {formatTime(bomb.Time)} · {bomb.Strikes} Strikes · {bomb.Widgets}
-					Widgets
-				</div>
-			</a>
+		{#each bombs as challengeBomb}
+			<BombCard {challengeBomb} />
 		{/each}
 	</div>
 </div>
@@ -74,29 +68,5 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--gap);
-	}
-
-	.bomb {
-		flex-grow: 1;
-
-		display: grid;
-		background: var(--foreground);
-		padding: 10px;
-		column-gap: 20px;
-
-		grid-template-columns: 1fr;
-		grid-template-rows: auto minmax(0, 1fr);
-		color: inherit;
-		text-decoration: inherit;
-		/*
-		grid-template-columns: auto 1fr;
-		grid-template-rows: auto minmax(0, 1fr);
-		*/
-	}
-
-	.stats {
-		font-style: italic;
-		font-size: 85%;
-		color: var(--light-text-color);
 	}
 </style>

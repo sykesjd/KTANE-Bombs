@@ -28,7 +28,7 @@
 
 <script lang="ts">
 	import type { ChallengeBomb } from '$lib/types';
-	import { formatTime, getPools, getSlug } from '$lib/util';
+	import { formatTime, getSlug, pluralize } from '$lib/util';
 
 	export let bomb: ChallengeBomb;
 	export let repo;
@@ -59,28 +59,35 @@
 <div class="main-content">
 	<div class="header">
 		<div class="bomb-name">{bomb.Name}</div>
-		<div>
-			{bomb.Modules} Modules · {formatTime(bomb.Time)} · {bomb.Strikes} Strikes · {bomb.Widgets} Widgets
-		</div>
 	</div>
-	<div class="pools">
-		{#each getPools(bomb) as pool}
-			<div class="pool">
-				<div class="modules">
-					{#each pool.Modules.map(getModule) as module}
-						<div class="module">
-							<img
-								src="https://ktane.timwi.de/iconsprite"
-								alt={module.Name}
-								style="object-position: -{module.X * 32}px -{module.Y * 32}px"
-							/>
-							<span>{module.Name}</span>
+	<div class="bombs">
+		{#each bomb.Bombs as bomb}
+			<div class="foreground padding">
+				{pluralize(bomb.Modules, 'Module')} · {formatTime(bomb.Time)} · {pluralize(
+					bomb.Strikes,
+					'Strike'
+				)} · {pluralize(bomb.Widgets, 'Widget')}
+			</div>
+			<div class="pools">
+				{#each bomb.Pools as pool}
+					<div class="pool">
+						<div class="modules">
+							{#each pool.Modules.map(getModule) as module}
+								<div class="module">
+									<img
+										src="https://ktane.timwi.de/iconsprite"
+										alt={module.Name}
+										style="object-position: -{module.X * 32}px -{module.Y * 32}px"
+									/>
+									<span>{module.Name}</span>
+								</div>
+							{/each}
 						</div>
-					{/each}
-				</div>
-				{#if pool.Count !== 1}
-					<span style="white-space: nowrap"> ×{pool.Count}</span>
-				{/if}
+						{#if pool.Count !== 1}
+							<span style="white-space: nowrap"> ×{pool.Count}</span>
+						{/if}
+					</div>
+				{/each}
 			</div>
 		{/each}
 	</div>
@@ -111,6 +118,13 @@
 		gap: var(--gap);
 	}
 
+	@media (max-width: 500px) {
+		.main-content {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
 	.header {
 		grid-column: 1 / span 2;
 		padding: var(--gap);
@@ -119,6 +133,12 @@
 
 	.bomb-name {
 		font-size: 200%;
+	}
+
+	.bombs {
+		display: flex;
+		flex-direction: column;
+		gap: var(--gap);
 	}
 
 	.pools {

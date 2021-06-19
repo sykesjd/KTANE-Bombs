@@ -40,4 +40,16 @@
 	:global(a:visited) {
 		color: var(--link-visited-text-color);
 	}
+
+	:global(.foreground) {
+		background-color: var(--foreground);
+	}
+
+	:global(.padding) {
+		padding: var(--gap);
+	}
+
+	:global(.margin) {
+		margin: var(--gap);
+	}
 </style>

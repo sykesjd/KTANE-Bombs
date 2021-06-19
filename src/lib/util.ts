@@ -1,4 +1,4 @@
-import { ChallengeBomb, Pool } from './types';
+import type { ChallengeBomb } from './types';
 
 export function getSlug(bomb: ChallengeBomb): string {
 	return bomb.Name.toLowerCase().replace(/[ /]/g, '-');
@@ -11,11 +11,6 @@ export function formatTime(time: number): string {
 	return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
-export function getPools(bomb: ChallengeBomb): Pool[] {
-	return bomb.Pools.map((pool) => {
-		const match = pool.match(/\[(.+)\] (?:\(.+\) )?Count: (\d+)/);
-		if (match === null) console.error(pool);
-
-		return new Pool(match[1].split(', '), parseInt(match[2]));
-	});
+export function pluralize(value: number, singular: string): string {
+	return `${value} ${value == 1 ? singular : singular + 's'}`;
 }

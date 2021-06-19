@@ -1,12 +1,16 @@
 export class ChallengeBomb {
 	Name: string;
+	Bombs: Bomb[];
+	Completions: Completion[];
 	FirstCompletion: number;
+}
+
+export class Bomb {
 	Modules: number;
 	Time: number;
 	Strikes: number;
 	Widgets: number;
-	Pools: string[];
-	Completions: Completion[];
+	Pools: Pool[];
 }
 
 export class Pool {
