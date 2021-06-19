@@ -1,5 +1,6 @@
 export class ChallengeBomb {
 	Name: string;
+	FirstCompletion: number;
 	Modules: number;
 	Time: number;
 	Strikes: number;

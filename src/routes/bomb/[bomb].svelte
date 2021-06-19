@@ -85,9 +85,9 @@
 		{/each}
 	</div>
 	<div class="completions">
-		{#each bomb.Completions as completion}
+		{#each bomb.Completions as completion, i}
 			<div class="completion">
-				<span>{formatTime(completion.Time)}</span>
+				<span class:first={i == bomb.FirstCompletion}>{formatTime(completion.Time)}</span>
 				<div class="team">
 					{#each completion.Team as person, i}
 						<span style="text-decoration: 1px underline {getPersonColor(completion.Team.length, i)}"
@@ -179,6 +179,10 @@
 
 		padding: var(--gap);
 		background: var(--foreground);
+	}
+
+	.completion .first {
+		text-decoration: 1px solid goldenrod underline;
 	}
 
 	.team {
