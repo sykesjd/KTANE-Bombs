@@ -22,15 +22,20 @@
 		}
 	}
 
-	:global(html, body, #svelte) {
+	:global(html) {
 		height: 100%;
 	}
 
 	:global(body) {
+		height: 100%;
 		margin: 0;
 		font-family: sans-serif;
 		color: var(--text-color);
 		background: var(--background);
+	}
+
+	:global(#svelte) {
+		height: 100%;
 	}
 
 	:global(a:link) {
