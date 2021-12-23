@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
@@ -14,7 +14,7 @@ namespace bombdata
 		private static void Main()
 		{
 			var bombs = new List<ChallengeBomb>();
-			foreach (string path in Directory.GetFiles(@"/bombhtml"))
+			foreach (string path in Directory.GetFiles(@"bombhtml/"))
 			{
 				var fileContent = File.ReadAllText(path);
 				var document = new HtmlParser().ParseDocument(fileContent);
