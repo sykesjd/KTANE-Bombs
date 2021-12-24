@@ -1,7 +1,11 @@
-import type { ChallengeBomb } from './types';
+import type { Mission } from './types';
 
-export function getSlug(bomb: ChallengeBomb): string {
-	return bomb.Name.toLowerCase().replace(/[ /]/g, '-');
+export function getSlug(bomb: Mission): string {
+	return getSlugValue(bomb.name);
+}
+
+export function getSlugValue(value: string): string {
+	return value.toLowerCase().replace(/[ /]/g, '-');
 }
 
 export function formatTime(time: number): string {

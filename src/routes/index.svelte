@@ -2,13 +2,13 @@
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/page';
 
 	export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
-		const url = `/bombs.json`;
+		const url = `/missions.json`;
 		const res = await fetch(url);
 
 		if (res.ok) {
 			return {
 				props: {
-					bombs: await res.json()
+					missions: await res.json()
 				}
 			};
 		}
@@ -21,10 +21,10 @@
 </script>
 
 <script lang="ts">
-	import BombCard from '$lib/BombCard.svelte';
-	import type { ChallengeBomb } from '$lib/types';
+	import MissionCard from '$lib/MissionCard.svelte';
+	import type { Mission } from '$lib/types';
 
-	export let bombs: ChallengeBomb[];
+	export let missions: Mission[];
 </script>
 
 <svelte:head>
@@ -33,8 +33,8 @@
 <div class="main-content">
 	<div class="header">Challenge Bombs</div>
 	<div class="bombs">
-		{#each bombs as challengeBomb}
-			<BombCard {challengeBomb} />
+		{#each missions as mission}
+			<MissionCard {mission} />
 		{/each}
 	</div>
 </div>

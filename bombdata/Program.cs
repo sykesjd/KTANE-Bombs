@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
@@ -83,28 +83,28 @@ namespace bombdata
 
 				var bomb = new ChallengeBomb()
 				{
-					Name = sheetName,
-					Bombs = sheet.Skip(1).Where(row => !string.IsNullOrEmpty(row[2].Content)).Select(row =>
+					name = sheetName,
+					bombs = sheet.Skip(1).Where(row => !string.IsNullOrEmpty(row[2].Content)).Select(row =>
 					{
 						return new Bomb()
 						{
-							Modules = int.Parse(row[1].Content),
-							Time = ParseTime(row[2].Content),
-							Strikes = int.Parse(row[3].Content),
-							Widgets = int.Parse(row[4].Content),
-							Pools = new List<Pool>(),
+							modules = int.Parse(row[1].Content),
+							time = ParseTime(row[2].Content),
+							strikes = int.Parse(row[3].Content),
+							widgets = int.Parse(row[4].Content),
+							pools = new List<Pool>(),
 						};
 					}).ToArray(),
-					Completions = sheet.Skip(2).Where(row => !string.IsNullOrEmpty(row[5].Content)).Select(row =>
+					completions = sheet.Skip(2).Where(row => !string.IsNullOrEmpty(row[5].Content)).Select(row =>
 					{
 						return new Completion()
 						{
-							Proof = row[5].Content,
-							Time = ParseTime(row[6].Content),
-							Team = Enumerable.Range(7, 4).Select(index => row[index].Content).Where(cell => !string.IsNullOrEmpty(cell)).ToList(),
+							proof = row[5].Content,
+							time = ParseTime(row[6].Content),
+							team = Enumerable.Range(7, 4).Select(index => row[index].Content).Where(cell => !string.IsNullOrEmpty(cell)).ToList(),
+							first = row[6].Classes.Contains(firstSolveClass)
 						};
-					}).ToList(),
-					FirstCompletion = sheet.Skip(2).Where(row => !string.IsNullOrEmpty(row[5].Content)).ToList().FindIndex(row => row[6].Classes.Contains(firstSolveClass))
+					}).ToList()
 				};
 
 				var bombIndex = 0;
@@ -119,10 +119,10 @@ namespace bombdata
 					else
 					{
 						var match = new Regex(@"\[?(.+)\] (?:\(.+\) )?Count: (\d+)").Match(content);
-						bomb.Bombs[bombIndex].Pools.Add(new Pool()
+						bomb.bombs[bombIndex].pools.Add(new Pool()
 						{
-							Count = int.Parse(match.Groups[2].Value),
-							Modules = match.Groups[1].Value.Split(", ")
+							count = int.Parse(match.Groups[2].Value),
+							modules = match.Groups[1].Value.Split(", ")
 						});
 
 						i += sheet[i][11].RowSpan - 1;
@@ -152,31 +152,31 @@ namespace bombdata
 
 	internal class ChallengeBomb
 	{
-		public string Name { get; set; }
-		public Bomb[] Bombs { get; set; }
-		public List<Completion> Completions { get; set; }
-		public int FirstCompletion { get; set; }
+		public string name { get; set; }
+		public Bomb[] bombs { get; set; }
+		public List<Completion> completions { get; set; }
 	}
 
 	internal class Bomb
 	{
-		public int Modules { get; set; }
-		public int Time { get; set; }
-		public int Strikes { get; set; }
-		public int Widgets { get; set; }
-		public List<Pool> Pools { get; set; }
+		public int modules { get; set; }
+		public int time { get; set; }
+		public int strikes { get; set; }
+		public int widgets { get; set; }
+		public List<Pool> pools { get; set; }
 	}
 
 	internal class Pool
 	{
-		public string[] Modules { get; set; }
-		public int Count { get; set; }
+		public string[] modules { get; set; }
+		public int count { get; set; }
 	}
 
 	internal class Completion
 	{
-		public string Proof { get; set; }
-		public int Time { get; set; }
-		public List<string> Team { get; set; }
+		public string proof { get; set; }
+		public int time { get; set; }
+		public List<string> team { get; set; }
+		public bool first { get; set; }
 	}
 }

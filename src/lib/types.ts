@@ -1,30 +1,30 @@
-export class ChallengeBomb {
-	Name: string;
-	Bombs: Bomb[];
-	Completions: Completion[];
-	FirstCompletion: number;
+export class Mission {
+	name: string;
+	bombs: Bomb[];
+	completions: Completion[];
 }
 
 export class Bomb {
-	Modules: number;
-	Time: number;
-	Strikes: number;
-	Widgets: number;
-	Pools: Pool[];
+	modules: number;
+	time: number;
+	strikes: number;
+	widgets: number;
+	pools: Pool[];
 }
 
 export class Pool {
-	Modules: string[];
-	Count: number;
+	modules: string[];
+	count: number;
 
 	constructor(modules: string[], count: number) {
-		this.Modules = modules;
-		this.Count = count;
+		this.modules = modules;
+		this.count = count;
 	}
 }
 
 export class Completion {
-	Proof: string;
-	Time: number;
-	Team: string[];
+	proof: string;
+	time: number;
+	team: string[];
+	first: boolean;
 }

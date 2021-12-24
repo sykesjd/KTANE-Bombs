@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Mission {
+  id          Int          @id @default(autoincrement())
+  name        String
+  bombs       Bomb[]
+  completions Completion[]
+}
+
+model Bomb {
+  id      Int   @id @default(autoincrement())
+  modules Int
+  time    Float
+  strikes Int
+  widgets Int
+  pools   Json
+
+  mission   Mission @relation(fields: [missionId], references: [id])
+  missionId Int
+}
+
+model Completion {
+  id    Int      @id @default(autoincrement())
+  proof String
+  time  Float
+  team  String[]
+  first Boolean
+
+  mission   Mission @relation(fields: [missionId], references: [id])
+  missionId Int
+}

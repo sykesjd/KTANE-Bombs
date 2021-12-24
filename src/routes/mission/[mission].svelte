@@ -2,18 +2,17 @@
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/page';
 
 	export async function load({ page, fetch }: LoadInput): Promise<LoadOutput> {
-		const { bomb } = page.params;
+		const { mission } = page.params;
 
-		const json = await fetch('/bombs.json');
-		const bombs: ChallengeBomb[] = await json.json();
-		const matching = bombs.filter((possibleBomb) => getSlug(possibleBomb) == bomb);
+		const json = await fetch(`/mission/${mission}.json`);
+		const missionObject: Mission = await json.json();
 
 		const repo = await fetch('https://ktane.timwi.de/json/raw');
 
-		if (json.ok && repo.ok && matching.length === 1) {
+		if (json.ok && repo.ok) {
 			return {
 				props: {
-					bomb: matching[0],
+					mission: missionObject,
 					repo: await repo.json()
 				}
 			};
@@ -27,10 +26,10 @@
 </script>
 
 <script lang="ts">
-	import type { ChallengeBomb } from '$lib/types';
-	import { formatTime, getSlug, pluralize } from '$lib/util';
+	import type { Mission } from '$lib/types';
+	import { formatTime, pluralize } from '$lib/util';
 
-	export let bomb: ChallengeBomb;
+	export let mission: Mission;
 	export let repo;
 	const modules = repo.KtaneModules;
 
@@ -54,25 +53,25 @@
 </script>
 
 <svelte:head>
-	<title>{bomb.Name}</title>
+	<title>{mission.name}</title>
 </svelte:head>
 <div class="main-content">
 	<div class="header">
-		<div class="bomb-name">{bomb.Name}</div>
+		<div class="mission-name">{mission.name}</div>
 	</div>
 	<div class="bombs">
-		{#each bomb.Bombs as bomb}
+		{#each mission.bombs as bomb}
 			<div class="foreground padding">
-				{pluralize(bomb.Modules, 'Module')} · {formatTime(bomb.Time)} · {pluralize(
-					bomb.Strikes,
+				{pluralize(bomb.modules, 'Module')} · {formatTime(bomb.time)} · {pluralize(
+					bomb.strikes,
 					'Strike'
-				)} · {pluralize(bomb.Widgets, 'Widget')}
+				)} · {pluralize(bomb.widgets, 'Widget')}
 			</div>
 			<div class="pools">
-				{#each bomb.Pools as pool}
+				{#each bomb.pools as pool}
 					<div class="pool">
 						<div class="modules">
-							{#each pool.Modules.map(getModule) as module}
+							{#each pool.modules.map(getModule) as module}
 								<div class="module">
 									<img
 										src="https://ktane.timwi.de/iconsprite"
@@ -83,8 +82,8 @@
 								</div>
 							{/each}
 						</div>
-						{#if pool.Count !== 1}
-							<span style="white-space: nowrap"> ×{pool.Count}</span>
+						{#if pool.count !== 1}
+							<span style="white-space: nowrap"> ×{pool.count}</span>
 						{/if}
 					</div>
 				{/each}
@@ -92,17 +91,17 @@
 		{/each}
 	</div>
 	<div class="completions">
-		{#each bomb.Completions as completion, i}
+		{#each mission.completions as completion}
 			<div class="completion">
-				<span class:first={i == bomb.FirstCompletion}>{formatTime(completion.Time)}</span>
+				<span class:first={completion.first}>{formatTime(completion.time)}</span>
 				<div class="team">
-					{#each completion.Team as person, i}
-						<span style="text-decoration: 1px underline {getPersonColor(completion.Team.length, i)}"
+					{#each completion.team as person, i}
+						<span style="text-decoration: 1px underline {getPersonColor(completion.team.length, i)}"
 							>{person}</span
 						>
 					{/each}
 				</div>
-				<a href={completion.Proof}>Link</a>
+				<a href={completion.proof}>Link</a>
 			</div>
 		{/each}
 	</div>
@@ -131,7 +130,7 @@
 		background: var(--foreground);
 	}
 
-	.bomb-name {
+	.mission-name {
 		font-size: 200%;
 	}
 
