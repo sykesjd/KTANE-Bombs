@@ -10,6 +10,6 @@ export async function get(): Promise<EndpointOutput> {
 	});
 
 	return {
-		body: JSON.stringify(missions)
+		body: missions
 	};
 }

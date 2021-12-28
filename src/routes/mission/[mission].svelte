@@ -20,7 +20,7 @@
 
 		return {
 			status: json.status,
-			error: new Error(`Could not load.`)
+			error: 'Mission not found.'
 		};
 	}
 </script>
@@ -61,7 +61,7 @@
 	</div>
 	<div class="bombs">
 		{#each mission.bombs as bomb}
-			<div class="foreground padding">
+			<div class="block">
 				{pluralize(bomb.modules, 'Module')} · {formatTime(bomb.time)} · {pluralize(
 					bomb.strikes,
 					'Strike'

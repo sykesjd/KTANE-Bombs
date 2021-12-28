@@ -25,6 +25,8 @@
 	import type { Mission } from '$lib/types';
 
 	export let missions: Mission[];
+
+	missions.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1));
 </script>
 
 <svelte:head>

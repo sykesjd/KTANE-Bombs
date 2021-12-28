@@ -57,4 +57,9 @@
 	:global(.margin) {
 		margin: var(--gap);
 	}
+
+	:global(.block) {
+		background-color: var(--foreground);
+		padding: var(--gap);
+	}
 </style>
