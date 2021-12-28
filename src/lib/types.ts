@@ -1,3 +1,10 @@
+export class FrontendUser {
+	id: string;
+	username: string;
+	avatar: string;
+	permissions: Permission[];
+}
+
 export class Mission {
 	name: string;
 	bombs: Bomb[];
