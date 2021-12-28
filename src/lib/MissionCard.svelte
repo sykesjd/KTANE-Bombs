@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Bomb, Mission } from './types';
-	import { formatTime, getSlug } from './util';
+	import { formatTime } from './util';
 
 	export let mission: Mission;
 
@@ -12,7 +12,7 @@
 	statBomb.widgets = bombs.map((bomb) => bomb.widgets).reduce((a, b) => a + b, 0);
 </script>
 
-<a class="mission" href={`mission/${getSlug(mission)}`}>
+<a class="mission" href="mission/{encodeURIComponent(mission.name)}">
 	<div>{mission.name}</div>
 	<div class="stats">
 		{statBomb.modules} Modules · {formatTime(statBomb.time)} · {statBomb.strikes}

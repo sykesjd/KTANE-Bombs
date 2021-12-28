@@ -4,7 +4,7 @@
 	export async function load({ page, fetch }: LoadInput): Promise<LoadOutput> {
 		const { mission } = page.params;
 
-		const json = await fetch(`/mission/${mission}.json`);
+		const json = await fetch(`/mission/${encodeURIComponent(mission)}.json`);
 		const missionObject: Mission = await json.json();
 
 		const repo = await fetch('https://ktane.timwi.de/json/raw');
