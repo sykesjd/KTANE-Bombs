@@ -1,4 +1,31 @@
-<slot />
+<script lang="ts">
+	import { session } from '$app/stores';
+	import type { FrontendUser } from '$lib/types';
+
+	const user: FrontendUser | null = $session.user;
+</script>
+
+<div class="navbar">
+	<a href="/">Home</a>
+	<div class="block user">
+		{#if user}
+			<img
+				class="avatar"
+				src="https://cdn.discordapp.com/avatars/{user.id}/{user.avatar}.webp?size=32"
+				alt="Avatar"
+			/>
+			<span>{user.username}</span>
+		{:else}
+			<a rel="external" href="/login">Login</a>
+		{/if}
+	</div>
+	{#if user}
+		<a class="block" rel="external" href="/logout">Logout</a>
+	{/if}
+</div>
+<div class="padding">
+	<slot />
+</div>
 
 <style>
 	:root {
@@ -9,6 +36,7 @@
 		--light-text-color: rgb(100, 100, 100);
 		--link-text-color: currentColor;
 		--link-visited-text-color: currentColor;
+		--accent: #bc421e;
 	}
 
 	@media (prefers-color-scheme: dark) {
@@ -61,5 +89,39 @@
 	:global(.block) {
 		background-color: var(--foreground);
 		padding: var(--gap);
+	}
+
+	.navbar {
+		display: flex;
+		padding: var(--gap);
+		gap: var(--gap);
+		font-size: 125%;
+
+		background: var(--accent);
+		border-bottom: var(--background) 2px dashed;
+	}
+
+	.navbar > a {
+		color: var(--link);
+		text-decoration: none;
+	}
+
+	.navbar > * {
+		background: var(--foreground);
+		padding: var(--gap);
+	}
+
+	.navbar .user {
+		margin-left: auto;
+
+		display: flex;
+		flex-direction: row;
+		gap: var(--gap);
+		align-items: center;
+	}
+
+	.avatar {
+		border-radius: 50%;
+		height: 20px;
 	}
 </style>

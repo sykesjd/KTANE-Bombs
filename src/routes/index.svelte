@@ -47,7 +47,6 @@
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: auto auto;
 		gap: var(--gap);
-		margin: var(--gap);
 	}
 
 	.header {
