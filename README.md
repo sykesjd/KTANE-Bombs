@@ -8,8 +8,17 @@ A website for tracking KTANE challenge bombs.
 
 ## Developing
 
-Install dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Install dependencies with `npm install` (or `pnpm install` or `yarn`).
 
+Make a copy of the `.env.template` file and rename it to `.env`.
+
+Inside that file set `DATABASE_URL` to point to your Postgres DB.
+
+Run `npx prisma generate` to generate the prisma client.
+
+Run `npx prisma migrate dev` to set up the database.
+
+To start a development server:
 ```bash
 npm run dev
 
