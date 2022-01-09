@@ -23,7 +23,7 @@
 		<a class="block" rel="external" href="/logout">Logout</a>
 	{/if}
 </div>
-<div class="padding">
+<div class="flex column padding">
 	<slot />
 </div>
 
@@ -89,6 +89,23 @@
 	:global(.block) {
 		background-color: var(--foreground);
 		padding: var(--gap);
+	}
+
+	:global(.flex) {
+		display: flex;
+		gap: var(--gap);
+	}
+
+	:global(.flex.column) {
+		flex-direction: column;
+	}
+
+	:global(h1.header) {
+		background: var(--foreground);
+		text-align: center;
+		padding: var(--gap);
+		font-size: 200%;
+		margin: 0;
 	}
 
 	.navbar {

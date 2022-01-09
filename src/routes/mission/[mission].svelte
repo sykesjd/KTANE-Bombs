@@ -55,10 +55,8 @@
 <svelte:head>
 	<title>{mission.name}</title>
 </svelte:head>
+<h1 class="header">{mission.name}</h1>
 <div class="main-content">
-	<div class="header">
-		<div class="mission-name">{mission.name}</div>
-	</div>
 	<div class="bombs">
 		{#each mission.bombs as bomb}
 			<div class="block">
@@ -109,8 +107,6 @@
 
 <style>
 	.main-content {
-		padding: var(--gap);
-
 		display: grid;
 		grid-template-columns: 2fr 1fr;
 		grid-template-rows: auto 1fr;
@@ -122,16 +118,6 @@
 			display: flex;
 			flex-direction: column;
 		}
-	}
-
-	.header {
-		grid-column: 1 / span 2;
-		padding: var(--gap);
-		background: var(--foreground);
-	}
-
-	.mission-name {
-		font-size: 200%;
 	}
 
 	.bombs {

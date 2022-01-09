@@ -32,34 +32,15 @@
 <svelte:head>
 	<title>Challenge Bombs</title>
 </svelte:head>
-<div class="main-content">
-	<div class="header">Challenge Bombs</div>
-	<div class="bombs">
-		{#each missions as mission}
-			<MissionCard {mission} />
-		{/each}
-	</div>
+<h1 class="header">Challenge Bombs</h1>
+<div class="bombs">
+	{#each missions as mission}
+		<MissionCard {mission} />
+	{/each}
 </div>
 
 <style>
-	.main-content {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: auto auto;
-		gap: var(--gap);
-	}
-
-	.header {
-		background: var(--foreground);
-		grid-column: 1 / span 2;
-		text-align: center;
-		padding: var(--gap);
-		font-size: 200%;
-	}
-
 	.bombs {
-		grid-column: 1 / span 2;
-
 		width: 100%;
 		height: 100%;
 		/*
