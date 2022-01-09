@@ -5,6 +5,12 @@ export class FrontendUser {
 	permissions: Permission[];
 }
 
+// Be careful when changing this enum.
+// User's permissions are stored by integer.
+export enum Permission {
+	ModifyPermissions = 0,
+}
+
 export class Mission {
 	name: string;
 	bombs: Bomb[];

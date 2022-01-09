@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { session } from '$app/stores';
-	import type { FrontendUser } from '$lib/types';
+	import { FrontendUser, Permission } from '$lib/types';
 	import UserCard from '$lib/UserCard.svelte';
+	import { hasPermission } from '$lib/util';
 
 	const user: FrontendUser | null = $session.user;
 </script>
@@ -10,6 +11,10 @@
 	<div class="navbar max-width">
 		<a class="block" href="/">Home</a>
 		{#if user}
+			{#if hasPermission(user, Permission.ModifyPermissions)}
+				<a class="block" href="/users">Users</a>
+			{/if}
+
 			<div style="margin-left: auto;">
 				<UserCard {user} />
 			</div>
@@ -72,6 +77,15 @@
 		color: var(--link-visited-text-color);
 	}
 
+	:global(button) {
+		background-color: var(--accent);
+		color: white;
+		padding: 2.5px 5px;
+		border: 1px solid hsl(14, 72%, 33%);
+		border-radius: 5px;
+		font-size: inherit;
+	}
+
 	:global(.foreground) {
 		background-color: var(--foreground);
 	}
@@ -96,6 +110,10 @@
 
 	:global(.flex.column) {
 		flex-direction: column;
+	}
+
+	:global(.flex.content-width) {
+		align-items: flex-start;
 	}
 
 	:global(h1.header) {
