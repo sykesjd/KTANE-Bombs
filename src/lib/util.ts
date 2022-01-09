@@ -1,3 +1,5 @@
+import type { FrontendUser, Permission } from './types';
+
 export function formatTime(time: number): string {
 	const hours = Math.floor(time / 3600);
 	const minutes = Math.floor(time / 60) - 60 * hours;
@@ -7,4 +9,8 @@ export function formatTime(time: number): string {
 
 export function pluralize(value: number, singular: string): string {
 	return `${value} ${value == 1 ? singular : singular + 's'}`;
+}
+
+export function hasPermission(user: FrontendUser, permission: Permission): boolean {
+	return user !== null && user.permissions.includes(permission);
 }

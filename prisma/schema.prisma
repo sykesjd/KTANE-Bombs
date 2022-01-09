@@ -16,6 +16,7 @@ model User {
   avatar       String
   accessToken  String
   refreshToken String
+  permissions  Int[]
 }
 
 model Mission {

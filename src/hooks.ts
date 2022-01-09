@@ -13,7 +13,8 @@ export const handle: Handle = async ({ request, resolve }) => {
 				select: {
 					id: true,
 					username: true,
-					avatar: true
+					avatar: true,
+					permissions: true
 				}
 		  })
 		: null;
