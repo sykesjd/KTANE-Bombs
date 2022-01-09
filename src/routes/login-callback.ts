@@ -1,5 +1,5 @@
 import client from '$lib/client';
-import OAuth, { scope } from '$lib/auth/oauth';
+import OAuth, { scope } from '$lib/oauth';
 import type { RequestHandler } from '@sveltejs/kit';
 import * as cookie from 'cookie';
 

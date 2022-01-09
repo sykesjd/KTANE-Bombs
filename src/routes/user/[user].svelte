@@ -1,15 +1,17 @@
 <script context="module" lang="ts">
-	import { jsonLoad } from '$lib/jsonLoad';
+	import { authLoad, jsonLoad } from '$lib/loaders';
 	import type { FrontendUser } from '$lib/types';
 	import type { Load } from '@sveltejs/kit';
 
-	export const load: Load = jsonLoad(({ page }) => {
-		const { user } = page.params;
+	export const load: Load = authLoad(
+		jsonLoad(({ page }) => {
+			const { user } = page.params;
 
-		return {
-			user: `user/${user}`
-		};
-	});
+			return {
+				user: `user/${user}`
+			};
+		})
+	);
 </script>
 
 <script lang="ts">

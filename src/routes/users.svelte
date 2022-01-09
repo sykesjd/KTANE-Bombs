@@ -1,8 +1,7 @@
 <script context="module" lang="ts">
 	import type { FrontendUser } from '$lib/types';
 	import type { Load } from '@sveltejs/kit';
-	import { authLoad } from '$lib/auth/auth';
-	import { jsonLoadStatic } from '$lib/jsonLoad';
+	import { authLoad, jsonLoadStatic } from '$lib/loaders';
 
 	export const load: Load = authLoad(
 		jsonLoadStatic({
