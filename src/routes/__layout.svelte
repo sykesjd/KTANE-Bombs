@@ -1,29 +1,27 @@
 <script lang="ts">
 	import { session } from '$app/stores';
 	import type { FrontendUser } from '$lib/types';
+	import UserCard from '$lib/UserCard.svelte';
 
 	const user: FrontendUser | null = $session.user;
 </script>
 
-<div class="navbar">
-	<a href="/">Home</a>
-	<div class="block user">
+<div class="navbar-background">
+	<div class="navbar max-width">
+		<a class="block" href="/">Home</a>
 		{#if user}
-			<img
-				class="avatar"
-				src="https://cdn.discordapp.com/avatars/{user.id}/{user.avatar}.webp?size=32"
-				alt="Avatar"
-			/>
-			<span>{user.username}</span>
+			<div style="margin-left: auto;">
+				<UserCard {user} />
+			</div>
+			<a class="block" rel="external" href="/logout">Logout</a>
 		{:else}
-			<a rel="external" href="/login">Login</a>
+			<div class="block">
+				<a rel="external" href="/login">Login</a>
+			</div>
 		{/if}
 	</div>
-	{#if user}
-		<a class="block" rel="external" href="/logout">Logout</a>
-	{/if}
 </div>
-<div class="flex column padding">
+<div class="flex column max-width padding">
 	<slot />
 </div>
 
@@ -108,14 +106,17 @@
 		margin: 0;
 	}
 
+	.navbar-background {
+		background: var(--accent);
+		border-bottom: var(--background) 2px dashed;
+	}
+
 	.navbar {
 		display: flex;
 		padding: var(--gap);
 		gap: var(--gap);
 		font-size: 125%;
-
-		background: var(--accent);
-		border-bottom: var(--background) 2px dashed;
+		white-space: nowrap;
 	}
 
 	.navbar > a {
@@ -123,22 +124,8 @@
 		text-decoration: none;
 	}
 
-	.navbar > * {
-		background: var(--foreground);
-		padding: var(--gap);
-	}
-
-	.navbar .user {
-		margin-left: auto;
-
-		display: flex;
-		flex-direction: row;
-		gap: var(--gap);
-		align-items: center;
-	}
-
-	.avatar {
-		border-radius: 50%;
-		height: 20px;
+	.max-width {
+		width: min(calc(100vw - 2 * var(--gap)), 1150px);
+		margin: 0 auto;
 	}
 </style>

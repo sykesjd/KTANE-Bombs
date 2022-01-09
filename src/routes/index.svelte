@@ -43,12 +43,8 @@
 	.bombs {
 		width: 100%;
 		height: 100%;
-		/*
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-		*/
-		display: flex;
-		flex-wrap: wrap;
+		grid-template-columns: 1fr 1fr 1fr;
 		gap: var(--gap);
 	}
 </style>
