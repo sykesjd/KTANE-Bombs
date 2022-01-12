@@ -89,19 +89,24 @@
 		{/each}
 	</div>
 	<div class="completions">
-		{#each mission.completions as completion}
-			<div class="completion">
-				<span class:first={completion.first}>{formatTime(completion.time)}</span>
-				<div class="team">
-					{#each completion.team as person, i}
-						<span style="text-decoration: 1px underline {getPersonColor(completion.team.length, i)}"
-							>{person}</span
-						>
-					{/each}
+		{#if mission.completions.length !== 0}
+			{#each mission.completions as completion}
+				<div class="completion">
+					<span class:first={completion.first}>{formatTime(completion.time)}</span>
+					<div class="team">
+						{#each completion.team as person, i}
+							<span
+								style="text-decoration: 1px underline {getPersonColor(completion.team.length, i)}"
+								>{person}</span
+							>
+						{/each}
+					</div>
+					<a href={completion.proof}>Link</a>
 				</div>
-				<a href={completion.proof}>Link</a>
-			</div>
-		{/each}
+			{/each}
+		{:else}
+			<div class="block" style="text-align: center;"><i>No completions, be the first!</i></div>
+		{/if}
 	</div>
 </div>
 
