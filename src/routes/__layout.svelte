@@ -86,6 +86,18 @@
 		font-size: inherit;
 	}
 
+	:global(button:hover) {
+		background-color: hsl(14, 72%, 38%);
+	}
+
+	:global(button:active) {
+		background-color: hsl(14, 72%, 33%);
+	}
+
+	:global(button:disabled) {
+		opacity: 0.5;
+	}
+
 	:global(.foreground) {
 		background-color: var(--foreground);
 	}
