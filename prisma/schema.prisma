@@ -24,6 +24,7 @@ model Mission {
   name        String
   bombs       Bomb[]
   completions Completion[]
+  verified    Boolean      @default(true)
 }
 
 model Bomb {

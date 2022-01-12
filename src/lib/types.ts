@@ -9,7 +9,10 @@ export class FrontendUser {
 // User's permissions are stored by integer.
 export enum Permission {
 	ModifyPermissions = 0,
+	VerifyMission = 1,
 }
+
+export type ID<T> = T & { id: number };
 
 export class Mission {
 	name: string;
@@ -40,4 +43,16 @@ export class Completion {
 	time: number;
 	team: string[];
 	first: boolean;
+}
+
+export type QueueItem = MissionQueueItem | CompletionQueueItem;
+
+export interface MissionQueueItem {
+	type: 'mission';
+	mission: ID<Mission>;
+}
+
+export interface CompletionQueueItem {
+	type: 'completion';
+	completion: ID<Completion>;
 }

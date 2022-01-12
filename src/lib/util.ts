@@ -1,4 +1,5 @@
-import type { FrontendUser, Permission } from './types';
+import type * as client from '@prisma/client';
+import type { Bomb, FrontendUser, Permission, Pool } from './types';
 
 export function formatTime(time: number): string {
 	const hours = Math.floor(time / 3600);
@@ -13,4 +14,16 @@ export function pluralize(value: number, singular: string): string {
 
 export function hasPermission(user: FrontendUser, permission: Permission): boolean {
 	return user !== null && user.permissions.includes(permission);
+}
+
+export function fixPools<T>(mission: T & { bombs: client.Bomb[] }): T & { bombs: Bomb[] } {
+	return {
+		...mission,
+		bombs: mission.bombs.map((bomb) => {
+			return {
+				...bomb,
+				pools: (bomb.pools as unknown) as Pool[]
+			};
+		})
+	};
 }
