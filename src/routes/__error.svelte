@@ -1,7 +1,11 @@
 <script context="module" lang="ts">
 	import type { ErrorLoad } from '@sveltejs/kit';
 
-	export const load: ErrorLoad = function ({ error, status, page }) {
+	export const load: ErrorLoad = function ({ error, status, page, session }) {
+		if (error.message === '' && status === 403 && session.user !== null) {
+			error.message = "You don't have permission to view that.";
+		}
+
 		return {
 			props: {
 				status,
@@ -35,11 +39,12 @@
 		return hash;
 	}
 
+	path = decodeURIComponent(path);
 	const message =
 		status >= 500
 			? `Looks like ${path} ran into a problem while loading the page, automatically solving page.`
 			: `@${user?.username ?? 'User'}, that command for ${path} (${
-					hashCode(path) % 100
+					Math.abs(hashCode(path)) % 100
 			  }) is invalid.`;
 </script>
 
