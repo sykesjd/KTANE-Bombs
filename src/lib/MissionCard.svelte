@@ -3,6 +3,8 @@
 	import { formatTime } from './util';
 
 	export let mission: Mission;
+	export let selectable: boolean = false;
+	export let selected: boolean = false;
 
 	const bombs = mission.bombs;
 	const statBomb = new Bomb();
@@ -12,14 +14,26 @@
 	statBomb.widgets = bombs.map((bomb) => bomb.widgets).reduce((a, b) => a + b, 0);
 </script>
 
-<a class="mission" href="mission/{encodeURIComponent(mission.name)}">
-	<div>{mission.name}</div>
-	<div class="stats">
-		{statBomb.modules} Modules · {formatTime(statBomb.time)} · {statBomb.strikes}
-		Strikes · {statBomb.widgets}
-		Widgets
-	</div>
-</a>
+{#if selectable}
+	<input id="selected" type="checkbox" bind:checked={selected} />
+	<label for="selected" class="mission" class:selected>
+		<div>{mission.name}</div>
+		<div class="stats">
+			{statBomb.modules} Modules · {formatTime(statBomb.time)} · {statBomb.strikes}
+			Strikes · {statBomb.widgets}
+			Widgets
+		</div>
+	</label>
+{:else}
+	<a class="mission" href="mission/{encodeURIComponent(mission.name)}">
+		<div>{mission.name}</div>
+		<div class="stats">
+			{statBomb.modules} Modules · {formatTime(statBomb.time)} · {statBomb.strikes}
+			Strikes · {statBomb.widgets}
+			Widgets
+		</div>
+	</a>
+{/if}
 
 <style>
 	.mission {
@@ -40,5 +54,17 @@
 		font-style: italic;
 		font-size: 85%;
 		color: var(--light-text-color);
+	}
+
+	input {
+		display: none;
+	}
+
+	.mission.selected {
+		outline: red 1px solid;
+	}
+
+	label {
+		cursor: pointer;
 	}
 </style>

@@ -3,13 +3,32 @@
 	import { FrontendUser, Permission } from '$lib/types';
 	import UserCard from '$lib/UserCard.svelte';
 	import { hasPermission } from '$lib/util';
+	import { onMount } from 'svelte';
+	import { toasts, ToastContainer, FlatToast } from 'svelte-toasts';
 
 	const user: FrontendUser | null = $session.user;
+
+	onMount(() => {
+		const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+		toasts.setDefaults({
+			theme: darkQuery.matches ? 'dark' : 'light',
+			placement: 'top-center',
+			duration: 5000
+		});
+
+		darkQuery.addEventListener('change', (event) => {
+			toasts.setDefaults({
+				theme: event.matches ? 'dark' : 'light'
+			});
+		});
+	});
 </script>
 
 <div class="navbar-background">
 	<div class="navbar max-width">
 		<a class="block" href="/">Home</a>
+		<a class="block" href="/upload">Upload</a>
 		{#if user}
 			{#if hasPermission(user, Permission.ModifyPermissions)}
 				<a class="block" href="/users">Users</a>
@@ -29,6 +48,10 @@
 <div class="flex column max-width padding">
 	<slot />
 </div>
+
+<ToastContainer let:data>
+	<FlatToast {data} />
+</ToastContainer>
 
 <style>
 	:root {
@@ -134,6 +157,10 @@
 		padding: var(--gap);
 		font-size: 200%;
 		margin: 0;
+	}
+
+	:global(.st-toast.light) {
+		background: white !important;
 	}
 
 	.navbar-background {

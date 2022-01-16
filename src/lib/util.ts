@@ -8,6 +8,24 @@ export function formatTime(time: number): string {
 	return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
+export function parseTime(time: string): number | null {
+	const match = time.match(
+		/^(?:(?<hours>\d+:)?(?<minutes>\d{1,2}:))?(?<seconds>\d{1,2}(?:.\d{1,2})?)$/
+	);
+	if (match === null) {
+		return null;
+	}
+
+	const groups = match.groups;
+	const minutes = parseInt(groups.minutes ?? '0');
+	const seconds = parseFloat(groups.seconds);
+	if (minutes >= 60 || seconds >= 60) {
+		return null;
+	}
+
+	return parseInt(groups.hours ?? '0') * 3600 + minutes * 60 + seconds;
+}
+
 export function pluralize(value: number, singular: string): string {
 	return `${value} ${value == 1 ? singular : singular + 's'}`;
 }

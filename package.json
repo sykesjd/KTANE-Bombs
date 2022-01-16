@@ -29,6 +29,7 @@
 		"@prisma/client": "^3.7.0",
 		"@sveltejs/adapter-node": "^1.0.0-next.22",
 		"cookie": "^0.4.1",
-		"discord-oauth2": "^2.9.0"
+		"discord-oauth2": "^2.9.0",
+		"svelte-toasts": "^1.1.2"
 	}
 }
