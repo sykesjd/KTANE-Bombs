@@ -10,6 +10,7 @@ export class FrontendUser {
 export enum Permission {
 	ModifyPermissions = 0,
 	VerifyMission = 1,
+	VerifyCompletion = 2
 }
 
 export type ID<T> = T & { id: number };
@@ -55,4 +56,5 @@ export interface MissionQueueItem {
 export interface CompletionQueueItem {
 	type: 'completion';
 	completion: ID<Completion>;
+	mission: ID<Omit<Mission, 'completions'>>;
 }

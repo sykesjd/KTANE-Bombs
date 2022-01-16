@@ -2,7 +2,7 @@
 	import { Bomb, Mission } from './types';
 	import { formatTime } from './util';
 
-	export let mission: Mission;
+	export let mission: Omit<Mission, 'completions'>;
 	export let selectable: boolean = false;
 	export let selected: boolean = false;
 

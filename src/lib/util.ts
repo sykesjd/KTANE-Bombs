@@ -34,6 +34,10 @@ export function hasPermission(user: FrontendUser, permission: Permission): boole
 	return user !== null && user.permissions.includes(permission);
 }
 
+export function hasAnyPermission(user: FrontendUser, ...permissions: Permission[]): boolean {
+	return permissions.some((permission) => hasPermission(user, permission));
+}
+
 export function fixPools<T>(mission: T & { bombs: client.Bomb[] }): T & { bombs: Bomb[] } {
 	return {
 		...mission,

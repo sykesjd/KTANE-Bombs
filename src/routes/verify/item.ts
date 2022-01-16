@@ -17,7 +17,7 @@ export const post: RequestHandler<
 			}
 
 			if (accept) {
-				client.mission.update({
+				await client.mission.update({
 					where: {
 						id: item.mission.id
 					},
@@ -26,8 +26,48 @@ export const post: RequestHandler<
 					}
 				});
 			} else {
-				client.bomb.deleteMany({ where: { missionId: item.mission.id } });
-				client.mission.delete({ where: { id: item.mission.id } });
+				await client.bomb.deleteMany({ where: { missionId: item.mission.id } });
+				await client.mission.delete({ where: { id: item.mission.id } });
+			}
+
+			break;
+		case 'completion':
+			if (!hasPermission(locals.user, Permission.VerifyCompletion)) {
+				return {
+					status: 403
+				};
+			}
+
+			if (accept) {
+				const { missionId } = await client.completion.findFirst({
+					where: {
+						id: item.completion.id
+					},
+					select: {
+						missionId: true
+					}
+				});
+
+				const first =
+					(await client.completion.findFirst({
+						where: {
+							missionId,
+							verified: true,
+							first: true
+						}
+					})) === null;
+
+				await client.completion.update({
+					where: {
+						id: item.completion.id
+					},
+					data: {
+						verified: true,
+						first
+					}
+				});
+			} else {
+				client.completion.delete({ where: { id: item.completion.id } });
 			}
 
 			break;

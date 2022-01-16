@@ -12,6 +12,7 @@
 <script lang="ts">
 	import type { QueueItem } from '$lib/types';
 	import MissionCard from '$lib/MissionCard.svelte';
+	import CompletionCard from '$lib/CompletionCard.svelte';
 
 	export let queue: QueueItem[];
 
@@ -37,8 +38,11 @@
 
 <div class="flex column">
 	{#each queue as item}
-		<div class="flex">
+		<div class="item {item.type}">
 			{#if item.type === 'mission'}
+				<MissionCard mission={item.mission} />
+			{:else if item.type === 'completion'}
+				<CompletionCard completion={item.completion} />
 				<MissionCard mission={item.mission} />
 			{/if}
 			<div class="block flex content-width" style="align-items: center;">
@@ -48,3 +52,15 @@
 		</div>
 	{/each}
 </div>
+
+<style>
+	.item {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: var(--gap);
+	}
+
+	.item.completion {
+		grid-template-columns: 1fr 1fr auto;
+	}
+</style>

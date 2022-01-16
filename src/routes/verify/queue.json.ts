@@ -1,10 +1,10 @@
 import client from '$lib/client';
-import { MissionQueueItem, Permission, QueueItem } from '$lib/types';
-import { fixPools, hasPermission } from '$lib/util';
+import { CompletionQueueItem, MissionQueueItem, Permission, QueueItem } from '$lib/types';
+import { fixPools, hasPermission, hasAnyPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const get: RequestHandler = async function ({ locals }) {
-	if (!hasPermission(locals.user, Permission.VerifyMission)) {
+	if (!hasAnyPermission(locals.user, Permission.VerifyMission, Permission.VerifyCompletion)) {
 		return {
 			status: 403
 		};
@@ -12,28 +12,57 @@ export const get: RequestHandler = async function ({ locals }) {
 
 	const queue: QueueItem[] = [];
 
-	const missions = await client.mission.findMany({
-		where: {
-			verified: false
-		},
-		select: {
-			id: true,
-			name: true,
-			bombs: true
-		}
-	});
+	// Missions
+	if (hasPermission(locals.user, Permission.VerifyMission)) {
+		const missions = await client.mission.findMany({
+			where: {
+				verified: false
+			},
+			select: {
+				id: true,
+				name: true,
+				bombs: true
+			}
+		});
 
-	queue.push(
-		...missions.map((mission) => {
-			return {
-				type: 'mission',
+		queue.push(
+			...missions.map((mission) => {
+				return {
+					type: 'mission',
+					mission: {
+						...fixPools(mission),
+						completions: []
+					}
+				} as MissionQueueItem;
+			})
+		);
+	}
+
+	// Completions
+	if (hasPermission(locals.user, Permission.VerifyCompletion)) {
+		const completions = await client.completion.findMany({
+			where: {
+				verified: false
+			},
+			include: {
 				mission: {
-					...fixPools(mission),
-					completions: []
+					include: {
+						bombs: true
+					}
 				}
-			} as MissionQueueItem;
-		})
-	);
+			}
+		});
+
+		queue.push(
+			...completions.map((completion) => {
+				return {
+					type: 'completion',
+					completion,
+					mission: fixPools(completion.mission)
+				} as CompletionQueueItem;
+			})
+		);
+	}
 
 	return {
 		body: JSON.stringify(queue)

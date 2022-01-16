@@ -2,7 +2,7 @@
 	import { session } from '$app/stores';
 	import { FrontendUser, Permission } from '$lib/types';
 	import UserCard from '$lib/UserCard.svelte';
-	import { hasPermission } from '$lib/util';
+	import { hasPermission, hasAnyPermission } from '$lib/util';
 	import { onMount } from 'svelte';
 	import { toasts, ToastContainer, FlatToast } from 'svelte-toasts';
 
@@ -32,6 +32,9 @@
 		{#if user}
 			{#if hasPermission(user, Permission.ModifyPermissions)}
 				<a class="block" href="/users">Users</a>
+			{/if}
+			{#if hasAnyPermission(user, Permission.VerifyMission, Permission.VerifyCompletion)}
+				<a class="block" href="/verify">Verify</a>
 			{/if}
 
 			<div style="margin-left: auto;">
