@@ -4,8 +4,8 @@
 	import type { Load } from '@sveltejs/kit';
 
 	export const load: Load = authLoad(
-		jsonLoad(({ page }) => {
-			const { user } = page.params;
+		jsonLoad(({ params }) => {
+			const { user } = params;
 
 			return {
 				user: `user/${user}`

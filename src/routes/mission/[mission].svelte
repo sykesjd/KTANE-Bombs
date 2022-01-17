@@ -1,8 +1,8 @@
 <script context="module" lang="ts">
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/page';
 
-	export async function load({ page, fetch }: LoadInput): Promise<LoadOutput> {
-		const { mission } = page.params;
+	export async function load({ params, fetch }: LoadInput): Promise<LoadOutput> {
+		const { mission } = params;
 
 		const json = await fetch(`/mission/${encodeURIComponent(mission)}.json`);
 		const missionObject: Mission = await json.json();
