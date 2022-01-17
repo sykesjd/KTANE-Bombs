@@ -8,18 +8,17 @@ export async function get({ params, locals }: ServerRequest): Promise<EndpointOu
 	const { mission } = params;
 	const missionResult = await client.mission.findFirst({
 		where: {
-			name: mission,
-			completions: {
-				every: {
-					verified: true
-				}
-			}
+			name: mission
 		},
 		select: {
 			name: true,
 			verified: true,
 			bombs: true,
-			completions: true
+			completions: {
+				where: {
+					verified: true
+				}
+			}
 		}
 	});
 
