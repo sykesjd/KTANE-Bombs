@@ -42,9 +42,7 @@
 			</div>
 			<a class="block" rel="external" href="/logout">Logout</a>
 		{:else}
-			<div class="block">
-				<a rel="external" href="/login">Login</a>
-			</div>
+			<a class="block" style="margin-left: auto;" rel="external" href="/login">Login</a>
 		{/if}
 	</div>
 </div>
