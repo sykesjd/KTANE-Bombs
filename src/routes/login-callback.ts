@@ -3,9 +3,9 @@ import OAuth, { scope } from '$lib/oauth';
 import type { RequestHandler } from '@sveltejs/kit';
 import * as cookie from 'cookie';
 
-export const get: RequestHandler = async function get({ query }) {
+export const get: RequestHandler = async function get({ url }) {
 	const result = await OAuth.tokenRequest({
-		code: query.get('code'),
+		code: url.searchParams.get('code'),
 		grantType: 'authorization_code',
 		scope: scope
 	});
