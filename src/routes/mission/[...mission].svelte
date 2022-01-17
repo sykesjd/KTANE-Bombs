@@ -7,6 +7,7 @@
 		const json = await fetch(`/mission/${encodeURIComponent(mission)}.json`);
 		const missionObject: Mission = await json.json();
 
+		// TODO: The server should cache this information and send along the icon data.
 		const repo = await fetch('https://ktane.timwi.de/json/raw');
 
 		if (json.ok && repo.ok) {
