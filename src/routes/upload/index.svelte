@@ -13,7 +13,7 @@
 
 	export let missionNames: string[];
 
-	let section = 'mission';
+	let section = 'completion';
 </script>
 
 <svelte:head>
@@ -22,15 +22,15 @@
 
 <h1 class="header">Upload</h1>
 <div class="section-selector">
-	<div class="block" class:selected={section == 'mission'} on:click={() => (section = 'mission')}>
-		Mission
-	</div>
 	<div
 		class="block"
 		class:selected={section == 'completion'}
 		on:click={() => (section = 'completion')}
 	>
 		Completion
+	</div>
+	<div class="block" class:selected={section == 'mission'} on:click={() => (section = 'mission')}>
+		Mission
 	</div>
 </div>
 {#if section == 'mission'}
