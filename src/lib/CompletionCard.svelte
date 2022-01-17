@@ -5,15 +5,19 @@
 	export let completion: Completion;
 
 	function getPersonColor(size: number, index: number): string {
-		return size === 1 ? 'rgb(200, 0, 200)' : index === 0 ? 'rgb(0, 127, 255)' : 'red';
+		return size === 1
+			? 'hsl(300, 100%, 75%)'
+			: index === 0
+			? 'hsl(210, 100%, 65%)'
+			: 'hsl(0, 100%, 70%)';
 	}
 </script>
 
 <div class="completion">
-	<span class:first={completion.first}>{formatTime(completion.time)}</span>
+	<span class="time" class:first={completion.first}>{formatTime(completion.time)}</span>
 	<div class="team">
 		{#each completion.team as person, i}
-			<span style="text-decoration: 1px underline {getPersonColor(completion.team.length, i)}"
+			<span class="person" style="background-color: {getPersonColor(completion.team.length, i)}"
 				>{person}</span
 			>
 		{/each}
@@ -25,14 +29,29 @@
 	.completion {
 		display: grid;
 		grid-template-columns: auto 1fr auto;
+		grid-template-rows: min-content;
+		align-content: center;
+		align-items: center;
 		gap: var(--gap);
 
 		padding: var(--gap);
 		background: var(--foreground);
 	}
 
+	.completion .time {
+		padding: 0 3px;
+	}
+
 	.completion .first {
-		text-decoration: 1px solid goldenrod underline;
+		border-radius: 5px;
+		color: black;
+		background-color: hsl(43, 74%, 70%);
+	}
+
+	.person {
+		border-radius: 5px;
+		padding: 1px 3px;
+		color: black;
 	}
 
 	.team {
