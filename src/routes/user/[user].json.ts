@@ -27,10 +27,10 @@ export const get: RequestHandler = async function ({ locals, params }) {
 	};
 };
 
-export const patch: RequestHandler<Record<string, never>, number[]> = async function ({
+export const patch: RequestHandler<Record<string, never>> = async function ({
 	locals,
 	params,
-	body
+	request
 }) {
 	if (!hasPermission(locals.user, Permission.ModifyPermissions)) {
 		return {
@@ -38,6 +38,7 @@ export const patch: RequestHandler<Record<string, never>, number[]> = async func
 		};
 	}
 
+	const body: Permission[] = await request.json();
 	await client.user.update({
 		where: {
 			id: params.user

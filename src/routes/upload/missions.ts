@@ -1,10 +1,10 @@
 import client from '$lib/client';
 import type { Mission } from '$lib/types';
-import type { EndpointOutput } from '@sveltejs/kit';
-import type { ServerRequest } from '@sveltejs/kit/types/hooks';
+import type { EndpointOutput, RequestEvent } from '@sveltejs/kit';
 
-export async function post({ body }: ServerRequest<unknown, Mission[]>): Promise<EndpointOutput> {
-	for (const mission of body) {
+export async function post({ request }: RequestEvent): Promise<EndpointOutput> {
+	const missions: Mission[] = await request.json();
+	for (const mission of missions) {
 		await client.mission.create({
 			data: {
 				name: mission.name,

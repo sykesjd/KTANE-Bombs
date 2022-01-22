@@ -3,11 +3,11 @@ import { FrontendUser, Permission, QueueItem } from '$lib/types';
 import { hasPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
 
-export const post: RequestHandler<
-	Record<string, FrontendUser>,
-	{ accept: boolean; item: QueueItem }
-> = async function ({ locals, body }) {
-	const { accept, item } = body;
+export const post: RequestHandler<Record<string, FrontendUser>> = async function ({
+	locals,
+	request
+}) {
+	const { accept, item }: { accept: boolean; item: QueueItem } = await request.json();
 	switch (item.type) {
 		case 'mission':
 			if (!hasPermission(locals.user, Permission.VerifyMission)) {

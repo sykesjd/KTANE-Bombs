@@ -1,10 +1,9 @@
 import client from '$lib/client';
 import { Permission } from '$lib/types';
 import { hasPermission } from '$lib/util';
-import type { EndpointOutput } from '@sveltejs/kit';
-import type { ServerRequest } from '@sveltejs/kit/types/hooks';
+import type { EndpointOutput, RequestEvent } from '@sveltejs/kit';
 
-export async function get({ params, locals }: ServerRequest): Promise<EndpointOutput> {
+export async function get({ params, locals }: RequestEvent): Promise<EndpointOutput> {
 	const { mission } = params;
 	const missionResult = await client.mission.findFirst({
 		where: {

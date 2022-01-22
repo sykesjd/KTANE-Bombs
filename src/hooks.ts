@@ -2,10 +2,10 @@ import client from '$lib/client';
 import type { GetSession, Handle } from '@sveltejs/kit/types/hooks';
 import * as cookie from 'cookie';
 
-export const handle: Handle = async ({ request, resolve }) => {
-	const cookies = cookie.parse(request.headers.cookie ?? '');
+export const handle: Handle = async ({ event, resolve }) => {
+	const cookies = cookie.parse(event.request.headers.get('cookie') ?? '');
 	const token = cookies.token;
-	request.locals.user = token
+	event.locals.user = token
 		? await client.user.findFirst({
 				where: {
 					accessToken: token
@@ -19,7 +19,7 @@ export const handle: Handle = async ({ request, resolve }) => {
 		  })
 		: null;
 
-	return await resolve(request);
+	return await resolve(event);
 };
 
 export const getSession: GetSession = ({ locals }) => {
