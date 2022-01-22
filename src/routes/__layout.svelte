@@ -157,7 +157,8 @@
 
 	.navbar-background {
 		background: var(--accent);
-		border-bottom: var(--background) 2px dashed;
+		outline: var(--accent) 2px dashed;
+		margin-bottom: 2px;
 
 		position: sticky;
 		top: 0;
