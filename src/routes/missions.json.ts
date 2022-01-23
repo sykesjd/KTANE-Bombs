@@ -8,11 +8,13 @@ export async function get(): Promise<EndpointOutput> {
 		},
 		select: {
 			name: true,
-			bombs: true
+			bombs: true,
+			tpSolve: true,
+			completions: true
 		}
 	});
 
 	return {
-		body: missions
+		body: JSON.stringify(missions)
 	};
 }

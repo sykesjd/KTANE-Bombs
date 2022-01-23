@@ -31,7 +31,8 @@ export const get: RequestHandler = async function ({ locals }) {
 					type: 'mission',
 					mission: {
 						...fixPools(mission),
-						completions: []
+						completions: [],
+						tpSolve: false
 					}
 				} as MissionQueueItem;
 			})
@@ -47,7 +48,8 @@ export const get: RequestHandler = async function ({ locals }) {
 			include: {
 				mission: {
 					include: {
-						bombs: true
+						bombs: true,
+						completions: true
 					}
 				}
 			}

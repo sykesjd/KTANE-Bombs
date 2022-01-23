@@ -1,5 +1,5 @@
 import type * as client from '@prisma/client';
-import type { Bomb, FrontendUser, Permission, Pool } from './types';
+import type { Bomb, FrontendUser, Mission, Permission, Pool } from './types';
 
 export function formatTime(time: number): string {
 	const hours = Math.floor(time / 3600);
@@ -30,6 +30,19 @@ export function pluralize(value: number, singular: string): string {
 	return `${value} ${value == 1 ? singular : singular + 's'}`;
 }
 
+export function listify(list: string[]): string {
+	switch (list.length) {
+		case 1:
+			return list[0];
+
+		case 2:
+			return `${list[0]} and ${list[1]}`
+
+		default:
+			return listify([list.slice(0, -1).join(", ") + ",", list[list.length - 1]]);
+	}
+}
+
 export function hasPermission(user: FrontendUser, permission: Permission): boolean {
 	return user !== null && user.permissions.includes(permission);
 }
@@ -47,5 +60,12 @@ export function fixPools<T>(mission: T & { bombs: client.Bomb[] }): T & { bombs:
 				pools: (bomb.pools as unknown) as Pool[]
 			};
 		})
+	};
+}
+
+export function getSolveTypes(mission: Mission): { normalSolve: boolean, efmSolve: boolean } {
+	return {
+		normalSolve: mission.completions.some((completion) => completion.team.length >= 2),
+		efmSolve: mission.completions.some((completion) => completion.team.length == 1)
 	};
 }

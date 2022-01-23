@@ -1,37 +1,20 @@
 <script lang="ts">
-	import { Bomb, Mission } from './types';
-	import { formatTime } from './util';
+	import MissionCardInner from './MissionCardInner.svelte';
+	import type { Mission } from './types';
 
-	export let mission: Omit<Mission, 'completions'>;
+	export let mission: Mission;
 	export let selectable: boolean = false;
 	export let selected: boolean = false;
-
-	const bombs = mission.bombs;
-	const statBomb = new Bomb();
-	statBomb.modules = bombs.map((bomb) => bomb.modules).reduce((a, b) => a + b, 0);
-	statBomb.time = bombs.map((bomb) => bomb.time).reduce((a, b) => a + b, 0);
-	statBomb.strikes = bombs.map((bomb) => bomb.strikes).reduce((a, b) => a + b, 0);
-	statBomb.widgets = bombs.map((bomb) => bomb.widgets).reduce((a, b) => a + b, 0);
 </script>
 
 {#if selectable}
 	<input id="selected" type="checkbox" bind:checked={selected} />
 	<label for="selected" class="mission" class:selected>
-		<div>{mission.name}</div>
-		<div class="stats">
-			{statBomb.modules} Modules · {formatTime(statBomb.time)} · {statBomb.strikes}
-			Strikes · {statBomb.widgets}
-			Widgets
-		</div>
+		<MissionCardInner {mission} />
 	</label>
 {:else}
 	<a class="mission" href="mission/{encodeURIComponent(mission.name)}">
-		<div>{mission.name}</div>
-		<div class="stats">
-			{statBomb.modules} Modules · {formatTime(statBomb.time)} · {statBomb.strikes}
-			Strikes · {statBomb.widgets}
-			Widgets
-		</div>
+		<MissionCardInner {mission} />
 	</a>
 {/if}
 
@@ -42,18 +25,13 @@
 		display: grid;
 		background: var(--foreground);
 		padding: 10px;
+		padding-right: 0;
 		column-gap: 20px;
 
-		grid-template-columns: 1fr;
-		grid-template-rows: auto minmax(0, 1fr);
+		grid-template-columns: 1fr 10px;
+		grid-template-rows: auto auto;
 		color: inherit;
 		text-decoration: inherit;
-	}
-
-	.stats {
-		font-style: italic;
-		font-size: 85%;
-		color: var(--light-text-color);
 	}
 
 	input {

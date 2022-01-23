@@ -19,6 +19,7 @@ export class Mission {
 	name: string;
 	bombs: Bomb[];
 	completions: Completion[];
+	tpSolve: boolean;
 }
 
 export class Bomb {
@@ -56,5 +57,5 @@ export interface MissionQueueItem {
 export interface CompletionQueueItem {
 	type: 'completion';
 	completion: ID<Completion>;
-	mission: ID<Omit<Mission, 'completions'>>;
+	mission: ID<Mission>;
 }

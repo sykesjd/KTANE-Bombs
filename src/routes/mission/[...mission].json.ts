@@ -17,7 +17,8 @@ export async function get({ params, locals }: RequestEvent): Promise<EndpointOut
 				where: {
 					verified: true
 				}
-			}
+			},
+			tpSolve: true
 		}
 	});
 

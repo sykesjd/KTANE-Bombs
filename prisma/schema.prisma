@@ -21,6 +21,7 @@ model Mission {
   name        String       @unique
   bombs       Bomb[]
   completions Completion[]
+  tpSolve     Boolean      @default(false)
   verified    Boolean      @default(true)
 }
 
