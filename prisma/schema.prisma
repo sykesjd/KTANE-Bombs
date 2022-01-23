@@ -18,7 +18,7 @@ model User {
 
 model Mission {
   id          Int          @id @default(autoincrement())
-  name        String
+  name        String       @unique
   bombs       Bomb[]
   completions Completion[]
   verified    Boolean      @default(true)
