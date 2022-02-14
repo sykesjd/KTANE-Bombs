@@ -72,7 +72,7 @@ namespace bombdata
 						{
 							return new Completion()
 							{
-								proof = row[5].Content,
+								proof = row[5].Href,
 								time = ParseTime(row[6].Content),
 								team = Enumerable.Range(7, 4).Select(index => row[index].Content).Where(cell => !string.IsNullOrEmpty(cell)).ToList(),
 								first = row[6].Classes.Contains(firstSolveClass)
