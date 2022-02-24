@@ -22,7 +22,8 @@ const { PrismaClient } = pkg;
 							create: mission.bombs
 						},
 						completions: {
-							create: mission.completions
+							// TODO: handle completions that don't have links
+							create: mission.completions.filter(completion => completion.proof !== null)
 						}
 					}
 				});
