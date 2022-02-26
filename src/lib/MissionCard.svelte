@@ -39,7 +39,7 @@
 	}
 
 	.mission.selected {
-		outline: red 1px solid;
+		outline: var(--accent) 2px solid;
 	}
 
 	label {
