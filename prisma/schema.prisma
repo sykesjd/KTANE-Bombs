@@ -43,6 +43,7 @@ model Completion {
   time  Float
   team  String[]
   first Boolean
+  old   Boolean
 
   mission   Mission @relation(fields: [missionId], references: [id])
   missionId Int

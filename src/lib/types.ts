@@ -45,6 +45,7 @@ export class Completion {
 	time: number;
 	team: string[];
 	first: boolean;
+	old: boolean;
 }
 
 export type QueueItem = MissionQueueItem | CompletionQueueItem;

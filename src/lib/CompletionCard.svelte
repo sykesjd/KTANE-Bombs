@@ -14,7 +14,9 @@
 </script>
 
 <div class="completion">
-	<span class="time" class:first={completion.first}>{formatTime(completion.time)}</span>
+	<span class="time" class:first={completion.first} class:old={completion.old}
+		>{formatTime(completion.time)}</span
+	>
 	<div class="team">
 		{#each completion.team as person, i}
 			<span class="person" style="background-color: {getPersonColor(completion.team.length, i)}"
@@ -46,6 +48,10 @@
 		border-radius: 5px;
 		color: black;
 		background-color: hsl(43, 74%, 70%);
+	}
+
+	.completion .old {
+		font-style: italic;
 	}
 
 	.person {

@@ -4,6 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using AngleSharp;
+using AngleSharp.Css;
+using AngleSharp.Css.Dom;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 using AngleSharp.Html.Parser;
@@ -52,8 +55,6 @@ namespace bombdata
 					var fileContent = File.ReadAllText(filePath);
 					var sheet = ParseSheet(filePath);
 
-					var firstSolveClass = new Regex(@"\.(s\d+){background-color:#ffff00;").Match(fileContent).Groups[1].Value;
-
 					var mission = new Mission()
 					{
 						name = missionRow[0].Content,
@@ -75,7 +76,8 @@ namespace bombdata
 								proof = row[5].Href,
 								time = ParseTime(row[6].Content),
 								team = Enumerable.Range(7, 4).Select(index => row[index].Content).Where(cell => !string.IsNullOrEmpty(cell)).ToList(),
-								first = row[6].Classes.Contains(firstSolveClass)
+								first = row[6].Style.GetBackgroundColor() == "rgba(255, 255, 0, 1)",
+								old = row[6].Style.GetFontStyle() == "italic"
 							};
 						}).ToList(),
 						tpsolve = missionRow[7].Content == "Solved"
@@ -129,7 +131,7 @@ namespace bombdata
 		private static List<List<Cell>> ParseSheet(string path)
 		{
 			var fileContent = File.ReadAllText(path);
-			var document = new HtmlParser().ParseDocument(fileContent);
+			var document = new HtmlParser(new HtmlParserOptions(), BrowsingContext.New(Configuration.Default.WithCss())).ParseDocument(fileContent);
 
 			var rows = document.QuerySelectorAll("tr").Skip(1);
 			var columns = rows.Max(row => row.ChildElementCount);
@@ -160,7 +162,7 @@ namespace bombdata
 							sheet[y + yOffset][x + xOffset] = new Cell()
 							{
 								Content = content,
-								Classes = cell.ClassList,
+								Element = cell,
 								ColSpan = colspan,
 								RowSpan = rowspan
 							};
@@ -196,9 +198,12 @@ namespace bombdata
 	{
 		public string Content;
 		public string Href;
-		public ITokenList Classes;
+		public IElement Element;
 		public int RowSpan;
 		public int ColSpan;
+
+		private ICssStyleDeclaration style;
+		public ICssStyleDeclaration Style => style ??= Element.ComputeCurrentStyle();
 	}
 
 	internal class MissionPack
@@ -238,5 +243,6 @@ namespace bombdata
 		public int time { get; set; }
 		public List<string> team { get; set; }
 		public bool first { get; set; }
+		public bool old { get; set; }
 	}
 }
