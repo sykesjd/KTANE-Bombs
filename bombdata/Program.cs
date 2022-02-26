@@ -92,11 +92,21 @@ namespace bombdata
 						}
 						else
 						{
-							var match = new Regex(@"\[?(.+)\] (?:\(.+\) )?Count: (\d+)").Match(content);
+							var match = new Regex(@"\[?(.+)\] (?:\((.+)\) )?Count: (\d+)").Match(content);
+							var modules = match.Groups[1].Value.Split(", ");
+
+							// If the sources are listed, update the "module" to include the source.
+							var sources = match.Groups[2].Value.Split(" + ", StringSplitOptions.RemoveEmptyEntries);
+							if (sources.Length == 1)
+							{
+								var source = sources[0] == "Mod" ? "MODS" : "VANILLA";
+								modules[0] = $"ALL_{source}_{modules[0][4..]}";
+							}
+
 							mission.bombs[bombIndex].pools.Add(new Pool()
 							{
-								count = int.Parse(match.Groups[2].Value),
-								modules = match.Groups[1].Value.Split(", ")
+								count = int.Parse(match.Groups[3].Value),
+								modules = modules
 							});
 
 							i += sheet[i][11].RowSpan - 1;
