@@ -21,6 +21,7 @@
 			let line = readLine();
 			if (line === '[State] Enter GameplayState') {
 				mission = new Mission();
+				mission.completions = [];
 				mission.bombs = [];
 				mission.name = '';
 
