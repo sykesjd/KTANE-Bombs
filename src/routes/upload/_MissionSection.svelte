@@ -38,10 +38,18 @@
 				match = readLine().match(/(\d+) Pools:/);
 				let pools = parseInt(match[1]);
 				for (let i = 0; i < pools; i++) {
-					match = readLine().match(/\[(.+)\] Count: (\d+)/);
+					match = readLine().match(/\[(.+)\] Count: (\d+)(?:, Sources: (.+))?/);
 					const count = parseInt(match[2]);
 
-					bomb.pools.push(new Pool(match[1].split(', '), count));
+					const modules = match[1].split(', ');
+					// If the sources are listed, update the "module" to include the source.
+					const sources = match[3]?.split(', ');
+					if (sources !== undefined && sources.length === 1) {
+						const source = sources[0] == 'Modded' ? 'MODS' : 'VANILLA';
+						modules[0] = `ALL_${source}_${modules[0].substring(4)}`;
+					}
+
+					bomb.pools.push(new Pool(modules, count));
 					bomb.modules += count;
 				}
 
