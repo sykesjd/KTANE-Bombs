@@ -64,7 +64,8 @@
 					json += readLine();
 				}
 
-				mission.name = JSON.parse(json).mission;
+			} else if (line.startsWith('[Factory] Creating gamemode')) {
+				mission.factory = line.match(/Creating gamemode '(.+)'\./)[1].replace('Finite', 'Sequence');
 			}
 		}
 	}
