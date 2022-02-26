@@ -54,6 +54,9 @@
 	<title>{mission.name}</title>
 </svelte:head>
 <h1 class="header">{mission.name}</h1>
+{#if mission.factory !== null}
+	<div class="block" style="text-align: center">Factory: {mission.factory}</div>
+{/if}
 <div class="main-content">
 	<div class="bombs">
 		{#each mission.bombs as bomb}

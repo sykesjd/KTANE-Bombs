@@ -33,6 +33,9 @@
 	{statBomb.modules} Modules · {formatTime(statBomb.time)} · {statBomb.strikes}
 	Strikes · {statBomb.widgets}
 	Widgets
+	{#if mission.factory !== null}
+	 · {mission.factory}
+	{/if}
 </div>
 
 <style>

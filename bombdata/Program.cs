@@ -83,6 +83,12 @@ namespace bombdata
 						tpsolve = missionRow[7].Content == "Solved"
 					};
 
+					var factory = sheet[mission.bombs.Length + 2][3].Content;
+					if (mission.bombs.Length != 1 && factory.Length != 0)
+					{
+						mission.factory = factory;
+					}
+
 					var bombIndex = 0;
 					for (int i = 2; i < sheet.Count; i++)
 					{
@@ -220,6 +226,7 @@ namespace bombdata
 		public Bomb[] bombs { get; set; }
 		public List<Completion> completions { get; set; }
 		public bool tpsolve { get; set; }
+		public string factory { get; set; }
 	}
 
 	internal class Bomb

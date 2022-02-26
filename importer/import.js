@@ -24,7 +24,9 @@ const { PrismaClient } = pkg;
 						completions: {
 							// TODO: handle completions that don't have links
 							create: mission.completions.filter(completion => completion.proof !== null)
-						}
+						},
+						tpSolve: mission.tpsolve,
+						factory: mission.factory
 					}
 				});
 			} else {
@@ -34,6 +36,7 @@ const { PrismaClient } = pkg;
 					},
 					data: {
 						tpSolve: mission.tpsolve,
+						factory: mission.factory
 					}
 				})
 			}

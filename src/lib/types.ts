@@ -20,6 +20,7 @@ export class Mission {
 	bombs: Bomb[];
 	completions: Completion[];
 	tpSolve: boolean;
+	factory: string | null;
 }
 
 export class Bomb {

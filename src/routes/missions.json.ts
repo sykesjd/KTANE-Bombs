@@ -10,6 +10,7 @@ export async function get(): Promise<EndpointOutput> {
 			name: true,
 			bombs: true,
 			tpSolve: true,
+			factory: true,
 			completions: true
 		}
 	});

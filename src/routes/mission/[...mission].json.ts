@@ -18,7 +18,8 @@ export async function get({ params, locals }: RequestEvent): Promise<EndpointOut
 					verified: true
 				}
 			},
-			tpSolve: true
+			tpSolve: true,
+			factory: true
 		}
 	});
 
