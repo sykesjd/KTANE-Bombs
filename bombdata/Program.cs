@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,6 +10,9 @@ using AngleSharp.Css.Dom;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 using AngleSharp.Html.Parser;
+using Google.Apis.Services;
+using Google.Apis.Sheets.v4;
+using Google.Apis.Sheets.v4.Data;
 
 namespace bombdata
 {
@@ -17,6 +20,12 @@ namespace bombdata
 	{
 		private static void Main()
 		{
+			var sheetIds = new Dictionary<string, string>() {
+				{ "KTaNE - Challenge Bombs Spreadsheets (Solved Section)", "1yQDBEpu0dO7-CFllakfURm4NGGdQl6tN-39m6O0Q_Ow" },
+				{ "KTaNE - Challenge Bombs Spreadsheets (Unsolved Section)", "1k2LlhY-BBJQImEHo_S51L_okPiOee6xgdk5mkVwn2ZU" },
+				{ "KTaNE - Challenge Bombs Spreadsheets (TP Section)", "1pzoatn2mX1gtKurxt1OBejbutTrKq0kqO9dNohnu33Q" },
+			};
+
 			var packs = new List<MissionPack>();
 			foreach (string path in Directory.GetDirectories("bombhtml/"))
 			{
@@ -75,7 +84,19 @@ namespace bombdata
 							{
 								proof = row[5].Href,
 								time = ParseTime(row[6].Content),
-								team = Enumerable.Range(7, 4).Select(index => row[index].Content).Where(cell => !string.IsNullOrEmpty(cell)).ToList(),
+								team = Enumerable.Range(7, 4).SelectMany(index =>
+								{
+									var cell = row[index];
+									var content = cell.Content;
+									if (content != "et al.")
+									{
+										return new[] { content };
+									}
+
+									var sheetId = sheetIds[Path.GetFileName(path)];
+									var range = $"'{missionRow[0].Content}'!{(char)(cell.X + 'A')}{cell.Y + 1}";
+									return GetNote(sheetId, range).Split(", ");
+								}).Where(cell => !string.IsNullOrEmpty(cell)).ToList(),
 								first = row[6].Style.GetBackgroundColor() == "rgba(255, 255, 0, 1)",
 								old = row[6].Style.GetFontStyle() == "italic"
 							};
@@ -167,6 +188,8 @@ namespace bombdata
 						{
 							sheet[y + yOffset][x + xOffset] = new Cell()
 							{
+								X = x,
+								Y = y,
 								Content = content,
 								Element = cell,
 								ColSpan = colspan,
@@ -198,10 +221,29 @@ namespace bombdata
 
 			return sheet;
 		}
+
+		private static string GetNote(string spreadsheetId, string cell)
+		{
+			SheetsService sheetsService = new(new BaseClientService.Initializer
+			{
+				ApiKey = File.ReadAllText(".key"),
+				ApplicationName = "Notes",
+			});
+
+			SpreadsheetsResource.GetRequest request = sheetsService.Spreadsheets.Get(spreadsheetId);
+			request.Ranges = new List<string>() { cell };
+			request.Fields = "sheets/data/rowData/values/note";
+
+			Spreadsheet response = request.Execute();
+
+			return response.Sheets[0].Data[0].RowData[0].Values[0].Note;
+		}
 	}
 
 	internal class Cell
 	{
+		public int X;
+		public int Y;
 		public string Content;
 		public string Href;
 		public IElement Element;
