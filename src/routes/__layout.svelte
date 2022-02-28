@@ -28,6 +28,7 @@
 <div class="navbar-background">
 	<div class="navbar max-width">
 		<a class="block" href="/">Home</a>
+		<a class="block" href="/completers">Completers</a>
 		<a class="block" href="/upload">Upload</a>
 		{#if user}
 			{#if hasPermission(user, Permission.ModifyPermissions)}

@@ -61,3 +61,11 @@ export interface CompletionQueueItem {
 	completion: ID<Completion>;
 	mission: ID<Mission>;
 }
+
+export interface Completer {
+	name: string;
+	distinct: number;
+	defuser: number;
+	expert: number;
+	efm: number;
+}
