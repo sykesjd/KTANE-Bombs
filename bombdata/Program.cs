@@ -149,9 +149,11 @@ namespace bombdata
 			File.WriteAllText("bombs.json", JsonSerializer.Serialize(packs));
 		}
 
-		private static int ParseTime(string time)
+		private static float ParseTime(string time)
 		{
 			var parts = time.Split(":");
+			if (parts.Length == 1) return float.Parse(time);
+
 			return (int.Parse(parts[0]) * 60) + int.Parse(parts[1]);
 		}
 
@@ -274,7 +276,7 @@ namespace bombdata
 	internal class Bomb
 	{
 		public int modules { get; set; }
-		public int time { get; set; }
+		public float time { get; set; }
 		public int strikes { get; set; }
 		public int widgets { get; set; }
 		public List<Pool> pools { get; set; }
@@ -289,7 +291,7 @@ namespace bombdata
 	internal class Completion
 	{
 		public string proof { get; set; }
-		public int time { get; set; }
+		public float time { get; set; }
 		public List<string> team { get; set; }
 		public bool first { get; set; }
 		public bool old { get; set; }
