@@ -24,7 +24,9 @@
 			>
 		{/each}
 	</div>
-	<a href={completion.proof}>Link</a>
+	{#each completion.proofs as proof}
+		<a href={proof}>Link</a>
+	{/each}
 </div>
 
 <style>

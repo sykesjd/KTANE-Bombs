@@ -79,9 +79,28 @@ namespace bombdata
 						}).ToArray(),
 						completions = sheet.Skip(2).Where(row => !string.IsNullOrEmpty(row[5].Content)).Select(row =>
 						{
+							var sheetId = sheetIds[Path.GetFileName(path)];
+							var proofCell = row[5];
+							string[] proof = null;
+							if (proofCell.Href == null)
+							{
+								var note = GetNote(sheetId, missionRow[0].Content, proofCell);
+								if (note != null)
+								{
+									proof = note
+										.Split(new[] { ' ', '\n' }, StringSplitOptions.RemoveEmptyEntries)
+										.Where(part => Uri.IsWellFormedUriString(part, UriKind.Absolute))
+										.ToArray();
+								}
+							}
+							else
+							{
+								proof = new[] { proofCell.Href };
+							}
+
 							return new Completion()
 							{
-								proof = row[5].Href,
+								proofs = proof,
 								time = ParseTime(row[6].Content),
 								team = Enumerable.Range(7, 4).SelectMany(index =>
 								{
@@ -92,9 +111,7 @@ namespace bombdata
 										return new[] { content };
 									}
 
-									var sheetId = sheetIds[Path.GetFileName(path)];
-									var range = $"'{missionRow[0].Content}'!{(char)(cell.X + 'A')}{cell.Y + 1}";
-									return GetNote(sheetId, range).Split(", ");
+									return GetNote(sheetId, missionRow[0].Content, cell).Split(", ");
 								}).Where(cell => !string.IsNullOrEmpty(cell)).ToList(),
 								first = row[6].Style.GetBackgroundColor() == "rgba(255, 255, 0, 1)",
 								old = row[6].Style.GetFontStyle() == "italic"
@@ -223,7 +240,7 @@ namespace bombdata
 			return sheet;
 		}
 
-		private static string GetNote(string spreadsheetId, string cell)
+		private static string GetNote(string spreadsheetId, string sheet, Cell cell)
 		{
 			SheetsService sheetsService = new(new BaseClientService.Initializer
 			{
@@ -232,12 +249,12 @@ namespace bombdata
 			});
 
 			SpreadsheetsResource.GetRequest request = sheetsService.Spreadsheets.Get(spreadsheetId);
-			request.Ranges = new List<string>() { cell };
+			request.Ranges = new List<string>() { $"'{sheet.Replace("'", "''")}'!{(char)(cell.X + 'A')}{cell.Y + 1}" };
 			request.Fields = "sheets/data/rowData/values/note";
 
 			Spreadsheet response = request.Execute();
 
-			return response.Sheets[0].Data[0].RowData[0].Values[0].Note;
+			return response.Sheets[0].Data[0].RowData?[0].Values[0].Note;
 		}
 	}
 
@@ -289,7 +306,7 @@ namespace bombdata
 
 	internal class Completion
 	{
-		public string proof { get; set; }
+		public string[] proofs { get; set; }
 		public float time { get; set; }
 		public List<string> team { get; set; }
 		public bool first { get; set; }

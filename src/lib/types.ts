@@ -42,7 +42,7 @@ export class Pool {
 }
 
 export class Completion {
-	proof: string;
+	proofs: string[];
 	time: number;
 	team: string[];
 	first: boolean;
