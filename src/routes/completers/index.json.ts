@@ -50,10 +50,15 @@ export async function get(): Promise<EndpointOutput> {
 		}
 	}
 
+	function total(completer: Completer) {
+		return completer.defuser + completer.expert + completer.efm;
+	}
+
 	const sortedCompleters = Object.values(completers);
 	sortedCompleters.sort((a, b) => {
 		const distinct = b.distinct - a.distinct;
 		if (distinct !== 0) return distinct;
+		return total(b) - total(a);
 	});
 	return {
 		body: JSON.stringify(sortedCompleters)
