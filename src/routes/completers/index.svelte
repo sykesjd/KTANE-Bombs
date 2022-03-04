@@ -54,4 +54,9 @@
 		gap: var(--gap);
 		text-align: center;
 	}
+
+	.table b.block {
+		position: sticky;
+		top: 44px;
+	}
 </style>
