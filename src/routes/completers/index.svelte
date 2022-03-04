@@ -59,6 +59,6 @@
 
 	.table b.block {
 		position: sticky;
-		top: 44px;
+		top: calc(1.25em + 4 * var(--gap) + 2px);
 	}
 </style>
