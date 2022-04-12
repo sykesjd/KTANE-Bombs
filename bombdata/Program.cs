@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,6 +26,7 @@ namespace bombdata
 			};
 
 			var packs = new List<MissionPack>();
+			var variantId = 0;
 			foreach (string path in Directory.GetDirectories("bombhtml/"))
 			{
 				var listSheet = ParseSheet(Path.Combine(path, "Bomb List.html"));
@@ -63,21 +64,9 @@ namespace bombdata
 					var fileContent = File.ReadAllText(filePath);
 					var sheet = ParseSheet(filePath);
 
-					var mission = new Mission()
+					List<Completion> GetCompletions(int skip)
 					{
-						name = missionRow[0].Content,
-						bombs = sheet.Skip(1).Where(row => !string.IsNullOrEmpty(row[2].Content)).Select(row =>
-						{
-							return new Bomb()
-							{
-								modules = int.Parse(row[1].Content),
-								time = ParseTime(row[2].Content),
-								strikes = int.Parse(row[3].Content),
-								widgets = int.Parse(row[4].Content),
-								pools = new List<Pool>(),
-							};
-						}).ToArray(),
-						completions = sheet.Skip(2).Where(row => !string.IsNullOrEmpty(row[5].Content)).Select(row =>
+						return sheet.Skip(skip).TakeWhile(row => !string.IsNullOrEmpty(row[5].Content)).Select(row =>
 						{
 							var sheetId = sheetIds[Path.GetFileName(path)];
 							var proofCell = row[5];
@@ -116,7 +105,24 @@ namespace bombdata
 								first = row[6].Style.GetBackgroundColor() == "rgba(255, 255, 0, 1)",
 								old = row[6].Style.GetFontStyle() == "italic"
 							};
-						}).ToList(),
+						}).ToList();
+					}
+
+					var mission = new Mission()
+					{
+						name = missionRow[0].Content,
+						bombs = sheet.Skip(1).Where(row => !string.IsNullOrEmpty(row[2].Content)).Select(row =>
+						{
+							return new Bomb()
+							{
+								modules = int.Parse(row[1].Content),
+								time = ParseTime(row[2].Content),
+								strikes = int.Parse(row[3].Content),
+								widgets = int.Parse(row[4].Content),
+								pools = new List<Pool>(),
+							};
+						}).ToArray(),
+						completions = GetCompletions(2),
 						tpsolve = missionRow[7].Content == "Solved"
 					};
 
@@ -159,6 +165,22 @@ namespace bombdata
 					}
 
 					pack.missions.Add(mission);
+
+					var variants = sheet.Skip(2).Where(row => row[6].ColSpan == 2 && row[6].Style.GetColor() == "rgba(0, 0, 0, 1)");
+					if (variants.Any())
+					{
+						mission.variant = variantId++;
+
+						foreach (var header in variants)
+						{
+							var completions = GetCompletions(header[0].Y + 1);
+							var variant = mission.ShallowCopy();
+							variant.name = header[6].Content;
+							variant.completions = completions;
+
+							pack.missions.Add(variant);
+						}
+					}
 				}
 			}
 
@@ -287,6 +309,12 @@ namespace bombdata
 		public List<Completion> completions { get; set; }
 		public bool tpsolve { get; set; }
 		public string factory { get; set; }
+		public int? variant { get; set; }
+
+		public Mission ShallowCopy()
+		{
+			return (Mission)MemberwiseClone();
+		}
 	}
 
 	internal class Bomb
