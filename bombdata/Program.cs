@@ -100,7 +100,14 @@ namespace bombdata
 										return new[] { content };
 									}
 
-									return GetNote(sheetId, missionRow[0].Content, cell).Split(", ");
+									var note = GetNote(sheetId, missionRow[0].Content, cell);
+									if (note == null)
+									{
+										Console.WriteLine("Could not find full team. Local spreadsheet data should be updated.");
+										return Array.Empty<string>();
+									}
+
+									return note.Split(", ");
 								}).Where(cell => !string.IsNullOrEmpty(cell)).ToList(),
 								first = row[6].Style.GetBackgroundColor() == "rgba(255, 255, 0, 1)",
 								old = row[6].Style.GetFontStyle() == "italic"
