@@ -196,6 +196,8 @@ namespace bombdata
 
 		private static float ParseTime(string time)
 		{
+			if (time.EndsWith("*")) time = time[0..^1];
+
 			var parts = time.Split(":");
 			if (parts.Length == 1) return float.Parse(time);
 
