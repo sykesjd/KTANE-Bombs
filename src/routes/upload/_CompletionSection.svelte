@@ -26,9 +26,9 @@
 		}
 
 		if (url?.protocol === 'https:') {
-			completion.proof = url.toString();
+			completion.proofs = [url.toString()];
 		} else {
-			completion.proof = '';
+			completion.proofs = [];
 		}
 
 		completion.time = parseTime(timeString) ?? 0;
@@ -39,7 +39,7 @@
 
 		valid =
 			missionNames.includes(missionName) &&
-			completion.proof !== '' &&
+			completion.proofs.length !== 0 &&
 			parseTime(timeString) != null &&
 			completion.team.length !== 0;
 	}
