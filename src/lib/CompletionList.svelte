@@ -14,7 +14,7 @@
 			<div class="block">Solved by <span class="tp-solve">Twitch Plays</span></div>
 		{/if}
 	{:else}
-		<div class="block" style="text-align: center;"><i>No completions, be the first!</i></div>
+		<div class="block" style="text-align: center;"><i>No solves, be the first!</i></div>
 	{/if}
 </div>
 

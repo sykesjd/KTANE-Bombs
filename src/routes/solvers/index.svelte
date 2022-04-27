@@ -2,7 +2,7 @@
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/page';
 
 	export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
-		const url = `/completers.json`;
+		const url = `/solvers.json`;
 		const res = await fetch(url);
 
 		if (res.ok) {
@@ -27,11 +27,11 @@
 </script>
 
 <svelte:head>
-	<title>Completers</title>
+	<title>Solvers</title>
 </svelte:head>
-<h1 class="header">Completers</h1>
+<h1 class="header">Solvers</h1>
 <div class="table">
-	<b class="block"></b>
+	<b class="block" />
 	<b class="block">Name</b>
 	<b class="block" title="Number of distinct missions solved.">Distinct</b>
 	<b class="block" title="Number of missions solved (including duplicates).">Total</b>

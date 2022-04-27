@@ -54,9 +54,9 @@
 		})
 			.then((response) => {
 				if (response.ok) {
-					toasts.success('Completion uploaded successfully!');
+					toasts.success('Solve uploaded successfully!');
 				} else {
-					toasts.error('Completion failed to upload.');
+					toasts.error('Solve failed to upload.');
 				}
 			})
 			.catch(() => toasts.error('An error occurred.'));
