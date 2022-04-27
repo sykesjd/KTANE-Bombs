@@ -1,11 +1,14 @@
 <script context="module" lang="ts">
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/page';
 
+	type MissionData = { mission: Mission; variants: Variant[] | null };
+	type Variant = Pick<Mission, 'name' | 'completions' | 'tpSolve'>;
+
 	export async function load({ params, fetch }: LoadInput): Promise<LoadOutput> {
 		const { mission } = params;
 
 		const json = await fetch(`/mission/${encodeURIComponent(mission)}.json`);
-		const missionObject: Mission = await json.json();
+		const data: MissionData = await json.json();
 
 		// TODO: The server should cache this information and send along the icon data.
 		const repo = await fetch('https://ktane.timwi.de/json/raw');
@@ -13,7 +16,7 @@
 		if (json.ok && repo.ok) {
 			return {
 				props: {
-					mission: missionObject,
+					data,
 					repo: await repo.json()
 				}
 			};
@@ -29,10 +32,11 @@
 <script lang="ts">
 	import type { Mission } from '$lib/types';
 	import { formatTime, pluralize } from '$lib/util';
-	import CompletionCard from '$lib/CompletionCard.svelte';
+	import CompletionList from '$lib/CompletionList.svelte';
 
-	export let mission: Mission;
+	export let data: MissionData;
 	export let repo;
+	const mission = data.mission;
 	const modules = repo.KtaneModules;
 
 	function getModule(moduleID: string) {
@@ -89,17 +93,15 @@
 			</div>
 		{/each}
 	</div>
-	<div class="completions">
-		{#if mission.completions.length !== 0 || mission.tpSolve}
-			{#each mission.completions as completion}
-				<CompletionCard {completion} />
-			{/each}
-			{#if mission.tpSolve}
-				<div class="block">Solved by <span class="tp-solve">Twitch Plays</span></div>
-			{/if}
-		{:else}
-			<div class="block" style="text-align: center;"><i>No completions, be the first!</i></div>
-		{/if}
+	<div class="flex column">
+		<div class="block header">Solves</div>
+		<CompletionList {mission} />
+		{#each data.variants ?? [] as variant}
+			<div class="block header" style="margin-top: calc(var(--gap) * 3);">
+				{variant.name}
+			</div>
+			<CompletionList mission={variant} />
+		{/each}
 	</div>
 </div>
 
@@ -168,16 +170,8 @@
 		image-rendering: crisp-edges;
 	}
 
-	.completions {
-		display: flex;
-		flex-direction: column;
-		grid-template-columns: 1fr;
-		gap: var(--gap);
-	}
-
-	.tp-solve {
-		padding: 1px 3px;
-		border-radius: 5px;
-		background-color: #9146ff;
+	.header {
+		font-weight: bold;
+		text-align: center;
 	}
 </style>

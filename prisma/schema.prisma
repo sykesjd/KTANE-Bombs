@@ -24,6 +24,7 @@ model Mission {
   tpSolve     Boolean      @default(false)
   factory     String?
   verified    Boolean      @default(true)
+  variant     Int?
 }
 
 model Bomb {

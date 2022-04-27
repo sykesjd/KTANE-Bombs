@@ -19,9 +19,30 @@ export async function get({ params, locals }: RequestEvent): Promise<EndpointOut
 				}
 			},
 			tpSolve: true,
-			factory: true
+			factory: true,
+			variant: true
 		}
 	});
+
+	const variantId = missionResult.variant;
+	const variants =
+		variantId == null
+			? null
+			: await client.mission.findMany({
+					where: {
+						variant: variantId,
+						name: { not: missionResult.name }
+					},
+					select: {
+						name: true,
+						completions: {
+							where: {
+								verified: true
+							}
+						},
+						tpSolve: true
+					}
+			  });
 
 	if (!missionResult.verified && !hasPermission(locals.user, Permission.VerifyMission)) {
 		return {
@@ -30,6 +51,9 @@ export async function get({ params, locals }: RequestEvent): Promise<EndpointOut
 	}
 
 	return {
-		body: missionResult
+		body: {
+			mission: missionResult,
+			variants
+		}
 	};
 }

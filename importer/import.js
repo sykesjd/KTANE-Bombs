@@ -26,7 +26,8 @@ const { PrismaClient } = pkg;
 							create: mission.completions.filter(completion => completion.proofs !== null)
 						},
 						tpSolve: mission.tpsolve,
-						factory: mission.factory
+						factory: mission.factory,
+						variant: mission.variant
 					}
 				});
 			} else {
@@ -36,7 +37,8 @@ const { PrismaClient } = pkg;
 					},
 					data: {
 						tpSolve: mission.tpsolve,
-						factory: mission.factory
+						factory: mission.factory,
+						variant: mission.variant
 					}
 				})
 			}
