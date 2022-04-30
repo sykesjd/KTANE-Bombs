@@ -20,7 +20,14 @@ export async function get({ params, locals }: RequestEvent): Promise<EndpointOut
 			},
 			tpSolve: true,
 			factory: true,
-			variant: true
+			variant: true,
+			missionPack: {
+				select: {
+					name: true,
+					author: true,
+					steamId: true
+				}
+			}
 		}
 	});
 

@@ -15,6 +15,12 @@ export enum Permission {
 
 export type ID<T> = T & { id: number };
 
+export class MissionPack {
+	name: string;
+	author: string;
+	steamId: string;
+}
+
 export class Mission {
 	name: string;
 	bombs: Bomb[];

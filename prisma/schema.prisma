@@ -16,6 +16,14 @@ model User {
   permissions  Int[]
 }
 
+model MissionPack {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  author   String
+  steamId  String
+  missions Mission[]
+}
+
 model Mission {
   id          Int          @id @default(autoincrement())
   name        String       @unique
@@ -25,6 +33,9 @@ model Mission {
   factory     String?
   verified    Boolean      @default(true)
   variant     Int?
+
+  missionPack   MissionPack? @relation(fields: [missionPackId], references: [id])
+  missionPackId Int?
 }
 
 model Bomb {

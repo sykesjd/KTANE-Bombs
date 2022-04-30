@@ -1,7 +1,10 @@
 <script context="module" lang="ts">
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/page';
 
-	type MissionData = { mission: Mission; variants: Variant[] | null };
+	type MissionData = {
+		mission: Mission & { missionPack: MissionPack };
+		variants: Variant[] | null;
+	};
 	type Variant = Pick<Mission, 'name' | 'completions' | 'tpSolve'>;
 
 	export async function load({ params, fetch }: LoadInput): Promise<LoadOutput> {
@@ -30,7 +33,7 @@
 </script>
 
 <script lang="ts">
-	import type { Mission } from '$lib/types';
+	import type { Mission, MissionPack } from '$lib/types';
 	import { formatTime, pluralize } from '$lib/util';
 	import CompletionList from '$lib/CompletionList.svelte';
 
@@ -57,7 +60,15 @@
 <svelte:head>
 	<title>{mission.name}</title>
 </svelte:head>
-<h1 class="header">{mission.name}</h1>
+<div class="block">
+	<h1 class="header">{mission.name}</h1>
+	<div style="text-align: center;">
+		<a href="https://steamcommunity.com/sharedfiles/filedetails/?id={mission.missionPack.steamId}">
+			{mission.missionPack.name}
+		</a>
+		by {mission.missionPack.author}
+	</div>
+</div>
 {#if mission.factory !== null}
 	<div class="block" style="text-align: center">Factory: {mission.factory}</div>
 {/if}
