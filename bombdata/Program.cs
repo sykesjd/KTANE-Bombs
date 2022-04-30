@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -31,11 +31,17 @@ namespace bombdata
 			{
 				var listSheet = ParseSheet(Path.Combine(path, "Bomb List.html"));
 
-				foreach (var missionRow in listSheet.Skip(4))
+				foreach (var file in Directory.GetFiles(path))
 				{
-					if (string.IsNullOrEmpty(missionRow[0].Content))
+					var fileName = Path.GetFileNameWithoutExtension(file);
+					if (fileName.EqualsAny("Bomb List", "TP Solves", "Completers")) continue;
+
+					var sheet = ParseSheet(file);
+					var missionRow = listSheet.Skip(4).FirstOrDefault(row => row[0].Content.ToLowerInvariant().EqualsAny(sheet[0][0].Content.ToLowerInvariant(), fileName.ToLowerInvariant()));
+					if (missionRow == null)
 					{
-						break;
+						Console.WriteLine($"No match for \"{sheet[0][0].Content}\" or \"{fileName}\" {path[46..]}");
+						continue;
 					}
 
 					var href = missionRow[1].Href;
@@ -52,17 +58,6 @@ namespace bombdata
 						};
 						packs.Add(pack);
 					}
-
-					var fileName = missionRow[0].Content.Replace('/', ' ').Replace('\\', ' ').Replace("Favourite", "Favorite");
-					var filePath = Path.Combine(path, $"{fileName}.html");
-					if (!File.Exists(filePath))
-					{
-						Console.WriteLine("Could not find mission: {0} ({1})", fileName, path);
-						continue;
-					}
-
-					var fileContent = File.ReadAllText(filePath);
-					var sheet = ParseSheet(filePath);
 
 					List<Completion> GetCompletions(int skip)
 					{
@@ -287,6 +282,11 @@ namespace bombdata
 
 			return response.Sheets[0].Data[0].RowData?[0].Values[0].Note;
 		}
+	}
+
+	public static class Extensions
+	{
+		public static bool EqualsAny(this object obj, params object[] objects) => objects.Contains(obj);
 	}
 
 	internal class Cell
