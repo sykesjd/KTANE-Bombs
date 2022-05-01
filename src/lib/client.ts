@@ -2,7 +2,7 @@
 // See: https://github.com/prisma/prisma/pull/4920#issuecomment-927334909
 import pkg, { PrismaClient } from '@prisma/client';
 
-let client;
+let client: PrismaClient;
 
 if (process.env.NODE_ENV === 'production') {
 	const { PrismaClient: PrismaClientProd } = pkg;
