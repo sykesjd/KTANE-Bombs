@@ -21,7 +21,8 @@ export const get: RequestHandler = async function ({ locals }) {
 			select: {
 				id: true,
 				name: true,
-				bombs: true
+				bombs: true,
+				factory: true
 			}
 		});
 
