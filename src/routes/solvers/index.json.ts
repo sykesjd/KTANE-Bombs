@@ -7,48 +7,53 @@ export async function get(): Promise<EndpointOutput> {
 		select: {
 			mission: {
 				select: {
-					name: true
+					id: true,
+					variant: true
 				}
 			},
 			team: true
 		}
 	});
 
-	const completers: { [name: string]: Completer } = {};
-	const distinctSolves: { [name: string]: Set<string> } = {};
+	const completersMap: Map<
+		string,
+		{ distinct: Set<string>; defuser: Set<string>; expert: Set<string>; efm: Set<string> }
+	> = new Map();
 	for (const completion of completions) {
 		for (const [index, name] of completion.team.entries()) {
-			let completer = completers[name];
-			let solves = distinctSolves[name];
+			let completer = completersMap.get(name);
 			if (completer === undefined) {
 				completer = {
-					name,
-					distinct: 0,
-					defuser: 0,
-					expert: 0,
-					efm: 0
+					distinct: new Set(),
+					defuser: new Set(),
+					expert: new Set(),
+					efm: new Set()
 				};
 
-				solves = new Set();
-
-				completers[name] = completer;
-				distinctSolves[name] = solves;
+				completersMap.set(name, completer);
 			}
 
+			const mission = completion.mission;
+			const missionKey = mission.variant !== null ? `v${mission.variant}` : `i${mission.id}`;
 			if (completion.team.length === 1) {
-				completer.efm++;
+				completer.efm.add(missionKey);
 			} else if (index === 0) {
-				completer.defuser++;
+				completer.defuser.add(missionKey);
 			} else {
-				completer.expert++;
+				completer.expert.add(missionKey);
 			}
 
-			if (!solves.has(completion.mission.name)) {
-				solves.add(completion.mission.name);
-				completer.distinct++;
-			}
+			completer.distinct.add(missionKey);
 		}
 	}
+
+	const completers: Completer[] = [...completersMap.entries()].map(([name, completer]) => ({
+		name,
+		distinct: completer.distinct.size,
+		defuser: completer.defuser.size,
+		expert: completer.expert.size,
+		efm: completer.efm.size
+	}));
 
 	function total(completer: Completer) {
 		return completer.defuser + completer.expert + completer.efm;
