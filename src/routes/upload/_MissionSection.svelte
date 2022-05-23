@@ -60,7 +60,7 @@
 				mission.bombs.push(bomb);
 			} else if (line.startsWith('[WidgetGenerator] Added widget: ') && bomb !== null) {
 				bomb.widgets++;
-			} else if (line.startsWith('[Tweaks] LFAEvent ')) {
+			} else if (line.startsWith('[Tweaks] LFAEvent ') && mission !== null) {
 				const match = line.match(/LFAEvent (\d+)/);
 				if (match === null) throw new Error('This regex should always match');
 
@@ -68,6 +68,8 @@
 				for (let i = 0; i < parseInt(match[1]); i++) {
 					json += readLine();
 				}
+
+				mission.name = JSON.parse(json).mission;
 			} else if (line.startsWith('[Factory] Creating gamemode') && mission !== null) {
 				const match = line.match(/Creating gamemode '(.+)'\./);
 				if (match === null) throw new Error('This regex should always match');
