@@ -1,13 +1,10 @@
 import client from '$lib/client';
 import type { Completion } from '$lib/types';
-import type { EndpointOutput } from '@sveltejs/kit';
-import type { RequestEvent } from '@sveltejs/kit/types/hooks';
+import type { RequestEvent, RequestHandlerOutput } from '@sveltejs/kit';
 
-export async function post({ request }: RequestEvent): Promise<EndpointOutput> {
-	const {
-		completion,
-		missionName
-	}: { completion: Completion; missionName: string } = await request.json();
+export async function post({ request }: RequestEvent): Promise<RequestHandlerOutput> {
+	const { completion, missionName }: { completion: Completion; missionName: string } =
+		await request.json();
 
 	const mission = await client.mission.findFirst({
 		where: { name: missionName },
@@ -16,7 +13,7 @@ export async function post({ request }: RequestEvent): Promise<EndpointOutput> {
 		}
 	});
 
-	if (mission === undefined) {
+	if (mission === null) {
 		return {
 			status: 406
 		};

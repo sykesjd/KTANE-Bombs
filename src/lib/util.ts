@@ -17,6 +17,10 @@ export function parseTime(time: string): number | null {
 	}
 
 	const groups = match.groups;
+	if (groups === undefined) {
+		return null;
+	}
+
 	const minutes = parseInt(groups.minutes ?? '0');
 	const seconds = parseFloat(groups.seconds);
 	if (minutes >= 60 || seconds >= 60) {
@@ -36,18 +40,18 @@ export function listify(list: string[]): string {
 			return list[0];
 
 		case 2:
-			return `${list[0]} and ${list[1]}`
+			return `${list[0]} and ${list[1]}`;
 
 		default:
-			return listify([list.slice(0, -1).join(", ") + ",", list[list.length - 1]]);
+			return listify([list.slice(0, -1).join(', ') + ',', list[list.length - 1]]);
 	}
 }
 
-export function hasPermission(user: FrontendUser, permission: Permission): boolean {
+export function hasPermission(user: FrontendUser | null, permission: Permission): boolean {
 	return user !== null && user.permissions.includes(permission);
 }
 
-export function hasAnyPermission(user: FrontendUser, ...permissions: Permission[]): boolean {
+export function hasAnyPermission(user: FrontendUser | null, ...permissions: Permission[]): boolean {
 	return permissions.some((permission) => hasPermission(user, permission));
 }
 
@@ -57,13 +61,13 @@ export function fixPools<T>(mission: T & { bombs: client.Bomb[] }): T & { bombs:
 		bombs: mission.bombs.map((bomb) => {
 			return {
 				...bomb,
-				pools: (bomb.pools as unknown) as Pool[]
+				pools: bomb.pools as unknown as Pool[]
 			};
 		})
 	};
 }
 
-export function getSolveTypes(mission: Mission): { normalSolve: boolean, efmSolve: boolean } {
+export function getSolveTypes(mission: Mission): { normalSolve: boolean; efmSolve: boolean } {
 	return {
 		normalSolve: mission.completions.some((completion) => completion.team.length >= 2),
 		efmSolve: mission.completions.some((completion) => completion.team.length == 1)

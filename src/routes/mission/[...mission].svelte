@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/page';
+	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
 
 	type MissionData = {
 		mission: Mission & { missionPack: MissionPack };
@@ -40,7 +40,7 @@
 	export let data: MissionData;
 	export let repo;
 	const mission = data.mission;
-	const modules = repo.KtaneModules;
+	const modules: { ModuleID: string; Name: string; X: number; Y: number }[] = repo.KtaneModules;
 
 	function getModule(moduleID: string) {
 		let module = modules.filter((module) => module.ModuleID == moduleID);

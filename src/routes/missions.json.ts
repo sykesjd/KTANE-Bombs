@@ -1,7 +1,7 @@
 import client from '$lib/client';
-import type { EndpointOutput } from '@sveltejs/kit';
+import type { RequestHandlerOutput } from '@sveltejs/kit';
 
-export async function get(): Promise<EndpointOutput> {
+export async function get(): Promise<RequestHandlerOutput> {
 	const missions = await client.mission.findMany({
 		where: {
 			verified: true

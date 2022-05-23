@@ -1,5 +1,6 @@
 import client from '$lib/client';
-import { CompletionQueueItem, MissionQueueItem, Permission, QueueItem } from '$lib/types';
+import { Permission } from "$lib/types";
+import type { CompletionQueueItem, MissionQueueItem, QueueItem } from '$lib/types';
 import { fixPools, hasPermission, hasAnyPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
 

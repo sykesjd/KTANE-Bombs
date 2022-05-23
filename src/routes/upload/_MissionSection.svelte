@@ -8,8 +8,8 @@
 	let selectedMissions: Record<number, boolean> = {};
 
 	function parseMissions(text: string) {
-		let mission: Mission;
-		let bomb: Bomb;
+		let mission: Mission | null = null;
+		let bomb: Bomb | null = null;
 		let lineIndex = 0;
 		const lines = text.split('\n');
 
@@ -26,8 +26,9 @@
 				mission.name = '';
 
 				missions = [...missions, mission];
-			} else if (line.startsWith('[BombGenerator] Generator settings: ')) {
+			} else if (line.startsWith('[BombGenerator] Generator settings: ') && mission !== null) {
 				let match = line.match(/Time: (\d+), NumStrikes: (\d+)/);
+				if (match === null) throw new Error('This regex should always match');
 
 				bomb = new Bomb();
 				bomb.time = parseInt(match[1]);
@@ -37,9 +38,11 @@
 				bomb.modules = 0;
 
 				match = readLine().match(/(\d+) Pools:/);
+				if (match === null) throw new Error('This regex should always match');
 				let pools = parseInt(match[1]);
 				for (let i = 0; i < pools; i++) {
 					match = readLine().match(/\[(.+)\] Count: (\d+)(?:, Sources: (.+))?/);
+					if (match === null) throw new Error('This regex should always match');
 					const count = parseInt(match[2]);
 
 					const modules = match[1].split(', ');
@@ -55,17 +58,21 @@
 				}
 
 				mission.bombs.push(bomb);
-			} else if (line.startsWith('[WidgetGenerator] Added widget: ')) {
+			} else if (line.startsWith('[WidgetGenerator] Added widget: ') && bomb !== null) {
 				bomb.widgets++;
 			} else if (line.startsWith('[Tweaks] LFAEvent ')) {
 				const match = line.match(/LFAEvent (\d+)/);
+				if (match === null) throw new Error('This regex should always match');
+
 				let json = '';
 				for (let i = 0; i < parseInt(match[1]); i++) {
 					json += readLine();
 				}
+			} else if (line.startsWith('[Factory] Creating gamemode') && mission !== null) {
+				const match = line.match(/Creating gamemode '(.+)'\./);
+				if (match === null) throw new Error('This regex should always match');
 
-			} else if (line.startsWith('[Factory] Creating gamemode')) {
-				mission.factory = line.match(/Creating gamemode '(.+)'\./)[1].replace('Finite', 'Sequence');
+				mission.factory = match[1].replace('Finite', 'Sequence');
 			}
 		}
 	}

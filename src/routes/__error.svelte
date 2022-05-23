@@ -1,8 +1,8 @@
 <script context="module" lang="ts">
-	import type { ErrorLoad } from '@sveltejs/kit';
+	import type { Load } from '@sveltejs/kit';
 
-	export const load: ErrorLoad = function ({ error, status, url, session }) {
-		if (error.message === '' && status === 403 && session.user !== null) {
+	export const load: Load = function ({ error, status, url, session }) {
+		if (error !== null && error.message === '' && status === 403 && session.user !== null) {
 			error.message = "You don't have permission to view that.";
 		}
 

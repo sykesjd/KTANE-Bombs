@@ -1,9 +1,9 @@
 import client from '$lib/client';
 import { Permission } from '$lib/types';
 import { hasPermission } from '$lib/util';
-import type { EndpointOutput, RequestEvent } from '@sveltejs/kit';
+import type { RequestHandlerOutput, RequestEvent } from '@sveltejs/kit';
 
-export async function get({ params, locals }: RequestEvent): Promise<EndpointOutput> {
+export async function get({ params, locals }: RequestEvent): Promise<RequestHandlerOutput> {
 	const { mission } = params;
 	const missionResult = await client.mission.findFirst({
 		where: {
@@ -30,6 +30,12 @@ export async function get({ params, locals }: RequestEvent): Promise<EndpointOut
 			}
 		}
 	});
+
+	if (missionResult === null) {
+		return {
+			status: 404
+		};
+	}
 
 	const variantId = missionResult.variant;
 	const variants =
@@ -58,9 +64,9 @@ export async function get({ params, locals }: RequestEvent): Promise<EndpointOut
 	}
 
 	return {
-		body: {
+		body: JSON.stringify({
 			mission: missionResult,
 			variants
-		}
+		})
 	};
 }

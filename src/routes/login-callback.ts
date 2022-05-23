@@ -4,13 +4,25 @@ import type { RequestHandler } from '@sveltejs/kit';
 import * as cookie from 'cookie';
 
 export const get: RequestHandler = async function get({ url }) {
+	const code = url.searchParams.get('code');
+	if (code === null)
+		return {
+			status: 406
+		};
+
 	const result = await OAuth.tokenRequest({
-		code: url.searchParams.get('code'),
+		code,
 		grantType: 'authorization_code',
 		scope: scope
 	});
 
 	const user = await OAuth.getUser(result.access_token);
+
+	// .avatar should never be null or undefined.
+	if (user.avatar == null)
+		return {
+			status: 500
+		};
 
 	await client.user.upsert({
 		where: {

@@ -23,7 +23,7 @@ export function jsonLoad(urls: (input: LoadInput) => Record<string, string>): Lo
 	const load: Load = async function (input) {
 		const { fetch } = input;
 
-		const props = {};
+		const props: Record<string, unknown> = {};
 		for (const [prop, url] of Object.entries(urls(input))) {
 			const request = await fetch(`/${url}.json`);
 			const json = await request.json();

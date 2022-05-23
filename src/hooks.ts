@@ -1,5 +1,5 @@
 import client from '$lib/client';
-import type { GetSession, Handle } from '@sveltejs/kit/types/hooks';
+import type { GetSession, Handle } from '@sveltejs/kit';
 import * as cookie from 'cookie';
 
 export const handle: Handle = async ({ event, resolve }) => {

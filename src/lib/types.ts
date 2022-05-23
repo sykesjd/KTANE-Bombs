@@ -1,4 +1,4 @@
-export class FrontendUser {
+export interface FrontendUser {
 	id: string;
 	username: string;
 	avatar: string;
@@ -15,26 +15,26 @@ export enum Permission {
 
 export type ID<T> = T & { id: number };
 
-export class MissionPack {
+export interface MissionPack {
 	name: string;
 	author: string;
 	steamId: string;
 }
 
 export class Mission {
-	name: string;
-	bombs: Bomb[];
-	completions: Completion[];
-	tpSolve: boolean;
-	factory: string | null;
+	name = '';
+	bombs: Bomb[] = [];
+	completions: Completion[] = [];
+	tpSolve = false;
+	factory: string | null = null;
 }
 
 export class Bomb {
-	modules: number;
-	time: number;
-	strikes: number;
-	widgets: number;
-	pools: Pool[];
+	modules = 0;
+	time = 0;
+	strikes = 0;
+	widgets = 0;
+	pools: Pool[] = [];
 }
 
 export class Pool {
@@ -48,11 +48,11 @@ export class Pool {
 }
 
 export class Completion {
-	proofs: string[];
-	time: number;
-	team: string[];
-	first: boolean;
-	old: boolean;
+	proofs: string[] = [];
+	time = 0;
+	team: string[] = [];
+	first = false;
+	old = false;
 }
 
 export type QueueItem = MissionQueueItem | CompletionQueueItem;

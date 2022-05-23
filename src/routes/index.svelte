@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/page';
+	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
 
 	export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
 		const url = `/missions.json`;

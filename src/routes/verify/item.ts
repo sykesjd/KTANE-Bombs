@@ -1,12 +1,10 @@
 import client from '$lib/client';
-import { FrontendUser, Permission, QueueItem } from '$lib/types';
+import { Permission } from '$lib/types';
+import type { QueueItem } from '$lib/types';
 import { hasPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
 
-export const post: RequestHandler<Record<string, FrontendUser>> = async function ({
-	locals,
-	request
-}) {
+export const post: RequestHandler = async function ({ locals, request }) {
 	const { accept, item }: { accept: boolean; item: QueueItem } = await request.json();
 	switch (item.type) {
 		case 'mission':
@@ -39,19 +37,10 @@ export const post: RequestHandler<Record<string, FrontendUser>> = async function
 			}
 
 			if (accept) {
-				const { missionId } = await client.completion.findFirst({
-					where: {
-						id: item.completion.id
-					},
-					select: {
-						missionId: true
-					}
-				});
-
 				const first =
 					(await client.completion.findFirst({
 						where: {
-							missionId,
+							missionId: item.mission.id,
 							verified: true,
 							first: true
 						}
@@ -72,4 +61,6 @@ export const post: RequestHandler<Record<string, FrontendUser>> = async function
 
 			break;
 	}
+
+	return { status: 200 };
 };
