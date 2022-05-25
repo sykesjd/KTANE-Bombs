@@ -1,9 +1,11 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit';
 
-	export const load: Load = function ({ error, status, url, session }) {
-		if (error !== null && error.message === '' && status === 403 && session.user !== null) {
-			error.message = "You don't have permission to view that.";
+	export const load: Load = function ({ error, status, url }) {
+		if (status === 403) {
+			error = new Error("You don't have permission to view that.");
+		} else if (status === 404) {
+			error = new Error("We can't find what you're looking for.");
 		}
 
 		return {
@@ -48,14 +50,12 @@
 			  }) is invalid.`;
 </script>
 
-<div class="container">
-	<div class="block" style="padding: calc(var(--gap) * 5);">
-		<h1 style="margin-top: 0;">{status}</h1>
-		<div>{error.message}</div>
-	</div>
-	<div class="block" style="margin-top: auto;">
-		<i>{message}</i>
-	</div>
+<div class="block" style="padding: var(--big-gap);">
+	<h1 style="margin-top: 0;">{status}</h1>
+	<div>{error.message}</div>
+</div>
+<div class="block" style="padding: var(--big-gap);">
+	<i>{message}</i>
 </div>
 
 <style>
@@ -64,10 +64,7 @@
 		grid-template-rows: auto 1fr;
 	}
 
-	.container {
-		display: flex;
-		flex-direction: column;
-
-		height: 100%;
+	* {
+		--big-gap: calc(var(--gap) * 3);
 	}
 </style>
