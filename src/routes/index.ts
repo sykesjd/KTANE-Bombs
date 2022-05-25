@@ -16,6 +16,8 @@ export async function get(): Promise<RequestHandlerOutput> {
 	});
 
 	return {
-		body: JSON.stringify(missions)
+		body: {
+			missions
+		}
 	};
 }

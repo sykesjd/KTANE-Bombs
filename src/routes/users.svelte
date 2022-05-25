@@ -1,16 +1,5 @@
-<script context="module" lang="ts">
-	import type { FrontendUser } from '$lib/types';
-	import type { Load } from '@sveltejs/kit';
-	import { authLoad, jsonLoadStatic } from '$lib/loaders';
-
-	export const load: Load = authLoad(
-		jsonLoadStatic({
-			users: 'users'
-		})
-	);
-</script>
-
 <script lang="ts">
+	import type { FrontendUser } from '$lib/types';
 	import UserCard from '$lib/UserCard.svelte';
 
 	export let users: FrontendUser[];

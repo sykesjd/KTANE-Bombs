@@ -1,14 +1,3 @@
-<script context="module" lang="ts">
-	import { authLoad, jsonLoadStatic } from '$lib/loaders';
-	import type { Load } from '@sveltejs/kit';
-
-	export const load: Load = authLoad(
-		jsonLoadStatic({
-			queue: 'verify/queue'
-		})
-	);
-</script>
-
 <script lang="ts">
 	import type { QueueItem } from '$lib/types';
 	import MissionCard from '$lib/MissionCard.svelte';

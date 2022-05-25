@@ -1,6 +1,6 @@
 import client from '$lib/client';
 import { Permission } from '$lib/types';
-import { hasPermission } from '$lib/util';
+import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandlerOutput, RequestEvent } from '@sveltejs/kit';
 
 export async function get({ params, locals }: RequestEvent): Promise<RequestHandlerOutput> {
@@ -58,15 +58,13 @@ export async function get({ params, locals }: RequestEvent): Promise<RequestHand
 			  });
 
 	if (!missionResult.verified && !hasPermission(locals.user, Permission.VerifyMission)) {
-		return {
-			status: 403
-		};
+		return forbidden(locals);
 	}
 
 	return {
-		body: JSON.stringify({
+		body: {
 			mission: missionResult,
 			variants
-		})
+		}
 	};
 }

@@ -1,20 +1,5 @@
-<script context="module" lang="ts">
-	import { authLoad, jsonLoad } from '$lib/loaders';
-	import type { FrontendUser } from '$lib/types';
-	import type { Load } from '@sveltejs/kit';
-
-	export const load: Load = authLoad(
-		jsonLoad(({ params }) => {
-			const { user } = params;
-
-			return {
-				user: `user/${user}`
-			};
-		})
-	);
-</script>
-
 <script lang="ts">
+	import type { FrontendUser } from '$lib/types';
 	import { Permission } from '$lib/types';
 	import UserCard from '$lib/UserCard.svelte';
 
@@ -46,7 +31,7 @@
 		user.permissions.some((permission) => !newPermissions.has(permission));
 
 	async function saveChanges() {
-		await fetch(`/user/${user.id}.json`, {
+		await fetch(`/user/${user.id}`, {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json'

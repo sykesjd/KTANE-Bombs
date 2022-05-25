@@ -1,7 +1,7 @@
 import client from '$lib/client';
 import { Permission } from '$lib/types';
 import type { QueueItem } from '$lib/types';
-import { hasPermission } from '$lib/util';
+import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const post: RequestHandler = async function ({ locals, request }) {
@@ -9,9 +9,7 @@ export const post: RequestHandler = async function ({ locals, request }) {
 	switch (item.type) {
 		case 'mission':
 			if (!hasPermission(locals.user, Permission.VerifyMission)) {
-				return {
-					status: 403
-				};
+				return forbidden(locals);
 			}
 
 			if (accept) {
@@ -31,9 +29,7 @@ export const post: RequestHandler = async function ({ locals, request }) {
 			break;
 		case 'completion':
 			if (!hasPermission(locals.user, Permission.VerifyCompletion)) {
-				return {
-					status: 403
-				};
+				return forbidden(locals);
 			}
 
 			if (accept) {

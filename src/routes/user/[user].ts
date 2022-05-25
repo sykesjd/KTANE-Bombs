@@ -1,16 +1,14 @@
 import client from '$lib/client';
 import { Permission } from '$lib/types';
-import { hasPermission } from '$lib/util';
+import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const get: RequestHandler = async function ({ locals, params }) {
 	if (!hasPermission(locals.user, Permission.ModifyPermissions)) {
-		return {
-			status: 403
-		};
+		return forbidden(locals);
 	}
 
-	const users = await client.user.findFirst({
+	const user = await client.user.findFirst({
 		where: {
 			id: params.user
 		},
@@ -22,8 +20,16 @@ export const get: RequestHandler = async function ({ locals, params }) {
 		}
 	});
 
+	if (user === null) {
+		return {
+			status: 404
+		};
+	}
+
 	return {
-		body: users
+		body: {
+			user
+		}
 	};
 };
 
@@ -33,9 +39,7 @@ export const patch: RequestHandler<Record<string, never>> = async function ({
 	request
 }) {
 	if (!hasPermission(locals.user, Permission.ModifyPermissions)) {
-		return {
-			status: 403
-		};
+		return forbidden(locals);
 	}
 
 	const body: Permission[] = await request.json();

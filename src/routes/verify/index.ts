@@ -1,14 +1,12 @@
 import client from '$lib/client';
-import { Permission } from "$lib/types";
+import { Permission } from '$lib/types';
 import type { CompletionQueueItem, MissionQueueItem, QueueItem } from '$lib/types';
-import { fixPools, hasPermission, hasAnyPermission } from '$lib/util';
+import { fixPools, hasPermission, hasAnyPermission, forbidden } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const get: RequestHandler = async function ({ locals }) {
 	if (!hasAnyPermission(locals.user, Permission.VerifyMission, Permission.VerifyCompletion)) {
-		return {
-			status: 403
-		};
+		return forbidden(locals);
 	}
 
 	const queue: QueueItem[] = [];
@@ -69,6 +67,8 @@ export const get: RequestHandler = async function ({ locals }) {
 	}
 
 	return {
-		body: JSON.stringify(queue)
+		body: {
+			queue
+		}
 	};
 };

@@ -1,25 +1,3 @@
-<script context="module" lang="ts">
-	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
-
-	export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
-		const url = `/missions.json`;
-		const res = await fetch(url);
-
-		if (res.ok) {
-			return {
-				props: {
-					missions: await res.json()
-				}
-			};
-		}
-
-		return {
-			status: res.status,
-			error: `Could not load ${url}`
-		};
-	}
-</script>
-
 <script lang="ts">
 	import MissionCard from '$lib/MissionCard.svelte';
 	import type { Mission } from '$lib/types';

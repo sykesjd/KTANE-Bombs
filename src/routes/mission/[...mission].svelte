@@ -1,33 +1,22 @@
 <script context="module" lang="ts">
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
 
-	type MissionData = {
-		mission: Mission & { missionPack: MissionPack };
-		variants: Variant[] | null;
-	};
-	type Variant = Pick<Mission, 'name' | 'completions' | 'tpSolve'>;
-
-	export async function load({ params, fetch }: LoadInput): Promise<LoadOutput> {
-		const { mission } = params;
-
-		const json = await fetch(`/mission/${encodeURIComponent(mission)}.json`);
-		const data: MissionData = await json.json();
-
+	export async function load({ fetch, props }: LoadInput): Promise<LoadOutput> {
 		// TODO: The server should cache this information and send along the icon data.
 		const repo = await fetch('https://ktane.timwi.de/json/raw');
 
-		if (json.ok && repo.ok) {
+		if (repo.ok) {
 			return {
 				props: {
-					data,
-					repo: await repo.json()
+					repo: await repo.json(),
+					...props
 				}
 			};
 		}
 
 		return {
-			status: json.status,
-			error: 'Mission not found.'
+			status: repo.status,
+			error: 'Repository did not load.'
 		};
 	}
 </script>
@@ -37,9 +26,11 @@
 	import { formatTime, pluralize } from '$lib/util';
 	import CompletionList from '$lib/CompletionList.svelte';
 
-	export let data: MissionData;
+	type Variant = Pick<Mission, 'name' | 'completions' | 'tpSolve'>;
+
+	export let mission: Mission & { missionPack: MissionPack };
+	export let variants: Variant[] | null;
 	export let repo;
-	const mission = data.mission;
 	const modules: { ModuleID: string; Name: string; X: number; Y: number }[] = repo.KtaneModules;
 
 	function getModule(moduleID: string) {
@@ -107,7 +98,7 @@
 	<div class="flex column">
 		<div class="block header">Solves</div>
 		<CompletionList {mission} />
-		{#each data.variants ?? [] as variant}
+		{#each variants ?? [] as variant}
 			<div class="block header" style="margin-top: calc(var(--gap) * 3);">
 				{variant.name}
 			</div>

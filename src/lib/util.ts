@@ -55,6 +55,19 @@ export function hasAnyPermission(user: FrontendUser | null, ...permissions: Perm
 	return permissions.some((permission) => hasPermission(user, permission));
 }
 
+export function forbidden(locals: App.Locals) {
+	// If the user is not logged in, they might just need to login.
+	if (locals.user === null)
+		return {
+			status: 302,
+			redirect: '/login'
+		};
+
+	return {
+		status: 403
+	};
+}
+
 export function fixPools<T>(mission: T & { bombs: client.Bomb[] }): T & { bombs: Bomb[] } {
 	return {
 		...mission,

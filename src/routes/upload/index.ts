@@ -14,6 +14,8 @@ export const get: RequestHandler = async function () {
 	).map((mission) => mission.name);
 
 	return {
-		body: names
+		body: {
+			missionNames: names
+		}
 	};
 };

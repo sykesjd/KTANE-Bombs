@@ -1,12 +1,3 @@
-<script context="module" lang="ts">
-	import { jsonLoadStatic } from '$lib/loaders';
-	import type { Load } from '@sveltejs/kit';
-
-	export const load: Load = jsonLoadStatic({
-		missionNames: `upload/mission-names`
-	});
-</script>
-
 <script lang="ts">
 	import CompletionSection from './_CompletionSection.svelte';
 	import MissionSection from './_MissionSection.svelte';

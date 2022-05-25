@@ -1,13 +1,11 @@
 import client from '$lib/client';
 import { Permission } from '$lib/types';
-import { hasPermission } from '$lib/util';
+import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const get: RequestHandler = async function ({ locals }) {
 	if (!hasPermission(locals.user, Permission.ModifyPermissions)) {
-		return {
-			status: 403
-		};
+		return forbidden(locals);
 	}
 
 	const users = await client.user.findMany({
@@ -20,6 +18,8 @@ export const get: RequestHandler = async function ({ locals }) {
 	});
 
 	return {
-		body: users
+		body: {
+			users
+		}
 	};
 };
