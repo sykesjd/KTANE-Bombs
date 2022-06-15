@@ -1,11 +1,18 @@
 import client from '$lib/client';
-import { Permission } from '$lib/types';
 import type { CompletionQueueItem, MissionQueueItem, QueueItem } from '$lib/types';
-import { fixPools, hasPermission, hasAnyPermission, forbidden } from '$lib/util';
+import { Permission, type MissionPackQueueItem } from '$lib/types';
+import { fixPools, forbidden, hasAnyPermission, hasPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
 
-export const get: RequestHandler = async function ({ locals }) {
-	if (!hasAnyPermission(locals.user, Permission.VerifyMission, Permission.VerifyCompletion)) {
+export const get: RequestHandler<never, { queue: QueueItem[] }> = async function ({ locals }) {
+	if (
+		!hasAnyPermission(
+			locals.user,
+			Permission.VerifyMission,
+			Permission.VerifyCompletion,
+			Permission.VerifyMissionPack
+		)
+	) {
 		return forbidden(locals);
 	}
 
@@ -62,6 +69,24 @@ export const get: RequestHandler = async function ({ locals }) {
 					completion,
 					mission: fixPools(completion.mission)
 				} as CompletionQueueItem;
+			})
+		);
+	}
+
+	// Mission Pack
+	if (hasPermission(locals.user, Permission.VerifyMissionPack)) {
+		const missionPacks = await client.missionPack.findMany({
+			where: {
+				verified: false
+			}
+		});
+
+		queue.push(
+			...missionPacks.map((pack) => {
+				return {
+					type: 'missionpack',
+					pack
+				} as MissionPackQueueItem;
 			})
 		);
 	}

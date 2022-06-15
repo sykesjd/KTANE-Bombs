@@ -145,6 +145,10 @@
 		align-items: flex-start;
 	}
 
+	:global(.flex.grow > *) {
+		flex: 1;
+	}
+
 	:global(h1.header) {
 		background: var(--foreground);
 		text-align: center;

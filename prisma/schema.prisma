@@ -22,6 +22,7 @@ model MissionPack {
   author   String
   steamId  String
   missions Mission[]
+  verified Boolean   @default(true)
 }
 
 model Mission {

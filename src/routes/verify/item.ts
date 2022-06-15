@@ -56,6 +56,25 @@ export const post: RequestHandler = async function ({ locals, request }) {
 			}
 
 			break;
+		case 'missionpack':
+			if (!hasPermission(locals.user, Permission.VerifyMissionPack)) {
+				return forbidden(locals);
+			}
+
+			if (accept) {
+				await client.completion.update({
+					where: {
+						id: item.pack.id
+					},
+					data: {
+						verified: true
+					}
+				});
+			} else {
+				await client.missionPack.delete({ where: { id: item.pack.id } });
+			}
+
+			break;
 	}
 
 	return { status: 200 };

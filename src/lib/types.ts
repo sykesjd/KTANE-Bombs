@@ -10,7 +10,8 @@ export interface FrontendUser {
 export enum Permission {
 	ModifyPermissions = 0,
 	VerifyMission = 1,
-	VerifyCompletion = 2
+	VerifyCompletion = 2,
+	VerifyMissionPack = 3
 }
 
 export type ID<T> = T & { id: number };
@@ -55,7 +56,7 @@ export class Completion {
 	old = false;
 }
 
-export type QueueItem = MissionQueueItem | CompletionQueueItem;
+export type QueueItem = MissionQueueItem | CompletionQueueItem | MissionPackQueueItem;
 
 export interface MissionQueueItem {
 	type: 'mission';
@@ -66,6 +67,11 @@ export interface CompletionQueueItem {
 	type: 'completion';
 	completion: ID<Completion>;
 	mission: ID<Mission>;
+}
+
+export interface MissionPackQueueItem {
+	type: 'missionpack';
+	pack: ID<MissionPack>;
 }
 
 export interface Completer {
