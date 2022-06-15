@@ -1,20 +1,19 @@
 <script lang="ts">
 	import CompletionCard from './CompletionCard.svelte';
+	import NoContent from './NoContent.svelte';
 	import type { Mission } from './types';
 
 	export let mission: Pick<Mission, 'completions' | 'tpSolve'>;
 </script>
 
 <div class="completions">
-	{#if mission.completions.length !== 0 || mission.tpSolve}
-		{#each mission.completions as completion}
-			<CompletionCard {completion} />
-		{/each}
-		{#if mission.tpSolve}
-			<div class="block">Solved by <span class="tp-solve">Twitch Plays</span></div>
-		{/if}
+	{#each mission.completions as completion}
+		<CompletionCard {completion} />
 	{:else}
-		<div class="block" style="text-align: center;"><i>No solves, be the first!</i></div>
+		<NoContent>No solves, <a href="/upload">be the first</a>!</NoContent>
+	{/each}
+	{#if mission.tpSolve}
+		<div class="block">Solved by <span class="tp-solve">Twitch Plays</span></div>
 	{/if}
 </div>
 

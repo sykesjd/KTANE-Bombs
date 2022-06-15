@@ -2,6 +2,7 @@
 	import type { QueueItem } from '$lib/types';
 	import MissionCard from '$lib/MissionCard.svelte';
 	import CompletionCard from '$lib/CompletionCard.svelte';
+	import NoContent from '$lib/NoContent.svelte';
 
 	export let queue: QueueItem[];
 
@@ -46,6 +47,8 @@
 				<button on:click={() => verify(item, false)}>Reject</button>
 			</div>
 		</div>
+	{:else}
+		<NoContent>Nothing to be verify.</NoContent>
 	{/each}
 </div>
 
