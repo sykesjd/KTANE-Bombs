@@ -1,41 +1,18 @@
-<script context="module" lang="ts">
-	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
-
-	export async function load({ fetch, props }: LoadInput): Promise<LoadOutput> {
-		// TODO: The server should cache this information and send along the icon data.
-		const repo = await fetch('https://ktane.timwi.de/json/raw');
-
-		if (repo.ok) {
-			return {
-				props: {
-					repo: await repo.json(),
-					...props
-				}
-			};
-		}
-
-		return {
-			status: repo.status,
-			error: 'Repository did not load.'
-		};
-	}
-</script>
-
 <script lang="ts">
 	import type { Mission, MissionPack } from '$lib/types';
 	import { formatTime, pluralize } from '$lib/util';
 	import CompletionList from '$lib/CompletionList.svelte';
+	import type { RepoModule } from '$lib/repo';
 
 	type Variant = Pick<Mission, 'name' | 'completions' | 'tpSolve'>;
 
 	export let mission: Mission & { missionPack: MissionPack };
 	export let variants: Variant[] | null;
-	export let repo;
-	const modules: { ModuleID: string; Name: string; X: number; Y: number }[] = repo.KtaneModules;
+	export let modules: RepoModule[] | null;
 
 	function getModule(moduleID: string) {
-		let module = modules.filter((module) => module.ModuleID == moduleID);
-		if (module.length === 1) {
+		let module = modules?.filter((module) => module.ModuleID == moduleID);
+		if (module?.length === 1) {
 			return module[0];
 		}
 

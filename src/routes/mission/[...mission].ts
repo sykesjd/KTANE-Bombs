@@ -1,4 +1,5 @@
 import client from '$lib/client';
+import { getData } from '$lib/repo';
 import { Permission } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandlerOutput, RequestEvent } from '@sveltejs/kit';
@@ -64,7 +65,8 @@ export async function get({ params, locals }: RequestEvent): Promise<RequestHand
 	return {
 		body: {
 			mission: missionResult,
-			variants
+			variants,
+			modules: await getData()
 		}
 	};
 }
