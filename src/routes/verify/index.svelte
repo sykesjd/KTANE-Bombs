@@ -24,6 +24,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Verify Queue</title>
+</svelte:head>
+
 <h1 class="header">Verify Queue</h1>
 
 <div class="flex column">
