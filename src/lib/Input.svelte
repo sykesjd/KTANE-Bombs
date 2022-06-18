@@ -6,6 +6,7 @@
 	export let options: any[] | null = null;
 	export let display = (value: any) => value.toString();
 	export let parse = (value: string): any => value;
+	export let validate = (value: any) => true;
 
 	const handleInput = (e: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
 		let newValue = parse(e.currentTarget.value);
@@ -17,11 +18,10 @@
 				}
 			}
 
-			value = null;
-			return;
+			newValue = null;
 		}
 
-		value = newValue;
+		if (validate(newValue)) value = newValue;
 	};
 </script>
 

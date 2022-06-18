@@ -1,8 +1,9 @@
 <script lang="ts">
-	import type { Mission, MissionPack } from '$lib/types';
-	import { formatTime, pluralize } from '$lib/util';
+	import { Permission, type Mission, type MissionPack } from '$lib/types';
+	import { formatTime, hasPermission, pluralize } from '$lib/util';
 	import CompletionList from '$lib/CompletionList.svelte';
 	import type { RepoModule } from '$lib/repo';
+	import { page, session } from '$app/stores';
 
 	type Variant = Pick<Mission, 'name' | 'completions' | 'tpSolve'>;
 
@@ -28,7 +29,7 @@
 <svelte:head>
 	<title>{mission.name}</title>
 </svelte:head>
-<div class="block">
+<div class="block" style="position: relative;">
 	<h1 class="header">{mission.name}</h1>
 	<div style="text-align: center;">
 		<a href="https://steamcommunity.com/sharedfiles/filedetails/?id={mission.missionPack.steamId}">
@@ -36,6 +37,9 @@
 		</a>
 		by {mission.missionPack.author}
 	</div>
+	{#if hasPermission($session.user, Permission.VerifyMission)}
+		<a href={$page.url.href + '/edit'} class="top-right">Edit</a>
+	{/if}
 </div>
 {#if mission.factory !== null}
 	<div class="block" style="text-align: center">Factory: {mission.factory}</div>
@@ -152,5 +156,11 @@
 	.header {
 		font-weight: bold;
 		text-align: center;
+	}
+
+	.top-right {
+		position: absolute;
+		top: var(--gap);
+		right: var(--gap);
 	}
 </style>
