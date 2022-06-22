@@ -1,14 +1,14 @@
 // Fix for `npm run build` not working.
 // See: https://github.com/prisma/prisma/pull/4920#issuecomment-927334909
-import pkg, { PrismaClient } from '@prisma/client';
+import pkg from '@prisma/client';
 
-let client: PrismaClient;
+let client: pkg.PrismaClient;
 
 if (process.env.NODE_ENV === 'production') {
 	const { PrismaClient: PrismaClientProd } = pkg;
 	client = new PrismaClientProd();
 } else {
-	client = new PrismaClient();
+	client = new pkg.PrismaClient();
 }
 
 export default client;
