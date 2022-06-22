@@ -70,3 +70,19 @@ export async function get({ params, locals }: RequestEvent): Promise<RequestHand
 		}
 	};
 }
+
+export async function del({ locals, params }: RequestEvent): Promise<RequestHandlerOutput> {
+	if (!hasPermission(locals.user, Permission.VerifyMission)) {
+		return forbidden(locals);
+	}
+
+	await client.mission.delete({
+		where: {
+			name: params.mission
+		}
+	});
+
+	return {
+		status: 200
+	};
+}

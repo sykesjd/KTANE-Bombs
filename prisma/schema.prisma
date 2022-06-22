@@ -47,7 +47,7 @@ model Bomb {
   widgets Int
   pools   Json
 
-  mission   Mission @relation(fields: [missionId], references: [id])
+  mission   Mission @relation(fields: [missionId], references: [id], onDelete: Cascade)
   missionId Int
 }
 
@@ -59,7 +59,7 @@ model Completion {
   first  Boolean
   old    Boolean
 
-  mission   Mission @relation(fields: [missionId], references: [id])
+  mission   Mission @relation(fields: [missionId], references: [id], onDelete: Cascade)
   missionId Int
 
   verified Boolean @default(true)

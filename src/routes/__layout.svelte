@@ -157,6 +157,21 @@
 		margin: 0;
 	}
 
+	:global(.relative) {
+		position: relative;
+	}
+
+	:global(.actions) {
+		position: absolute;
+		top: calc(-1 * var(--gap));
+		right: calc(-1.5 * var(--gap));
+		display: none;
+	}
+
+	:global(*:hover > .actions) {
+		display: initial;
+	}
+
 	:global(.st-toast.light) {
 		background: white !important;
 	}

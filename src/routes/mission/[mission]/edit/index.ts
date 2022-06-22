@@ -1,8 +1,9 @@
 import client from '$lib/client';
 import { getData } from '$lib/repo';
-import { Completion, Mission, Permission, type ID, type MissionPack } from '$lib/types';
+import { Completion, Permission, type ID } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandlerOutput, RequestEvent } from '@sveltejs/kit';
+import type { EditMission } from './_types';
 
 export async function get({ params, locals }: RequestEvent): Promise<RequestHandlerOutput> {
 	if (!hasPermission(locals.user, Permission.VerifyMission)) {
@@ -67,10 +68,7 @@ export async function post({ locals, request }: RequestEvent): Promise<RequestHa
 		return forbidden(locals);
 	}
 
-	const mission: Omit<ID<Mission>, 'completions'> & {
-		completions: ID<Completion>[];
-		missionPack: Pick<ID<MissionPack>, 'id' | 'name'>;
-	} = await request.json();
+	const mission: EditMission = await request.json();
 
 	await client.mission.update({
 		where: {
@@ -89,6 +87,24 @@ export async function post({ locals, request }: RequestEvent): Promise<RequestHa
 			missionPackId: mission.missionPack.id,
 			name: mission.name,
 			tpSolve: mission.tpSolve
+		}
+	});
+
+	return {
+		status: 200
+	};
+}
+
+export async function del({ locals, request }: RequestEvent): Promise<RequestHandlerOutput> {
+	if (!hasPermission(locals.user, Permission.VerifyCompletion)) {
+		return forbidden(locals);
+	}
+
+	const completion: ID<Completion> = await request.json();
+
+	await client.completion.delete({
+		where: {
+			id: completion.id
 		}
 	});
 

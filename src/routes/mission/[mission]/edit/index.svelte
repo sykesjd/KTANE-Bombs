@@ -1,14 +1,16 @@
 <script lang="ts">
+	import { session } from '$app/stores';
 	import Checkbox from '$lib/Checkbox.svelte';
 	import Input from '$lib/Input.svelte';
 	import NoContent from '$lib/NoContent.svelte';
 	import type { RepoModule } from '$lib/repo';
 	import Select from '$lib/Select.svelte';
-	import type { ID, Mission, MissionPack } from '$lib/types';
-	import { formatTime, parseTime, pluralize } from '$lib/util';
+	import { Permission, type Completion, type ID, type Mission, type MissionPack } from '$lib/types';
+	import { formatTime, hasPermission, parseTime, pluralize } from '$lib/util';
 	import equal from 'fast-deep-equal';
+	import type { EditMission } from './_types';
 
-	export let mission: Mission & { missionPack: MissionPack };
+	export let mission: EditMission;
 	export let packs: Pick<ID<MissionPack>, 'id' | 'name'>[];
 	export let modules: RepoModule[] | null;
 
@@ -26,7 +28,13 @@
 		};
 	}
 
-	let originalMission = JSON.parse(JSON.stringify(mission));
+	let originalMission: Mission;
+
+	function setOriginalMission() {
+		originalMission = JSON.parse(JSON.stringify(mission));
+	}
+
+	setOriginalMission();
 
 	$: modified = !equal(mission, originalMission);
 
@@ -40,14 +48,36 @@
 			history.replaceState(null, '', '/mission/' + mission.name + '/edit');
 		}
 
-		originalMission = JSON.parse(JSON.stringify(mission));
+		setOriginalMission();
+	}
+
+	async function deleteMission() {
+		if (!confirm('This cannot be undone. Are you sure?')) return;
+
+		await fetch('/mission/' + originalMission.name, {
+			method: 'DELETE'
+		});
+
+		location.href = '/';
+	}
+
+	async function deleteCompletion(completion: ID<Completion>) {
+		if (!confirm('This cannot be undone. Are you sure?')) return;
+
+		await fetch(location.href, {
+			method: 'DELETE',
+			body: JSON.stringify(completion)
+		});
+
+		mission.completions = mission.completions.filter((comp) => completion.id !== comp.id);
+		setOriginalMission();
 	}
 </script>
 
 <svelte:head>
 	<title>{mission.name}</title>
 </svelte:head>
-<div class="block flex column">
+<div class="block flex column relative">
 	<Input title="Name" id="mission-name" bind:value={mission.name} />
 	<Input
 		title="Mission Pack"
@@ -57,6 +87,9 @@
 		display={(pack) => pack.name}
 		validate={(value) => value !== null}
 	/>
+	<div class="actions">
+		<button on:click={deleteMission}>Delete</button>
+	</div>
 </div>
 <div class="block">
 	<Select
@@ -102,7 +135,7 @@
 	<div class="flex column">
 		<div class="block header">Solves</div>
 		{#each mission.completions as completion}
-			<div class="block flex column">
+			<div class="block flex column relative">
 				<Input title="Proof" id="completion-proof" bind:value={completion.proofs} />
 				<Input
 					title="Time"
@@ -118,6 +151,11 @@
 					parse={(value) => value.split(',').map((person) => person.trim())}
 					display={(list) => list.join(', ')}
 				/>
+				{#if hasPermission($session.user, Permission.VerifyCompletion)}
+					<div class="actions">
+						<button on:click={() => deleteCompletion(completion)}>Delete</button>
+					</div>
+				{/if}
 			</div>
 		{:else}
 			<NoContent>No solves to edit.</NoContent>

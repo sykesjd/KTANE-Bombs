@@ -29,7 +29,7 @@
 <svelte:head>
 	<title>{mission.name}</title>
 </svelte:head>
-<div class="block" style="position: relative;">
+<div class="block relative">
 	<h1 class="header">{mission.name}</h1>
 	<div style="text-align: center;">
 		<a href="https://steamcommunity.com/sharedfiles/filedetails/?id={mission.missionPack.steamId}">
