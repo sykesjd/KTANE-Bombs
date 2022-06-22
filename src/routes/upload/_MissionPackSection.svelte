@@ -31,9 +31,9 @@
 </script>
 
 <div class="block flex grow">
-	<Input title="Name" id="pack-name" bind:value={pack.name} />
-	<Input title="Author" id="pack-author" bind:value={pack.author} />
-	<Input title="Steam ID" id="pack-steam-id" bind:value={pack.steamId} />
+	<Input label="Name" id="pack-name" bind:value={pack.name} />
+	<Input label="Author" id="pack-author" bind:value={pack.author} />
+	<Input label="Steam ID" id="pack-steam-id" bind:value={pack.steamId} />
 </div>
 <div class="block">
 	<button on:click={upload} disabled={!valid}>Upload</button>

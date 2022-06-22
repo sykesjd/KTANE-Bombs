@@ -1,12 +1,12 @@
 <script lang="ts">
 	export let id: string;
 	export let value: any;
-	export let title: string;
+	export let label: string;
 	export let type: string = 'text';
 	export let options: any[] | null = null;
 	export let display = (value: any) => value.toString();
 	export let parse = (value: string): any => value;
-	export let validate = (value: any) => true;
+	export let validate = (_value: any) => true;
 
 	const handleInput = (e: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
 		let newValue = parse(e.currentTarget.value);
@@ -26,7 +26,10 @@
 </script>
 
 <div class="flex column content-width">
-	<label for={id}>{title}</label>
+	<label for={id}>
+		{label}
+		<slot />
+	</label>
 	<input {id} {type} list={id + '-list'} value={display(value)} on:input={handleInput} />
 	{#if options}
 		<datalist id={id + '-list'}>

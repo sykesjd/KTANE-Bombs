@@ -78,9 +78,9 @@
 	<title>{mission.name}</title>
 </svelte:head>
 <div class="block flex column relative">
-	<Input title="Name" id="mission-name" bind:value={mission.name} />
+	<Input label="Name" id="mission-name" bind:value={mission.name} />
 	<Input
-		title="Mission Pack"
+		label="Mission Pack"
 		id="mission-pack"
 		bind:value={mission.missionPack}
 		options={packs}
@@ -93,7 +93,7 @@
 </div>
 <div class="block">
 	<Select
-		title="Factory"
+		label="Factory"
 		id="mission-factory"
 		bind:value={mission.factory}
 		options={[null, 'Static', 'Sequence']}
@@ -136,16 +136,16 @@
 		<div class="block header">Solves</div>
 		{#each mission.completions as completion}
 			<div class="block flex column relative">
-				<Input title="Proof" id="completion-proof" bind:value={completion.proofs} />
+				<Input label="Proof" id="completion-proof" bind:value={completion.proofs} />
 				<Input
-					title="Time"
+					label="Time"
 					id="completion-time"
 					bind:value={completion.time}
 					parse={parseTime}
 					display={formatTime}
 				/>
 				<Input
-					title="Team"
+					label="Team"
 					id="completion-team"
 					bind:value={completion.team}
 					parse={(value) => value.split(',').map((person) => person.trim())}

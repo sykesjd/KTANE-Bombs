@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let id: string;
 	export let value: any;
-	export let title: string;
+	export let label: string;
 	export let options: any[];
 	export let display = (obj: any) => obj.toString();
 
@@ -17,7 +17,10 @@
 </script>
 
 <div class="flex column content-width">
-	<label for={id}>{title}</label>
+	<label for={id}>
+		{label}
+		<slot />
+	</label>
 	<select {id} on:input={handleInput}>
 		{#each options as option}
 			<option selected={option === value}>{display(option)}</option>
