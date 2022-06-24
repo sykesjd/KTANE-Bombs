@@ -1,11 +1,23 @@
 import type * as client from '@prisma/client';
 import type { Bomb, FrontendUser, Mission, Permission, Pool } from './types';
 
-export function formatTime(time: number): string {
-	const hours = Math.floor(time / 3600);
-	const minutes = Math.floor(time / 60) - 60 * hours;
-	const seconds = time - 3600 * hours - 60 * minutes;
-	return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+export function formatTime(seconds: number, milliseconds = false): string {
+	let timeParts = [];
+
+	seconds = Math.round(seconds * 100) / 100;
+
+	for (const part of [3600, 60, 1]) {
+		timeParts.push(Math.floor(seconds / part).toString());
+		seconds -= Math.floor(seconds / part) * part;
+	}
+
+	timeParts = timeParts.map((value, index) => (index == 0 ? value : value.padStart(2, '0')));
+
+	return milliseconds
+		? `${timeParts.join(':')}.${Math.round(seconds * 100)
+				.toString()
+				.padStart(2, '0')}`
+		: timeParts.join(':');
 }
 
 export function parseTime(time: string): number | null {
