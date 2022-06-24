@@ -52,7 +52,7 @@
 			</div>
 		</div>
 	{:else}
-		<NoContent>Nothing to be verify.</NoContent>
+		<NoContent>Nothing to be verified.</NoContent>
 	{/each}
 </div>
 
