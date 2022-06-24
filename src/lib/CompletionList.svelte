@@ -4,6 +4,8 @@
 	import type { Mission } from './types';
 
 	export let mission: Pick<Mission, 'completions' | 'tpSolve'>;
+
+	$: mission.completions.sort((a, b) => b.time - a.time);
 </script>
 
 <div class="completions">
