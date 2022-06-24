@@ -52,7 +52,7 @@ export const post: RequestHandler = async function ({ locals, request }) {
 					}
 				});
 			} else {
-				client.completion.delete({ where: { id: item.completion.id } });
+				await client.completion.delete({ where: { id: item.completion.id } });
 			}
 
 			break;
