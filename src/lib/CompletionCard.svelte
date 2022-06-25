@@ -27,9 +27,11 @@
 			>
 		{/each}
 	</div>
-	{#each completion.proofs as proof}
-		<a href={proof}>Link</a>
-	{/each}
+	<div class="flex column">
+		{#each completion.proofs as proof}
+			<a href={proof}>Link</a>
+		{/each}
+	</div>
 </div>
 
 <style>
