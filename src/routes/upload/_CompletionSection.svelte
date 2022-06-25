@@ -101,5 +101,5 @@
 </div>
 <CompletionCard {completion} />
 <div class="block">
-	<button on:click={upload} disabled={!valid}>Upload Completion</button>
+	<button on:click={upload} disabled={!valid}>Upload</button>
 </div>
