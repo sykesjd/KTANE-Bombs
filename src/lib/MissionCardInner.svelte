@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Bomb } from './types';
-	import type { Mission } from "./types";
+	import type { Mission } from './types';
 	import { formatTime, getSolveTypes, listify } from './util';
 
 	export let mission: Mission;
@@ -23,18 +23,25 @@
 		'#9146ff'
 	)} 66.61%)`;
 
-	const solvers = [solveTypes.normalSolve ? "by a team" : null, solveTypes.efmSolve ? "via EFM" : null, mission.tpSolve ? "on Twitch Plays" : null].filter(solver => solver !== null);
-	const title = solvers.length === 0 ? "This mission hasn't been solved." : `This mission has been solved ${listify(solvers)}.`
+	const solvers = [
+		solveTypes.normalSolve ? 'by a team' : null,
+		solveTypes.efmSolve ? 'via EFM' : null,
+		mission.tpSolve ? 'on Twitch Plays' : null
+	].flatMap((solver) => solver ?? []);
+	const title =
+		solvers.length === 0
+			? "This mission hasn't been solved."
+			: `This mission has been solved ${listify(solvers)}.`;
 </script>
 
 <div>{mission.name}</div>
-<div class="indicator" style:background={color} title={title} />
+<div class="indicator" style:background={color} {title} />
 <div class="stats">
 	{statBomb.modules} Modules · {formatTime(statBomb.time)} · {statBomb.strikes}
 	Strikes · {statBomb.widgets}
 	Widgets
 	{#if mission.factory !== null}
-	 · {mission.factory}
+		· {mission.factory}
 	{/if}
 </div>
 
