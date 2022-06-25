@@ -97,7 +97,7 @@
 	:global(button) {
 		background-color: var(--accent);
 		color: white;
-		padding: 2.5px 5px;
+		padding: 2px 13px;
 		border: 1px solid hsl(14, 72%, 33%);
 		border-radius: 5px;
 		font-size: inherit;
