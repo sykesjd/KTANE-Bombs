@@ -37,12 +37,15 @@
 {/if}
 
 <style>
-	.section-selector {
+	.section-selector > * {
+		box-sizing: border-box;
 		text-align: center;
+		padding-bottom: calc(var(--gap) - 3px);
+		border-bottom: 3px solid var(--foreground);
+		transition: border-bottom-color 0.25s;
 	}
 
 	.selected {
-		padding-bottom: calc(var(--gap) - 3px);
-		border-bottom: 3px solid var(--accent);
+		border-bottom-color: var(--accent);
 	}
 </style>
