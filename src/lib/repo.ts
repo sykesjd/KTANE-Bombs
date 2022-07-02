@@ -5,15 +5,23 @@ export type RepoModule = {
 	Y: number;
 };
 
-let modules: RepoModule[] | null = null;
+type Cache = {
+	modules: RepoModule[];
+	timestamp: Date;
+}
+
+let cache: Cache | null = null;
 
 export async function getData(): Promise<RepoModule[] | null> {
-	if (modules === null) {
+	if (cache === null || Date.now() - cache.timestamp.getTime() > 60 * 60 * 1000) {
 		const repo = await fetch('https://ktane.timwi.de/json/raw');
 		if (!repo.ok) return null;
 
-		modules = (await repo.json()).KtaneModules;
+		cache = {
+			modules: (await repo.json()).KtaneModules,
+			timestamp: new Date()
+		};
 	}
 
-	return modules;
+	return cache.modules;
 }
