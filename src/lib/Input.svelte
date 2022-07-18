@@ -3,6 +3,8 @@
 	export let value: any;
 	export let label: string;
 	export let type: string = 'text';
+	export let placeholder: string = '';
+	export let required: boolean = false;
 	export let options: any[] | null = null;
 	export let display = (value: any) => value.toString();
 	export let parse = (value: string): any => value;
@@ -30,7 +32,15 @@
 		{label}
 		<slot />
 	</label>
-	<input {id} {type} list={id + '-list'} value={display(value)} on:input={handleInput} />
+	<input
+		{id}
+		{type}
+		{placeholder}
+		{required}
+		list={id + '-list'}
+		value={display(value)}
+		on:input={handleInput}
+	/>
 	{#if options}
 		<datalist id={id + '-list'}>
 			{#each options as option}

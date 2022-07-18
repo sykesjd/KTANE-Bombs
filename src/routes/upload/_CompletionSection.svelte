@@ -1,7 +1,8 @@
 <script lang="ts">
 	import CompletionCard from '$lib/CompletionCard.svelte';
+	import Input from '$lib/Input.svelte';
 	import { Completion } from '$lib/types';
-	import { parseTime } from '$lib/util';
+	import { formatTime, parseTime } from '$lib/util';
 	import { toasts } from 'svelte-toasts';
 
 	export let missionNames: string[];
@@ -10,7 +11,6 @@
 
 	let completion: Completion = new Completion();
 	let proofString: string = '';
-	let timeString: string = '';
 	let teamString: string = '';
 
 	let valid: boolean = false;
@@ -31,7 +31,6 @@
 			completion.proofs = [];
 		}
 
-		completion.time = parseTime(timeString) ?? 0;
 		completion.team = teamString
 			.split(',')
 			.map((name) => name.trim())
@@ -40,7 +39,6 @@
 		valid =
 			missionNames.includes(missionName) &&
 			completion.proofs.length !== 0 &&
-			parseTime(timeString) != null &&
 			completion.team.length !== 0;
 	}
 
@@ -64,35 +62,37 @@
 </script>
 
 <div class="block form">
-	<form>
-		<label for="mission">Mission:</label>
-		<input id="mission" list="missions" bind:value={missionName} />
-		<datalist id="missions">
-			{#each missionNames as mission}
-				<option>{mission}</option>
-			{/each}
-		</datalist>
-		<label for="proof">Proof:</label>
-		<input
+	<form class="flex">
+		<Input
+			id="mission"
+			label="Mission"
+			options={missionNames}
+			validate={(value) => value !== null}
+			bind:value={missionName}
+		/>
+		<Input
 			id="proof"
 			type="url"
+			label="Proof"
 			placeholder="https://ktane.timwi.de"
 			required
 			bind:value={proofString}
 		/>
-		<label for="time">Time Remaining:</label>
-		<input
+		<Input
 			id="time"
 			type="text"
-			pattern="^(?:\d+:)?(?:\d{'{'}1,2}:)?\d{'{'}1,2}(?:\.\d{'{'}1,2})?$"
+			parse={parseTime}
+			validate={(value) => value != null}
+			display={formatTime}
+			label="Time Remaining"
 			placeholder="1:23:45.67"
 			required
-			bind:value={timeString}
+			bind:value={completion.time}
 		/>
-		<label for="proof">Team:</label>
-		<input
+		<Input
 			id="proof"
 			type="text"
+			label="Team"
 			placeholder="Defuser, Expert 1, ..."
 			required
 			bind:value={teamString}
@@ -103,3 +103,9 @@
 <div class="block">
 	<button on:click={upload} disabled={!valid}>Upload</button>
 </div>
+
+<style>
+	form {
+		gap: calc(var(--gap) * 2);
+	}
+</style>
