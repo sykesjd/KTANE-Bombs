@@ -92,9 +92,10 @@ export function fixPools<T>(mission: T & { bombs: client.Bomb[] }): T & { bombs:
 	};
 }
 
-export function getSolveTypes(mission: Mission): { normalSolve: boolean; efmSolve: boolean } {
+export function getSolveTypes(mission: Mission) {
 	return {
 		normalSolve: mission.completions.some((completion) => completion.team.length >= 2),
-		efmSolve: mission.completions.some((completion) => completion.team.length == 1)
+		efmSolve: mission.completions.some((completion) => completion.team.length == 1),
+		soloSolve: mission.completions.some((completion) => completion.solo)
 	};
 }

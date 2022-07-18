@@ -18,15 +18,16 @@
 	const color = `linear-gradient(${orBlank(
 		solveTypes.normalSolve,
 		'hsl(210, 100%, 65%)'
-	)} 33.3%, ${orBlank(solveTypes.efmSolve, 'hsl(300, 100%, 75%)')} 33.31% 66.6%, ${orBlank(
+	)} 25%, ${orBlank(solveTypes.efmSolve, 'hsl(300, 100%, 75%)')} 25.01% 50%, ${orBlank(
 		mission.tpSolve,
 		'#9146ff'
-	)} 66.61%)`;
+	)} 50.01% 75%, ${orBlank(solveTypes.soloSolve, '#00ffff')} 75.01%)`;
 
 	const solvers = [
 		solveTypes.normalSolve ? 'by a team' : null,
 		solveTypes.efmSolve ? 'via EFM' : null,
-		mission.tpSolve ? 'on Twitch Plays' : null
+		mission.tpSolve ? 'on Twitch Plays' : null,
+		solveTypes.soloSolve ? 'solo' : null
 	].flatMap((solver) => solver ?? []);
 	const title =
 		solvers.length === 0
