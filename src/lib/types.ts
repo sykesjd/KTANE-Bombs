@@ -54,6 +54,7 @@ export class Completion {
 	team: string[] = [];
 	first = false;
 	old = false;
+	solo = false;
 }
 
 export type QueueItem = MissionQueueItem | CompletionQueueItem | MissionPackQueueItem;

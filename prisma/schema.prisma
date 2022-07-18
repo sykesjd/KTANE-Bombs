@@ -58,6 +58,7 @@ model Completion {
   team   String[]
   first  Boolean
   old    Boolean
+  solo   Boolean
 
   mission   Mission @relation(fields: [missionId], references: [id], onDelete: Cascade)
   missionId Int

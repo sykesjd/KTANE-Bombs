@@ -105,7 +105,8 @@ namespace bombdata
 									return note.Split(", ");
 								}).Where(cell => !string.IsNullOrEmpty(cell)).ToList(),
 								first = row[6].Style.GetBackgroundColor() == "rgba(255, 255, 0, 1)",
-								old = row[6].Style.GetFontStyle() == "italic"
+								old = row[6].Style.GetFontStyle() == "italic",
+								solo = row[7].Style.GetBackgroundColor() == "rgba(0, 255, 255, 1)"
 							};
 						}).ToList();
 					}
@@ -348,5 +349,6 @@ namespace bombdata
 		public List<string> team { get; set; }
 		public bool first { get; set; }
 		public bool old { get; set; }
+		public bool solo { get; set; }
 	}
 }

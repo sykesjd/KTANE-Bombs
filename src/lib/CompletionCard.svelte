@@ -6,7 +6,9 @@
 
 	function getPersonColor(size: number, index: number): string {
 		return size === 1
-			? 'hsl(300, 100%, 75%)'
+			? completion.solo
+				? '#00ffff'
+				: 'hsl(300, 100%, 75%)'
 			: index === 0
 			? 'hsl(210, 100%, 65%)'
 			: 'hsl(0, 100%, 70%)';
