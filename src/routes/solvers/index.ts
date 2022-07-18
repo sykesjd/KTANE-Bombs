@@ -11,7 +11,8 @@ export async function get(): Promise<RequestHandlerOutput<{ completers: Complete
 					variant: true
 				}
 			},
-			team: true
+			team: true,
+			solo: true
 		}
 	});
 
@@ -35,7 +36,7 @@ export async function get(): Promise<RequestHandlerOutput<{ completers: Complete
 
 			const mission = completion.mission;
 			const missionKey = mission.variant !== null ? `v${mission.variant}` : `i${mission.id}`;
-			if (completion.team.length === 1) {
+			if (completion.team.length === 1 && !completion.solo) {
 				completer.efm.add(missionKey);
 			} else if (index === 0) {
 				completer.defuser.add(missionKey);
