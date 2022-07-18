@@ -2,6 +2,7 @@
 	export let id: string;
 	export let checked: any;
 	export let label: string = '';
+	export let disabled: boolean = false;
 </script>
 
 <div>
@@ -9,7 +10,7 @@
 		{label}
 		<slot />
 	</label>
-	<input {id} type="checkbox" bind:checked />
+	<input {id} type="checkbox" bind:checked {disabled} />
 </div>
 
 <style>

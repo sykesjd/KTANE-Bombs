@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Checkbox from '$lib/Checkbox.svelte';
 	import CompletionCard from '$lib/CompletionCard.svelte';
 	import Input from '$lib/Input.svelte';
 	import { Completion } from '$lib/types';
@@ -35,6 +36,8 @@
 			.split(',')
 			.map((name) => name.trim())
 			.filter((name) => name.length !== 0);
+
+		if (completion.team.length > 1) completion.solo = false;
 
 		valid =
 			missionNames.includes(missionName) &&
@@ -96,6 +99,12 @@
 			placeholder="Defuser, Expert 1, ..."
 			required
 			bind:value={teamString}
+		/>
+		<Checkbox
+			id="solo"
+			label="Solo"
+			bind:checked={completion.solo}
+			disabled={completion.team.length > 1}
 		/>
 	</form>
 </div>

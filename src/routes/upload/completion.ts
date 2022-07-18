@@ -13,7 +13,7 @@ export async function post({ request }: RequestEvent): Promise<RequestHandlerOut
 		}
 	});
 
-	if (mission === null) {
+	if (mission === null || (completion.team.length != 1 && completion.solo)) {
 		return {
 			status: 406
 		};
