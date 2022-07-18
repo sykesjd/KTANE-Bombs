@@ -25,7 +25,7 @@
 	};
 </script>
 
-<div class="flex column content-width">
+<div>
 	<label for={id}>
 		{label}
 		<slot />

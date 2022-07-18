@@ -4,7 +4,7 @@
 	export let label: string = '';
 </script>
 
-<div class="flex column content-width">
+<div>
 	<label for={id}>
 		{label}
 		<slot />
@@ -14,6 +14,7 @@
 
 <style>
 	input {
+		display: block;
 		background-color: rgb(15, 15, 15);
 		padding: var(--gap);
 		border: none;
