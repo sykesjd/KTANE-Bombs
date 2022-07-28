@@ -1,14 +1,20 @@
 <script lang="ts">
+	import Input from '$lib/Input.svelte';
 	import MissionCard from '$lib/MissionCard.svelte';
-	import { Bomb, Mission, Pool } from '$lib/types';
+	import { Bomb, Mission, Pool, type MissionPackSelection } from '$lib/types';
 	import { toasts } from 'svelte-toasts';
 
+	export let packs: MissionPackSelection[];
+
 	let files: FileList;
-	let missions: Mission[] = [];
+	let missions: MissionWithPack[] = [];
 	let selectedMissions: Record<number, boolean> = {};
 
+	type MissionWithPack = Mission & { missionPack: MissionPackSelection | null };
+
 	function parseMissions(text: string) {
-		let mission: Mission | null = null;
+		let missions: MissionWithPack[] = [];
+		let mission: MissionWithPack | null = null;
 		let bomb: Bomb | null = null;
 		let lineIndex = 0;
 		const lines = text.split('\n');
@@ -20,10 +26,14 @@
 		while (lineIndex < lines.length) {
 			let line = readLine();
 			if (line === '[State] Enter GameplayState') {
-				mission = new Mission();
-				mission.completions = [];
-				mission.bombs = [];
-				mission.name = '';
+				mission = {
+					completions: [],
+					bombs: [],
+					name: '',
+					tpSolve: false,
+					factory: '',
+					missionPack: null
+				};
 
 				missions = [...missions, mission];
 			} else if (line.startsWith('[BombGenerator] Generator settings: ') && mission !== null) {
@@ -69,7 +79,8 @@
 					json += readLine();
 				}
 
-				mission.name = JSON.parse(json).mission;
+				const event = JSON.parse(json);
+				if (event.type === 'ROUND_START') mission.name = event.mission;
 			} else if (line.startsWith('[Factory] Creating gamemode') && mission !== null) {
 				const match = line.match(/Creating gamemode '(.+)'\./);
 				if (match === null) throw new Error('This regex should always match');
@@ -77,18 +88,21 @@
 				mission.factory = match[1].replace('Finite', 'Sequence');
 			}
 		}
+
+		return missions;
 	}
 
-	$: (async function () {
-		missions = [];
-		if (files === undefined) return;
+	async function readFiles() {
+		missions = (
+			await Promise.all(
+				Array.from(files ?? []).map(async (file) => {
+					const text = await file.text();
 
-		for (const file of Array.from(files)) {
-			const text = await file.text();
-
-			parseMissions(text);
-		}
-	})();
+					return parseMissions(text);
+				})
+			)
+		).flat();
+	}
 
 	function sendMissions() {
 		fetch('/upload/missions', {
@@ -115,23 +129,44 @@
 	<div>Select a logfile that contains the mission to upload.</div>
 	<div>
 		<label for="logfile">Logfile:</label>
-		<input id="logfile" type="file" accept=".txt,.log" required bind:files />
+		<input id="logfile" type="file" accept=".txt,.log" required bind:files on:change={readFiles} />
 	</div>
 </div>
 {#if missions.length !== 0}
 	<div class="block">Select one or more missions from the logfile.</div>
-	<div class="missions">
-		{#each missions as mission, i}
-			<MissionCard {mission} selectable={true} bind:selected={selectedMissions[i]} />
-		{/each}
-	</div>
-	{#if Object.values(selectedMissions).some((a) => a)}
-		<div class="block">
-			<button on:click={sendMissions}
-				>Upload Mission{Object.values(selectedMissions).filter((a) => a).length == 1
-					? ''
-					: 's'}</button
-			>
+	<form on:submit|preventDefault={sendMissions}>
+		<div class="missions">
+			{#each missions as mission, i}
+				<div class="flex">
+					<MissionCard {mission} selectable={true} bind:selected={selectedMissions[i]} />
+					<div class="block">
+						<Input
+							label="Mission Pack"
+							id="mission-pack"
+							bind:value={mission.missionPack}
+							options={packs}
+							display={(pack) => (pack === null ? '' : pack.name)}
+							validate={(pack) => pack !== null}
+							required={selectedMissions[i]}
+						/>
+					</div>
+				</div>
+			{/each}
 		</div>
-	{/if}
+		{#if Object.values(selectedMissions).some((a) => a)}
+			<div class="block">
+				<button type="submit"
+					>Upload Mission{Object.values(selectedMissions).filter((a) => a).length == 1
+						? ''
+						: 's'}</button
+				>
+			</div>
+		{/if}
+	</form>
 {/if}
+
+<style>
+	form {
+		display: contents;
+	}
+</style>

@@ -2,8 +2,10 @@
 	import CompletionSection from './_CompletionSection.svelte';
 	import MissionPackSection from './_MissionPackSection.svelte';
 	import MissionSection from './_MissionSection.svelte';
+	import type { MissionPackSelection } from '$lib/types';
 
 	export let missionNames: string[];
+	export let packs: MissionPackSelection[];
 
 	let section: 'solve' | 'mission' | 'missionpack' = 'solve';
 </script>
@@ -29,7 +31,7 @@
 	</div>
 </div>
 {#if section == 'mission'}
-	<MissionSection />
+	<MissionSection {packs} />
 {:else if section == 'missionpack'}
 	<MissionPackSection />
 {:else}

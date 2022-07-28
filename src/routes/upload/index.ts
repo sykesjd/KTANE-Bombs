@@ -13,9 +13,16 @@ export const get: RequestHandler = async function () {
 		})
 	).map((mission) => mission.name);
 
+	const packs = await client.missionPack.findMany({
+		select: {
+			name: true
+		}
+	});
+
 	return {
 		body: {
-			missionNames: names
+			missionNames: names,
+			packs
 		}
 	};
 };

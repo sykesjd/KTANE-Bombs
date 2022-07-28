@@ -22,6 +22,8 @@ export interface MissionPack {
 	steamId: string;
 }
 
+export type MissionPackSelection = Pick<ID<MissionPack>, 'id' | 'name'>;
+
 export class Mission {
 	name = '';
 	bombs: Bomb[] = [];
