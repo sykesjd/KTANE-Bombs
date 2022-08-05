@@ -61,54 +61,59 @@ namespace bombdata
 
 					List<Completion> GetCompletions(int skip)
 					{
-						return sheet.Skip(skip).TakeWhile(row => !string.IsNullOrEmpty(row[5].Content)).Select(row =>
-						{
-							var sheetId = sheetIds[Path.GetFileName(path)];
-							var proofCell = row[5];
-							string[] proof = null;
-							if (proofCell.Href == null)
+						return sheet
+							.Skip(skip)
+							.Where(row => !string.IsNullOrEmpty(row[5].Content))
+							.TakeWhile(row => row[6].ColSpan != 2)
+							.Select(row =>
 							{
-								var note = GetNote(sheetId, missionRow[0].Content, proofCell);
-								if (note != null)
+								var sheetId = sheetIds[Path.GetFileName(path)];
+								var proofCell = row[5];
+								string[] proof = null;
+								if (proofCell.Href == null)
 								{
-									proof = note
-										.Split(new[] { ' ', '\n' }, StringSplitOptions.RemoveEmptyEntries)
-										.Where(part => Uri.IsWellFormedUriString(part, UriKind.Absolute))
-										.ToArray();
+									var note = GetNote(sheetId, missionRow[0].Content, proofCell);
+									if (note != null)
+									{
+										proof = note
+											.Split(new[] { ' ', '\n' }, StringSplitOptions.RemoveEmptyEntries)
+											.Where(part => Uri.IsWellFormedUriString(part, UriKind.Absolute))
+											.ToArray();
+									}
 								}
-							}
-							else
-							{
-								proof = new[] { proofCell.Href };
-							}
-
-							return new Completion()
-							{
-								proofs = proof,
-								time = ParseTime(row[6].Content),
-								team = Enumerable.Range(7, 4).SelectMany(index =>
+								else
 								{
-									var cell = row[index];
-									var content = cell.Content;
-									if (content != "et al.")
-									{
-										return new[] { content };
-									}
+									proof = new[] { proofCell.Href };
+								}
 
-									var note = GetNote(sheetId, missionRow[0].Content, cell);
-									if (note == null)
+								return new Completion()
+								{
+									proofs = proof,
+									time = ParseTime(row[6].Content),
+									team = Enumerable.Range(7, 4).SelectMany(index =>
 									{
-										Console.WriteLine("Could not find full team. Local spreadsheet data should be updated.");
-										return Array.Empty<string>();
-									}
+										var cell = row[index];
+										var content = cell.Content;
+										if (content != "et al.")
+										{
+											return new[] { content };
+										}
 
-									return note.Split(", ");
-								}).Where(cell => !string.IsNullOrEmpty(cell)).ToList(),
-								first = row[6].Style.GetBackgroundColor() == "rgba(255, 255, 0, 1)",
-								old = row[6].Style.GetFontStyle() == "italic",
-								solo = row[7].Style.GetBackgroundColor() == "rgba(0, 255, 255, 1)"
-							};
-						}).ToList();
+										var note = GetNote(sheetId, missionRow[0].Content, cell);
+										if (note == null)
+										{
+											Console.WriteLine("Could not find full team. Local spreadsheet data should be updated.");
+											return Array.Empty<string>();
+										}
+
+										return note.Split(", ");
+									}).Where(cell => !string.IsNullOrEmpty(cell)).ToList(),
+									first = row[6].Style.GetBackgroundColor() == "rgba(255, 255, 0, 1)",
+									old = row[6].Style.GetFontStyle() == "italic",
+									solo = row[7].Style.GetBackgroundColor() == "rgba(0, 255, 255, 1)"
+								};
+							})
+							.ToList();
 					}
 
 					var mission = new Mission()
