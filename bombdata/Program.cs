@@ -69,7 +69,7 @@ namespace bombdata
 							{
 								var sheetId = sheetIds[Path.GetFileName(path)];
 								var proofCell = row[5];
-								string[] proof = null;
+								string[] proof = Array.Empty<string>();
 								if (proofCell.Href == null)
 								{
 									var note = GetNote(sheetId, missionRow[0].Content, proofCell);
