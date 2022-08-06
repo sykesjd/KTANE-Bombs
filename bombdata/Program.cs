@@ -51,8 +51,8 @@ namespace bombdata
 					{
 						pack = new MissionPack()
 						{
-							name = missionRow[1].Content,
-							author = missionRow[2].Content,
+							name = missionRow[1].Content.Trim(),
+							author = missionRow[2].Content.Trim(),
 							steamID = href[(href.IndexOf("=") + 1)..],
 							missions = new List<Mission>(),
 						};
@@ -93,7 +93,7 @@ namespace bombdata
 									team = Enumerable.Range(7, 4).SelectMany(index =>
 									{
 										var cell = row[index];
-										var content = cell.Content;
+										var content = cell.Content.Trim();
 										if (content != "et al.")
 										{
 											return new[] { content };
@@ -106,7 +106,7 @@ namespace bombdata
 											return Array.Empty<string>();
 										}
 
-										return note.Split(", ");
+										return note.Split(",").Select(name => name.Trim());
 									}).Where(cell => !string.IsNullOrEmpty(cell)).ToList(),
 									first = row[6].Style.GetBackgroundColor() == "rgba(255, 255, 0, 1)",
 									old = row[6].Style.GetFontStyle() == "italic",
@@ -118,7 +118,7 @@ namespace bombdata
 
 					var mission = new Mission()
 					{
-						name = missionRow[0].Content,
+						name = missionRow[0].Content.Trim(),
 						bombs = sheet.Skip(1).Where(row => !string.IsNullOrEmpty(row[2].Content)).Select(row =>
 						{
 							return new Bomb()
