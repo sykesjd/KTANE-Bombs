@@ -23,7 +23,8 @@ export async function get({ params, locals }: RequestEvent): Promise<RequestHand
 			completions: {
 				where: {
 					verified: true
-				}
+				},
+				select: client.$exclude('completion', ['missionId'])
 			},
 			tpSolve: true,
 			factory: true,
@@ -76,7 +77,7 @@ export async function post({ locals, request }: RequestEvent): Promise<RequestHa
 		},
 		data: {
 			completions: {
-				updateMany: mission.completions.map((completion) => ({
+				update: mission.completions.map((completion) => ({
 					where: {
 						id: completion.id
 					},
