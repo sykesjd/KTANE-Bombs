@@ -10,7 +10,11 @@
 	export let parse = (value: string): any => value;
 	export let validate = (_value: any) => true;
 
+	let displayValue = display(value);
+
 	const handleInput = (e: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
+		displayValue = e.currentTarget.value;
+
 		let newValue = parse(e.currentTarget.value);
 		if (options !== null) {
 			for (const option of options) {
@@ -38,8 +42,9 @@
 		{placeholder}
 		{required}
 		list={id + '-list'}
-		value={display(value)}
+		value={displayValue}
 		on:input={handleInput}
+		on:change={() => (displayValue = display(value))}
 	/>
 	{#if options}
 		<datalist id={id + '-list'}>
