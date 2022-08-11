@@ -64,50 +64,48 @@
 	}
 </script>
 
-<div class="block form">
-	<form class="flex">
-		<Input
-			id="mission"
-			label="Mission"
-			options={missionNames}
-			validate={(value) => value !== null}
-			bind:value={missionName}
-		/>
-		<Input
-			id="proof"
-			type="url"
-			label="Proof"
-			placeholder="https://ktane.timwi.de"
-			required
-			bind:value={proofString}
-		/>
-		<Input
-			id="time"
-			type="text"
-			parse={parseTime}
-			validate={(value) => value != null}
-			display={formatTime}
-			label="Time Remaining"
-			placeholder="1:23:45.67"
-			required
-			bind:value={completion.time}
-		/>
-		<Input
-			id="proof"
-			type="text"
-			label="Team"
-			placeholder="Defuser, Expert 1, ..."
-			required
-			bind:value={teamString}
-		/>
-		<Checkbox
-			id="solo"
-			label="Solo"
-			bind:checked={completion.solo}
-			disabled={completion.team.length > 1}
-		/>
-	</form>
-</div>
+<form class="block flex">
+	<Input
+		id="mission"
+		label="Mission"
+		options={missionNames}
+		validate={(value) => value !== null}
+		bind:value={missionName}
+	/>
+	<Input
+		id="proof"
+		type="url"
+		label="Proof"
+		placeholder="https://ktane.timwi.de"
+		required
+		bind:value={proofString}
+	/>
+	<Input
+		id="time"
+		type="text"
+		parse={parseTime}
+		validate={(value) => value != null}
+		display={formatTime}
+		label="Time Remaining"
+		placeholder="1:23:45.67"
+		required
+		bind:value={completion.time}
+	/>
+	<Input
+		id="proof"
+		type="text"
+		label="Team"
+		placeholder="Defuser, Expert 1, ..."
+		required
+		bind:value={teamString}
+	/>
+	<Checkbox
+		id="solo"
+		label="Solo"
+		bind:checked={completion.solo}
+		disabled={completion.team.length > 1}
+	/>
+</form>
 <CompletionCard {completion} />
 <div class="block">
 	<button on:click={upload} disabled={!valid}>Upload</button>

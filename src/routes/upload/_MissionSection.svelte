@@ -169,9 +169,3 @@
 		{/if}
 	</form>
 {/if}
-
-<style>
-	form {
-		display: contents;
-	}
-</style>

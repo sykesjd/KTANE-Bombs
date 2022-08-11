@@ -115,6 +115,10 @@
 		opacity: 0.5;
 	}
 
+	:global(form) {
+		display: contents;
+	}
+
 	:global(.foreground) {
 		background-color: var(--foreground);
 	}
