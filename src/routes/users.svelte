@@ -11,7 +11,7 @@
 
 <h1 class="header">Users</h1>
 {#each users as user}
-	<a href="user/{user.id}">
+	<a href="user/{user.username}">
 		<UserCard {user} />
 	</a>
 {/each}

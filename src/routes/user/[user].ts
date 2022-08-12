@@ -10,7 +10,7 @@ export const get: RequestHandler = async function ({ locals, params }) {
 
 	const user = await client.user.findFirst({
 		where: {
-			id: params.user
+			username: params.user
 		},
 		select: {
 			id: true,
