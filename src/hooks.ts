@@ -5,19 +5,23 @@ import * as cookie from 'cookie';
 export const handle: Handle = async ({ event, resolve }) => {
 	const cookies = cookie.parse(event.request.headers.get('cookie') ?? '');
 	const token = cookies.token;
-	event.locals.user = token
-		? await client.user.findFirst({
-				where: {
-					accessToken: token
-				},
-				select: {
-					id: true,
-					username: true,
-					avatar: true,
-					permissions: true
-				}
-		  })
-		: null;
+
+	event.locals.token = token ?? null;
+	if (!cookies.usernameConflict) {
+		event.locals.user = token
+			? await client.user.findFirst({
+					where: {
+						accessToken: token
+					},
+					select: {
+						id: true,
+						username: true,
+						avatar: true,
+						permissions: true
+					}
+			  })
+			: null;
+	}
 
 	return await resolve(event);
 };
