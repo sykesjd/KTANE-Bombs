@@ -1,50 +1,14 @@
 <script lang="ts">
 	import type { FrontendUser } from '$lib/types';
-	import { Permission } from '$lib/types';
-	import UserCard from '$lib/UserCard.svelte';
+	import UserPermissions from './_UserPermissions.svelte';
 
-	export let user: FrontendUser;
+	export let username: string;
+	export let user: FrontendUser | null;
 
-	const permissions: Record<string, number> = {};
-	for (const [name, value] of Object.entries(Permission)) {
-		if (typeof value === 'string') {
-			continue;
-		}
-
-		permissions[name] = value;
-	}
-
-	let newPermissions = new Set(user.permissions);
-
-	function togglePermission(permission: number) {
-		if (newPermissions.has(permission)) {
-			newPermissions.delete(permission);
-		} else {
-			newPermissions.add(permission);
-		}
-
-		newPermissions = newPermissions;
-	}
-
-	$: modified =
-		user.permissions.length != newPermissions.size ||
-		user.permissions.some((permission) => !newPermissions.has(permission));
-
-	async function saveChanges() {
-		await fetch(`/user/${user.id}`, {
-			method: 'PATCH',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(Array.from(newPermissions))
-		});
-
-		user.permissions = Array.from(newPermissions);
-	}
 </script>
 
 <svelte:head>
-	<title>{user.username}</title>
+	<title>{username}</title>
 </svelte:head>
 
 <h1 class="header">Permissions</h1>
@@ -63,3 +27,6 @@
 	</div>
 	<button disabled={!modified} on:click={saveChanges}>Save Changes</button>
 </div>
+{#if user !== null}
+	<UserPermissions {user} />
+{/if}

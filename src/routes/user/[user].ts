@@ -20,7 +20,15 @@ export const get: RequestHandler = async function ({ locals, params }) {
 		}
 	});
 
-	if (user === null) {
+	const solve = await client.completion.findFirst({
+		where: {
+			team: {
+				has: params.user
+			}
+		}
+	});
+
+	if (user === null && solve === null) {
 		return {
 			status: 404
 		};
@@ -28,6 +36,7 @@ export const get: RequestHandler = async function ({ locals, params }) {
 
 	return {
 		body: {
+			username: params.user,
 			user
 		}
 	};
