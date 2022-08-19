@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	export let id: string;
 	export let value: any;
 	export let label: string;
@@ -8,9 +10,12 @@
 	export let options: any[] | null = null;
 	export let display = (value: any) => value.toString();
 	export let parse = (value: string): any => value;
-	export let validate = (_value: any) => true;
+	export let validate = (_value: any): boolean | string => true;
 
+	let input: HTMLInputElement;
 	let displayValue = display(value);
+
+	let error = '';
 
 	const handleInput = (e: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
 		displayValue = e.currentTarget.value;
@@ -27,8 +32,22 @@
 			newValue = null;
 		}
 
-		if (validate(newValue)) value = newValue;
+		if (handleValidity(newValue)) value = newValue;
 	};
+
+	function handleValidity(value: any) {
+		const validity = validate(value);
+		input.setCustomValidity(
+			typeof validity === 'string' ? validity : validity ? '' : 'Invalid value.'
+		);
+		input.reportValidity();
+
+		error = input.validationMessage;
+
+		return validity === true || validity === '';
+	}
+
+	onMount(() => handleValidity(value));
 </script>
 
 <div>
@@ -41,11 +60,19 @@
 		{type}
 		{placeholder}
 		{required}
+		bind:this={input}
 		list={id + '-list'}
 		value={displayValue}
 		on:input={handleInput}
-		on:change={() => (displayValue = display(value))}
+		on:change={() => {
+			if (error === '') {
+				displayValue = display(value);
+			}
+		}}
 	/>
+	{#if error}
+		<div style="color: rgb(255, 80, 80);">{error}</div>
+	{/if}
 	{#if options}
 		<datalist id={id + '-list'}>
 			{#each options as option}
