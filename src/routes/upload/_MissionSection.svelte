@@ -24,7 +24,7 @@
 		}
 
 		while (lineIndex < lines.length) {
-			let line = readLine();
+			let line = readLine().trim();
 			if (line === '[State] Enter GameplayState') {
 				mission = {
 					completions: [],
