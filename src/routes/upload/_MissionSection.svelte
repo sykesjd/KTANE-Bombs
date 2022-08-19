@@ -135,7 +135,7 @@
 {#if missions.length !== 0}
 	<div class="block">Select one or more missions from the logfile.</div>
 	<form on:submit|preventDefault={sendMissions}>
-		<div class="missions">
+		<div class="missions flex column">
 			{#each missions as mission, i}
 				<div class="flex">
 					<MissionCard
