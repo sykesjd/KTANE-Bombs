@@ -5,11 +5,12 @@
 	export let mission: Mission;
 	export let selectable: boolean = false;
 	export let selected: boolean = false;
+	export let id: string = '';
 </script>
 
 {#if selectable}
-	<input id="selected" type="checkbox" bind:checked={selected} />
-	<label for="selected" class="mission" class:selected>
+	<input {id} type="checkbox" bind:checked={selected} />
+	<label for={id} class="mission" class:selected>
 		<MissionCardInner {mission} />
 	</label>
 {:else}

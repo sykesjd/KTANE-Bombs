@@ -138,7 +138,12 @@
 		<div class="missions">
 			{#each missions as mission, i}
 				<div class="flex">
-					<MissionCard {mission} selectable={true} bind:selected={selectedMissions[i]} />
+					<MissionCard
+						{mission}
+						selectable={true}
+						id={i.toString()}
+						bind:selected={selectedMissions[i]}
+					/>
 					<div class="block">
 						<Input
 							label="Mission Pack"
