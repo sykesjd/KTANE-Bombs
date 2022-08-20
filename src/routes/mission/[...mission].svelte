@@ -4,6 +4,7 @@
 	import CompletionList from '$lib/CompletionList.svelte';
 	import type { RepoModule } from '$lib/repo';
 	import { page, session } from '$app/stores';
+	import { getModule, sortBombs } from './_shared';
 
 	type Variant = Pick<Mission, 'name' | 'completions' | 'tpSolve'>;
 
@@ -11,19 +12,7 @@
 	export let variants: Variant[] | null;
 	export let modules: RepoModule[] | null;
 
-	function getModule(moduleID: string) {
-		let module = modules?.filter((module) => module.ModuleID == moduleID);
-		if (module?.length === 1) {
-			return module[0];
-		}
-
-		return {
-			Name: moduleID,
-			ModuleID: moduleID,
-			X: 0,
-			Y: 0
-		};
-	}
+	sortBombs(mission);
 </script>
 
 <svelte:head>
@@ -57,7 +46,7 @@
 				{#each bomb.pools as pool}
 					<div class="pool">
 						<div class="modules">
-							{#each pool.modules.map(getModule) as module}
+							{#each pool.modules.map((module) => getModule(module, modules)) as module}
 								<div class="module">
 									<img
 										src="https://ktane.timwi.de/iconsprite"

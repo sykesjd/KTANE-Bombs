@@ -8,25 +8,14 @@
 	import { Permission, type Completion, type ID, type Mission, type MissionPack } from '$lib/types';
 	import { formatTime, hasPermission, parseTime, pluralize } from '$lib/util';
 	import equal from 'fast-deep-equal';
+	import { getModule, sortBombs } from '../../_shared';
 	import type { EditMission } from './_types';
 
 	export let mission: EditMission;
 	export let packs: Pick<ID<MissionPack>, 'id' | 'name'>[];
 	export let modules: RepoModule[] | null;
 
-	function getModule(moduleID: string) {
-		let module = modules?.filter((module) => module.ModuleID == moduleID);
-		if (module?.length === 1) {
-			return module[0];
-		}
-
-		return {
-			Name: moduleID,
-			ModuleID: moduleID,
-			X: 0,
-			Y: 0
-		};
-	}
+	sortBombs(mission);
 
 	let originalMission: Mission;
 
@@ -72,6 +61,10 @@
 		mission.completions = mission.completions.filter((comp) => completion.id !== comp.id);
 		setOriginalMission();
 	}
+
+	for (const bomb of mission.bombs) {
+		bomb.pools.sort((a, b) => a.modules.join().localeCompare(b.modules.join()));
+	}
 </script>
 
 <svelte:head>
@@ -113,7 +106,7 @@
 				{#each bomb.pools as pool}
 					<div class="pool">
 						<div class="modules">
-							{#each pool.modules.map(getModule) as module}
+							{#each pool.modules.map((module) => getModule(module, modules)) as module}
 								<div class="module">
 									<img
 										src="https://ktane.timwi.de/iconsprite"
