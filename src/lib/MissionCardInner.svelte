@@ -9,9 +9,9 @@
 	const bombs = mission.bombs;
 	const statBomb = new Bomb();
 	statBomb.modules = bombs.map((bomb) => bomb.modules).reduce((a, b) => a + b, 0);
-	statBomb.time = bombs.map((bomb) => bomb.time).reduce((a, b) => a + b, 0);
-	statBomb.strikes = bombs.map((bomb) => bomb.strikes).reduce((a, b) => a + b, 0);
-	statBomb.widgets = bombs.map((bomb) => bomb.widgets).reduce((a, b) => a + b, 0);
+	statBomb.time = Math.max(...bombs.map((bomb) => bomb.time));
+	statBomb.strikes = Math.max(...bombs.map((bomb) => bomb.strikes));
+	statBomb.widgets = Math.max(...bombs.map((bomb) => bomb.widgets));
 
 	const orBlank = (condition: boolean, color: string) => (condition ? color : 'transparent');
 
