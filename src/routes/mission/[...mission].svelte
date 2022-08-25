@@ -12,7 +12,7 @@
 	export let variants: Variant[] | null;
 	export let modules: RepoModule[] | null;
 
-	sortBombs(mission);
+	sortBombs(mission, modules);
 </script>
 
 <svelte:head>

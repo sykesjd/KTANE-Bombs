@@ -15,7 +15,7 @@
 	export let packs: Pick<ID<MissionPack>, 'id' | 'name'>[];
 	export let modules: RepoModule[] | null;
 
-	sortBombs(mission);
+	sortBombs(mission, modules);
 
 	let originalMission: Mission;
 

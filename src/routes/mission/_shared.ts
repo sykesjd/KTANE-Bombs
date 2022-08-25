@@ -15,12 +15,16 @@ export function getModule(moduleID: string, modules: RepoModule[] | null) {
 	};
 }
 
-export function sortBombs(mission: Mission) {
+export function sortBombs(mission: Mission, modules: RepoModule[] | null) {
+	const getName = (id: string) => getModule(id, modules).Name;
+
 	for (const pool of mission.bombs.flatMap((bomb) => bomb.pools)) {
-		pool.modules.sort();
+		pool.modules.sort((a, b) => getName(a).localeCompare(getName(b)));
 	}
 
 	for (const bomb of mission.bombs) {
-		bomb.pools.sort((a, b) => a.modules.join().localeCompare(b.modules.join()));
+		bomb.pools.sort((a, b) =>
+			a.modules.map(getName).join().localeCompare(b.modules.map(getName).join())
+		);
 	}
 }
