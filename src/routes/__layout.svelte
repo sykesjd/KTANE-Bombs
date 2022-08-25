@@ -31,10 +31,8 @@
 		<a class="block" href="/">Home</a>
 		<a class="block" href="/solvers">Solvers</a>
 		<a class="block" href="/upload">Upload</a>
+		<a class="block" href="/users">Users</a>
 		{#if user}
-			{#if hasPermission(user, Permission.ModifyPermissions)}
-				<a class="block" href="/users">Users</a>
-			{/if}
 			{#if hasAnyPermission(user, Permission.VerifyMission, Permission.VerifyCompletion)}
 				<a class="block" href="/verify">Verify</a>
 			{/if}
