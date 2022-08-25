@@ -20,7 +20,16 @@ export const get: RequestHandler = async function ({ locals, params }) {
 		}
 	});
 
-	const solve = await client.completion.findFirst({
+	const completions = await client.completion.findMany({
+		select: {
+			team: true,
+			solo: true,
+			mission: {
+				select: {
+					name: true
+				}
+			}
+		},
 		where: {
 			team: {
 				has: params.user
@@ -28,7 +37,7 @@ export const get: RequestHandler = async function ({ locals, params }) {
 		}
 	});
 
-	if (user === null && solve === null) {
+	if (user === null && completions.length === 0) {
 		return {
 			status: 404
 		};
@@ -37,7 +46,8 @@ export const get: RequestHandler = async function ({ locals, params }) {
 	return {
 		body: {
 			username: params.user,
-			user
+			user,
+			completions
 		}
 	};
 };

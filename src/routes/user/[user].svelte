@@ -2,12 +2,13 @@
 	import { session } from '$app/stores';
 	import Dialog from '$lib/Dialog.svelte';
 	import Input from '$lib/Input.svelte';
-	import { Permission, type FrontendUser } from '$lib/types';
+	import { Completion, Mission, Permission, type FrontendUser } from '$lib/types';
 	import { hasPermission } from '$lib/util';
 	import UserPermissions from './_UserPermissions.svelte';
 
 	export let username: string;
 	export let user: FrontendUser | null;
+	export let completions: (Pick<Completion, 'team' | 'solo'> & { mission: { name: string } })[];
 
 	let newUsername = username;
 	const oldUsername = username;
@@ -30,6 +31,16 @@
 
 		alert('Failed to edit name.');
 	}
+
+	function getPersonColor(completion: Pick<Completion, 'team' | 'solo'>): string {
+		return completion.team.length === 1
+			? completion.solo
+				? '#00ffff'
+				: 'hsl(300, 100%, 75%)'
+			: completion.team.indexOf(username) === 0
+			? 'hsl(210, 100%, 65%)'
+			: 'hsl(0, 100%, 70%)';
+	}
 </script>
 
 <svelte:head>
@@ -38,6 +49,16 @@
 
 <h1 class="header">{username}</h1>
 <div class="block">
+	<h2>Solves</h2>
+	<div class="solves flex grow">
+		{#each completions as completion}
+			<a href="/mission/{completion.mission.name}">
+				<div class="block" style:background-color={getPersonColor(completion)}>
+					{completion.mission.name}
+				</div>
+			</a>
+		{/each}
+	</div>
 	{#if hasPermission($session.user, Permission.RenameUser)}
 		<button on:click={() => dialog.showModal()}>Edit Name</button>
 	{/if}
@@ -64,5 +85,17 @@
 <style>
 	h2 {
 		margin: 0;
+	}
+
+	.solves {
+		flex-wrap: wrap;
+		white-space: nowrap;
+
+		max-height: 250px;
+		overflow-y: scroll;
+	}
+
+	.solves a {
+		color: black;
 	}
 </style>
