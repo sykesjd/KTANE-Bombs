@@ -3,11 +3,7 @@ import { Permission } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
 
-export const get: RequestHandler = async function ({ locals, params }) {
-	if (!hasPermission(locals.user, Permission.ModifyPermissions)) {
-		return forbidden(locals);
-	}
-
+export const get: RequestHandler = async function ({ params }) {
 	const user = await client.user.findFirst({
 		where: {
 			username: params.user
