@@ -1,6 +1,6 @@
 import client from '$lib/client';
 import OAuth, { scope } from '$lib/oauth';
-import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/index.js';
 import type { RequestHandler } from '@sveltejs/kit';
 import * as cookie from 'cookie';
 import type { TokenRequestResult } from 'discord-oauth2';
