@@ -41,6 +41,9 @@
 			? 'hsl(210, 100%, 65%)'
 			: 'hsl(0, 100%, 70%)';
 	}
+
+	// Sort completions
+	completions.sort((a, b) => a.mission.name.localeCompare(b.mission.name));
 </script>
 
 <svelte:head>

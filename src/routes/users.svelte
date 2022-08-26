@@ -3,6 +3,9 @@
 	import UserCard from '$lib/UserCard.svelte';
 
 	export let users: FrontendUser[];
+
+	// Sort users
+	users.sort((a, b) => a.username.localeCompare(b.username));
 </script>
 
 <svelte:head>
