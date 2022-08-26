@@ -78,7 +78,7 @@
 		</div>
 	</Dialog>
 </div>
-{#if user !== null}
+{#if user !== null && hasPermission($session.user, Permission.ModifyPermissions)}
 	<UserPermissions {user} />
 {/if}
 
