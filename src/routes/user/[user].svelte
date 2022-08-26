@@ -51,7 +51,7 @@
 </svelte:head>
 
 <h1 class="header">{username}</h1>
-<div class="block">
+<div class="block flex column content-width">
 	<h2>Solves</h2>
 	<div class="solves flex grow">
 		{#each completions as completion}
