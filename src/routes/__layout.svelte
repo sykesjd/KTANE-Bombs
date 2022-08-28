@@ -38,7 +38,9 @@
 			{/if}
 
 			<div style="margin-left: auto;">
-				<UserCard {user} />
+				<a href="/user/{user.username}">
+					<UserCard {user} />
+				</a>
 			</div>
 			<a class="block" rel="external" href="/logout">Logout</a>
 		{:else}
@@ -196,8 +198,8 @@
 		white-space: nowrap;
 	}
 
-	.navbar > a {
-		color: var(--link);
+	.navbar a {
+		color: var(--text-color);
 		text-decoration: none;
 	}
 
