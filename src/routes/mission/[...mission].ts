@@ -12,6 +12,7 @@ export async function get({ params, locals }: RequestEvent): Promise<RequestHand
 		},
 		select: {
 			name: true,
+			author: true,
 			verified: true,
 			bombs: true,
 			completions: {
@@ -25,7 +26,6 @@ export async function get({ params, locals }: RequestEvent): Promise<RequestHand
 			missionPack: {
 				select: {
 					name: true,
-					author: true,
 					steamId: true
 				}
 			}

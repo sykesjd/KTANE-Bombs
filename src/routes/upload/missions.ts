@@ -8,6 +8,7 @@ export async function post({ request }: RequestEvent): Promise<RequestHandlerOut
 		await client.mission.create({
 			data: {
 				name: mission.name,
+				author: mission.author,
 				bombs: {
 					create: mission.bombs.map((bomb) => {
 						return {

@@ -26,8 +26,8 @@ export const post: RequestHandler = async function ({ locals, request }) {
 				username
 			}
 		}),
-		// Mission Packs
-		client.missionPack.updateMany({
+		// Mission
+		client.mission.updateMany({
 			where: {
 				author: oldUsername
 			},

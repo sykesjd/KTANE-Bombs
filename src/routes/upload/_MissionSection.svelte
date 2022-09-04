@@ -30,6 +30,7 @@
 					completions: [],
 					bombs: [],
 					name: '',
+					author: '',
 					tpSolve: false,
 					factory: '',
 					missionPack: null
@@ -145,6 +146,7 @@
 						bind:selected={selectedMissions[i]}
 					/>
 					<div class="block">
+						<Input label="Author" id="mission-author" bind:value={mission.author} />
 						<Input
 							label="Mission Pack"
 							id="mission-pack"

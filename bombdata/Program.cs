@@ -52,7 +52,6 @@ namespace bombdata
 						pack = new MissionPack()
 						{
 							name = missionRow[1].Content.Trim(),
-							author = missionRow[2].Content.Trim(),
 							steamID = href[(href.IndexOf("=") + 1)..],
 							missions = new List<Mission>(),
 						};
@@ -119,6 +118,7 @@ namespace bombdata
 					var mission = new Mission()
 					{
 						name = missionRow[0].Content.Trim(),
+						author = missionRow[2].Content.Trim(),
 						bombs = sheet.Skip(1).Where(row => !string.IsNullOrEmpty(row[2].Content)).Select(row =>
 						{
 							return new Bomb()
@@ -312,7 +312,6 @@ namespace bombdata
 	internal class MissionPack
 	{
 		public string name { get; set; }
-		public string author { get; set; }
 		public string steamID { get; set; }
 		public List<Mission> missions { get; set; }
 	}
@@ -320,6 +319,7 @@ namespace bombdata
 	internal class Mission
 	{
 		public string name { get; set; }
+		public string author { get; set; }
 		public Bomb[] bombs { get; set; }
 		public List<Completion> completions { get; set; }
 		public bool tpsolve { get; set; }

@@ -43,7 +43,6 @@
 					<a href="https://steamcommunity.com/sharedfiles/filedetails/?id={item.pack.steamId}">
 						{item.pack.name}
 					</a>
-					by {item.pack.author}
 				</div>
 			{/if}
 			<div class="block flex content-width" style="align-items: center;">

@@ -5,11 +5,10 @@
 
 	let pack: MissionPack = {
 		name: '',
-		author: '',
 		steamId: ''
 	};
 
-	$: valid = pack.name.length > 0 && pack.author.length > 0 && pack.steamId.length > 0;
+	$: valid = pack.name.length > 0 && pack.steamId.length > 0;
 
 	function upload() {
 		fetch('/upload/missionpack', {
@@ -32,7 +31,6 @@
 
 <div class="block flex grow">
 	<Input label="Name" id="pack-name" bind:value={pack.name} />
-	<Input label="Author" id="pack-author" bind:value={pack.author} />
 	<Input label="Steam ID" id="pack-steam-id" bind:value={pack.steamId} />
 </div>
 <div class="block">

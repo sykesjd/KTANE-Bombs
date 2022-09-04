@@ -19,7 +19,6 @@ export type ID<T> = T & { id: number };
 
 export interface MissionPack {
 	name: string;
-	author: string;
 	steamId: string;
 }
 
@@ -27,6 +26,7 @@ export type MissionPackSelection = Pick<ID<MissionPack>, 'id' | 'name'>;
 
 export class Mission {
 	name = '';
+	author = '';
 	bombs: Bomb[] = [];
 	completions: Completion[] = [];
 	tpSolve = false;

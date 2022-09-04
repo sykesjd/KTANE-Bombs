@@ -21,10 +21,11 @@
 <div class="block relative">
 	<h1 class="header">{mission.name}</h1>
 	<div style="text-align: center;">
+		by {mission.author}
+		in
 		<a href="https://steamcommunity.com/sharedfiles/filedetails/?id={mission.missionPack.steamId}">
 			{mission.missionPack.name}
 		</a>
-		by {mission.missionPack.author}
 	</div>
 	{#if hasPermission($session.user, Permission.VerifyMission)}
 		<a href={$page.url.href + '/edit'} class="top-right">Edit</a>

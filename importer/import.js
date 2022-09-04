@@ -10,11 +10,9 @@ const { PrismaClient } = pkg;
 		const missionPack = await client.missionPack.upsert({
 			create: {
 				name: pack.name,
-				author: pack.author,
 				steamId: pack.steamID,
 			},
 			update: {
-				author: pack.author,
 				steamId: pack.steamID,
 			},
 			where: {
@@ -26,6 +24,7 @@ const { PrismaClient } = pkg;
 			await client.mission.upsert({
 				create: {
 					name: mission.name,
+					author: mission.author,
 					bombs: {
 						create: mission.bombs
 					},

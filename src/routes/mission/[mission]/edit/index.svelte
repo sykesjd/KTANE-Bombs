@@ -72,6 +72,7 @@
 </svelte:head>
 <div class="block flex column relative">
 	<Input label="Name" id="mission-name" bind:value={mission.name} />
+	<Input label="Author" id="mission-author" bind:value={mission.author} />
 	<Input
 		label="Mission Pack"
 		id="mission-pack"

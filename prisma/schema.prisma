@@ -19,7 +19,6 @@ model User {
 model MissionPack {
   id       Int       @id @default(autoincrement())
   name     String    @unique
-  author   String
   steamId  String
   missions Mission[]
   verified Boolean   @default(true)
@@ -28,6 +27,7 @@ model MissionPack {
 model Mission {
   id          Int          @id @default(autoincrement())
   name        String       @unique
+  author      String
   bombs       Bomb[]
   completions Completion[]
   tpSolve     Boolean      @default(false)
