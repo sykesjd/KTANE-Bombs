@@ -6,7 +6,7 @@
 	import type { RepoModule } from '$lib/repo';
 	import Select from '$lib/Select.svelte';
 	import { Permission, type Completion, type ID, type Mission, type MissionPack } from '$lib/types';
-	import { formatTime, hasPermission, parseTime, pluralize } from '$lib/util';
+	import { formatTime, hasPermission, parseList, parseTime, pluralize } from '$lib/util';
 	import equal from 'fast-deep-equal';
 	import { getModule, sortBombs } from '../../_shared';
 	import type { EditMission } from './_types';
@@ -72,7 +72,7 @@
 </svelte:head>
 <div class="block flex column relative">
 	<Input label="Name" id="mission-name" bind:value={mission.name} />
-	<Input label="Author" id="mission-author" bind:value={mission.author} />
+	<Input label="Authors" id="mission-authors" bind:value={mission.authors} parse={parseList} />
 	<Input
 		label="Mission Pack"
 		id="mission-pack"

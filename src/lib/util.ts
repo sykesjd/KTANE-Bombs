@@ -99,3 +99,10 @@ export function getSolveTypes(mission: Mission) {
 		soloSolve: mission.completions.some((completion) => completion.solo)
 	};
 }
+
+export function parseList(value: string) {
+	return value
+		.split(',')
+		.map((name) => name.trim())
+		.filter((name) => name.length !== 0);
+}

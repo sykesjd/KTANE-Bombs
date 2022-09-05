@@ -27,7 +27,7 @@ export const get: RequestHandler<never, { queue: QueueItem[] }> = async function
 			select: {
 				id: true,
 				name: true,
-				author: true,
+				authors: true,
 				bombs: true,
 				factory: true
 			}

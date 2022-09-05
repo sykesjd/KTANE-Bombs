@@ -24,7 +24,7 @@ const { PrismaClient } = pkg;
 			await client.mission.upsert({
 				create: {
 					name: mission.name,
-					author: mission.author,
+					authors: mission.authors,
 					bombs: {
 						create: mission.bombs
 					},

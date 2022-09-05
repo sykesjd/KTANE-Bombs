@@ -2,6 +2,7 @@
 	import Input from '$lib/Input.svelte';
 	import MissionCard from '$lib/MissionCard.svelte';
 	import { Bomb, Mission, Pool, type MissionPackSelection } from '$lib/types';
+	import { parseList } from '$lib/util';
 	import { toasts } from 'svelte-toasts';
 
 	export let packs: MissionPackSelection[];
@@ -30,7 +31,7 @@
 					completions: [],
 					bombs: [],
 					name: '',
-					author: '',
+					authors: [],
 					tpSolve: false,
 					factory: '',
 					missionPack: null
@@ -146,7 +147,12 @@
 						bind:selected={selectedMissions[i]}
 					/>
 					<div class="block">
-						<Input label="Author" id="mission-author" bind:value={mission.author} />
+						<Input
+							label="Authors"
+							id="mission-authors"
+							bind:value={mission.authors}
+							parse={parseList}
+						/>
 						<Input
 							label="Mission Pack"
 							id="mission-pack"

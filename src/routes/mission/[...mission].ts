@@ -12,7 +12,7 @@ export async function get({ params, locals }: RequestEvent): Promise<RequestHand
 		},
 		select: {
 			name: true,
-			author: true,
+			authors: true,
 			verified: true,
 			bombs: true,
 			completions: {

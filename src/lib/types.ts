@@ -26,7 +26,7 @@ export type MissionPackSelection = Pick<ID<MissionPack>, 'id' | 'name'>;
 
 export class Mission {
 	name = '';
-	author = '';
+	authors: string[] = [];
 	bombs: Bomb[] = [];
 	completions: Completion[] = [];
 	tpSolve = false;

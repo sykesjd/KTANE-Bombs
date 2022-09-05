@@ -16,6 +16,14 @@ export const post: RequestHandler = async function ({ locals, request }) {
 		}
 	});
 
+	const missions = await client.mission.findMany({
+		where: {
+			authors: {
+				has: oldUsername
+			}
+		}
+	});
+
 	const queries = [
 		// User
 		client.user.update({
@@ -27,14 +35,16 @@ export const post: RequestHandler = async function ({ locals, request }) {
 			}
 		}),
 		// Mission
-		client.mission.updateMany({
-			where: {
-				author: oldUsername
-			},
-			data: {
-				author: username
-			}
-		}),
+		...missions.map((mission) =>
+			client.mission.update({
+				where: {
+					id: mission.id
+				},
+				data: {
+					authors: mission.authors.map((name) => (name === oldUsername ? username : name))
+				}
+			})
+		),
 		// Completions
 		...completions.map((completion) =>
 			client.completion.update({

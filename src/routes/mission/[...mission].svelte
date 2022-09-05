@@ -21,8 +21,8 @@
 <div class="block relative">
 	<h1 class="header">{mission.name}</h1>
 	<div style="text-align: center;">
-		by {mission.author}
-		in
+		by {mission.authors.join(', ')}
+		from
 		<a href="https://steamcommunity.com/sharedfiles/filedetails/?id={mission.missionPack.steamId}">
 			{mission.missionPack.name}
 		</a>

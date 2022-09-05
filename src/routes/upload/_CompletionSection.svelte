@@ -3,7 +3,7 @@
 	import CompletionCard from '$lib/CompletionCard.svelte';
 	import Input from '$lib/Input.svelte';
 	import { Completion } from '$lib/types';
-	import { formatTime, parseTime } from '$lib/util';
+	import { formatTime, parseList, parseTime } from '$lib/util';
 	import { toasts } from 'svelte-toasts';
 
 	export let missionNames: string[];
@@ -32,10 +32,7 @@
 			completion.proofs = [];
 		}
 
-		completion.team = teamString
-			.split(',')
-			.map((name) => name.trim())
-			.filter((name) => name.length !== 0);
+		completion.team = parseList(teamString);
 
 		if (completion.team.length > 1) completion.solo = false;
 

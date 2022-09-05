@@ -27,7 +27,7 @@ model MissionPack {
 model Mission {
   id          Int          @id @default(autoincrement())
   name        String       @unique
-  author      String
+  authors     String[]
   bombs       Bomb[]
   completions Completion[]
   tpSolve     Boolean      @default(false)

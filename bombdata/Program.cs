@@ -118,7 +118,7 @@ namespace bombdata
 					var mission = new Mission()
 					{
 						name = missionRow[0].Content.Trim(),
-						author = missionRow[2].Content.Trim(),
+						authors = missionRow[2].Content.Trim().Split(" & "),
 						bombs = sheet.Skip(1).Where(row => !string.IsNullOrEmpty(row[2].Content)).Select(row =>
 						{
 							return new Bomb()
@@ -319,7 +319,7 @@ namespace bombdata
 	internal class Mission
 	{
 		public string name { get; set; }
-		public string author { get; set; }
+		public string[] authors { get; set; }
 		public Bomb[] bombs { get; set; }
 		public List<Completion> completions { get; set; }
 		public bool tpsolve { get; set; }
