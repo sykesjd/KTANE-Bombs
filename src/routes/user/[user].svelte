@@ -93,9 +93,6 @@
 	.solves {
 		flex-wrap: wrap;
 		white-space: nowrap;
-
-		max-height: 250px;
-		overflow-y: scroll;
 	}
 
 	.solves a {
