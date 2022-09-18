@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { session } from '$app/stores';
-	import Checkbox from '$lib/Checkbox.svelte';
-	import Input from '$lib/Input.svelte';
-	import NoContent from '$lib/NoContent.svelte';
+	import Checkbox from '$lib/controls/Checkbox.svelte';
+	import Input from '$lib/controls/Input.svelte';
+	import NoContent from '$lib/comp/NoContent.svelte';
 	import type { RepoModule } from '$lib/repo';
-	import Select from '$lib/Select.svelte';
+	import Select from '$lib/controls/Select.svelte';
 	import { Permission, type Completion, type ID, type Mission, type MissionPack } from '$lib/types';
 	import { formatTime, hasPermission, parseList, parseTime, pluralize } from '$lib/util';
 	import equal from 'fast-deep-equal';

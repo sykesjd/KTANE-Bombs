@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Permission, type Mission, type MissionPack } from '$lib/types';
 	import { formatTime, hasPermission, pluralize } from '$lib/util';
-	import CompletionList from '$lib/CompletionList.svelte';
+	import CompletionList from '$lib/comp/CompletionList.svelte';
 	import type { RepoModule } from '$lib/repo';
 	import { page, session } from '$app/stores';
 	import { getModule, sortBombs } from './_shared';

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Completion } from './types';
-	import { formatTime } from './util';
+	import type { Completion } from '$lib/types';
+	import { formatTime } from '$lib/util';
 
 	export let completion: Completion;
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import MissionCardInner from './MissionCardInner.svelte';
-	import type { Mission } from './types';
+	import type { Mission } from '$lib/types';
 
 	export let mission: Mission;
 	export let selectable: boolean = false;

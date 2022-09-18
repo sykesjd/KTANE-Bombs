@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Bomb } from './types';
-	import type { Mission } from './types';
-	import { formatTime, getSolveTypes, listify } from './util';
+	import { Bomb } from '$lib/types';
+	import type { Mission } from '$lib/types';
+	import { formatTime, getSolveTypes, listify } from '$lib/util';
 
 	export let mission: Mission;
 	const solveTypes = getSolveTypes(mission);

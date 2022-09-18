@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { FrontendUser } from '$lib/types';
-	import UserCard from '$lib/UserCard.svelte';
+	import UserCard from '$lib/cards/UserCard.svelte';
 
 	export let users: FrontendUser[];
 
