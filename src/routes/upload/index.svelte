@@ -47,6 +47,10 @@
 		transition: border-bottom-color 0.25s;
 	}
 
+	.block {
+		cursor: pointer;
+	}
+
 	.selected {
 		border-bottom-color: var(--accent);
 	}
