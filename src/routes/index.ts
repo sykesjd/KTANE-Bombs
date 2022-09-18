@@ -8,6 +8,7 @@ export async function get(): Promise<RequestHandlerOutput> {
 		},
 		select: {
 			name: true,
+			authors: true,
 			bombs: true,
 			tpSolve: true,
 			factory: true,

@@ -35,7 +35,7 @@
 			: `This mission has been solved ${listify(solvers)}.`;
 </script>
 
-<div>{mission.name}</div>
+<div class="mission-name">{mission.name}</div>
 <div class="indicator" style:background={color} {title} />
 <div class="stats">
 	{statBomb.modules} Modules · {formatTime(statBomb.time)} · {statBomb.strikes}

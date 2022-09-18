@@ -2,15 +2,27 @@
 	export let id: string;
 	export let checked: any;
 	export let label: string = '';
+	export let sideLabel: boolean = false;
+	export let labelAfter: boolean = false;
 	export let disabled: boolean = false;
+	export let handleChange = () => {};
 </script>
 
-<div>
+<div class="{sideLabel ? 'hstack':''}">
+	{#if !labelAfter}
 	<label for={id}>
 		{label}
 		<slot />
 	</label>
-	<input {id} type="checkbox" bind:checked {disabled} />
+	{/if}
+	<input {id} type="checkbox" bind:checked {disabled}
+	 on:change={handleChange}/>
+	{#if labelAfter}
+	<label for={id}>
+		{label}
+		<slot />
+	</label>
+	{/if}
 </div>
 
 <style>
@@ -22,5 +34,15 @@
 		border-radius: 5px;
 		color: white;
 		box-sizing: border-box;
+	}
+	label {
+		cursor: pointer;
+		user-select: none;
+	}
+	.hstack {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 3px;
 	}
 </style>
