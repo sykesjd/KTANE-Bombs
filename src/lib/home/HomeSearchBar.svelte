@@ -39,7 +39,7 @@
 		layoutSearch.updateSearch();
 	}
 
-	function searchFilter(name:string, searchText:string) {
+	function bombSearchFilter(name:string, searchText:string) {
 		let searchWhat = '';
 		if (searchOptions.includes("names")) searchWhat += ' ' + name.toLowerCase();
 		if (searchOptions.includes("authors")) searchWhat += ' ' + missions.find(x => x.name == name)?.authors?.join(' ').toLowerCase();
@@ -58,7 +58,7 @@
 	<div class="spacer2"></div>
 	<LayoutSearchFilter id="bomb-search-field" label="Search:"
 		bind:items={missionCards}
-		filterFunc={searchFilter}
+		filterFunc={bombSearchFilter}
 		bind:numResults={resultsText}
 		bind:this={layoutSearch}/>
 	

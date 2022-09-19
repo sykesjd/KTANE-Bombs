@@ -59,17 +59,17 @@
 <div class="search-field-clear" on:click={clearSearch}></div>
 
 <style>
-    :global(.search-field) { min-width: 55px; }
-    :global(.search-filtered-out) { display: none !important; }
+	:global(.search-field) { min-width: 55px; }
+	:global(.search-filtered-out) { display: none !important; }
 
-    .search-field-clear {
-        background: url('$lib/img/clear-button.svg') right center no-repeat;
-        width: 1.25em;
-        height: 1.25em;
-        min-width: 1.25em;
-        margin-right: 5px;
-        display: inline-block;
-        vertical-align: middle;
-        cursor: pointer;
-    }
+	.search-field-clear {
+		background: url('$lib/img/clear-button.svg') right center no-repeat;
+		width: 1.25em;
+		height: 1.25em;
+		min-width: 1.25em;
+		margin-right: 5px;
+		display: inline-block;
+		vertical-align: middle;
+		cursor: pointer;
+	}
 </style>
