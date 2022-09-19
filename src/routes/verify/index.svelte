@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { QueueItem } from '$lib/types';
-	import MissionCard from '$lib/MissionCard.svelte';
+	import MissionCard from '$lib/cards/MissionCard.svelte';
 	import CompletionCard from '$lib/cards/CompletionCard.svelte';
 	import NoContent from '$lib/comp/NoContent.svelte';
 

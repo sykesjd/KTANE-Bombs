@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Input from '$lib/Input.svelte';
+	import Input from '$lib/controls/Input.svelte';
 	import type { MissionPack } from '$lib/types';
 	import { toasts } from 'svelte-toasts';
 
