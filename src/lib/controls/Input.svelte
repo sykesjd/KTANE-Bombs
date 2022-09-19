@@ -6,6 +6,7 @@
 	export let label: string = '';
 	export let type: string = 'text';
 	export let placeholder: string = '';
+	export let classes: string = '';
 	export let required: boolean = false;
 	export let sideLabel: boolean = false;
 	export let options: any[] | null = null;
@@ -63,6 +64,7 @@
 		{id}
 		{type}
 		{placeholder}
+		class={classes}
 		{required}
 		bind:this={input}
 		list={id + '-list'}

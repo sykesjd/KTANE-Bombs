@@ -2,6 +2,7 @@
 	import type { Mission } from '$lib/types';
 	import Checkbox from '$lib/controls/Checkbox.svelte';
 	import Input from '$lib/controls/Input.svelte';
+	import LayoutSearchFilter from '$lib/comp/LayoutSearchFilter.svelte';
 	import { onMount } from 'svelte';
 	import { writable, type Writable } from "svelte/store";
 	import { browser } from "$app/env";
@@ -9,12 +10,12 @@
 	let searchOptionsW: Writable<string | null>;
 	let searchOptions: string;
 	let searchField: HTMLInputElement | null;
-    export let missions: Mission[];
-    export let missionCards: any = {};
+	export let missions: Mission[];
+	export let missionCards: { [name: string]: any } = {};
 	export let validSearchOptions = [true, false];
 	export let searchOptionBoxes = ["names", "authors"];
-	export let searchText: string = "";
-    export let resultsText = missions.length;
+	// export let searchText: string = "";
+	export let resultsText = missions.length;
 
 	if (browser) {
 		searchOptions = localStorage.getItem("searchOptions") || '';
@@ -26,7 +27,7 @@
 			localStorage.setItem("searchOptions", value || '');
 		});
 	}
-	let searching = false;
+	let layoutSearch: LayoutSearchFilter;
 	
 	function setSearchOptions() {
 		let options = searchOptionBoxes.filter((_, idx) => { return validSearchOptions[idx]; });
@@ -35,45 +36,19 @@
 		searchOptionBoxes.forEach((o, i) => {
 			validSearchOptions[i] = searchOptions.includes(o);
 		});
-		updateSearch();
+		layoutSearch.updateSearch();
 	}
 
-	function clearSearch() {
-		searchText = '';
-		if (searchField) searchField.value = '';
-		Object.keys(missionCards).forEach(name => {
-			missionCards[name].style.display = "grid";
-		});
-		resultsText = missions.length;
-		searchField?.focus();
-	}
+	function searchFilter(name:string, searchText:string) {
+		let searchWhat = '';
+		if (searchOptions.includes("names")) searchWhat += ' ' + name.toLowerCase();
+		if (searchOptions.includes("authors")) searchWhat += ' ' + missions.find(x => x.name == name)?.authors?.join(' ').toLowerCase();
 
-	function updateSearch () {
-		searching = false;
-		updateSearchTerms();
-	}
-
-	function updateSearchTerms() {
-		resultsText = 0;
-		searching = true;
-		for (let i = 0; searching && i < missions.length; i++) {
-			let name = missions[i].name;
-			let searchWhat = '';
-			if (searchOptions.includes("names")) searchWhat += ' ' + name.toLowerCase();
-			if (searchOptions.includes("authors")) searchWhat += ' ' + missions[i].authors?.join(' ').toLowerCase();
-
-			if (searchWhat.includes(searchText.toLowerCase())) {
-				missionCards[name].style.display="grid";
-				resultsText++;
-			}
-			else
-				missionCards[name].style.display="none";
-		}
-		// console.log("Searched: " + searchText);
+		return searchWhat.includes(searchText.toLowerCase());
 	}
 
 	onMount(async ()=> {
-		searchField = <HTMLInputElement>document.getElementById("search-field");
+		searchField = <HTMLInputElement>document.getElementById("bomb-search-field");
 		searchField?.focus();
 	});
 </script>
@@ -81,10 +56,11 @@
 <div class="search-bar">
 	<span>Results: {resultsText}</span>
 	<div class="spacer2"></div>
-	<Input label="Search:" sideLabel={true} id="search-field"
-		handleInputCall={updateSearch}
-		bind:value={searchText}/>
-	<div class="search-field-clear" on:click={clearSearch}></div>
+	<LayoutSearchFilter id="bomb-search-field" label="Search:"
+		bind:items={missionCards}
+		filterFunc={searchFilter}
+		bind:numResults={resultsText}
+		bind:this={layoutSearch}/>
 	
 	{#each searchOptionBoxes as option, index}
 		<Checkbox id="search-by-{option}"
@@ -106,7 +82,6 @@
 		align-items: center;
 		gap: 3px;
 	}
-	:global(#search-field) { min-width: 55px; }
 	.search-bar > span { min-width: 100px; }
 	.search-bar .spacer { width: 50px; }
 	.search-bar .spacer2 { width: 100px; }
@@ -125,16 +100,5 @@
 		/* cursor: pointer; */
 		padding: .2em .7em .1em;
 		margin-left: .2em;
-	}
-
-	.search-field-clear {
-		background: url('$lib/img/clear-button.svg') right center no-repeat;
-		width: 1.25em;
-		height: 1.25em;
-		min-width: 1.25em;
-		margin-right: 5px;
-		display: inline-block;
-		vertical-align: middle;
-		cursor: pointer;
 	}
 </style>
