@@ -31,7 +31,6 @@
 					completions: [],
 					bombs: [],
 					name: '',
-					id: '',
 					authors: [],
 					tpSolve: false,
 					factory: '',
@@ -143,7 +142,7 @@
 				<div class="flex">
 					<MissionCard
 						{mission}
-						selectable={true}
+						selectable
 						id={i.toString()}
 						bind:selected={selectedMissions[i]}
 					/>

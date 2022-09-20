@@ -55,7 +55,7 @@
 	onMount(() => handleValidity(value));
 </script>
 
-<div class="{sideLabel ? 'hstack':''}">
+<div class:hstack={sideLabel}>
 	<label for={id}>
 		{label}
 		<slot />

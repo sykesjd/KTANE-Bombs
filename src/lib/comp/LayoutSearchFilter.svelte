@@ -58,11 +58,11 @@
 </script>
 
 {#if textArea}
-	<TextArea label={label} sideLabel={true} id={id} classes="search-field"
+	<TextArea label={label} sideLabel id={id} classes="search-field"
 			handleInputCall={updateSearch}
 			bind:value={rawSearchText}/>
 {:else}
-	<Input label={label} sideLabel={true} id={id} classes="search-field"
+	<Input label={label} sideLabel id={id} classes="search-field"
 			handleInputCall={updateSearch}
 			bind:value={rawSearchText}/>
 {/if}

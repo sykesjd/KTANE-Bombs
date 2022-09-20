@@ -8,7 +8,7 @@
 	export let handleChange = () => {};
 </script>
 
-<div class="{sideLabel ? 'hstack':''}">
+<div class:hstack={sideLabel}>
 	{#if !labelAfter}
 	<label for={id}>
 		{label}

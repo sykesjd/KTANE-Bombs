@@ -9,11 +9,6 @@
 	export let missionCards: any = {};
 
 	missions.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1));
-
-	onMount(async ()=> {
-		for (let i = 0; i < missions.length; i++)
-			missions[i].id = "mission-" + i;
-	});
 </script>
 
 <svelte:head>

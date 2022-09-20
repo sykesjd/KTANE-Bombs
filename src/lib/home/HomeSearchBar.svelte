@@ -67,7 +67,7 @@
 	<span>Results: {resultsText}</span>
 	<div class="spacer2"></div>
 	<LayoutSearchFilter id="bomb-search-field" label="Search:"
-		bind:items={missionCards} textArea={true}
+		bind:items={missionCards} textArea
 		filterFunc={bombSearchFilter}
 		bind:numResults={resultsText}
 		bind:this={layoutSearch}/>
@@ -75,7 +75,7 @@
 	{#each searchOptionBoxes as option, index}
 		<Checkbox id="search-by-{option}"
 			label={option.charAt(0).toUpperCase() + option.slice(1)}
-			sideLabel={true} labelAfter={true}
+			sideLabel labelAfter
 			handleChange={setSearchOptions}
 			bind:checked={validSearchOptions[index]}>
 		</Checkbox>
