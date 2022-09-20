@@ -107,13 +107,13 @@ export function parseList(value: string) {
 		.filter((name) => name.length !== 0);
 }
 
-function findMatchingBrackets(str:string, searchWhat:string): number[] {
-	let lPar = str.indexOf("[[");
-	let lPar2 = str.indexOf("[[", lPar + 2);
-	let rPar = str.indexOf("]]", lPar + 2);
+function findMatchingBrackets(str:string, left:string, right:string): number[] {
+	let lPar = str.indexOf(left);
+	let lPar2 = str.indexOf(left, lPar + 2);
+	let rPar = str.indexOf(right, lPar + 2);
 	while (lPar >= 0 && lPar2 >= 0 && rPar >= 0 && lPar2 < rPar) {
-		lPar2 = str.indexOf("[[", rPar + 2);
-		rPar = str.indexOf("]]", rPar + 2);
+		lPar2 = str.indexOf(left, rPar + 2);
+		rPar = str.indexOf(right, rPar + 2);
 	}
 
 	return [lPar, rPar];
@@ -124,24 +124,29 @@ function findMatchingBrackets(str:string, searchWhat:string): number[] {
 // which means: ("thing one" and "aaa") or ("bbb" and not "ccc")
 // brackets are supported too: [[ thing one || aaa ]] && [[ bbb || !!ccc ]]
 export function evaluateLogicalStringSearch(expression:string, searchWhat:string): boolean {
+	const left =	"[[";
+	const right =	"]]";
+	const aand =	"&&";
+	const oor =		"||";
+	const nnot =	"!!";
 	let expr = expression.trim();
 	let exprAfter = expr;
 
-	let br = findMatchingBrackets(expr, searchWhat);
+	let br = findMatchingBrackets(expr, left, right);
 	while (br[0] >= 0 && br[1] >= 0 && br[1] > br[0]) {		//valid parentheses found
 		let stripped = exprAfter.slice(br[0] + 2, br[1]);
 		let val = evaluateLogicalStringSearch(stripped, searchWhat);
 		exprAfter = exprAfter.slice(0, br[0]) + (val ? " " : "!@#%^&*)(*&#@!") + exprAfter.slice(br[1] + 2);
-		br = findMatchingBrackets(exprAfter, searchWhat);
+		br = findMatchingBrackets(exprAfter, left, right);
 	}
 
-	let searchParamOr = exprAfter.split("||").map(x => x.trim());
+	let searchParamOr = exprAfter.split(oor).map(x => x.trim());
 	let matches = false;
 	for (let oo = 0; !matches && oo < searchParamOr.length; oo++) {
-		let searchParamAnd = searchParamOr[oo].split("&&").map(x => x.trim());
+		let searchParamAnd = searchParamOr[oo].split(aand).map(x => x.trim());
 		matches = true;
 		for (let aa = 0; matches && aa < searchParamAnd.length; aa++) {
-			let notThis = searchParamAnd[aa].indexOf("!!") == 0;
+			let notThis = searchParamAnd[aa].indexOf(nnot) == 0;
 			if (notThis) {
 				let stripped = searchParamAnd[aa].slice(2).trim();
 				if (searchWhat.includes(stripped)) {

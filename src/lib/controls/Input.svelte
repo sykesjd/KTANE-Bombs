@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 
 	export let id: string;
 	export let value: any;
@@ -7,15 +7,15 @@
 	export let type: string = 'text';
 	export let placeholder: string = '';
 	export let classes: string = '';
+	export let title: string = '';
 	export let required: boolean = false;
 	export let sideLabel: boolean = false;
 	export let options: any[] | null = null;
 	export let display = (value: any) => value.toString();
 	export let parse = (value: string): any => value;
 	export let validate = (_value: any): boolean | string => true;
-	export let handleChange = () => {};
-	export let handleInputCall = () => {};
 
+	const dispatch = createEventDispatcher();
 	let input: HTMLInputElement;
 	let displayValue = display(value);
 
@@ -37,7 +37,7 @@
 		}
 
 		if (handleValidity(newValue)) value = newValue;
-		handleInputCall();
+		dispatch('inputevent');
 	};
 
 	function handleValidity(value: any) {
@@ -56,7 +56,7 @@
 </script>
 
 <div class:hstack={sideLabel}>
-	<label for={id}>
+	<label for={id} {title}>
 		{label}
 		<slot />
 	</label>
@@ -70,10 +70,11 @@
 		list={id + '-list'}
 		value={displayValue}
 		on:input={handleInput}
-		on:change={handleChange != undefined ? handleChange : () => {
+		on:change={() => {
 			if (error === '') {
 				displayValue = display(value);
 			}
+			dispatch('change');
 		}}
 	/>
 	{#if error}

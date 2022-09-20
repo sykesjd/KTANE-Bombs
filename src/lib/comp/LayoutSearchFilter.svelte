@@ -8,10 +8,12 @@
 	export let filterFunc: (itemKey:string, text:string) => boolean;
 	export let clearSearchFunc: () => void = () => {};
 	export let searchText: string = '';
-	export let textArea = false;
-	export let numResults = 0;
-	export let showNoneForBlank = false;
-	export let searching = false;
+	export let title: string = '';
+	export let textArea: boolean = false;
+	export let autoExpand: boolean = false;
+	export let numResults: number = 0;
+	export let showNoneForBlank: boolean = false;
+	export let searching: boolean = false;
 	
 	let searchField: HTMLInputElement | null;
 	let rawSearchText: string = '';
@@ -58,12 +60,12 @@
 </script>
 
 {#if textArea}
-	<TextArea label={label} sideLabel id={id} classes="search-field"
-			handleInputCall={updateSearch}
+	<TextArea {label} {id} {title} sideLabel classes="search-field"
+			on:inputevent={updateSearch} {autoExpand}
 			bind:value={rawSearchText}/>
 {:else}
-	<Input label={label} sideLabel id={id} classes="search-field"
-			handleInputCall={updateSearch}
+	<Input {label} {id} {title} sideLabel classes="search-field"
+			on:inputevent={updateSearch}
 			bind:value={rawSearchText}/>
 {/if}
 <div class="search-field-clear" on:click={clearSearch}></div>

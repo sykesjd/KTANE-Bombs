@@ -15,9 +15,13 @@
 	export let missionCards: { [name: string]: any } = {};
 	export let validSearchOptions: boolean[] = [];
 	export let searchOptionBoxes = ["names", "authors", "invert"];
-	// export let searchText: string = "";
 	export let resultsText = missions.length;
 	const defaultSearchOptions = [true, false, false];
+	const searchTooltip =
+		'Logical operators supported: &&(and), ||(or), !!(not)\n'+
+		'Example: thing one && aaa || bbb && !!ccc\n'+
+		'Which means: ("thing one" AND "aaa") OR ("bbb" AND NOT "ccc")\n'+
+		'Brackets are supported too: [[ thing one || aaa ]] && [[ bbb || !!ccc ]]'
 
 	if (browser) {
 		let op = localStorage.getItem("searchOptions");
@@ -45,10 +49,6 @@
 		layoutSearch.updateSearch();
 	}
 
-	// Logical operators supported: &&(and), ||(or), !!(not)
-	// example: thing one && aaa || bbb && !!ccc
-	// which means: ("thing one" and "aaa") or ("bbb" and not "ccc")
-	// brakets are supported too: [[ thing one || aaa ]] && [[ bbb || !!ccc ]]
 	function bombSearchFilter(name:string, searchText:string) {
 		let searchWhat = '';
 		if (searchOptions.includes("names")) searchWhat += ' ' + name.toLowerCase();
@@ -67,7 +67,8 @@
 	<span>Results: {resultsText}</span>
 	<div class="spacer2"></div>
 	<LayoutSearchFilter id="bomb-search-field" label="Search:"
-		bind:items={missionCards} textArea
+		title={searchTooltip} textArea autoExpand
+		bind:items={missionCards}
 		filterFunc={bombSearchFilter}
 		bind:numResults={resultsText}
 		bind:this={layoutSearch}/>
@@ -76,7 +77,7 @@
 		<Checkbox id="search-by-{option}"
 			label={option.charAt(0).toUpperCase() + option.slice(1)}
 			sideLabel labelAfter
-			handleChange={setSearchOptions}
+			on:change={setSearchOptions}
 			bind:checked={validSearchOptions[index]}>
 		</Checkbox>
 	{/each}
