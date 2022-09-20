@@ -106,3 +106,54 @@ export function parseList(value: string) {
 		.map((name) => name.trim())
 		.filter((name) => name.length !== 0);
 }
+
+function findMatchingBrackets(str:string, searchWhat:string): number[] {
+	let lPar = str.indexOf("[[");
+	let lPar2 = str.indexOf("[[", lPar + 2);
+	let rPar = str.indexOf("]]", lPar + 2);
+	while (lPar >= 0 && lPar2 >= 0 && rPar >= 0 && lPar2 < rPar) {
+		lPar2 = str.indexOf("[[", rPar + 2);
+		rPar = str.indexOf("]]", rPar + 2);
+	}
+
+	return [lPar, rPar];
+}
+
+// logical operators supported: &&(and), ||(or), !!(not)
+// example: thing one && aaa || bbb && !!ccc
+// which means: ("thing one" and "aaa") or ("bbb" and not "ccc")
+// brackets are supported too: [[ thing one || aaa ]] && [[ bbb || !!ccc ]]
+export function evaluateLogicalStringSearch(expression:string, searchWhat:string): boolean {
+	let expr = expression.trim();
+	let exprAfter = expr;
+
+	let br = findMatchingBrackets(expr, searchWhat);
+	while (br[0] >= 0 && br[1] >= 0 && br[1] > br[0]) {		//valid parentheses found
+		let stripped = exprAfter.slice(br[0] + 2, br[1]);
+		let val = evaluateLogicalStringSearch(stripped, searchWhat);
+		exprAfter = exprAfter.slice(0, br[0]) + (val ? " " : "!@#%^&*)(*&#@!") + exprAfter.slice(br[1] + 2);
+		br = findMatchingBrackets(exprAfter, searchWhat);
+	}
+
+	let searchParamOr = exprAfter.split("||").map(x => x.trim());
+	let matches = false;
+	for (let oo = 0; !matches && oo < searchParamOr.length; oo++) {
+		let searchParamAnd = searchParamOr[oo].split("&&").map(x => x.trim());
+		matches = true;
+		for (let aa = 0; matches && aa < searchParamAnd.length; aa++) {
+			let notThis = searchParamAnd[aa].indexOf("!!") == 0;
+			if (notThis) {
+				let stripped = searchParamAnd[aa].slice(2).trim();
+				if (searchWhat.includes(stripped)) {
+					matches = false;
+					break;
+				}
+			}
+			else if (!searchWhat.includes(searchParamAnd[aa])) {
+				matches = false;
+				break;
+			}
+		}
+	}
+	return matches;
+}

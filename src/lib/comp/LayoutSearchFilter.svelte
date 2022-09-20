@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Input from '$lib/controls/Input.svelte';
+	import TextArea from '$lib/controls/TextArea.svelte';
 
 	export let id: string;
 	export let label: string = "Find:";
@@ -7,14 +8,16 @@
 	export let filterFunc: (itemKey:string, text:string) => boolean;
 	export let clearSearchFunc: () => void = () => {};
 	export let searchText: string = '';
+	export let textArea = false;
 	export let numResults = 0;
 	export let showNoneForBlank = false;
 	export let searching = false;
 	
 	let searchField: HTMLInputElement | null;
+	let rawSearchText: string = '';
 
 	function clearSearch() {
-		searchText = '';
+		rawSearchText = '';
 		searchField = <HTMLInputElement>document.getElementById(id);
 		if (searchField) searchField.value = '';
 		Object.keys(items).forEach(name => {
@@ -31,6 +34,7 @@
 
 	export const updateSearch = () => {
 		searching = false;
+		searchText = rawSearchText.replace(/[\r\n]/g, ' ').trim();
 		updateSearchFilter();
 	}
 
@@ -53,13 +57,19 @@
 
 </script>
 
-<Input label={label} sideLabel={true} id={id} classes="search-field"
-		handleInputCall={updateSearch}
-		bind:value={searchText}/>
+{#if textArea}
+	<TextArea label={label} sideLabel={true} id={id} classes="search-field"
+			handleInputCall={updateSearch}
+			bind:value={rawSearchText}/>
+{:else}
+	<Input label={label} sideLabel={true} id={id} classes="search-field"
+			handleInputCall={updateSearch}
+			bind:value={rawSearchText}/>
+{/if}
 <div class="search-field-clear" on:click={clearSearch}></div>
 
 <style>
-	:global(.search-field) { min-width: 55px; }
+	:global(.search-field) { min-width: 65px; }
 	:global(.search-filtered-out) { display: none !important; }
 
 	.search-field-clear {

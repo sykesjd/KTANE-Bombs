@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Mission } from '$lib/types';
+	import { evaluateLogicalStringSearch } from '$lib/util';
 	import Checkbox from '$lib/controls/Checkbox.svelte';
 	import Input from '$lib/controls/Input.svelte';
 	import LayoutSearchFilter from '$lib/comp/LayoutSearchFilter.svelte';
@@ -7,31 +8,36 @@
 	import { writable, type Writable } from "svelte/store";
 	import { browser } from "$app/env";
 
-	let searchOptionsW: Writable<string | null>;
-	let searchOptions: string;
+	let searchOptionsW: Writable<string[] | null>;
+	let searchOptions: string[];
 	let searchField: HTMLInputElement | null;
 	export let missions: Mission[];
 	export let missionCards: { [name: string]: any } = {};
-	export let validSearchOptions = [true, false];
-	export let searchOptionBoxes = ["names", "authors"];
+	export let validSearchOptions: boolean[] = [];
+	export let searchOptionBoxes = ["names", "authors", "invert"];
 	// export let searchText: string = "";
 	export let resultsText = missions.length;
+	const defaultSearchOptions = [true, false, false];
 
 	if (browser) {
-		searchOptions = localStorage.getItem("searchOptions") || '';
-		searchOptionBoxes.forEach((o, i) => {
-			validSearchOptions[i] = searchOptions.includes(o);
-		});
+		let op = localStorage.getItem("searchOptions");
+		searchOptions = JSON.parse(op || '[]');
+		if (searchOptions.length > 0)
+			searchOptionBoxes.forEach((o, i) => { validSearchOptions[i] = searchOptions.includes(o); });
+		else {
+			defaultSearchOptions.forEach((o, i) => { validSearchOptions[i] = o; });
+			searchOptions = searchOptionBoxes.filter((_,i) => validSearchOptions[i]);
+		}
 		searchOptionsW = writable(searchOptions);
 		searchOptionsW.subscribe(value => {
-			localStorage.setItem("searchOptions", value || '');
+			localStorage.setItem("searchOptions", JSON.stringify(value || ''));
 		});
 	}
 	let layoutSearch: LayoutSearchFilter;
 	
 	function setSearchOptions() {
 		let options = searchOptionBoxes.filter((_, idx) => { return validSearchOptions[idx]; });
-		searchOptions = JSON.stringify(options);
+		searchOptions = options;
 		searchOptionsW.set(searchOptions);
 		searchOptionBoxes.forEach((o, i) => {
 			validSearchOptions[i] = searchOptions.includes(o);
@@ -39,12 +45,16 @@
 		layoutSearch.updateSearch();
 	}
 
+	// Logical operators supported: &&(and), ||(or), !!(not)
+	// example: thing one && aaa || bbb && !!ccc
+	// which means: ("thing one" and "aaa") or ("bbb" and not "ccc")
+	// brakets are supported too: [[ thing one || aaa ]] && [[ bbb || !!ccc ]]
 	function bombSearchFilter(name:string, searchText:string) {
 		let searchWhat = '';
 		if (searchOptions.includes("names")) searchWhat += ' ' + name.toLowerCase();
 		if (searchOptions.includes("authors")) searchWhat += ' ' + missions.find(x => x.name == name)?.authors?.join(' ').toLowerCase();
 
-		return searchWhat.includes(searchText.toLowerCase());
+		return searchOptions.includes("invert") != evaluateLogicalStringSearch(searchText, searchWhat);
 	}
 
 	onMount(async ()=> {
@@ -57,7 +67,7 @@
 	<span>Results: {resultsText}</span>
 	<div class="spacer2"></div>
 	<LayoutSearchFilter id="bomb-search-field" label="Search:"
-		bind:items={missionCards}
+		bind:items={missionCards} textArea={true}
 		filterFunc={bombSearchFilter}
 		bind:numResults={resultsText}
 		bind:this={layoutSearch}/>
@@ -100,5 +110,6 @@
 		/* cursor: pointer; */
 		padding: .2em .7em .1em;
 		margin-left: .2em;
+		align-self: flex-end;
 	}
 </style>
