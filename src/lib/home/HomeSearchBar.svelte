@@ -1,27 +1,32 @@
 <script lang="ts">
 	import type { Mission } from '$lib/types';
-	import { evaluateLogicalStringSearch } from '$lib/util';
+	import { evaluateLogicalStringSearch, disappear, popup, titleCase } from '$lib/util';
 	import Checkbox from '$lib/controls/Checkbox.svelte';
 	import Input from '$lib/controls/Input.svelte';
 	import LayoutSearchFilter from '$lib/comp/LayoutSearchFilter.svelte';
 	import { onMount } from 'svelte';
 	import { writable, type Writable } from "svelte/store";
 	import { browser } from "$app/env";
+	import HomeFilters from './HomeFilters.svelte';
 
 	let searchOptionsW: Writable<string[] | null>;
 	let searchOptions: string[];
 	let searchField: HTMLInputElement | null;
+	let filters: HTMLDivElement;
+	let filterTab: HTMLDivElement;
 	export let missions: Mission[];
 	export let missionCards: { [name: string]: any } = {};
 	export let validSearchOptions: boolean[] = [];
-	export let searchOptionBoxes = ["names", "authors", "invert"];
+	export let searchOptionBoxes = ["names", "authors", "solved by", "invert"];
 	export let resultsText = missions.length;
-	const defaultSearchOptions = [true, false, false];
+	const defaultSearchOptions = [true, false, false, false];
 	const searchTooltip =
 		'Logical operators supported: &&(and), ||(or), !!(not)\n'+
 		'Example: thing one && aaa || bbb && !!ccc\n'+
 		'Which means: ("thing one" AND "aaa") OR ("bbb" AND NOT "ccc")\n'+
 		'Brackets are supported too: [[ thing one || aaa ]] && [[ bbb || !!ccc ]]'
+
+	let prevDisap = 0;
 
 	if (browser) {
 		let op = localStorage.getItem("searchOptions");
@@ -53,6 +58,8 @@
 		let searchWhat = '';
 		if (searchOptions.includes("names")) searchWhat += ' ' + name.toLowerCase();
 		if (searchOptions.includes("authors")) searchWhat += ' ' + missions.find(x => x.name == name)?.authors?.join(' ').toLowerCase();
+		if (searchOptions.includes("solved by"))
+			searchWhat += ' ' + missions.find(x => x.name == name)?.completions.map(x => x.team.join(' ')).join(' ').toLowerCase();
 
 		return searchOptions.includes("invert") != evaluateLogicalStringSearch(searchText, searchWhat);
 	}
@@ -61,10 +68,13 @@
 		searchField = <HTMLInputElement>document.getElementById("bomb-search-field");
 		searchField?.focus();
 		layoutSearch.updateSearch();
+		document.onclick = () => {
+			prevDisap = disappear(prevDisap);
+		}
 	});
 </script>
 
-<div class="search-bar">
+<div class="search-bar hstack">
 	<span>Results: {resultsText}</span>
 	<div class="spacer2"></div>
 	<LayoutSearchFilter id="bomb-search-field" label="Search:"
@@ -74,34 +84,68 @@
 		bind:numResults={resultsText}
 		bind:this={layoutSearch}/>
 	
+	<div class="hstack boxes">
 	{#each searchOptionBoxes as option, index}
-		<Checkbox id="search-by-{option}"
-			label={option.charAt(0).toUpperCase() + option.slice(1)}
+		<Checkbox id="search-by-{option.replace(/ /g,'')}"
+			label={titleCase(option)}
 			sideLabel labelAfter
 			on:change={setSearchOptions}
-			bind:checked={validSearchOptions[index]}>
-		</Checkbox>
+			bind:checked={validSearchOptions[index]}/>
 	{/each}
+	</div>
 	<div class="spacer"></div>
-	<div class="tab">Filters</div>
+	<div class="tab filter-tab"
+		bind:this={filterTab}
+		on:click={(event) => {
+			prevDisap = popup(event, filters, filterTab, prevDisap + 2);
+		}}>
+		Filters
+	</div>
+	<HomeFilters bind:div={filters}
+		on:click={() => prevDisap++}/>
+	
 </div>
 
 <style>
 	.search-bar {
-		display: flex;
-		flex-direction: row;
 		justify-content: center;
-		align-items: center;
 		gap: 3px;
 	}
 	.search-bar > span { min-width: 100px; }
 	.search-bar .spacer { width: 50px; }
 	.search-bar .spacer2 { width: 100px; }
 
-	.tab {
-		/* background-color: #eef; */
-		background-color: #BBB;
-		color: #024;
+	.hstack.boxes {
+		width: 250px;
+		flex-wrap: wrap;
+	}
+
+	:global(.popup) {
+		display: block;
+		position: absolute;
+		border: 1px solid black;
+		padding: 1em;
+		background: #fafaff;
+		box-shadow: 5px 5px 5px rgba(0,0,0,.3);
+		z-index: 100;
+	}
+	
+	:global(.hstack) {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	:global(.hidden) {
+		display: none !important;
+	}
+
+	.filter-tab {
+		background-image: url('$lib/img/filter-icon.png');
+	}
+	:global(.search-bar .tab) {
+		display: inline-block;
+		background-color: #eef;
 		border: 1px solid #eef;
 		border-bottom: none;
 		border-top-color: #ccf;
@@ -109,9 +153,15 @@
 		border-right-width: 2px;
 		border-top-left-radius: .5em;
 		border-top-right-radius: .5em;
-		/* cursor: pointer; */
-		padding: .2em .7em .1em;
+		text-decoration: none;
+		color: #024;
+		cursor: pointer;
+	    padding: .2em .5em .115em 28px;
 		margin-left: .2em;
+		vertical-align: bottom;
+		background-size: 20px 20px;
+		background-position: 4px center;
+		background-repeat: no-repeat;
 		align-self: flex-end;
 	}
 </style>

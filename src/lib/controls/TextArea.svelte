@@ -104,9 +104,6 @@
 		box-sizing: border-box;
 	}
 	.hstack {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
 		gap: 3px;
 	}
 	label {

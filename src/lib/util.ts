@@ -162,3 +162,58 @@ export function evaluateLogicalStringSearch(expression:string, searchWhat:string
 	}
 	return matches;
 }
+
+export function getWindowWidth(): number {
+	return Math.max(
+		document.body.scrollWidth,
+		document.documentElement.scrollWidth,
+		document.body.offsetWidth,
+		document.documentElement.offsetWidth,
+		document.documentElement.clientWidth
+	);
+}
+  
+export function getWindowHeight(): number {
+	return Math.max(
+		document.body.scrollHeight,
+		document.documentElement.scrollHeight,
+		document.body.offsetHeight,
+		document.documentElement.offsetHeight,
+		document.documentElement.clientHeight
+	);
+}
+
+export function disappear(preventDisappear:number = 0): number {
+	if (preventDisappear === 0)
+	{
+		let toHide = document.getElementsByClassName('disappear');
+		for (let i = 0; i < toHide.length; i++)
+			toHide[i].classList.add("hidden");
+	}
+	else
+		return preventDisappear - 1;
+	return preventDisappear;
+}
+
+export function popup (event:any, wnd:HTMLElement, obj:HTMLElement, pd:number, skew:number[] = [0,0], page:HTMLElement | null = null): number {
+	let wasHidden = wnd.classList.contains('hidden');
+	let pd2 = disappear(pd);
+	if (wasHidden) {
+		wnd.style.left = '';
+		wnd.style.top = '';
+		wnd.classList.remove("hidden");
+		// Desktop interface: position relative to the click
+		if (!page) page = wnd.parentElement;
+		let maxLeft = Math.max(getWindowWidth() - wnd.clientWidth - 30, 0);
+		let maxTop = Math.max(getWindowHeight() - wnd.clientHeight - 30, 0);
+		let rect = obj.getBoundingClientRect();
+		wnd.style.left = Math.min(event.clientX - wnd.clientWidth*0.75 + skew[0], maxLeft) + 'px';
+		wnd.style.top = Math.min(rect.bottom + skew[1], maxTop) + 'px';
+	}
+
+	return pd2;
+}
+
+export function titleCase(str:string): string {
+	return str.split(" ").map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(" ");
+}
