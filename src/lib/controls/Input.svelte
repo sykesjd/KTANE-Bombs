@@ -37,7 +37,7 @@
 		}
 
 		if (handleValidity(newValue)) value = newValue;
-		dispatch('inputevent');
+		dispatch('input');
 	};
 
 	function handleValidity(value: any) {

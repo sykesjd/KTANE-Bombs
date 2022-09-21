@@ -1,14 +1,10 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
-
 	export let id: string;
 	export let checked: any;
 	export let label: string = '';
 	export let sideLabel: boolean = false;
 	export let labelAfter: boolean = false;
 	export let disabled: boolean = false;
-
-	const dispatch = createEventDispatcher();
 </script>
 
 <div class:hstack={sideLabel}>
@@ -19,7 +15,7 @@
 	</label>
 	{/if}
 	<input {id} type="checkbox" bind:checked {disabled}
-		on:change={() => dispatch('change')}/>
+		on:change/>
 	{#if labelAfter}
 	<label for={id}>
 		{label}

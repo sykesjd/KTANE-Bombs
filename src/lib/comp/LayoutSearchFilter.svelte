@@ -1,12 +1,12 @@
 <script lang="ts">
 	import Input from '$lib/controls/Input.svelte';
 	import TextArea from '$lib/controls/TextArea.svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 
 	export let id: string;
 	export let label: string = "Find:";
 	export let items: { [name: string]: any };
 	export let filterFunc: (itemKey:string, text:string) => boolean;
-	export let clearSearchFunc: () => void = () => {};
 	export let searchText: string = '';
 	export let title: string = '';
 	export let textArea: boolean = false;
@@ -15,12 +15,12 @@
 	export let showNoneForBlank: boolean = false;
 	export let searching: boolean = false;
 	
+	const dispatch = createEventDispatcher();
 	let searchField: HTMLInputElement | null;
 	let rawSearchText: string = '';
 
 	function clearSearch() {
 		rawSearchText = '';
-		searchField = <HTMLInputElement>document.getElementById(id);
 		if (searchField) searchField.value = '';
 		Object.keys(items).forEach(name => {
 			if (showNoneForBlank)
@@ -30,7 +30,7 @@
 		});
 		if (showNoneForBlank) numResults = 0;
 		else numResults = Object.keys(items).length;
-		clearSearchFunc();
+		dispatch('clearsearch');
 		searchField?.focus();
 	}
 
@@ -54,18 +54,20 @@
 				items[item].classList.add("search-filtered-out");
 		});
 		searching = false;
-		// console.log("Searched: " + searchText);
 	}
 
+	onMount(() => {
+		searchField = <HTMLInputElement>document.getElementById(id);
+	});
 </script>
 
 {#if textArea}
 	<TextArea {label} {id} {title} sideLabel classes="search-field"
-			on:inputevent={updateSearch} {autoExpand}
+			on:input={updateSearch} {autoExpand}
 			bind:value={rawSearchText}/>
 {:else}
 	<Input {label} {id} {title} sideLabel classes="search-field"
-			on:inputevent={updateSearch}
+			on:input={updateSearch}
 			bind:value={rawSearchText}/>
 {/if}
 <div class="search-field-clear" on:click={clearSearch}></div>

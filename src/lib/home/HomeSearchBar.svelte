@@ -60,6 +60,7 @@
 	onMount(async ()=> {
 		searchField = <HTMLInputElement>document.getElementById("bomb-search-field");
 		searchField?.focus();
+		layoutSearch.updateSearch();
 	});
 </script>
 

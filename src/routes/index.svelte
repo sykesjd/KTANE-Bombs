@@ -20,7 +20,7 @@
 </HomeSearchBar>
 <div class="bombs">
 	{#each missions as mission, index}
-		<MissionCard mission={mission} 
+		<MissionCard {mission} 
 			id={'mission-' + index}
 			bind:card={missionCards[mission.name]}/>
 	{/each}

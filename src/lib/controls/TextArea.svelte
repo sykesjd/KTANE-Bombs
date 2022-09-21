@@ -41,7 +41,7 @@
 			text_area.style.height = "";
 			text_area.style.height = (text_area.scrollHeight + 3) + "px";
 		}
-		dispatch('inputevent');
+		dispatch('input');
 	};
 
 	function handleValidity(value: any) {
@@ -59,7 +59,7 @@
 	onMount(() => handleValidity(value));
 </script>
 
-<div class="{sideLabel ? 'hstack':''}">
+<div class:hstack={sideLabel}>
 	<label for={id} {title}>
 		{label}
 		<slot />
