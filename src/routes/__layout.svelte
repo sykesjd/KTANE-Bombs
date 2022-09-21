@@ -2,7 +2,7 @@
 	import { session } from '$app/stores';
 	import { Permission } from '$lib/types';
 	import type { FrontendUser } from '$lib/types';
-	import UserCard from '$lib/UserCard.svelte';
+	import UserCard from '$lib/cards/UserCard.svelte';
 	import { hasPermission, hasAnyPermission } from '$lib/util';
 	import { onMount } from 'svelte';
 	import { toasts, ToastContainer, FlatToast } from 'svelte-toasts';

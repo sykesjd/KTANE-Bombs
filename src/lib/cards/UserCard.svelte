@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { FrontendUser } from './types';
+	import type { FrontendUser } from '$lib/types';
 
 	export let user: FrontendUser;
 </script>

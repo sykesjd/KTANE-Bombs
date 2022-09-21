@@ -1,8 +1,12 @@
 <script lang="ts">
-	import MissionCard from '$lib/MissionCard.svelte';
+	import MissionCard from '$lib/cards/MissionCard.svelte';
+	import HomeSearchBar from '$lib/home/HomeSearchBar.svelte';
 	import type { Mission } from '$lib/types';
+	import { onMount } from 'svelte';
+
 
 	export let missions: Mission[];
+	export let missionCards: any = {};
 
 	missions.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1));
 </script>
@@ -11,9 +15,14 @@
 	<title>Challenge Bombs</title>
 </svelte:head>
 <h1 class="header">Challenge Bombs</h1>
+<HomeSearchBar missions={missions}
+	missionCards={missionCards}>
+</HomeSearchBar>
 <div class="bombs">
-	{#each missions as mission}
-		<MissionCard {mission} />
+	{#each missions as mission, index}
+		<MissionCard {mission} 
+			id={'mission-' + index}
+			bind:card={missionCards[mission.name]}/>
 	{/each}
 </div>
 

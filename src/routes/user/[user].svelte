@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { session } from '$app/stores';
-	import Dialog from '$lib/Dialog.svelte';
-	import Input from '$lib/Input.svelte';
+	import Dialog from '$lib/controls/Dialog.svelte';
+	import Input from '$lib/controls/Input.svelte';
 	import { Completion, Mission, Permission, type FrontendUser } from '$lib/types';
 	import { hasPermission } from '$lib/util';
 	import UserPermissions from './_UserPermissions.svelte';

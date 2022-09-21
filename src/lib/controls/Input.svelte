@@ -1,17 +1,21 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 
 	export let id: string;
 	export let value: any;
-	export let label: string;
+	export let label: string = '';
 	export let type: string = 'text';
 	export let placeholder: string = '';
+	export let classes: string = '';
+	export let title: string = '';
 	export let required: boolean = false;
+	export let sideLabel: boolean = false;
 	export let options: any[] | null = null;
 	export let display = (value: any) => value.toString();
 	export let parse = (value: string): any => value;
 	export let validate = (_value: any): boolean | string => true;
 
+	const dispatch = createEventDispatcher();
 	let input: HTMLInputElement;
 	let displayValue = display(value);
 
@@ -33,6 +37,7 @@
 		}
 
 		if (handleValidity(newValue)) value = newValue;
+		dispatch('input');
 	};
 
 	function handleValidity(value: any) {
@@ -50,8 +55,8 @@
 	onMount(() => handleValidity(value));
 </script>
 
-<div>
-	<label for={id}>
+<div class:hstack={sideLabel}>
+	<label for={id} {title}>
 		{label}
 		<slot />
 	</label>
@@ -59,6 +64,7 @@
 		{id}
 		{type}
 		{placeholder}
+		class={classes}
 		{required}
 		bind:this={input}
 		list={id + '-list'}
@@ -68,6 +74,7 @@
 			if (error === '') {
 				displayValue = display(value);
 			}
+			dispatch('change');
 		}}
 	/>
 	{#if error}
@@ -91,5 +98,14 @@
 		color: white;
 		width: 100%;
 		box-sizing: border-box;
+	}
+	.hstack {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 3px;
+	}
+	label {
+		user-select: none;
 	}
 </style>

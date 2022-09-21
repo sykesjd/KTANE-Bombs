@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Input from '$lib/Input.svelte';
-	import MissionCard from '$lib/MissionCard.svelte';
+	import Input from '$lib/controls/Input.svelte';
+	import MissionCard from '$lib/cards/MissionCard.svelte';
 	import { Bomb, Mission, Pool, type MissionPackSelection } from '$lib/types';
 	import { parseList } from '$lib/util';
 	import { toasts } from 'svelte-toasts';
@@ -142,7 +142,7 @@
 				<div class="flex">
 					<MissionCard
 						{mission}
-						selectable={true}
+						selectable
 						id={i.toString()}
 						bind:selected={selectedMissions[i]}
 					/>

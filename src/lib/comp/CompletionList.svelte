@@ -1,7 +1,7 @@
 <script lang="ts">
-	import CompletionCard from './CompletionCard.svelte';
-	import NoContent from './NoContent.svelte';
-	import type { Mission } from './types';
+	import CompletionCard from '$lib/cards/CompletionCard.svelte';
+	import NoContent from '$lib/comp/NoContent.svelte';
+	import type { Mission } from '$lib/types';
 
 	export let mission: Pick<Mission, 'completions' | 'tpSolve'>;
 

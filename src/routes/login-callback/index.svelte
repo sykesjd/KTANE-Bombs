@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Input from '$lib/Input.svelte';
+	import Input from '$lib/controls/Input.svelte';
 	import type { TokenRequestResult } from 'discord-oauth2';
 
 	export let result: TokenRequestResult;

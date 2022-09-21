@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Checkbox from '$lib/Checkbox.svelte';
-	import CompletionCard from '$lib/CompletionCard.svelte';
-	import Input from '$lib/Input.svelte';
+	import Checkbox from '$lib/controls/Checkbox.svelte';
+	import CompletionCard from '$lib/cards/CompletionCard.svelte';
+	import Input from '$lib/controls/Input.svelte';
 	import { Completion } from '$lib/types';
 	import { formatTime, parseList, parseTime } from '$lib/util';
 	import { toasts } from 'svelte-toasts';
