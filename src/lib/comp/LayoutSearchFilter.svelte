@@ -21,7 +21,6 @@
 
 	function clearSearch() {
 		rawSearchText = '';
-		if (searchField) searchField.value = '';
 		Object.keys(items).forEach(name => {
 			if (showNoneForBlank)
 				items[name].classList.add("search-filtered-out");

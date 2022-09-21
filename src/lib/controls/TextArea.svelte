@@ -18,7 +18,7 @@
 
 	const dispatch = createEventDispatcher();
 	let text_area: HTMLTextAreaElement;
-	let displayValue = display(value);
+	$: displayValue = display(value);
 
 	let error = '';
 

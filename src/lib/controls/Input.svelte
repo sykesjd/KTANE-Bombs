@@ -17,7 +17,7 @@
 
 	const dispatch = createEventDispatcher();
 	let input: HTMLInputElement;
-	let displayValue = display(value);
+	$: displayValue = display(value);
 
 	let error = '';
 
