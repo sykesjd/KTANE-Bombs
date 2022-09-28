@@ -1,14 +1,13 @@
 <script lang="ts">
-	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
 
 	import MissionCard from '$lib/cards/MissionCard.svelte';
 	import HomeSearchBar from '$lib/home/HomeSearchBar.svelte';
 	import type { Mission } from '$lib/types';
 	import type { RepoModule } from '$lib/repo';
-
-	export let missions: Mission[];
-	export let missionCards: any = {};
-	export let modules: RepoModule[];
+	export let data;
+	let missions: Mission[] = data.missions;
+	let missionCards: any = {};
+	let modules: RepoModule[] = data.modules;
 
 	let render = false;
 	let searchBar: HomeSearchBar;

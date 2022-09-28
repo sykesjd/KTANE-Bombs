@@ -1,4 +1,3 @@
-throw new Error("@migration task: Update +page.server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
 
 import client from '$lib/client';
 import type { CompletionQueueItem, MissionQueueItem, QueueItem } from '$lib/types';
@@ -6,7 +5,7 @@ import { Permission, type MissionPackQueueItem } from '$lib/types';
 import { fixPools, forbidden, hasAnyPermission, hasPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
 
-export const get: RequestHandler<never, { queue: QueueItem[] }> = async function ({ locals }) {
+export const load: RequestHandler<never, { queue: QueueItem[] }> = async function ({ locals }) {
 	if (
 		!hasAnyPermission(
 			locals.user,
@@ -95,8 +94,6 @@ export const get: RequestHandler<never, { queue: QueueItem[] }> = async function
 	}
 
 	return {
-		body: {
 			queue
-		}
 	};
 };

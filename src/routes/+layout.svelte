@@ -6,8 +6,8 @@
 	import { hasPermission, hasAnyPermission } from '$lib/util';
 	import { onMount } from 'svelte';
 	import { toasts, ToastContainer, FlatToast } from 'svelte-toasts';
-
-	const user: FrontendUser | null = $session.user;
+	export let data;
+	const user: FrontendUser | null = data.user;
 
 	onMount(() => {
 		const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');

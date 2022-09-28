@@ -1,4 +1,3 @@
-throw new Error("@migration task: Update +page.server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
 
 import client from '$lib/client';
 import OAuth, { scope } from '$lib/oauth';
@@ -6,8 +5,9 @@ import { PrismaClientKnownRequestError } from '@prisma/client/runtime/index.js';
 import type { RequestHandler } from '@sveltejs/kit';
 import * as cookie from 'cookie';
 import type { TokenRequestResult } from 'discord-oauth2';
+import {redirect} from '@sveltejs/kit'
 
-export const get: RequestHandler = async function get({ url }) {
+export const load: RequestHandler = async function load({ url, cookies }) {
 	const code = url.searchParams.get('code');
 	if (code === null)
 		return {
@@ -20,7 +20,7 @@ export const get: RequestHandler = async function get({ url }) {
 		scope: scope
 	});
 
-	return await login(result);
+	return await login(result, cookies);
 };
 
 export const post: RequestHandler = async ({ request }) => {
@@ -29,7 +29,7 @@ export const post: RequestHandler = async ({ request }) => {
 	return await login(JSON.parse(result), username);
 };
 
-async function login(result: TokenRequestResult, username: string | null = null) {
+async function login(result: TokenRequestResult, cookies,  username: string | null = null) {
 	try {
 		const user = await OAuth.getUser(result.access_token);
 
@@ -70,16 +70,10 @@ async function login(result: TokenRequestResult, username: string | null = null)
 			}
 		};
 	}
-
-	return {
-		status: 302,
-		headers: {
-			Location: '/',
-			'Set-Cookie': cookie.serialize('token', result.access_token, {
-				secure: true,
-				httpOnly: true,
-				maxAge: 2629800
-			})
-		}
-	};
+	cookies.set("token", result.access_token, {
+		secure: true,
+		httpOnly: true,
+		maxAge: 2629800
+	})
+	throw redirect(302, "/")
 }

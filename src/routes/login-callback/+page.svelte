@@ -1,12 +1,11 @@
 <script lang="ts">
-	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
 
 	import Input from '$lib/controls/Input.svelte';
 	import type { TokenRequestResult } from 'discord-oauth2';
-
-	export let result: TokenRequestResult;
-	export let username: string;
-	export let takenUsernames: string[];
+	export let data;
+	export let result: TokenRequestResult = data.result;
+	export let username: string = data.username;
+	export let takenUsernames: string[] = data.takenUsernames;
 
 	async function submit() {
 		if (takenUsernames.includes(username)) return;

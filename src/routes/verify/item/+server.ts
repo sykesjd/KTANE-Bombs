@@ -1,4 +1,3 @@
-throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
 
 import client from '$lib/client';
 import { Permission } from '$lib/types';
@@ -6,7 +5,7 @@ import type { QueueItem } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
 
-export const post: RequestHandler = async function ({ locals, request }) {
+export const POST: RequestHandler = async function ({ locals, request }) {
 	const { accept, item }: { accept: boolean; item: QueueItem } = await request.json();
 	switch (item.type) {
 		case 'mission':
@@ -79,5 +78,5 @@ export const post: RequestHandler = async function ({ locals, request }) {
 			break;
 	}
 
-	return { status: 200 };
+	return new Response("Success");
 };
