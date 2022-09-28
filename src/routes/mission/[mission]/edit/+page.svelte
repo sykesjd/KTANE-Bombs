@@ -1,4 +1,6 @@
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import { session } from '$app/stores';
 	import Checkbox from '$lib/controls/Checkbox.svelte';
 	import Input from '$lib/controls/Input.svelte';

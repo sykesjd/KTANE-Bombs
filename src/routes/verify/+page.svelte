@@ -1,4 +1,6 @@
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import type { QueueItem } from '$lib/types';
 	import MissionCard from '$lib/cards/MissionCard.svelte';
 	import CompletionCard from '$lib/cards/CompletionCard.svelte';

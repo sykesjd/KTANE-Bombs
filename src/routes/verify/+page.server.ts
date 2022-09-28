@@ -1,3 +1,5 @@
+throw new Error("@migration task: Update +page.server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
+
 import client from '$lib/client';
 import type { CompletionQueueItem, MissionQueueItem, QueueItem } from '$lib/types';
 import { Permission, type MissionPackQueueItem } from '$lib/types';

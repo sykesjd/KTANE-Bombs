@@ -1,21 +1,23 @@
 <script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit';
+	throw new Error("@migration task: Replace error load function (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3293209)");
 
-	export const load: Load = function ({ error, status, url }) {
-		if (status === 403) {
-			error = new Error("You don't have permission to view that.");
-		} else if (status === 404) {
-			error = new Error("We can't find what you're looking for.");
-		}
+	// import type { Load } from '@sveltejs/kit';
 
-		return {
-			props: {
-				status,
-				error,
-				path: url.pathname
-			}
-		};
-	};
+	// export const load: Load = function ({ error, status, url }) {
+	// 	if (status === 403) {
+	// 		error = new Error("You don't have permission to view that.");
+	// 	} else if (status === 404) {
+	// 		error = new Error("We can't find what you're looking for.");
+	// 	}
+
+	// 	return {
+	// 		props: {
+	// 			status,
+	// 			error,
+	// 			path: url.pathname
+	// 		}
+	// 	};
+	// };
 </script>
 
 <script lang="ts">

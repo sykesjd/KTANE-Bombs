@@ -2,7 +2,7 @@ import client from '$lib/client';
 import type { MissionPack } from '$lib/types';
 import type { RequestHandlerOutput, RequestEvent } from '@sveltejs/kit';
 
-export async function post({ request }: RequestEvent): Promise<RequestHandlerOutput> {
+export async function POST({ request }: RequestEvent): Promise<RequestHandlerOutput> {
 	const pack: MissionPack = await request.json();
 	await client.missionPack.create({
 		data: {
@@ -11,7 +11,5 @@ export async function post({ request }: RequestEvent): Promise<RequestHandlerOut
 		}
 	});
 
-	return {
-		status: 200
-	};
+	return new Response(undefined);
 }

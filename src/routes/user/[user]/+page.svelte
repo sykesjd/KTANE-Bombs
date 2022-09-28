@@ -1,10 +1,12 @@
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import { session } from '$app/stores';
 	import Dialog from '$lib/controls/Dialog.svelte';
 	import Input from '$lib/controls/Input.svelte';
 	import { Completion, Mission, Permission, type FrontendUser } from '$lib/types';
 	import { hasPermission } from '$lib/util';
-	import UserPermissions from './_UserPermissions.svelte';
+	import UserPermissions from '../_UserPermissions.svelte';
 
 	export let username: string;
 	export let user: FrontendUser | null;

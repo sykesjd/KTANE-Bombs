@@ -2,7 +2,7 @@ import client from '$lib/client';
 import { getData } from '$lib/repo';
 import type { RequestHandlerOutput } from '@sveltejs/kit';
 
-export async function get(): Promise<RequestHandlerOutput> {
+export async function load(): Promise<RequestHandlerOutput> {
 	const missions = await client.mission.findMany({
 		where: {
 			verified: true
@@ -18,9 +18,7 @@ export async function get(): Promise<RequestHandlerOutput> {
 	});
 
 	return {
-		body: {
-			missions,
-			modules: await getData()
-		}
+		missions,
+		modules: await getData()
 	};
 }

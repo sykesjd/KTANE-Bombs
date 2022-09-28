@@ -1,7 +1,7 @@
 import * as cookie from 'cookie';
 import type { RequestHandler } from '@sveltejs/kit';
 
-export const get: RequestHandler = function get() {
+export const get: RequestHandler = function GET() {
 	return {
 		status: 302,
 		headers: {

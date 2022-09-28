@@ -2,7 +2,7 @@ import client from '$lib/client';
 import type { Completer } from '$lib/types';
 import type { RequestHandlerOutput } from '@sveltejs/kit';
 
-export async function get(): Promise<RequestHandlerOutput<{ completers: Completer[] }>> {
+export async function load(): Promise<RequestHandlerOutput<{ completers: Completer[] }>> {
 	const completions = await client.completion.findMany({
 		select: {
 			mission: {
@@ -68,8 +68,6 @@ export async function get(): Promise<RequestHandlerOutput<{ completers: Complete
 	});
 
 	return {
-		body: {
-			completers: sortedCompleters
-		}
+		completers: sortedCompleters
 	};
 }

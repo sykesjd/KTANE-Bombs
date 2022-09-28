@@ -1,10 +1,12 @@
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import { Permission, type Mission, type MissionPack } from '$lib/types';
 	import { formatTime, hasPermission, pluralize } from '$lib/util';
 	import CompletionList from '$lib/comp/CompletionList.svelte';
 	import type { RepoModule } from '$lib/repo';
 	import { page, session } from '$app/stores';
-	import { getModule, sortBombs } from './_shared';
+	import { getModule, sortBombs } from '../_shared';
 
 	type Variant = Pick<Mission, 'name' | 'completions' | 'tpSolve'>;
 

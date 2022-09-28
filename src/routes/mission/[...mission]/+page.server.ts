@@ -4,7 +4,7 @@ import { Permission } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandlerOutput, RequestEvent } from '@sveltejs/kit';
 
-export async function get({ params, locals }: RequestEvent): Promise<RequestHandlerOutput> {
+export async function load({ params, locals }: RequestEvent): Promise<RequestHandlerOutput> {
 	const { mission } = params;
 	const missionResult = await client.mission.findFirst({
 		where: {
@@ -33,6 +33,7 @@ export async function get({ params, locals }: RequestEvent): Promise<RequestHand
 	});
 
 	if (missionResult === null) {
+		throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
 		return {
 			status: 404
 		};
@@ -59,20 +60,20 @@ export async function get({ params, locals }: RequestEvent): Promise<RequestHand
 			  });
 
 	if (!missionResult.verified && !hasPermission(locals.user, Permission.VerifyMission)) {
+		throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
 		return forbidden(locals);
 	}
 
 	return {
-		body: {
-			mission: missionResult,
-			variants,
-			modules: await getData()
-		}
+		mission: missionResult,
+		variants,
+		modules: await getData()
 	};
 }
 
-export async function del({ locals, params }: RequestEvent): Promise<RequestHandlerOutput> {
+export async function DELETE({ locals, params }: RequestEvent): Promise<RequestHandlerOutput> {
 	if (!hasPermission(locals.user, Permission.VerifyMission)) {
+		throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
 		return forbidden(locals);
 	}
 
@@ -82,6 +83,7 @@ export async function del({ locals, params }: RequestEvent): Promise<RequestHand
 		}
 	});
 
+	throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
 	return {
 		status: 200
 	};

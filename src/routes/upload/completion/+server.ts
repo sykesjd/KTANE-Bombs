@@ -2,7 +2,7 @@ import client from '$lib/client';
 import type { Completion } from '$lib/types';
 import type { RequestEvent, RequestHandlerOutput } from '@sveltejs/kit';
 
-export async function post({ request }: RequestEvent): Promise<RequestHandlerOutput> {
+export async function POST({ request }: RequestEvent): Promise<RequestHandlerOutput> {
 	const { completion, missionName }: { completion: Completion; missionName: string } =
 		await request.json();
 
@@ -14,9 +14,7 @@ export async function post({ request }: RequestEvent): Promise<RequestHandlerOut
 	});
 
 	if (mission === null || (completion.team.length != 1 && completion.solo)) {
-		return {
-			status: 406
-		};
+		return new Response(undefined, { status: 406 });
 	}
 
 	await client.completion.create({
@@ -32,7 +30,5 @@ export async function post({ request }: RequestEvent): Promise<RequestHandlerOut
 		}
 	});
 
-	return {
-		status: 200
-	};
+	return new Response(undefined);
 }

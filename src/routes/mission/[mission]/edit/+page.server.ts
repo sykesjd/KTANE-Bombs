@@ -5,8 +5,9 @@ import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandlerOutput, RequestEvent } from '@sveltejs/kit';
 import type { EditMission } from './_types';
 
-export async function get({ params, locals }: RequestEvent): Promise<RequestHandlerOutput> {
+export async function load({ params, locals }: RequestEvent): Promise<RequestHandlerOutput> {
 	if (!hasPermission(locals.user, Permission.VerifyMission)) {
+		throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
 		return forbidden(locals);
 	}
 
@@ -40,6 +41,7 @@ export async function get({ params, locals }: RequestEvent): Promise<RequestHand
 	});
 
 	if (missionResult === null) {
+		throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
 		return {
 			status: 404
 		};
@@ -52,20 +54,20 @@ export async function get({ params, locals }: RequestEvent): Promise<RequestHand
 	});
 
 	if (!missionResult.verified && !hasPermission(locals.user, Permission.VerifyMission)) {
+		throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
 		return forbidden(locals);
 	}
 
 	return {
-		body: {
-			mission: missionResult,
-			packs,
-			modules: await getData()
-		}
+		mission: missionResult,
+		packs,
+		modules: await getData()
 	};
 }
 
-export async function post({ locals, request }: RequestEvent): Promise<RequestHandlerOutput> {
+export async function POST({ locals, request }: RequestEvent): Promise<RequestHandlerOutput> {
 	if (!hasPermission(locals.user, Permission.VerifyMission)) {
+		throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
 		return forbidden(locals);
 	}
 
@@ -91,13 +93,15 @@ export async function post({ locals, request }: RequestEvent): Promise<RequestHa
 		}
 	});
 
+	throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
 	return {
 		status: 200
 	};
 }
 
-export async function del({ locals, request }: RequestEvent): Promise<RequestHandlerOutput> {
+export async function DELETE({ locals, request }: RequestEvent): Promise<RequestHandlerOutput> {
 	if (!hasPermission(locals.user, Permission.VerifyCompletion)) {
+		throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
 		return forbidden(locals);
 	}
 
@@ -109,6 +113,7 @@ export async function del({ locals, request }: RequestEvent): Promise<RequestHan
 		}
 	});
 
+	throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
 	return {
 		status: 200
 	};

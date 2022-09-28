@@ -1,3 +1,5 @@
+throw new Error("@migration task: Update +page.server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
+
 import client from '$lib/client';
 import OAuth, { scope } from '$lib/oauth';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/index.js';
