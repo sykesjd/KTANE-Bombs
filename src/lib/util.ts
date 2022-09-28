@@ -61,7 +61,7 @@ export function listify(list: string[]): string {
 }
 
 export function hasPermission(user: FrontendUser | null, permission: Permission): boolean {
-	return user !== null && user.permissions.includes(permission);
+	return user !== null && user !== undefined && user.permissions.includes(permission);
 }
 
 export function hasAnyPermission(user: FrontendUser | null, ...permissions: Permission[]): boolean {
@@ -71,9 +71,9 @@ export function hasAnyPermission(user: FrontendUser | null, ...permissions: Perm
 export function forbidden(locals: App.Locals) {
 	// If the user is not logged in, they might just need to login.
 	if (locals.user === null)
-		throw redirect(302, '/login')
+		return redirect(302, '/login')
 
-	throw error(403)
+	return error(403)
 }
 
 export function fixPools<T>(mission: T & { bombs: client.Bomb[] }): T & { bombs: Bomb[] } {

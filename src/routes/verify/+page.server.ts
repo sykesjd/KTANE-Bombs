@@ -4,23 +4,25 @@ import type { CompletionQueueItem, MissionQueueItem, QueueItem } from '$lib/type
 import { Permission, type MissionPackQueueItem } from '$lib/types';
 import { fixPools, forbidden, hasAnyPermission, hasPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
+import {error} from '@sveltejs/kit'
 
-export const load: RequestHandler<never, { queue: QueueItem[] }> = async function ({ locals }) {
+export const load: RequestHandler<never, { queue: QueueItem[] }> = async function ({ parent }) {
+	const {user} = await parent()
 	if (
 		!hasAnyPermission(
-			locals.user,
+			user,
 			Permission.VerifyMission,
 			Permission.VerifyCompletion,
 			Permission.VerifyMissionPack
 		)
 	) {
-		return forbidden(locals);
+		throw error(403);
 	}
 
 	const queue: QueueItem[] = [];
 
 	// Missions
-	if (hasPermission(locals.user, Permission.VerifyMission)) {
+	if (hasPermission(user, Permission.VerifyMission)) {
 		const missions = await client.mission.findMany({
 			where: {
 				verified: false
@@ -49,7 +51,7 @@ export const load: RequestHandler<never, { queue: QueueItem[] }> = async functio
 	}
 
 	// Completions
-	if (hasPermission(locals.user, Permission.VerifyCompletion)) {
+	if (hasPermission(user, Permission.VerifyCompletion)) {
 		const completions = await client.completion.findMany({
 			where: {
 				verified: false
@@ -76,7 +78,7 @@ export const load: RequestHandler<never, { queue: QueueItem[] }> = async functio
 	}
 
 	// Mission Pack
-	if (hasPermission(locals.user, Permission.VerifyMissionPack)) {
+	if (hasPermission(user, Permission.VerifyMissionPack)) {
 		const missionPacks = await client.missionPack.findMany({
 			where: {
 				verified: false

@@ -8,9 +8,6 @@ declare namespace App {
 
 	// interface Platform {}
 
-	interface Session {
-		user: import('$lib/types').FrontendUser | null;
-	}
 
 	// interface Stuff {}
 }

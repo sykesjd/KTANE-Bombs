@@ -1,33 +1,10 @@
-<script context="module" lang="ts">
-	throw new Error("@migration task: Replace error load function (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3293209)");
-
-	// import type { Load } from '@sveltejs/kit';
-
-	// export const load: Load = function ({ error, status, url }) {
-	// 	if (status === 403) {
-	// 		error = new Error("You don't have permission to view that.");
-	// 	} else if (status === 404) {
-	// 		error = new Error("We can't find what you're looking for.");
-	// 	}
-
-	// 	return {
-	// 		props: {
-	// 			status,
-	// 			error,
-	// 			path: url.pathname
-	// 		}
-	// 	};
-	// };
-</script>
-
 <script lang="ts">
-	import { session } from '$app/stores';
+	import {page} from '$app/stores'
+	export let status: number = $page.status;
+	export let error: Error = $page.error;
+	export let path: string = $page.url;
 
-	export let status: number;
-	export let error: Error;
-	export let path: string;
-
-	const user: { username: string } | null = $session.user;
+	const user: { username: string } | null = $page.data.user;
 
 	// https://stackoverflow.com/a/7616484/8213163
 	function hashCode(value: string) {
