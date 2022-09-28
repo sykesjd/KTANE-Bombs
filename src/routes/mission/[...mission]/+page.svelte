@@ -1,18 +1,17 @@
 <script lang="ts">
-	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
 
 	import { Permission, type Mission, type MissionPack } from '$lib/types';
 	import { formatTime, hasPermission, pluralize } from '$lib/util';
 	import CompletionList from '$lib/comp/CompletionList.svelte';
 	import type { RepoModule } from '$lib/repo';
-	import { page, session } from '$app/stores';
+	import { page } from '$app/stores';
 	import { getModule, sortBombs } from '../_shared';
 
 	type Variant = Pick<Mission, 'name' | 'completions' | 'tpSolve'>;
-
-	export let mission: Mission & { missionPack: MissionPack };
-	export let variants: Variant[] | null;
-	export let modules: RepoModule[] | null;
+	export let data;
+	export let mission: Mission & { missionPack: MissionPack } = data.mission;
+	export let variants: Variant[] | null = data.variants;
+	export let modules: RepoModule[] | null = data.modules;
 
 	sortBombs(mission, modules);
 </script>
@@ -29,7 +28,7 @@
 			{mission.missionPack.name}
 		</a>
 	</div>
-	{#if hasPermission($session.user, Permission.VerifyMission)}
+	{#if hasPermission($page.data.user, Permission.VerifyMission)}
 		<a href={$page.url.href + '/edit'} class="top-right">Edit</a>
 	{/if}
 </div>

@@ -3,6 +3,7 @@ import { getData } from '$lib/repo';
 import { Permission } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandlerOutput, RequestEvent } from '@sveltejs/kit';
+import {error} from '@sveltejs/kit';
 
 export async function load({ params, locals }: RequestEvent): Promise<RequestHandlerOutput> {
 	const { mission } = params;
@@ -33,10 +34,7 @@ export async function load({ params, locals }: RequestEvent): Promise<RequestHan
 	});
 
 	if (missionResult === null) {
-		throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
-		return {
-			status: 404
-		};
+		throw error(404)
 	}
 
 	const variantId = missionResult.variant;
