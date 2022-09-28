@@ -111,5 +111,6 @@
 	}
 	label {
 		user-select: none;
+		margin-right: 2px;
 	}
 </style>

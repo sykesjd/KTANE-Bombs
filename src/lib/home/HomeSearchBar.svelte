@@ -5,7 +5,7 @@
 	import LayoutSearchFilter from '$lib/comp/LayoutSearchFilter.svelte';
 	import { onMount, createEventDispatcher } from 'svelte';
 	import { writable, type Writable } from "svelte/store";
-	import HomeOptionsMenu from './HomeOptionsMenu.svelte';
+	import HomeFiltersMenu from './HomeFiltersMenu.svelte';
 	import type { RepoModule } from '$lib/repo';
 	import { getModule } from '$lib/../routes/mission/_shared';
 
@@ -13,7 +13,7 @@
 	export let missionCards: { [name: string]: any } = {};
 	export let modules: RepoModule[];
 	export let validSearchOptions: boolean[] = [];
-	export let searchOptionBoxes = ["names", "authors", "solved by", "invert"];
+	export let searchOptionBoxes = ["mission", "module", "author", "solver", "invert"];
 	export let resultsText = missions.length;
 
 	let sortOrder: string = '';
@@ -24,9 +24,9 @@
 	let searchOptions: string[];
 	let searchField: HTMLInputElement | null;
 	let filters: HTMLDivElement;
-	let optionsTab: HTMLDivElement;
+	let filterTab: HTMLDivElement;
 	let layoutSearch: LayoutSearchFilter;
-	const defaultSearchOptions = [true, false, false, false];
+	const defaultSearchOptions = [true, false, false, false, false];
 	const searchTooltip =
 		'Logical operators supported: &&(and), ||(or), !!(not)\n'+
 		'Example: thing one && aaa || bbb && !!ccc\n'+
@@ -63,20 +63,17 @@
 		let text = searchText.toLowerCase();
 		let searchWhat = '';
 		let ms = missions.find(x => x.name == name) || missions[0];
-		let modIDsInMission = modulesInMission[name].map(m => m.ModuleID).join(' ');
-		if (searchOptions?.includes("names")) {
-			if(options.checks["search-missname"]) searchWhat += ' ' + name.toLowerCase();
-			if(options.checks["search-modname"])
-				searchWhat += ' ' + modulesInMission[name].map(m => m.Name).join(' ').toLowerCase();
-			if(options.checks["search-modid"])
-				searchWhat += ' ' + modIDsInMission.toLowerCase();
-		}
-		if (searchOptions?.includes("authors"))
+		// let modIDsInMission = modulesInMission[name].map(m => m.ModuleID).join(' ');
+		if (searchOptions?.includes("mission"))
+			searchWhat += ' ' + name.toLowerCase();
+		if (searchOptions?.includes("module"))
+			searchWhat += ' ' + modulesInMission[name].map(m => m.Name).join(' ').toLowerCase();
+		if (searchOptions?.includes("author"))
 			searchWhat += ' ' + ms.authors.join(' ').toLowerCase();
-		if (searchOptions?.includes("solved by")) {
+		if (searchOptions?.includes("solver"))
 			searchWhat += ' ' + ms.completions.map((x:Completion) => x.team).flat().filter(onlyUnique)
 				.join(' ').toLowerCase() + (ms.tpSolve ? ' twitch plays':'');
-		}
+
 		let textMatch = evaluateLogicalStringSearch(text, searchWhat);
 		
 		let filtered = false;
@@ -95,8 +92,6 @@
 				!meetsHave(specialsInMission[name]['need'].length > 0, options.mustHave['has-needy']);
 			if (!filtered && options.modules["Operation"] != undefined) {
 				filtered = options.modules["Operation"] != Operation.Defuser && percentFromEnabled(name) < options.profPerc[0] ||
-					// options.modules["Operation"] == Operation.Combined &&
-					// options.modules["EnabledList"].some((m:string) => !modIDsInMission.includes(m)) ||
 					options.modules["Operation"] != Operation.Expert &&
 					modulesInMission[name].some(m => (options.modules["DisabledList"] || []).includes(m.ModuleID));
 			}
@@ -254,14 +249,14 @@
 	{/each}
 	</div>
 	<div class="spacer"></div>
-	<div class="tab options-tab"
-		bind:this={optionsTab}
+	<div class="tab filter-tab"
+		bind:this={filterTab}
 		on:click={(event) => {
-			prevDisap = popup(event, filters, optionsTab, prevDisap + 2, true);
+			prevDisap = popup(event, filters, filterTab, prevDisap + 2, true);
 		}}>
-		Options
+		Filters
 	</div>
-	<HomeOptionsMenu bind:div={filters} on:update={homeOptionUpdate}
+	<HomeFiltersMenu bind:div={filters} on:update={homeOptionUpdate}
 		on:click={() => prevDisap++} {modules}/>
 </div>
 
@@ -302,6 +297,12 @@
 	:global(.hstack.wrap) {
 		flex-wrap: wrap;
 	}
+	:global(.hstack.center) {
+		justify-content: center;
+	}
+	:global(.hstack.right) {
+		justify-content: right;
+	}
 
 	:global(.hidden) {
 		display: none !important;
@@ -310,8 +311,8 @@
 		width: 300px;
 	}
 
-	.options-tab {
-		background-image: url('$lib/img/sliders.png');
+	.filter-tab {
+		background-image: url('$lib/img/filter-icon.png');
 	}
 	:global(.search-bar .tab) {
 		display: inline-block;

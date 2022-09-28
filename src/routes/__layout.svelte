@@ -68,6 +68,8 @@
 		--light-text-color: rgb(100, 100, 100);
 		--link-text-color: currentColor;
 		--link-visited-text-color: currentColor;
+		--blue-link-color: blue;
+		--blue-link-visited-color: rgb(156, 34, 232);
 		--accent: #bc421e;
 	}
 
@@ -82,6 +84,8 @@
 			--light-text-color: rgb(150, 150, 150);
 			--link-text-color: rgb(200, 200, 200);
 			--link-visited-text-color: rgb(130, 130, 130);
+			--blue-link-color: rgb(85, 167, 255);
+			--blue-link-visited-color: rgb(174, 93, 240);
 		}
 		:global(.dark-invert) {
 			filter: invert(90%);

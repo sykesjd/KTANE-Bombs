@@ -21,7 +21,9 @@
 	let files: FileList;
 	let fileInput: HTMLInputElement;
 	let filesValid = true;
-	let hasOptions = ["Has Boss", "Has Semi-Boss", "Has PseudoNeedy", "Has Needy", "Has Been Solved"];
+	let yesList: string[] = [];
+	let noList: string[] = [];
+	let hasOptions = ["Has Been Solved", "Has Boss", "Has Semi-Boss", "Has PseudoNeedy", "Has Needy"];
 	let sortOptions = ["Alphabetical", "Module Count", "Bomb Time", "Solves", "Rule Seeded Mods %"];
 	let limitDef: { [k:string]: number[] } = { mods: [1,600], time: [1,1500], strk: [1,150], widg: [0,40], prof: [80] };
 	let checkDef: { [k:string]: boolean } = {
@@ -166,6 +168,18 @@
 						profile["DisabledList"] = profile["DisabledList"].concat(p["DisabledList"]).filter(onlyUnique);
 					if (p["EnabledList"])
 						profile["EnabledList"] = profile["EnabledList"].concat(p["EnabledList"]).filter(onlyUnique);
+
+					noList = [];
+					if (profile["DisabledList"]) {
+						Object.assign(noList, profile["DisabledList"]);
+						noList = noList.map(m => modules.find(x => x.ModuleID == m)?.Name || "").sort();
+					}
+					yesList = [];
+					if (profile["EnabledList"]) {
+						Object.assign(yesList, profile["EnabledList"]);
+						yesList = yesList.map(m => modules.find(x => x.ModuleID == m)?.Name || "").sort();
+					}
+
 					profile == profile;
 					setOption();
 				}
@@ -235,6 +249,12 @@
 
 <div class="popup disappear hidden" id="options"
 	on:click bind:this={div}>
+	
+	<div class="hstack center"><button class="defaults" on:click={() => {
+		setDefaults();
+		setOption();
+	}}>Reset to Defaults</button></div>
+	<div class="vspace"></div>
 	<div class="hstack columns">
 		<div>
 			<span>Module Count</span>
@@ -273,23 +293,9 @@
 					validate={intnan} on:change={setOption}/>
 			</div>
 			<div class="vspace"></div>
-			<span class="nowrap"><b class="qt">“</b>Names<b class="qt">”</b> search is:</span>
-			<Checkbox id="option-search-missname" label="Mission Name"
-				bind:checked={checks["search-missname"]}
-				sideLabel labelAfter on:change={setOption}/>
-			<Checkbox id="option-search-modname" label="Module Name"
-				bind:checked={checks["search-modname"]}
-				sideLabel labelAfter on:change={setOption}/>
-			<Checkbox id="option-search-modid" label="Module ID"
-				bind:checked={checks["search-modid"]}
-				sideLabel labelAfter on:change={setOption}/>
 		</div>
 		<div class="center-divider"></div>
 		<div>
-			<button class="defaults" on:click={() => {
-				setDefaults();
-				setOption();
-			}}>Defaults</button>
 			<table>
 			{#each hasOptions as op, index}
 			<tr>
@@ -346,15 +352,7 @@
 		{/if}
 	</div>
 	{#if profile["Operation"] != undefined}
-		<p class="explanation">
-		{#if operation==Operation.Expert}
-			Expert: A minimum percent of mods in the mission must be found in the <b class="qt">“</b>Yes<b class="qt">”</b> list
-		{:else if operation==Operation.Defuser}
-			Defuser: <b class="qt">“</b>No<b class="qt">”</b> mods can't show up on the mission
-		{:else}
-			Combined: A minimum percent of mods in the mission must be in the <b class="qt">“</b>Yes<b class="qt">”</b> list. <b class="qt">“</b>No<b class="qt">”</b> mods can't show up, others are not enforced
-		{/if}
-		</p>
+		<div class="vspace"></div>
 		<div class="hstack gap wrap">
 			<span><b>Profile:</b> {profile["Name"]}</span>
 			<span><b>Type:</b> {Operation[operation]}</span>
@@ -365,7 +363,7 @@
 				<td class="top">
 					<div class="module-list">
 						{#if profile["EnabledList"]}
-						{#each profile["EnabledList"] as mod}
+						{#each yesList as mod}
 							{mod}<br>
 						{/each}
 						{/if}
@@ -374,7 +372,7 @@
 				<td class="top">
 					<div class="module-list">
 						{#if profile["DisabledList"]}
-						{#each profile["DisabledList"] as mod}
+						{#each noList as mod}
 							{mod}<br>
 						{/each}
 						{/if}
@@ -393,7 +391,7 @@
 		margin: .3em 0;
 		white-space: normal;
 	}
-	.explanation {width: 470px;}
+	/* .explanation {width: 470px;} */
 	.opexplain { cursor: help; }
 
 	.hstack.gap { gap: 10px; }
@@ -409,15 +407,12 @@
 	}
 	a {
 		white-space: nowrap;
-		color: rgb(71, 39, 255);
+		color: var(--blue-link-color);
 	}
 
 	.through::after { content: '—'; }
 	.nowrap { white-space: nowrap; }
 
-	b.qt {
-		font-style: normal;
-	}
 	span.error {
 		color: red;
 		font-weight: bold;
@@ -435,9 +430,9 @@
 	}
 	.center-divider {
 		width: 0;
-		height: 285px;
-		border: 1px solid #00000066;
-		margin: 0 .5em;
+		height: 255px;
+		border: 1px solid var(--light-text-color);
+		margin: 0 .8em;
 	}
 	.popup table, .popup table td {
 		border: none;

@@ -77,7 +77,7 @@
 		width: 1.25em;
 		height: 1.25em;
 		min-width: 1.25em;
-		margin-right: 5px;
+		margin: 0 5px 0 2px;
 		display: inline-block;
 		vertical-align: middle;
 		cursor: pointer;
