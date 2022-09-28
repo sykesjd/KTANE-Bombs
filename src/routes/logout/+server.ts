@@ -1,16 +1,11 @@
-import * as cookie from 'cookie';
 import type { RequestHandler } from '@sveltejs/kit';
+import {redirect} from '@sveltejs/kit'
 
-export const get: RequestHandler = function GET() {
-	return {
-		status: 302,
-		headers: {
-			Location: '/',
-			'Set-Cookie': cookie.serialize('token', '', {
-				secure: true,
-				httpOnly: true,
-				maxAge: 0
-			})
-		}
-	};
+export const GET: RequestHandler = function GET({cookies}) {
+	cookies.set('token', '', {
+		secure: true,
+		httpOnly: true,
+		maxAge: 0
+	})
+	throw redirect(302,'/')
 };

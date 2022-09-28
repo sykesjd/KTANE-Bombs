@@ -1,10 +1,9 @@
 <script lang="ts">
-	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
 
 	import type { FrontendUser } from '$lib/types';
 	import UserCard from '$lib/cards/UserCard.svelte';
-
-	export let users: FrontendUser[];
+	export let data
+	let users: FrontendUser[] = data.users;
 
 	// Sort users
 	users.sort((a, b) => a.username.localeCompare(b.username));
