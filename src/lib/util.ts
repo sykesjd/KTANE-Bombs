@@ -1,5 +1,6 @@
 import type * as client from '@prisma/client';
 import type { Bomb, FrontendUser, Mission, Permission, Pool } from './types';
+import {redirect, error} from '@sveltejs/kit'
 
 export function formatTime(seconds: number, milliseconds = false): string {
 	let timeParts = [];
@@ -70,14 +71,9 @@ export function hasAnyPermission(user: FrontendUser | null, ...permissions: Perm
 export function forbidden(locals: App.Locals) {
 	// If the user is not logged in, they might just need to login.
 	if (locals.user === null)
-		return {
-			status: 302,
-			redirect: '/login'
-		};
+		throw redirect(302, '/login')
 
-	return {
-		status: 403
-	};
+	throw error(403)
 }
 
 export function fixPools<T>(mission: T & { bombs: client.Bomb[] }): T & { bombs: Bomb[] } {

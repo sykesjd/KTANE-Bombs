@@ -1,12 +1,10 @@
-throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
-
 import client from '$lib/client';
 import { Permission } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
 
-export const post: RequestHandler = async function ({ locals, request }) {
-	if (!hasPermission(locals.user, Permission.RenameUser)) return forbidden(locals);
+export const POST: RequestHandler = async function ({ locals, request }) {
+	if (!hasPermission(locals.user, Permission.RenameUser)) forbidden(locals);
 
 	const { oldUsername, username } = await request.json();
 
@@ -62,7 +60,5 @@ export const post: RequestHandler = async function ({ locals, request }) {
 
 	await client.$transaction(queries);
 
-	return {
-		status: 200
-	};
+	return new Response("");
 };

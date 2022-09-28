@@ -1,11 +1,11 @@
-throw new Error("@migration task: Update +page.server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
 
 import client from '$lib/client';
 import { Permission } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
+import {error} from '@sveltejs/kit'
 
-export const get: RequestHandler = async function ({ params }) {
+export const load: RequestHandler = async function ({ params }) {
 	const user = await client.user.findFirst({
 		where: {
 			username: params.user
@@ -36,21 +36,16 @@ export const get: RequestHandler = async function ({ params }) {
 	});
 
 	if (user === null && completions.length === 0) {
-		return {
-			status: 404
-		};
+		throw error(404)
 	}
-
 	return {
-		body: {
 			username: params.user,
-			user,
+			shownUser : user,
 			completions
-		}
 	};
 };
 
-export const patch: RequestHandler<Record<string, never>> = async function ({
+export const PATCH: RequestHandler<Record<string, never>> = async function ({
 	locals,
 	params,
 	request

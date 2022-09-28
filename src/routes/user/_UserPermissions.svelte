@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Permission, type FrontendUser } from '$lib/types';
+	import { Permission, type FrontendshownUser } from '$lib/types';
 
-	export let user: FrontendUser;
+	export let shownUser: FrontendshownUser;
 
 	const permissions: Record<string, number> = {};
 	for (const [name, value] of Object.entries(Permission)) {
@@ -11,8 +11,7 @@
 
 		permissions[name] = value;
 	}
-
-	let newPermissions = new Set(user.permissions);
+	let newPermissions = new Set(shownUser.permissions);
 
 	function togglePermission(permission: number) {
 		if (newPermissions.has(permission)) {
@@ -25,11 +24,11 @@
 	}
 
 	$: modified =
-		user.permissions.length != newPermissions.size ||
-		user.permissions.some((permission) => !newPermissions.has(permission));
+		shownUser.permissions.length != newPermissions.size ||
+		shownUser.permissions.some((permission) => !newPermissions.has(permission));
 
 	async function saveChanges() {
-		await fetch(`/user/${user.id}`, {
+		await fetch(`/user/${shownUser.id}`, {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json'
@@ -37,7 +36,7 @@
 			body: JSON.stringify(Array.from(newPermissions))
 		});
 
-		user.permissions = Array.from(newPermissions);
+		shownUser.permissions = Array.from(newPermissions);
 	}
 </script>
 
