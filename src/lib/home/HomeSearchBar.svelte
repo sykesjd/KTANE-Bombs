@@ -1,17 +1,16 @@
 <script lang="ts">
 	import { Bomb, Completion, HomeOptions, Mission, MustHave, Operation } from '$lib/types';
-	import { evaluateLogicalStringSearch, disappear, popup, titleCase } from '$lib/util';
+	import { evaluateLogicalStringSearch, disappear, popup, titleCase, getModule } from '$lib/util';
 	import Checkbox from '$lib/controls/Checkbox.svelte';
 	import LayoutSearchFilter from '$lib/comp/LayoutSearchFilter.svelte';
 	import { onMount, createEventDispatcher } from 'svelte';
 	import { writable, type Writable } from "svelte/store";
 	import HomeFiltersMenu from './HomeFiltersMenu.svelte';
 	import type { RepoModule } from '$lib/repo';
-	import { getModule } from '$lib/../routes/mission/_shared';
 
 	export let missions: Mission[];
 	export let missionCards: { [name: string]: any } = {};
-	export let modules: RepoModule[];
+	export let modules: Record<string, RepoModule>;
 	export let validSearchOptions: boolean[] = [];
 	export let searchOptionBoxes = ["mission", "module", "author", "solver", "invert"];
 	export let resultsText = missions.length;

@@ -1,6 +1,7 @@
 import type * as client from '@prisma/client';
 import type { Bomb, FrontendUser, Mission, Permission, Pool } from './types';
 import {redirect, error} from '@sveltejs/kit'
+import type { RepoModule } from "./repo";
 
 export function formatTime(seconds: number, milliseconds = false): string {
 	let timeParts = [];
@@ -211,4 +212,25 @@ export function popup (event:any, wnd:HTMLElement, obj:HTMLElement, pd:number, r
 
 export function titleCase(str:string): string {
 	return str.split(" ").map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(" ");
+}
+
+export function getModule(
+	moduleID: string,
+	modules: Record<string, RepoModule> | null
+): RepoModule {
+	const module = modules === null ? null : modules[moduleID];
+	if (module != null) {
+		return module;
+	}
+
+	return {
+		BossStatus: null,
+		ModuleID: moduleID,
+		Name: moduleID,
+		RuleSeedSupport: null,
+		Type: moduleID.match(/needy/gi) ? 'Needy' : 'Regular',
+		Quirks: null,
+		X: 0,
+		Y: 0
+	};
 }

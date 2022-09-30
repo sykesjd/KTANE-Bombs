@@ -4,10 +4,11 @@
 	import RadioButton from "$lib/controls/RadioButton.svelte";
 	import type { RepoModule } from "$lib/repo";
 	import { HomeOptions, MustHave, Operation } from "$lib/types";
+	import { getModule } from "$lib/util";
 	import { onMount, createEventDispatcher } from "svelte";
 	import { writable, type Writable } from "svelte/store";
 
-	export let modules: RepoModule[];
+	export let modules: Record<string, RepoModule>;
 	export let div: HTMLDivElement | null = null;
 
 	const dispatch = createEventDispatcher();
@@ -100,7 +101,7 @@
 		let listC: string[] = [];
 		Object.assign(listC, list);
 		listC.forEach(mod => {
-			let found = modules.find(x => x.ModuleID == mod);
+			let found = getModule(mod, modules);
 			if (!found || (found.Type != "Regular" && found.Type != "Needy"))
 				list.splice(list.findIndex(x => x == mod), 1);
 		});
@@ -172,12 +173,12 @@
 					noList = [];
 					if (profile["DisabledList"]) {
 						Object.assign(noList, profile["DisabledList"]);
-						noList = noList.map(m => modules.find(x => x.ModuleID == m)?.Name || "").sort();
+						noList = noList.map((m) => getModule(m, modules).Name).sort();
 					}
 					yesList = [];
 					if (profile["EnabledList"]) {
 						Object.assign(yesList, profile["EnabledList"]);
-						yesList = yesList.map(m => modules.find(x => x.ModuleID == m)?.Name || "").sort();
+						yesList = yesList.map((m) => getModule(m, modules).Name).sort();
 					}
 
 					profile == profile;
