@@ -10,7 +10,7 @@ export const POST: RequestHandler = async function ({ locals, request }) {
 	switch (item.type) {
 		case 'mission':
 			if (!hasPermission(locals.user, Permission.VerifyMission)) {
-				return forbidden(locals);
+				throw forbidden(locals);
 			}
 
 			if (accept) {
@@ -30,7 +30,7 @@ export const POST: RequestHandler = async function ({ locals, request }) {
 			break;
 		case 'completion':
 			if (!hasPermission(locals.user, Permission.VerifyCompletion)) {
-				return forbidden(locals);
+				throw forbidden(locals);
 			}
 
 			if (accept) {
@@ -59,7 +59,7 @@ export const POST: RequestHandler = async function ({ locals, request }) {
 			break;
 		case 'missionpack':
 			if (!hasPermission(locals.user, Permission.VerifyMissionPack)) {
-				return forbidden(locals);
+				throw forbidden(locals);
 			}
 
 			if (accept) {
@@ -78,5 +78,5 @@ export const POST: RequestHandler = async function ({ locals, request }) {
 			break;
 	}
 
-	return new Response("Success");
+	return new Response(undefined);
 };
