@@ -1,13 +1,13 @@
 <script lang="ts">
-	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
 
 	import CompletionSection from './_CompletionSection.svelte';
 	import MissionPackSection from './_MissionPackSection.svelte';
 	import MissionSection from './_MissionSection.svelte';
 	import type { MissionPackSelection } from '$lib/types';
+	export let data;
 
-	export let missionNames: string[];
-	export let packs: MissionPackSelection[];
+	let missionNames: string[] = data.missionNames;
+	let packs: MissionPackSelection[] = data.packs;
 
 	let section: 'solve' | 'mission' | 'missionpack' = 'solve';
 </script>

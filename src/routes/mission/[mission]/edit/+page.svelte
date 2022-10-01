@@ -1,5 +1,4 @@
 <script lang="ts">
-	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
 
 	import { session } from '$app/stores';
 	import Checkbox from '$lib/controls/Checkbox.svelte';
@@ -12,10 +11,12 @@
 	import equal from 'fast-deep-equal';
 	import { getModule, sortBombs } from '../../_shared';
 	import type { EditMission } from './_types';
+	
+	export let data;
 
-	export let mission: EditMission;
-	export let packs: Pick<ID<MissionPack>, 'id' | 'name'>[];
-	export let modules: RepoModule[] | null;
+	let mission: EditMission = data.mission;
+	let packs: Pick<ID<MissionPack>, 'id' | 'name'>[] = data.packs;
+	let modules: RepoModule[] | null = data.modules;
 
 	sortBombs(mission, modules);
 

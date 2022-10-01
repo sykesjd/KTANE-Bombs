@@ -32,7 +32,7 @@
 		<a class="block" href="/upload">Upload</a>
 		<a class="block" href="/users">Users</a>
 		{#if user}
-			{#if hasAnyPermission(user, Permission.VerifyMission, Permission.VerifyCompletion)}
+			{#if hasAnyPermission(user, Permission.VerifyMission, Permission.VerifyCompletion, Permission.VerifyMissionPack)}
 				<a class="block" href="/verify">Verify</a>
 			{/if}
 
