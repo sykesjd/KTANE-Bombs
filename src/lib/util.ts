@@ -73,7 +73,7 @@ export function forbidden(locals: App.Locals) {
 	if (locals.user === null)
 		return redirect(302, '/login')
 
-	return error(403)
+	return error(403, "You do not have permission for to do that.")
 }
 
 export function fixPools<T>(mission: T & { bombs: client.Bomb[] }): T & { bombs: Bomb[] } {

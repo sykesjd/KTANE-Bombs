@@ -6,7 +6,7 @@ import { fixPools, forbidden, hasAnyPermission, hasPermission } from '$lib/util'
 import type { RequestHandler } from '@sveltejs/kit';
 import {error} from '@sveltejs/kit'
 
-export const load: RequestHandler<never, { queue: QueueItem[] }> = async function ({ parent }) {
+export const load: RequestHandler<never, { queue: QueueItem[] }> = async function ({ parent, locals }) {
 	const {user} = await parent()
 	if (
 		!hasAnyPermission(
@@ -16,7 +16,7 @@ export const load: RequestHandler<never, { queue: QueueItem[] }> = async functio
 			Permission.VerifyMissionPack
 		)
 	) {
-		throw error(403);
+		throw forbidden(locals);
 	}
 
 	const queue: QueueItem[] = [];

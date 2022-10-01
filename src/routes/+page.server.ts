@@ -1,8 +1,8 @@
 import client from '$lib/client';
 import { getData } from '$lib/repo';
-import type { RequestHandlerOutput } from '@sveltejs/kit';
+import type { RequestHandler } from '@sveltejs/kit';
 
-export async function load(): Promise<RequestHandlerOutput> {
+export async function load(): Promise<RequestHandler> {
 	const missions = await client.mission.findMany({
 		where: {
 			verified: true
