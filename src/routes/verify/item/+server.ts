@@ -61,9 +61,8 @@ export const POST: RequestHandler = async function ({ locals, request }) {
 			if (!hasPermission(locals.user, Permission.VerifyMissionPack)) {
 				throw forbidden(locals);
 			}
-
 			if (accept) {
-				await client.completion.update({
+				await client.missionPack.update({
 					where: {
 						id: item.pack.id
 					},
