@@ -92,8 +92,8 @@
 		bind:value={completion.time}
 	/>
 	<Input
-		name="proof"
-		id="proof"
+		name="team"
+		id="team"
 		type="text"
 		label="Team"
 		placeholder="Defuser, Expert 1, ..."

@@ -148,12 +148,14 @@
 					/>
 					<div class="block">
 						<Input
+							name="Authors"
 							label="Authors"
 							id="mission-authors"
 							bind:value={mission.authors}
 							parse={parseList}
 						/>
 						<Input
+							name="Mission Pack"
 							label="Mission Pack"
 							id="mission-pack"
 							bind:value={mission.missionPack}
