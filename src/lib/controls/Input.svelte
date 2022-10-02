@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount, createEventDispatcher } from 'svelte';
-
+	
+	export let name: string;
 	export let id: string;
 	export let value: any;
 	export let label: string = '';
@@ -62,6 +63,7 @@
 		<slot />
 	</label>
 	<input
+		{name}
 		{id}
 		{type}
 		{placeholder}

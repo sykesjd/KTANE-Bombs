@@ -28,8 +28,9 @@
 <h1 class="header">Username Conflict</h1>
 <div class="block flex column content-width">
 	<div>Someone already has that username, please select another.</div>
-	<form on:submit|preventDefault={submit}>
+	<form method="POST">
 		<Input
+			name="username"
 			id="username"
 			label="Username"
 			bind:value={username}

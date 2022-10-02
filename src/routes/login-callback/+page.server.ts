@@ -5,14 +5,13 @@ import { PrismaClientKnownRequestError } from '@prisma/client/runtime/index.js';
 import type { RequestHandler } from '@sveltejs/kit';
 import * as cookie from 'cookie';
 import type { TokenRequestResult } from 'discord-oauth2';
-import {redirect} from '@sveltejs/kit'
+import {redirect, error} from '@sveltejs/kit'
+import { setContext, getContext } from 'svelte';
 
 export const load: RequestHandler = async function load({ url, cookies }) {
 	const code = url.searchParams.get('code');
 	if (code === null)
-		return {
-			status: 406
-		};
+		throw error(406)
 
 	const result = await OAuth.tokenRequest({
 		code,
@@ -23,11 +22,15 @@ export const load: RequestHandler = async function load({ url, cookies }) {
 	return await login(result, cookies);
 };
 
-export const post: RequestHandler = async ({ request }) => {
-	const { result, username } = await request.json();
+export const actions = {
+	default: async ({ request, cookies }) => {
+		const result = getContext('oauthRequest')
+		const values = await request.formData();
+		const username = values.get('username');
+		return await login(result, cookies, username);
+	}
+}
 
-	return await login(JSON.parse(result), username);
-};
 
 async function login(result: TokenRequestResult, cookies,  username: string | null = null) {
 	try {
@@ -35,7 +38,6 @@ async function login(result: TokenRequestResult, cookies,  username: string | nu
 
 		// .avatar should never be null or undefined.
 		if (user.avatar == null) throw 'No avatar, this should never happen.';
-
 		await client.user.upsert({
 			where: {
 				id: user.id
@@ -58,16 +60,14 @@ async function login(result: TokenRequestResult, cookies,  username: string | nu
 		if (!(e instanceof PrismaClientKnownRequestError && e.code === 'P2002')) {
 			throw e;
 		}
-
 		// Conflict happened on username, the user needs to pick another.
 		const user = await OAuth.getUser(result.access_token);
 		const users = await client.user.findMany({ select: { username: true } });
+		setContext('oauthRequest', result)
 		return {
-			body: {
 				username: user.username,
 				takenUsernames: users.map((user) => user.username),
-				result: JSON.stringify(result)
-			}
+				result: result
 		};
 	}
 	cookies.set("token", result.access_token, {
