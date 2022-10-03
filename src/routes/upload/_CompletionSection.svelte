@@ -63,6 +63,7 @@
 
 <form class="block flex">
 	<Input
+		name="mission"
 		id="mission"
 		label="Mission"
 		options={missionNames}
@@ -70,6 +71,7 @@
 		bind:value={missionName}
 	/>
 	<Input
+		name="proof"
 		id="proof"
 		type="url"
 		label="Proof"
@@ -78,6 +80,7 @@
 		bind:value={proofString}
 	/>
 	<Input
+		name="time"
 		id="time"
 		type="text"
 		parse={parseTime}
@@ -89,7 +92,8 @@
 		bind:value={completion.time}
 	/>
 	<Input
-		id="proof"
+		name="team"
+		id="team"
 		type="text"
 		label="Team"
 		placeholder="Defuser, Expert 1, ..."

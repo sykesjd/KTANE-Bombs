@@ -11,6 +11,7 @@
 	import equal from 'fast-deep-equal';
 	import { getModule, sortBombs } from '../../_shared';
 	import type { EditMission } from './_types';
+	import {page} from '$app/stores';
 	
 	export let data;
 
@@ -50,7 +51,7 @@
 			method: 'DELETE'
 		});
 
-		location.href = '/';
+		goto('/');
 	}
 
 	async function deleteCompletion(completion: ID<Completion>) {
@@ -148,7 +149,7 @@
 					parse={(value) => value.split(',').map((person) => person.trim())}
 					display={(list) => list.join(', ')}
 				/>
-				{#if hasPermission($session.user, Permission.VerifyCompletion)}
+				{#if hasPermission($page.data.user, Permission.VerifyCompletion)}
 					<div class="actions">
 						<button on:click={() => deleteCompletion(completion)}>Delete</button>
 					</div>

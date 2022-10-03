@@ -259,37 +259,37 @@
 		<div>
 			<span>Module Count</span>
 			<div class="flex">
-				<Input id="option-mcl" bind:value={limits["mods"][0]} classes="limits" parse={integer}
+				<Input name="option-mcl" id="option-mcl" bind:value={limits["mods"][0]} classes="limits" parse={integer}
 					validate={intnan} on:change={setOption}/>
 				<span class="through"></span>
-				<Input id="option-mcu" bind:value={limits["mods"][1]} classes="limits" parse={integer}
+				<Input name="option-mcu" id="option-mcu" bind:value={limits["mods"][1]} classes="limits" parse={integer}
 					validate={intnan} on:change={setOption}/>
 			</div>
 			<div class="vspace"></div>
 			<span>Time (minutes)</span>
 			<div class="flex">
-				<Input id="option-tml" bind:value={limits["time"][0]} classes="limits" parse={integer}
+				<Input name="option-tml" id="option-tml" bind:value={limits["time"][0]} classes="limits" parse={integer}
 					validate={intnan} on:change={setOption}/>
 				<span class="through"></span>
-				<Input id="option-tmu" bind:value={limits["time"][1]} classes="limits" parse={integer}
+				<Input name="option-tmu" id="option-tmu" bind:value={limits["time"][1]} classes="limits" parse={integer}
 					validate={intnan} on:change={setOption}/>
 			</div>
 			<div class="vspace"></div>
 			<span>Strikes</span>
 			<div class="flex">
-				<Input id="option-stkl" bind:value={limits["strk"][0]} classes="limits" parse={integer}
+				<Input name="option-stkl" id="option-stkl" bind:value={limits["strk"][0]} classes="limits" parse={integer}
 					validate={intnan} on:change={setOption}/>
 				<span class="through"></span>
-				<Input id="option-stku" bind:value={limits["strk"][1]} classes="limits" parse={integer}
+				<Input name="option-stku" id="option-stku" bind:value={limits["strk"][1]} classes="limits" parse={integer}
 					validate={intnan} on:change={setOption}/>
 			</div>
 			<div class="vspace"></div>
 			<span>Widgets</span>
 			<div class="flex">
-				<Input id="option-wdgl" bind:value={limits["widg"][0]} classes="limits" parse={integer}
+				<Input name="option-wdgl" id="option-wdgl" bind:value={limits["widg"][0]} classes="limits" parse={integer}
 					validate={intnan} on:change={setOption}/>
 				<span class="through"></span>
-				<Input id="option-wdgu" bind:value={limits["widg"][1]} classes="limits" parse={integer}
+				<Input name="option-wdgu" id="option-wdgu" bind:value={limits["widg"][1]} classes="limits" parse={integer}
 					validate={intnan} on:change={setOption}/>
 			</div>
 			<div class="vspace"></div>
@@ -345,7 +345,7 @@
 		{#if profile["Operation"] != undefined && profile["Operation"] != Operation.Defuser}
 			<div class="hstack smallgap">
 				<b>≥</b>
-				<Input id="profile-percentage" bind:value={limits["prof"][0]} classes="percent" parse={integer}
+				<Input name="profile-percentage" id="profile-percentage" bind:value={limits["prof"][0]} classes="percent" parse={integer}
 					validate={percent} on:change={setOption}/>
 				<span><b>%</b> from profile</span>
 			</div>
