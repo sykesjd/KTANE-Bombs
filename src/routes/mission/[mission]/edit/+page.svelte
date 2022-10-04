@@ -12,6 +12,7 @@
 	import { getModule, sortBombs } from '../../_shared';
 	import type { EditMission } from './_types';
 	import {page} from '$app/stores';
+	import { applyAction } from '$app/forms';
 	
 	export let data;
 
@@ -32,26 +33,30 @@
 	$: modified = !equal(mission, originalMission);
 
 	async function saveChanges() {
-		await fetch(location.href, {
+		const fData = new FormData();
+		fData.append('mission', JSON.stringify(mission))
+		
+		const response = await fetch("?/editMission", {
 			method: 'POST',
-			body: JSON.stringify(mission)
+			body: fData
 		});
-
-		if (mission.name != originalMission.name) {
-			history.replaceState(null, '', '/mission/' + mission.name + '/edit');
-		}
-
-		setOriginalMission();
+		
 	}
 
 	async function deleteMission() {
 		if (!confirm('This cannot be undone. Are you sure?')) return;
-
-		await fetch('/mission/' + originalMission.name, {
-			method: 'DELETE'
+		const fData = new FormData();
+		fData.append('mission', JSON.stringify(originalMission))
+		
+		const response = await fetch("?/deleteMission", {
+			method: 'POST',
+			body: fData
 		});
 
-		goto('/');
+		 /** @type {import('@sveltejs/kit').ActionResult} */
+    const result = await response.json();
+
+    applyAction(result);
 	}
 
 	async function deleteCompletion(completion: ID<Completion>) {

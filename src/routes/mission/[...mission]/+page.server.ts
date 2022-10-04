@@ -67,17 +67,3 @@ export async function load({ params, locals }: RequestEvent): Promise<RequestHan
 		modules: await getData()
 	};
 }
-
-export async function DELETE({ locals, params }: RequestEvent): Promise<RequestHandlerOutput> {
-	if (!hasPermission(locals.user, Permission.VerifyMission)) {
-		throw forbidden(locals);
-	}
-
-	await client.mission.delete({
-		where: {
-			name: params.mission
-		}
-	});
-
-	return new Response(undefined)
-}

@@ -61,6 +61,71 @@ export async function load({ params, locals }: RequestEvent): Promise<RequestHan
 	};
 }
 
+/** @type {import('./$types').Actions} */
+export const actions = {
+	deleteMission : async ({locals, request}) => {
+		if (!hasPermission(locals.user, Permission.VerifyMission)) {
+			throw forbidden(locals);
+		}
+		const fData = await request.formData();
+		const mission = JSON.parse(fData.get('mission'))
+	
+		await client.mission.delete({
+			where: {
+				name: mission.name
+			}})
+			
+		throw redirect(303, "/")
+	},
+	deleteCompletion : async ({locals, request}) => {
+		console.log("h")
+		if (!hasPermission(locals.user, Permission.VerifyCompletion)) {
+			throw forbidden(locals);
+		}
+		const fData = await request.formData();
+		const completion: ID<Completion> = JSON.parse(fData.get('completion'));
+	
+		await client.completion.delete({
+			where: {
+				id: completion.id
+			}
+		});
+		
+		return {}
+		
+	},
+	editMission : async ({locals, request}) => {
+		if (!hasPermission(locals.user, Permission.VerifyMission)) {
+			throw forbidden(locals);
+		}
+	
+		const fData = await request.formData();
+		const mission:EditMission = JSON.parse(fData.get('mission'))
+	
+		await client.mission.update({
+			where: {
+				id: mission.id
+			},
+			data: {
+				completions: {
+					update: mission.completions.map((completion) => ({
+						where: {
+							id: completion.id
+						},
+						data: completion
+					}))
+				},
+				factory: mission.factory,
+				missionPackId: mission.missionPack.id,
+				name: mission.name,
+				tpSolve: mission.tpSolve
+			}
+		});
+		
+		throw redirect(303, "/mission/" + mission.name)
+	}
+}
+
 export async function POST({ locals, request }: RequestEvent): Promise<RequestHandlerOutput> {
 	if (!hasPermission(locals.user, Permission.VerifyMission)) {
 		throw forbidden(locals);
