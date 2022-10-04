@@ -40,7 +40,10 @@
 			method: 'POST',
 			body: fData
 		});
-		
+		 /** @type {import('@sveltejs/kit').ActionResult} */
+    const result = await response.json();
+
+    applyAction(result);
 	}
 
 	async function deleteMission() {
@@ -61,13 +64,19 @@
 
 	async function deleteCompletion(completion: ID<Completion>) {
 		if (!confirm('This cannot be undone. Are you sure?')) return;
+		const fData = new FormData();
+		fData.append('completion', JSON.stringify(completion))
 
-		await fetch(location.href, {
-			method: 'DELETE',
-			body: JSON.stringify(completion)
+		const response = await fetch("?/deleteCompletion", {
+			method: 'POST',
+			body: fData
 		});
-
+		
 		mission.completions = mission.completions.filter((comp) => completion.id !== comp.id);
+		 /** @type {import('@sveltejs/kit').ActionResult} */
+    const result = await response.json();
+
+    applyAction(result);
 		setOriginalMission();
 	}
 

@@ -78,7 +78,6 @@ export const actions = {
 		throw redirect(303, "/")
 	},
 	deleteCompletion : async ({locals, request}) => {
-		console.log("h")
 		if (!hasPermission(locals.user, Permission.VerifyCompletion)) {
 			throw forbidden(locals);
 		}
