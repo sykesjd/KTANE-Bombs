@@ -18,3 +18,7 @@
 		<UserCard {user} />
 	</a>
 {/each}
+
+<style>
+	a { text-decoration: none; }
+</style>

@@ -14,7 +14,10 @@
 			src="https://cdn.discordapp.com/avatars/{user.id}/{user.avatar}.webp?size=32"
 			alt="Avatar"/>
 	{/if}
-	<span>{user.username}</span>
+	<span class="username">{user.username}</span>
+	{#if user.discordName?.length > 0}
+		<span class="discord">Discord: {user.discordName}</span>
+	{/if}
 </div>
 
 <style>
@@ -23,6 +26,12 @@
 		flex-direction: row;
 		gap: var(--gap);
 		align-items: center;
+	}
+	.username {
+		text-decoration: underline;
+	}
+	.discord {
+		margin-left: 50px;
 	}
 
 	.avatar {

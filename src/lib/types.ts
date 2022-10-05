@@ -1,6 +1,7 @@
 export interface FrontendUser {
 	id: string;
 	username: string;
+	discordName: string;
 	avatar: string;
 	permissions: Permission[];
 }
