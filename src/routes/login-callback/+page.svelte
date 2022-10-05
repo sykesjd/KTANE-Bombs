@@ -2,43 +2,67 @@
 	import Input from '$lib/controls/Input.svelte';
 	import type { TokenRequestResult } from 'discord-oauth2';
 	import { applyAction } from '$app/forms';
+
 	export let data;
-	let oauthResult: TokenRequestResult = data.result;
-	let username: string = data.username;
-	let takenUsernames: string[] = data.takenUsernames;
+	import type { ActionResult } from '@sveltejs/kit';
+	export let oauthResult: TokenRequestResult = data.result;
+	export let username: string = data.username;
+	export let takenUsernames: string[] = data.takenUsernames;
+	export let firstTime: boolean = false;
 
+	function unameVal (val:any): boolean | string { return takenUsernames.includes(val) ? 'Name is taken' : (/\S/.test(val) ? true : 'Cannot be blank'); }
+	
 	async function submit() {
-		if (takenUsernames.includes(username)) return;
-
+		if (takenUsernames.includes(username) || !(/\S/.test(username))) return;
 		const fData = new FormData();
-		fData.append('result', JSON.stringify(oauthResult));
-		fData.append('username', username);
+		fData.append('username', JSON.stringify(username))
+		fData.append('result', JSON.stringify(oauthResult)) 
 
-		const response = await fetch('?/editName', {
+		const response = await fetch('?/selectUsername', {
 			method: 'POST',
 			body: fData
 		});
 		/** @type {import('@sveltejs/kit').ActionResult} */
 		const result = await response.json();
 
-		applyAction(result);
+		const resp: ActionResult = await response.json();
+
+		applyAction(resp);
 	}
 </script>
 
 <svelte:head>
+	{#if firstTime}
+	<title>Choose Username</title>
+	{:else}
 	<title>Username Conflict</title>
+	{/if}
 </svelte:head>
 
-<h1 class="header">Username Conflict</h1>
+<h1 class="header">
+	{#if firstTime}
+	Choose Username for Solves
+	{:else}
+	Username Conflict
+	{/if}
+</h1>
 <div class="block flex column content-width">
-	<div>Someone already has that username, please select another.</div>
-	<form method="POST" on:submit|preventDefault={submit}>
+	<div>
+		{#if firstTime}
+		Choose a username as you want it to appear on the list of bomb solves.<br>
+		This will be changed an admin if your chosen name is inappropriate.<br>
+		The name you choose now can only be changed by asking an admin.
+		{:else}
+		Someone already has that username, please select another.
+		{/if}
+	</div>
+	<form on:submit|preventDefault={submit} method="POST">
 		<Input
 			name="username"
 			id="username"
 			label="Username"
 			bind:value={username}
-			validate={(value) => !takenUsernames.includes(value)}
+			validate={unameVal}
 		/>
 		<button type="submit">Submit</button>
 	</form>

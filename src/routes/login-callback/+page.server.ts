@@ -21,20 +21,37 @@ export const load: PageServerLoad = async function load({ url, cookies }: Server
 };
 
 export const actions = {
-	editName: async ({ request, cookies }: RequestEvent) => {
-		const values = await request.formData();
-		const username = values.get('username')?.toString() ?? '';
-		const result = JSON.parse(values.get('result')?.toString() ?? '');
-		return await login(result, cookies, username);
+	selectUsername: async ({ request, cookies }:any) => {
+		const fData = await request.formData();
+		const username = JSON.parse(fData.get('username'));
+		const result = JSON.parse(fData.get('result'));
+		return await login(<TokenRequestResult>result, cookies, username);
 	}
-};
+}
 
-async function login(result: TokenRequestResult, cookies: Cookies, username: string | null = null) {
+async function login(result: TokenRequestResult, cookies: Cookies,  username: string | null = null) {
 	try {
 		const user = await OAuth.getUser(result.access_token);
 
 		// .avatar should never be null or undefined.
-		if (user.avatar == null) throw 'No avatar, this should never happen.';
+		// if (user.avatar == null) throw 'No avatar, this should never happen.';
+		// console.log(user.avatar);
+		if (username == null) {
+			const findUser = await client.user.findUnique({ where: { id: user.id } });
+			if (!findUser) {
+				const users = await client.user.findMany({ select: { username: true } });
+				// setContext('oauthRequest', result);
+				console.log(user);
+				return {
+					username: user.username,
+					firstTime: true,
+					takenUsernames: users.map((user) => user.username),
+					result: result
+				};
+			}
+			username = findUser.username;
+		}
+		console.log(username);
 		await client.user.upsert({
 			where: {
 				id: user.id
@@ -42,15 +59,17 @@ async function login(result: TokenRequestResult, cookies: Cookies, username: str
 			create: {
 				id: user.id,
 				username: username ?? user.username,
+				discordName: `${user.username}#${user.discriminator}`,
 				accessToken: result.access_token,
 				refreshToken: result.refresh_token,
-				avatar: user.avatar
+				avatar: user.avatar ?? `${parseInt(user.discriminator) % 5}`
 			},
 			update: {
 				username: username ?? user.username,
+				discordName: `${user.username}#${user.discriminator}`,
 				accessToken: result.access_token,
 				refreshToken: result.refresh_token,
-				avatar: user.avatar
+				avatar: user.avatar ?? `${parseInt(user.discriminator) % 5}`
 			}
 		});
 	} catch (e) {
@@ -61,7 +80,8 @@ async function login(result: TokenRequestResult, cookies: Cookies, username: str
 		const user = await OAuth.getUser(result.access_token);
 		const users = await client.user.findMany({ select: { username: true } });
 		return {
-			username: user.username,
+			username: username,
+			firstTime: false,
 			takenUsernames: users.map((user) => user.username),
 			result: result
 		};

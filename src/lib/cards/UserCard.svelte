@@ -5,11 +5,15 @@
 </script>
 
 <div class="block user">
-	<img
-		class="avatar"
-		src="https://cdn.discordapp.com/avatars/{user.id}/{user.avatar}.webp?size=32"
-		alt="Avatar"
-	/>
+	{#if user.avatar.length == 1}
+		<img class="avatar"
+			src="https://cdn.discordapp.com/embed/avatars/{user.avatar}.png?size=32"
+			alt="Avatar"/>
+	{:else}
+		<img class="avatar"
+			src="https://cdn.discordapp.com/avatars/{user.id}/{user.avatar}.webp?size=32"
+			alt="Avatar"/>
+	{/if}
 	<span>{user.username}</span>
 </div>
 
