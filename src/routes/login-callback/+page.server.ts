@@ -33,15 +33,10 @@ async function login(result: TokenRequestResult, cookies: Cookies,  username: st
 	try {
 		const user = await OAuth.getUser(result.access_token);
 
-		// .avatar should never be null or undefined.
-		// if (user.avatar == null) throw 'No avatar, this should never happen.';
-		// console.log(user.avatar);
 		if (username == null) {
 			const findUser = await client.user.findUnique({ where: { id: user.id } });
 			if (!findUser) {
 				const users = await client.user.findMany({ select: { username: true } });
-				// setContext('oauthRequest', result);
-				console.log(user);
 				return {
 					username: user.username,
 					firstTime: true,
@@ -51,7 +46,6 @@ async function login(result: TokenRequestResult, cookies: Cookies,  username: st
 			}
 			username = findUser.username;
 		}
-		console.log(username);
 		await client.user.upsert({
 			where: {
 				id: user.id
