@@ -39,12 +39,19 @@
 		}
 
 		if (handleValidity(newValue)) value = newValue;
-		if (autoExpand) {
-			text_area.style.height = '';
-			text_area.style.height = text_area.scrollHeight + 3 + 'px';
-		}
+		autoHeightExpand();
 		dispatch('input');
 	};
+
+	function autoHeightExpand() {
+		if (autoExpand) {
+			text_area.style.overflow = "scroll";
+			let scrollHeight = text_area.scrollHeight;
+			text_area.style.overflow = "hidden";
+			text_area.style.height = "";
+			text_area.style.height = (scrollHeight + 3) + "px";
+		}
+	}
 
 	function handleValidity(value: any) {
 		const validity = validate(value);
@@ -58,7 +65,10 @@
 		return validity === true || validity === '';
 	}
 
-	onMount(() => handleValidity(value));
+	onMount(() => {
+		handleValidity(value)
+		autoHeightExpand();
+	});
 </script>
 
 <div class:hstack={sideLabel}>
