@@ -2,22 +2,28 @@
 
 	import Input from '$lib/controls/Input.svelte';
 	import type { TokenRequestResult } from 'discord-oauth2';
+	import { applyAction } from '$app/forms';
 	export let data;
-	export let result: TokenRequestResult = data.result;
-	export let username: string = data.username;
-	export let takenUsernames: string[] = data.takenUsernames;
+	let oauthResult: TokenRequestResult = data.result;
+	let username: string = data.username;
+	let takenUsernames: string[] = data.takenUsernames;
 
 	async function submit() {
 		if (takenUsernames.includes(username)) return;
+		
+		const fData = new FormData();
+		fData.append('result', JSON.stringify(oauthResult))
+		fData.append('username',username)
 
-		const response = await fetch('/login-callback', {
+		const response = await fetch('?/editName', {
 			method: 'POST',
-			body: JSON.stringify({ result, username })
+			body: fData
 		});
+		/** @type {import('@sveltejs/kit').ActionResult} */
+	 const result = await response.json();
 
-		if (response.redirected) {
-			location.href = response.url;
-		}
+	 applyAction(result);
+		
 	}
 </script>
 
@@ -28,7 +34,7 @@
 <h1 class="header">Username Conflict</h1>
 <div class="block flex column content-width">
 	<div>Someone already has that username, please select another.</div>
-	<form method="POST">
+	<form method="POST", on:submit|preventDefault={submit}>
 		<Input
 			name="username"
 			id="username"

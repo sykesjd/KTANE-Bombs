@@ -28,14 +28,17 @@
 		shownUser.permissions.some((permission) => !newPermissions.has(permission));
 
 	async function saveChanges() {
-		await fetch(`/user/${shownUser.id}`, {
-			method: 'PATCH',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(Array.from(newPermissions))
+		const fData = new FormData();
+		fData.append('perms', JSON.stringify(Array.from(newPermissions)))
+		fData.append('user',shownUser.id)
+		await fetch(`?/editPermissions`, {
+			method: 'POST',
+			body: fData
 		});
+		 /** @type {import('@sveltejs/kit').ActionResult} */
+    const result = await response.json();
 
+    applyAction(result);
 		shownUser.permissions = Array.from(newPermissions);
 	}
 </script>

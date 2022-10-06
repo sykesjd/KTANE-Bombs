@@ -23,10 +23,10 @@ export const load: RequestHandler = async function load({ url, cookies }) {
 };
 
 export const actions = {
-	default: async ({ request, cookies }) => {
-		const result = getContext('oauthRequest')
+	editName: async ({ request, cookies }) => {
 		const values = await request.formData();
 		const username = values.get('username');
+		const result = JSON.parse(values.get('result'))
 		return await login(result, cookies, username);
 	}
 }
@@ -63,7 +63,6 @@ async function login(result: TokenRequestResult, cookies,  username: string | nu
 		// Conflict happened on username, the user needs to pick another.
 		const user = await OAuth.getUser(result.access_token);
 		const users = await client.user.findMany({ select: { username: true } });
-		setContext('oauthRequest', result)
 		return {
 				username: user.username,
 				takenUsernames: users.map((user) => user.username),

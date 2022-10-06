@@ -45,6 +45,30 @@ export const load: RequestHandler = async function ({ params }) {
 	};
 };
 
+/** @type {import('./$types').Actions} */
+export const actions = {
+	editPermissions : async ({locals, request}) =>{
+		if (!hasPermission(locals.user, Permission.ModifyPermissions)) {
+			return forbidden(locals);
+		}
+		const fData = await request.formData();
+		const body: Permission[] = JSON.parse(fData.get('perms'));
+		const user = fData.get('user')
+		await client.user.update({
+			where: {
+				id: user
+			},
+			data: {
+				permissions: body
+			}
+		});
+	
+		return {
+			
+		};
+	}
+}
+
 export const PATCH: RequestHandler<Record<string, never>> = async function ({
 	locals,
 	params,
