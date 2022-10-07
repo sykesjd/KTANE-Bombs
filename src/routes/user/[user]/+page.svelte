@@ -63,7 +63,7 @@
 			</a>
 		{/each}
 	</div>
-	{#if hasPermission($page.data.user, Permission.RenameUser)}
+	{#if shownUser !== null && hasPermission($page.data.user, Permission.RenameUser)}
 		<button on:click={() => dialog.showModal()}>Edit Name</button>
 	{/if}
 	<Dialog bind:dialog>
@@ -82,7 +82,7 @@
 		</div>
 	</Dialog>
 </div>
-{#if $page.data.user !== null && hasPermission($page.data.user, Permission.ModifyPermissions)}
+{#if shownUser !== null && $page.data.user !== null && hasPermission($page.data.user, Permission.ModifyPermissions)}
 	<UserPermissions {shownUser} />
 {/if}
 

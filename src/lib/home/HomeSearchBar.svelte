@@ -167,7 +167,7 @@
 
 	function homeOptionUpdate(event:any) {
 		Object.assign(options, event.detail.op)
-		console.log(options);
+		//console.log(options);
 		if (sortOrder != options.sortOrder || reverse != options.checks["sort-reverse"]) {
 			sortOrder = options.sortOrder;
 			reverse = options.checks["sort-reverse"];
