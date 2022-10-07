@@ -5,7 +5,7 @@ import type { RequestEvent, ServerLoadEvent } from '@sveltejs/kit';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
 
-export const load: PageServerLoad = async function ({ params }: ServerLoadEvent) {
+export const load = async function ({ params }:any) {
 	const user = await client.user.findFirst({
 		where: {
 			username: params.user

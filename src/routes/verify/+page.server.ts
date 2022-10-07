@@ -5,8 +5,8 @@ import { fixPools, forbidden, hasAnyPermission, hasPermission } from '$lib/util'
 import type { ServerLoadEvent } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async function ({ parent, locals }: ServerLoadEvent) {
-	const { user } = await parent();
+export const load = async function ({ parent, locals }:any) {
+	const {user} = await parent()
 	if (
 		!hasAnyPermission(
 			user,

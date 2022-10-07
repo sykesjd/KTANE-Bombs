@@ -2,9 +2,9 @@
 	import Input from '$lib/controls/Input.svelte';
 	import type { TokenRequestResult } from 'discord-oauth2';
 	import { applyAction } from '$app/forms';
+	import type { ActionResult } from '@sveltejs/kit';
 
 	export let data;
-	import type { ActionResult } from '@sveltejs/kit';
 	export let oauthResult: TokenRequestResult = data.result;
 	export let username: string = data.username;
 	export let takenUsernames: string[] = data.takenUsernames;
@@ -22,9 +22,6 @@
 			method: 'POST',
 			body: fData
 		});
-		/** @type {import('@sveltejs/kit').ActionResult} */
-		const result = await response.json();
-
 		const resp: ActionResult = await response.json();
 
 		applyAction(resp);
