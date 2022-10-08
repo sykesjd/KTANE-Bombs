@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let dialog: HTMLDialogElement;
+	export let dialog: HTMLDialogElement | undefined = undefined;
 
 	function onClick(event: Event) {
 		if (event.target === dialog) {
