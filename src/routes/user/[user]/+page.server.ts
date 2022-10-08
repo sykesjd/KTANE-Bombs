@@ -45,8 +45,9 @@ export const load = async function ({ params }:any) {
 	};
 };
 
-export const actions: Actions = {
-	editPermissions: async ({ locals, request }: RequestEvent) => {
+/** @type {import('./$types').Actions} */
+export const actions = {
+	editPermissions : async ({locals, request}:any) =>{
 		if (!hasPermission(locals.user, Permission.ModifyPermissions)) {
 			return forbidden(locals);
 		}

@@ -27,9 +27,6 @@
 		gap: var(--gap);
 		align-items: center;
 	}
-	.username {
-		text-decoration: underline;
-	}
 	.discord {
 		margin-left: 50px;
 	}
