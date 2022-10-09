@@ -105,7 +105,7 @@ export function parseList(value: string) {
 }
 
 function findMatchingBrackets(str:string, left:string, right:string): number[] {
-	let lPar = str.indexOf(left);
+	const lPar = str.indexOf(left);
 	let lPar2 = str.indexOf(left, lPar + 2);
 	let rPar = str.indexOf(right, lPar + 2);
 	while (lPar >= 0 && lPar2 >= 0 && rPar >= 0 && lPar2 < rPar) {
@@ -126,26 +126,26 @@ export function evaluateLogicalStringSearch(expression:string, searchWhat:string
 	const aand =	"&&";
 	const oor =		"||";
 	const nnot =	"!!";
-	let expr = expression.trim();
+	const expr = expression.trim();
 	let exprAfter = expr;
 
 	let br = findMatchingBrackets(expr, left, right);
 	while (br[0] >= 0 && br[1] >= 0 && br[1] > br[0]) {		//valid parentheses found
-		let stripped = exprAfter.slice(br[0] + 2, br[1]);
-		let val = evaluateLogicalStringSearch(stripped, searchWhat);
+		const stripped = exprAfter.slice(br[0] + 2, br[1]);
+		const val = evaluateLogicalStringSearch(stripped, searchWhat);
 		exprAfter = exprAfter.slice(0, br[0]) + (val ? " " : "!@#%^&*)(*&#@!") + exprAfter.slice(br[1] + 2);
 		br = findMatchingBrackets(exprAfter, left, right);
 	}
 
-	let searchParamOr = exprAfter.split(oor).map(x => x.trim());
+	const searchParamOr = exprAfter.split(oor).map(x => x.trim());
 	let matches = false;
 	for (let oo = 0; !matches && oo < searchParamOr.length; oo++) {
-		let searchParamAnd = searchParamOr[oo].split(aand).map(x => x.trim());
+		const searchParamAnd = searchParamOr[oo].split(aand).map(x => x.trim());
 		matches = true;
 		for (let aa = 0; matches && aa < searchParamAnd.length; aa++) {
-			let notThis = searchParamAnd[aa].indexOf(nnot) == 0;
+			const notThis = searchParamAnd[aa].indexOf(nnot) == 0;
 			if (notThis) {
-				let stripped = searchParamAnd[aa].slice(2).trim();
+				const stripped = searchParamAnd[aa].slice(2).trim();
 				if (searchWhat.includes(stripped)) {
 					matches = false;
 					break;
@@ -180,10 +180,10 @@ export function getWindowHeight(): number {
 	);
 }
 
-export function disappear(preventDisappear:number = 0): number {
+export function disappear(preventDisappear = 0): number {
 	if (preventDisappear === 0)
 	{
-		let toHide = document.getElementsByClassName('disappear');
+		const toHide = document.getElementsByClassName('disappear');
 		for (let i = 0; i < toHide.length; i++)
 			toHide[i].classList.add("hidden");
 	}
@@ -192,17 +192,17 @@ export function disappear(preventDisappear:number = 0): number {
 	return preventDisappear;
 }
 
-export function popup (event:any, wnd:HTMLElement, obj:HTMLElement, pd:number, relative:boolean = false, skew:number[] = [0,0]): number {
-	let wasHidden = wnd.classList.contains('hidden');
-	let pd2 = disappear(pd);
+export function popup (event:any, wnd:HTMLElement, obj:HTMLElement, pd:number, relative = false, skew:number[] = [0,0]): number {
+	const wasHidden = wnd.classList.contains('hidden');
+	const pd2 = disappear(pd);
 	if (wasHidden) {
 		wnd.style.left = '';
 		wnd.style.top = '';
 		wnd.classList.remove("hidden");
 		// Desktop interface: position relative to the object clicked
-		let maxLeft = Math.max(getWindowWidth() - wnd.clientWidth - 30, 0);
-		let maxTop = Math.max(getWindowHeight() - wnd.clientHeight - 30, 0);
-		let rect = obj.getBoundingClientRect();
+		const maxLeft = Math.max(getWindowWidth() - wnd.clientWidth - 30, 0);
+		const maxTop = Math.max(getWindowHeight() - wnd.clientHeight - 30, 0);
+		const rect = obj.getBoundingClientRect();
 		wnd.style.left = Math.min((relative? obj.offsetLeft : rect.left) - wnd.clientWidth*0.5 + skew[0], maxLeft) + 'px';
 		wnd.style.top = Math.min((relative? rect.height + obj.offsetTop : rect.bottom) + skew[1], maxTop) + 'px';
 	}
