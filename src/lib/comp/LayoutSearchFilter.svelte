@@ -36,9 +36,8 @@
 	function updateSearchFilter() {
 		numResults = 0;
 		searching = true;
-		Object.keys(items).forEach((item) => {
-			if (showNoneForBlank && searchText.length == 0)
-				items[item]?.classList.add('search-filtered-out');
+		Object.keys(items).forEach(item => {
+			if (showNoneForBlank && searchText.length == 0) items[item]?.classList.add('search-filtered-out');
 			else if (filterFunc(item, searchText)) {
 				items[item]?.classList.remove('search-filtered-out');
 				numResults++;
@@ -64,8 +63,7 @@
 		on:input={updateSearch}
 		{autoExpand}
 		{rows}
-		bind:value={rawSearchText}
-	/>
+		bind:value={rawSearchText} />
 {:else}
 	<Input
 		{label}
@@ -75,8 +73,7 @@
 		sideLabel
 		classes="search-field {classes}"
 		on:input={updateSearch}
-		bind:value={rawSearchText}
-	/>
+		bind:value={rawSearchText} />
 {/if}
 <div class="search-field-clear dark-invert" on:click={clearSearch} />
 

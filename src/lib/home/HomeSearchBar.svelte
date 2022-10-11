@@ -70,7 +70,7 @@
 			searchWhat +=
 				' ' +
 				modulesInMission[name]
-					.map((m) => m.Name)
+					.map(m => m.Name)
 					.join(' ')
 					.toLowerCase();
 		if (searchOptions?.includes('author')) searchWhat += ' ' + ms.authors.join(' ').toLowerCase();
@@ -91,8 +91,8 @@
 		if (textMatch) {
 			let time = timeSum(ms) / 60;
 			let mods = modSum(ms);
-			let strk = Math.max(...ms.bombs.map((bomb) => bomb.strikes));
-			let widg = Math.max(...ms.bombs.map((bomb) => bomb.widgets));
+			let strk = Math.max(...ms.bombs.map(bomb => bomb.strikes));
+			let widg = Math.max(...ms.bombs.map(bomb => bomb.widgets));
 
 			filtered =
 				time < options.time[0] ||
@@ -113,12 +113,9 @@
 				!meetsHave(specialsInMission[name]['need'].length > 0, options.mustHave['has-needy']);
 			if (!filtered && options.modules['Operation'] != undefined) {
 				filtered =
-					(options.modules['Operation'] != Operation.Defuser &&
-						percentFromEnabled(name) < options.profPerc[0]) ||
+					(options.modules['Operation'] != Operation.Defuser && percentFromEnabled(name) < options.profPerc[0]) ||
 					(options.modules['Operation'] != Operation.Expert &&
-						modulesInMission[name].some((m) =>
-							(options.modules['DisabledList'] || []).includes(m.ModuleID)
-						));
+						modulesInMission[name].some(m => (options.modules['DisabledList'] || []).includes(m.ModuleID)));
 			}
 		}
 
@@ -127,10 +124,7 @@
 
 	function percentFromEnabled(msName: string): number {
 		let percent =
-			(modulesInMission[msName].filter((m) =>
-				(options.modules['EnabledList'] || []).includes(m.ModuleID)
-			).length *
-				100) /
+			(modulesInMission[msName].filter(m => (options.modules['EnabledList'] || []).includes(m.ModuleID)).length * 100) /
 			modulesInMission[msName].length;
 		// if (percent >= options.profPerc[0])
 		// 	console.log(msName + ": " + percent);
@@ -138,31 +132,29 @@
 	}
 
 	function separateSpecialModules(msName: string): { [name: string]: any } {
-		let bosses = modulesInMission[msName].filter((m) => m.BossStatus);
+		let bosses = modulesInMission[msName].filter(m => m.BossStatus);
 		return {
-			boss: bosses.filter((m) => m.BossStatus == 'FullBoss'),
-			semi: bosses.filter((m) => m.BossStatus == 'SemiBoss'),
-			psdn: modulesInMission[msName].filter((m) => m.Quirks?.includes('PseudoNeedy')),
-			reg: modulesInMission[msName].filter((m) => m.Type == 'Regular'),
-			need: modulesInMission[msName].filter((m) => m.Type == 'Needy')
+			boss: bosses.filter(m => m.BossStatus == 'FullBoss'),
+			semi: bosses.filter(m => m.BossStatus == 'SemiBoss'),
+			psdn: modulesInMission[msName].filter(m => m.Quirks?.includes('PseudoNeedy')),
+			reg: modulesInMission[msName].filter(m => m.Type == 'Regular'),
+			need: modulesInMission[msName].filter(m => m.Type == 'Needy')
 		};
 	}
 
 	function meetsHave(test: boolean, crit: MustHave) {
-		return (
-			crit == MustHave.Either || (test && crit == MustHave.Yes) || (!test && crit == MustHave.No)
-		);
+		return crit == MustHave.Either || (test && crit == MustHave.Yes) || (!test && crit == MustHave.No);
 	}
 
 	function timeSum(m: Mission) {
-		return Math.max(...m.bombs.map((b) => b.time));
+		return Math.max(...m.bombs.map(b => b.time));
 	}
 	function modSum(m: Mission) {
-		return m.bombs.map((b) => b.modules).reduce((a, b) => a + b, 0);
+		return m.bombs.map(b => b.modules).reduce((a, b) => a + b, 0);
 	}
 	function ruleSeedPercent(m: Mission) {
-		let rs = modulesInMission[m.name].map((m) => m.RuleSeedSupport != null);
-		return rs.filter((x) => x).length / rs.length;
+		let rs = modulesInMission[m.name].map(m => m.RuleSeedSupport != null);
+		return rs.filter(x => x).length / rs.length;
 	}
 
 	function numCompletions(m: Mission) {
@@ -219,9 +211,7 @@
 				case 'rule-seeded-mods-%':
 					fastSort = delayModulesCalculation(
 						() => {
-							missions.sort((a, b) =>
-								ruleSeedPercent(a) > ruleSeedPercent(b) != reverse ? 1 : -1
-							);
+							missions.sort((a, b) => (ruleSeedPercent(a) > ruleSeedPercent(b) != reverse ? 1 : -1));
 						},
 						defaultSort,
 						100
@@ -230,9 +220,7 @@
 				case 'expert-match':
 					fastSort = delayModulesCalculation(
 						() => {
-							missions.sort((a, b) =>
-								percentFromEnabled(a.name) > percentFromEnabled(b.name) != reverse ? 1 : -1
-							);
+							missions.sort((a, b) => (percentFromEnabled(a.name) > percentFromEnabled(b.name) != reverse ? 1 : -1));
 						},
 						defaultSort,
 						100
@@ -270,11 +258,11 @@
 			searchOptions = searchOptionBoxes.filter((_, i) => validSearchOptions[i]);
 		}
 		localSubscribe(searchOptions, 'searchOptions');
-		missions.forEach((m) => {
+		missions.forEach(m => {
 			modulesInMission[m.name] = m.bombs
-				.map((b: Bomb) => b.pools.map((p) => p.modules.filter(onlyUnique)))
+				.map((b: Bomb) => b.pools.map(p => p.modules.filter(onlyUnique)))
 				.flat(2)
-				.map((m) => getModule(m, modules));
+				.map(m => getModule(m, modules));
 		});
 		missions.forEach((m) => {
 			specialsInMission[m.name] = separateSpecialModules(m.name);
@@ -297,8 +285,7 @@
 		filterFunc={bombSearchFilter}
 		classes="help"
 		bind:numResults={resultsText}
-		bind:this={layoutSearch}
-	/>
+		bind:this={layoutSearch} />
 
 	<div class="hstack boxes">
 		{#each searchOptionBoxes as option, index}
@@ -308,26 +295,20 @@
 				sideLabel
 				labelAfter
 				on:change={setSearchOptions}
-				bind:checked={validSearchOptions[index]}
-			/>
+				bind:checked={validSearchOptions[index]} />
 		{/each}
 	</div>
 	<div class="spacer" />
 	<div
 		class="tab filter-tab"
 		bind:this={filterTab}
-		on:click={(event) => {
+		on:click={event => {
 			prevDisap = popup(event, filters, filterTab, prevDisap + 2, true);
 		}}
 	>
 		Filters
 	</div>
-	<HomeFiltersMenu
-		bind:div={filters}
-		on:update={homeOptionUpdate}
-		on:click={() => prevDisap++}
-		{modules}
-	/>
+	<HomeFiltersMenu bind:div={filters} on:update={homeOptionUpdate} on:click={() => prevDisap++} {modules} />
 </div>
 
 <style>

@@ -45,19 +45,17 @@
 
 	function autoHeightExpand() {
 		if (autoExpand) {
-			text_area.style.overflow = "scroll";
+			text_area.style.overflow = 'scroll';
 			let scrollHeight = text_area.scrollHeight;
-			text_area.style.overflow = "hidden";
-			text_area.style.height = "";
-			text_area.style.height = (scrollHeight + 3) + "px";
+			text_area.style.overflow = 'hidden';
+			text_area.style.height = '';
+			text_area.style.height = scrollHeight + 3 + 'px';
 		}
 	}
 
 	function handleValidity(value: any) {
 		const validity = validate(value);
-		text_area.setCustomValidity(
-			typeof validity === 'string' ? validity : validity ? '' : 'Invalid value.'
-		);
+		text_area.setCustomValidity(typeof validity === 'string' ? validity : validity ? '' : 'Invalid value.');
 		text_area.reportValidity();
 
 		error = text_area.validationMessage;
@@ -66,7 +64,7 @@
 	}
 
 	onMount(() => {
-		handleValidity(value)
+		handleValidity(value);
 		autoHeightExpand();
 	});
 </script>
@@ -92,8 +90,7 @@
 				displayValue = display(value);
 			}
 			dispatch('change');
-		}}
-	/>
+		}} />
 	{#if error}
 		<div style="color: rgb(255, 80, 80);">{error}</div>
 	{/if}

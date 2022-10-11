@@ -109,7 +109,7 @@
 			let found = getModule(mod, modules);
 			if (!found || (found.Type != 'Regular' && found.Type != 'Needy'))
 				list.splice(
-					list.findIndex((x) => x == mod),
+					list.findIndex(x => x == mod),
 					1
 				);
 		});
@@ -142,7 +142,7 @@
 		for (let f = 0; filesValid && f < files.length; f++) readers.push(readFileAsText(files[f]));
 
 		filesValid = true;
-		Promise.all(readers).then((fl) => {
+		Promise.all(readers).then(fl => {
 			for (let f = 0; filesValid && f < fl.length; f++) {
 				let name = files[f].name.replace(/\.[^/.]+$/, '');
 				let p = JSON.parse(<string>fl[f] || '{}');
@@ -168,32 +168,25 @@
 					if (!profile['EnabledList']) profile['EnabledList'] = [];
 					if (!profile['Name']) profile['Name'] = '';
 
-					profile['Name'] =
-						f == 0 && profile['Name'].length == 0 ? name : `${profile['Name']}, ${name}`;
+					profile['Name'] = f == 0 && profile['Name'].length == 0 ? name : `${profile['Name']}, ${name}`;
 					profile['Operation'] =
-						profile['Operation'] == undefined || operation == profile['Operation']
-							? operation
-							: Operation.Combined;
+						profile['Operation'] == undefined || operation == profile['Operation'] ? operation : Operation.Combined;
 					operation = profile['Operation'];
 
 					if (p['DisabledList'])
-						profile['DisabledList'] = profile['DisabledList']
-							.concat(p['DisabledList'])
-							.filter(onlyUnique);
+						profile['DisabledList'] = profile['DisabledList'].concat(p['DisabledList']).filter(onlyUnique);
 					if (p['EnabledList'])
-						profile['EnabledList'] = profile['EnabledList']
-							.concat(p['EnabledList'])
-							.filter(onlyUnique);
+						profile['EnabledList'] = profile['EnabledList'].concat(p['EnabledList']).filter(onlyUnique);
 
 					noList = [];
 					if (profile['DisabledList']) {
 						Object.assign(noList, profile['DisabledList']);
-						noList = noList.map((m) => getModule(m, modules).Name).sort();
+						noList = noList.map(m => getModule(m, modules).Name).sort();
 					}
 					yesList = [];
 					if (profile['EnabledList']) {
 						Object.assign(yesList, profile['EnabledList']);
-						yesList = yesList.map((m) => getModule(m, modules).Name).sort();
+						yesList = yesList.map(m => getModule(m, modules).Name).sort();
 					}
 
 					profile == profile;
@@ -235,7 +228,7 @@
 		Object.keys(checkDef).forEach((x: string) => {
 			checks[x] = checkDef[x];
 		});
-		hasOptions.forEach((x) => {
+		hasOptions.forEach(x => {
 			mustHaves[toDashed(x)] = MustHave.Either;
 		});
 		Object.keys(limitDef).forEach((x, i) => {
@@ -268,9 +261,7 @@
 		localSubscribe(prefersMatchSort, 'prefers-match-sort');
 
 		Object.keys(limits).forEach((x: string) => {
-			limits[x] = JSON.parse(
-				localStorage.getItem(`option-${x}-lim`) || JSON.stringify(limitDef[x])
-			);
+			limits[x] = JSON.parse(localStorage.getItem(`option-${x}-lim`) || JSON.stringify(limitDef[x]));
 		});
 		Object.keys(limits).forEach((x: string) => {
 			localSubscribe(limits[x], `option-${x}-lim`);
@@ -291,8 +282,7 @@
 			on:click={() => {
 				setDefaults();
 				setOption();
-			}}>Reset to Defaults</button
-		>
+			}}>Reset to Defaults</button>
 	</div>
 	<div class="vspace" />
 	<div class="hstack columns">
@@ -306,8 +296,7 @@
 					classes="limits"
 					parse={integer}
 					validate={intnan}
-					on:change={setOption}
-				/>
+					on:change={setOption} />
 				<span class="through" />
 				<Input
 					name="option-mcu"
@@ -316,8 +305,7 @@
 					classes="limits"
 					parse={integer}
 					validate={intnan}
-					on:change={setOption}
-				/>
+					on:change={setOption} />
 			</div>
 			<div class="vspace" />
 			<span>Time (minutes)</span>
@@ -329,8 +317,7 @@
 					classes="limits"
 					parse={integer}
 					validate={intnan}
-					on:change={setOption}
-				/>
+					on:change={setOption} />
 				<span class="through" />
 				<Input
 					name="option-tmu"
@@ -339,8 +326,7 @@
 					classes="limits"
 					parse={integer}
 					validate={intnan}
-					on:change={setOption}
-				/>
+					on:change={setOption} />
 			</div>
 			<div class="vspace" />
 			<span>Strikes</span>
@@ -352,8 +338,7 @@
 					classes="limits"
 					parse={integer}
 					validate={intnan}
-					on:change={setOption}
-				/>
+					on:change={setOption} />
 				<span class="through" />
 				<Input
 					name="option-stku"
@@ -362,8 +347,7 @@
 					classes="limits"
 					parse={integer}
 					validate={intnan}
-					on:change={setOption}
-				/>
+					on:change={setOption} />
 			</div>
 			<div class="vspace" />
 			<span>Widgets</span>
@@ -375,8 +359,7 @@
 					classes="limits"
 					parse={integer}
 					validate={intnan}
-					on:change={setOption}
-				/>
+					on:change={setOption} />
 				<span class="through" />
 				<Input
 					name="option-wdgu"
@@ -385,8 +368,7 @@
 					classes="limits"
 					parse={integer}
 					validate={intnan}
-					on:change={setOption}
-				/>
+					on:change={setOption} />
 			</div>
 			<div class="vspace" />
 		</div>
@@ -396,39 +378,34 @@
 				{#each hasOptions as op, index}
 					<tr>
 						<td class="row-header nowrap">{op}</td>
-						<td
-							><RadioButton
+						<td>
+							<RadioButton
 								id={`option-${toDashed(op)}-yes}`}
 								label="Yes"
 								value={MustHave.Yes}
 								sideLabel
 								name={`option-${toDashed(op)}`}
 								bind:group={mustHaves[toDashed(op)]}
-								on:change={setOption}
-							/>
+								on:change={setOption} />
 						</td>
-						<td
-							><RadioButton
+						<td>
+							<RadioButton
 								id={`option-${toDashed(op)}-no}`}
 								label="No"
 								value={MustHave.No}
 								sideLabel
 								name={`option-${toDashed(op)}`}
 								bind:group={mustHaves[toDashed(op)]}
-								on:change={setOption}
-							/></td
-						>
-						<td
-							><RadioButton
+								on:change={setOption} /></td>
+						<td>
+							<RadioButton
 								id={`option-${toDashed(op)}-either}`}
 								label="Either"
 								value={MustHave.Either}
 								sideLabel
 								name={`option-${toDashed(op)}`}
 								bind:group={mustHaves[toDashed(op)]}
-								on:change={setOption}
-							/></td
-						>
+								on:change={setOption} /></td>
 					</tr>
 				{/each}
 			</table>
@@ -441,8 +418,7 @@
 					bind:checked={checks['sort-reverse']}
 					sideLabel
 					labelAfter
-					on:change={setOption}
-				/>
+					on:change={setOption} />
 			</div>
 			{#each sortOptions as op}
 				<RadioButton
@@ -453,8 +429,7 @@
 					labelAfter
 					name={'option-sort-order'}
 					bind:group={sortOrder}
-					on:change={setSortOrder}
-				/>
+					on:change={setSortOrder} />
 			{/each}
 			{#if profile['Operation'] != undefined && operation != Operation.Defuser}
 				<RadioButton
@@ -465,8 +440,7 @@
 					labelAfter
 					name={'option-sort-order'}
 					bind:group={sortOrder}
-					on:change={setSortOrder}
-				/>
+					on:change={setSortOrder} />
 			{/if}
 		</div>
 	</div>
@@ -481,14 +455,12 @@
 			accept=".json"
 			bind:files
 			bind:this={fileInput}
-			on:change={() => importProfile(files)}
-		/>
+			on:change={() => importProfile(files)} />
 		<button
 			on:click={() => {
 				fileInput.value = '';
 				fileInput.click();
-			}}
-		>
+			}}>
 			{#if profile['Operation'] != undefined}
 				Add
 			{:else}
@@ -509,8 +481,7 @@
 					classes="percent"
 					parse={integer}
 					validate={percent}
-					on:change={setOption}
-				/>
+					on:change={setOption} />
 				<span><b>%</b> from profile</span>
 			</div>
 		{/if}

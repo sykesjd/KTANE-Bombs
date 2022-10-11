@@ -25,13 +25,7 @@
 	<title>Challenge Bombs</title>
 </svelte:head>
 <h1 class="header">Challenge Bombs</h1>
-<HomeSearchBar
-	bind:this={searchBar}
-	bind:missions
-	bind:missionCards
-	on:change={onChange}
-	{modules}
-/>
+<HomeSearchBar bind:this={searchBar} bind:missions bind:missionCards on:change={onChange} {modules} />
 <div class="bombs">
 	{#each missions as mission, index (mission.name)}
 		{#if render}
@@ -39,8 +33,7 @@
 				{mission}
 				id={'mission-input-' + index}
 				cardID={'mission-' + mission.name}
-				bind:card={missionCards[mission.name]}
-			/>
+				bind:card={missionCards[mission.name]} />
 		{/if}
 	{/each}
 </div>

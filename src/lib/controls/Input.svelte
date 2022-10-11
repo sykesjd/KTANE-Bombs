@@ -44,9 +44,7 @@
 
 	function handleValidity(value: any) {
 		const validity = validate(value);
-		input.setCustomValidity(
-			typeof validity === 'string' ? validity : validity ? '' : 'Invalid value.'
-		);
+		input.setCustomValidity(typeof validity === 'string' ? validity : validity ? '' : 'Invalid value.');
 		input.reportValidity();
 
 		error = input.validationMessage;
@@ -78,8 +76,7 @@
 				displayValue = display(value);
 			}
 			dispatch('change');
-		}}
-	/>
+		}} />
 	{#if error}
 		<div style="color: rgb(255, 80, 80);">{error}</div>
 	{/if}

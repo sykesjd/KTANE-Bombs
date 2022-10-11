@@ -20,5 +20,7 @@
 {/each}
 
 <style>
-	a { text-decoration: none; }
+	a {
+		text-decoration: none;
+	}
 </style>
