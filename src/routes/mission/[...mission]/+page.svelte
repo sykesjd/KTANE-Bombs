@@ -1,17 +1,17 @@
 <script lang="ts">
 
 	import { Permission, type Mission, type MissionPack } from '$lib/types';
-	import { formatTime, hasPermission, pluralize } from '$lib/util';
+	import { formatTime, getModule, hasPermission, pluralize } from '$lib/util';
 	import CompletionList from '$lib/comp/CompletionList.svelte';
 	import type { RepoModule } from '$lib/repo';
 	import { page } from '$app/stores';
-	import { getModule, sortBombs } from '../_shared';
+	import { sortBombs } from '../_shared';
 
 	type Variant = Pick<Mission, 'name' | 'completions' | 'tpSolve'>;
 	export let data;
 	export let mission: Mission & { missionPack: MissionPack } = data.mission;
 	export let variants: Variant[] | null = data.variants;
-	export let modules: RepoModule[] | null = data.modules;
+	export let modules: Record<string, RepoModule> | null = data.modules;
 
 	sortBombs(mission, modules);
 </script>

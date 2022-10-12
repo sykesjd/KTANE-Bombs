@@ -7,7 +7,7 @@
 	export let data;
 	let missions: Mission[] = data.missions;
 	let missionCards: any = {};
-	let modules: RepoModule[] = data.modules;
+	let modules: Record<string, RepoModule> = data.modules;
 
 	let render = false;
 	let searchBar: HomeSearchBar;

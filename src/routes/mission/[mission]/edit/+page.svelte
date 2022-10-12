@@ -6,18 +6,18 @@
 	import type { RepoModule } from '$lib/repo';
 	import Select from '$lib/controls/Select.svelte';
 	import { Permission, type Completion, type ID, type Mission, type MissionPack } from '$lib/types';
-	import { formatTime, hasPermission, parseList, parseTime, pluralize } from '$lib/util';
+	import { formatTime, getModule, hasPermission, parseList, parseTime, pluralize } from '$lib/util';
 	import equal from 'fast-deep-equal';
-	import { getModule, sortBombs } from '../../_shared';
+	import { sortBombs } from '../../_shared';
 	import type { EditMission } from './_types';
 	import {page} from '$app/stores';
 	import { applyAction } from '$app/forms';
-	
+
 	export let data;
 
 	let mission: EditMission = data.mission;
 	let packs: Pick<ID<MissionPack>, 'id' | 'name'>[] = data.packs;
-	let modules: RepoModule[] | null = data.modules;
+	let modules: Record<string, RepoModule> | null = data.modules;
 
 	sortBombs(mission, modules);
 
@@ -49,7 +49,7 @@
 		if (!confirm('This cannot be undone. Are you sure?')) return;
 		const fData = new FormData();
 		fData.append('mission', JSON.stringify(originalMission))
-		
+
 		const response = await fetch("?/deleteMission", {
 			method: 'POST',
 			body: fData
@@ -70,7 +70,7 @@
 			method: 'POST',
 			body: fData
 		});
-		
+
 		mission.completions = mission.completions.filter((comp) => completion.id !== comp.id);
 		 /** @type {import('@sveltejs/kit').ActionResult} */
     const result = await response.json();

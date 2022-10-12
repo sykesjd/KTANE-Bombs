@@ -1,25 +1,8 @@
 import type { RepoModule } from '$lib/repo';
 import type { Mission } from '$lib/types';
+import { getModule } from "$lib/util";
 
-export function getModule(moduleID: string, modules: RepoModule[] | null) {
-	const module = modules?.filter((module) => module.ModuleID == moduleID);
-	if (module?.length === 1) {
-		return module[0];
-	}
-
-	return {
-		BossStatus: null,
-		ModuleID: moduleID,
-		Name: moduleID,
-		RuleSeedSupport: null,
-		Type: moduleID.match(/needy/gi)? "Needy" : "Regular",
-		Quirks: null,
-		X: 0,
-		Y: 0
-	};
-}
-
-export function sortBombs(mission: Mission, modules: RepoModule[] | null) {
+export function sortBombs(mission: Mission, modules: Record<string, RepoModule> | null) {
 	const getName = (id: string) => getModule(id, modules).Name;
 
 	for (const pool of mission.bombs.flatMap((bomb) => bomb.pools)) {
