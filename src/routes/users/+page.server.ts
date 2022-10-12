@@ -1,9 +1,8 @@
 
 
 import client from '$lib/client';
-import type { RequestHandler } from '@sveltejs/kit';
 
-export const load: RequestHandler = async function () {
+export const load = async function () {
 	const users = await client.user.findMany({
 		select: {
 			id: true,

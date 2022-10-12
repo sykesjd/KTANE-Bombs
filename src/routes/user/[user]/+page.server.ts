@@ -2,10 +2,11 @@
 import client from '$lib/client';
 import { Permission } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
-import type { RequestHandler } from '@sveltejs/kit';
+import type { RequestEvent, ServerLoadEvent } from '@sveltejs/kit';
 import {error} from '@sveltejs/kit'
 
-export const load: RequestHandler = async function ({ params }) {
+/** @type {import('./$types').PageServerLoad} */
+export const load = async function ({ params } : ServerLoadEvent) {
 	const user = await client.user.findFirst({
 		where: {
 			username: params.user
@@ -47,13 +48,16 @@ export const load: RequestHandler = async function ({ params }) {
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-	editPermissions : async ({locals, request}) =>{
+	editPermissions : async ({locals, request} : RequestEvent) =>{
 		if (!hasPermission(locals.user, Permission.ModifyPermissions)) {
 			return forbidden(locals);
 		}
 		const fData = await request.formData();
-		const body: Permission[] = JSON.parse(fData.get('perms'));
-		const user = fData.get('user')
+		const body: Permission[] = JSON.parse(fData.get('perms')?.toString()??"");
+		const user = fData.get('user')?.toString()
+		if(user === null || user === undefined) {
+			throw error(400)
+		}
 		await client.user.update({
 			where: {
 				id: user
@@ -68,27 +72,3 @@ export const actions = {
 		};
 	}
 }
-
-export const PATCH: RequestHandler<Record<string, never>> = async function ({
-	locals,
-	params,
-	request
-}) {
-	if (!hasPermission(locals.user, Permission.ModifyPermissions)) {
-		return forbidden(locals);
-	}
-
-	const body: Permission[] = await request.json();
-	await client.user.update({
-		where: {
-			id: params.user
-		},
-		data: {
-			permissions: body
-		}
-	});
-
-	return {
-		status: 200
-	};
-};

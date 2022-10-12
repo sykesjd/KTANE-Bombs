@@ -1,8 +1,8 @@
 
 import client from '$lib/client';
-import type { RequestHandler } from '@sveltejs/kit';
 
-export const load: RequestHandler = async function () {
+/** @type {import('./$types').PageServerLoad} */
+export const load= async function () {
 	const names = (
 		await client.mission.findMany({
 			select: {

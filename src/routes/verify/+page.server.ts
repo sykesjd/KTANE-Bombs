@@ -3,10 +3,10 @@ import client from '$lib/client';
 import type { CompletionQueueItem, MissionQueueItem, QueueItem } from '$lib/types';
 import { Permission, type MissionPackQueueItem } from '$lib/types';
 import { fixPools, forbidden, hasAnyPermission, hasPermission } from '$lib/util';
-import type { RequestHandler } from '@sveltejs/kit';
-import {error} from '@sveltejs/kit'
+import type { ServerLoadEvent } from '@sveltejs/kit';
 
-export const load: RequestHandler<never, { queue: QueueItem[] }> = async function ({ parent, locals }) {
+/** @type {import('./$types').PageServerLoad} */
+export const load = async function ({ parent, locals }:ServerLoadEvent) {
 	const {user} = await parent()
 	if (
 		!hasAnyPermission(

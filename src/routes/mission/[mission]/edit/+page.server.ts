@@ -2,11 +2,12 @@ import client from '$lib/client';
 import { getData } from '$lib/repo';
 import { Completion, Permission, type ID } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
-import type { RequestHandlerOutput, RequestEvent } from '@sveltejs/kit';
+import type {RequestEvent, ServerLoadEvent } from '@sveltejs/kit';
 import type { EditMission } from './_types';
-import {redirect, error} from '@sveltejs/kit'
+import {redirect, error} from '@sveltejs/kit';
 
-export async function load({ params, locals }: RequestEvent): Promise<RequestHandlerOutput> {
+/** @type {import('./$types').PageServerLoad} */
+export async function load({ params, locals }: ServerLoadEvent) {
 	if (!hasPermission(locals.user, Permission.VerifyMission)) {
 		throw forbidden(locals);
 	}
@@ -60,15 +61,15 @@ export async function load({ params, locals }: RequestEvent): Promise<RequestHan
 		modules: await getData()
 	};
 }
-
 /** @type {import('./$types').Actions} */
 export const actions = {
-	deleteMission : async ({locals, request}) => {
+	
+	deleteMission : async ({locals, request}:RequestEvent) => {
 		if (!hasPermission(locals.user, Permission.VerifyMission)) {
 			throw forbidden(locals);
 		}
 		const fData = await request.formData();
-		const mission = JSON.parse(fData.get('mission'))
+		const mission = JSON.parse(fData.get('mission')?.toString()??"")
 	
 		await client.mission.delete({
 			where: {
@@ -77,12 +78,12 @@ export const actions = {
 			
 		throw redirect(303, "/")
 	},
-	deleteCompletion : async ({locals, request}) => {
+	deleteCompletion : async ({locals, request}:RequestEvent) => {
 		if (!hasPermission(locals.user, Permission.VerifyCompletion)) {
 			throw forbidden(locals);
 		}
 		const fData = await request.formData();
-		const completion: ID<Completion> = JSON.parse(fData.get('completion'));
+		const completion: ID<Completion> = JSON.parse(fData.get('completion')?.toString()??"");
 	
 		await client.completion.delete({
 			where: {
@@ -93,13 +94,13 @@ export const actions = {
 		return {}
 		
 	},
-	editMission : async ({locals, request}) => {
+	editMission : async ({locals, request}:RequestEvent) => {
 		if (!hasPermission(locals.user, Permission.VerifyMission)) {
 			throw forbidden(locals);
 		}
 	
 		const fData = await request.formData();
-		const mission:EditMission = JSON.parse(fData.get('mission'))
+		const mission:EditMission = JSON.parse(fData.get('mission')?.toString()??"")
 	
 		await client.mission.update({
 			where: {
@@ -125,7 +126,7 @@ export const actions = {
 	}
 }
 
-export async function POST({ locals, request }: RequestEvent): Promise<RequestHandlerOutput> {
+export async function POST({ locals, request }: RequestEvent) {
 	if (!hasPermission(locals.user, Permission.VerifyMission)) {
 		throw forbidden(locals);
 	}
@@ -155,7 +156,7 @@ export async function POST({ locals, request }: RequestEvent): Promise<RequestHa
 	return new Response(undefined)
 }
 
-export async function DELETE({ locals, request }: RequestEvent): Promise<RequestHandlerOutput> {
+export async function DELETE({ locals, request }: RequestEvent) {
 	if (!hasPermission(locals.user, Permission.VerifyCompletion)) {
 		throw forbidden(locals);
 	}

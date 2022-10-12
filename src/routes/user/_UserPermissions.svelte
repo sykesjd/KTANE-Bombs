@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { Permission, type FrontendshownUser } from '$lib/types';
+	import { Permission, type FrontendUser } from '$lib/types';
+	import { applyAction } from '$app/forms';
 
-	export let shownUser: FrontendshownUser;
+	export let shownUser: FrontendUser;
 
 	const permissions: Record<string, number> = {};
 	for (const [name, value] of Object.entries(Permission)) {
@@ -31,14 +32,14 @@
 		const fData = new FormData();
 		fData.append('perms', JSON.stringify(Array.from(newPermissions)))
 		fData.append('user',shownUser.id)
-		await fetch(`?/editPermissions`, {
+		const response = await fetch(`?/editPermissions`, {
 			method: 'POST',
 			body: fData
 		});
 		 /** @type {import('@sveltejs/kit').ActionResult} */
-    const result = await response.json();
+    	const result = await response.json();
 
-    applyAction(result);
+    	applyAction(result);
 		shownUser.permissions = Array.from(newPermissions);
 	}
 </script>

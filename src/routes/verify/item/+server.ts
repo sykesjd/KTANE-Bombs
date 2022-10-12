@@ -3,9 +3,9 @@ import client from '$lib/client';
 import { Permission } from '$lib/types';
 import type { QueueItem } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
-import type { RequestHandler } from '@sveltejs/kit';
+import type { RequestEvent, RequestHandler } from '@sveltejs/kit';
 
-export const POST: RequestHandler = async function ({ locals, request }) {
+export const POST: RequestHandler = async function ({ locals, request }:RequestEvent) {
 	const { accept, item }: { accept: boolean; item: QueueItem } = await request.json();
 	switch (item.type) {
 		case 'mission':

@@ -2,11 +2,12 @@ import client from '$lib/client';
 import { Permission } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
+import {redirect} from '@sveltejs/kit'
 
 export const POST: RequestHandler = async function ({ locals, request }) {
 	if (!hasPermission(locals.user, Permission.RenameUser)) forbidden(locals);
 
-	const { oldUsername, username } = await request.json();
+	const { oldUsername, username, userExists } = await request.json();
 
 	const completions = await client.completion.findMany({
 		where: {
@@ -25,15 +26,6 @@ export const POST: RequestHandler = async function ({ locals, request }) {
 	});
 
 	const queries = [
-		// User
-		client.user.update({
-			where: {
-				username: oldUsername
-			},
-			data: {
-				username
-			}
-		}),
 		// Mission
 		...missions.map((mission) =>
 			client.mission.update({
@@ -60,5 +52,25 @@ export const POST: RequestHandler = async function ({ locals, request }) {
 
 	await client.$transaction(queries);
 
-	return new Response("");
+	const user = await client.user.findFirst(
+		{
+			where:{
+				username : oldUsername
+			}
+		}
+	);
+
+	if (user !== null && user !== undefined) {
+		// User
+		await client.user.update({
+			where: {
+				username: oldUsername
+			},
+			data: {
+				username
+			}
+		})
+	}
+
+	throw redirect(301,`/user/${username}`);
 };

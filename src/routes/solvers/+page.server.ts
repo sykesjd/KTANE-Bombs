@@ -1,8 +1,9 @@
 import client from '$lib/client';
 import type { Completer } from '$lib/types';
-import type { RequestHandlerOutput } from '@sveltejs/kit';
+import type { RequestHandler, RequestEvent } from '@sveltejs/kit';
 
-export async function load(): Promise<RequestHandlerOutput<{ completers: Completer[] }>> {
+/** @type {import('./$types').PageServerLoad} */
+export async function load() {
 	const completions = await client.completion.findMany({
 		select: {
 			mission: {

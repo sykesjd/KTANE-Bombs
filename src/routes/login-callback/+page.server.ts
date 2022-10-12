@@ -2,13 +2,14 @@
 import client from '$lib/client';
 import OAuth, { scope } from '$lib/oauth';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/index.js';
-import type { RequestHandler } from '@sveltejs/kit';
+import type { RequestEvent, Cookies, ServerLoadEvent } from '@sveltejs/kit';
 import * as cookie from 'cookie';
 import type { TokenRequestResult } from 'discord-oauth2';
 import {redirect, error} from '@sveltejs/kit'
 import { setContext, getContext } from 'svelte';
 
-export const load: RequestHandler = async function load({ url, cookies }) {
+/** @type {import('./$types').PageServerLoad} */
+export const load = async function load({ url, cookies }:ServerLoadEvent) {
 	const code = url.searchParams.get('code');
 	if (code === null)
 		throw error(406)
@@ -23,16 +24,16 @@ export const load: RequestHandler = async function load({ url, cookies }) {
 };
 
 export const actions = {
-	editName: async ({ request, cookies }) => {
+	editName: async ({ request, cookies }:RequestEvent) => {
 		const values = await request.formData();
-		const username = values.get('username');
-		const result = JSON.parse(values.get('result'))
+		const username = values.get('username')?.toString()??"";
+		const result = JSON.parse(values.get('result')?.toString()??"")
 		return await login(result, cookies, username);
 	}
 }
 
 
-async function login(result: TokenRequestResult, cookies,  username: string | null = null) {
+async function login(result: TokenRequestResult, cookies:Cookies,  username: string | null = null) {
 	try {
 		const user = await OAuth.getUser(result.access_token);
 

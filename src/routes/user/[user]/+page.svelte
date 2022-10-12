@@ -21,7 +21,8 @@
 			method: 'POST',
 			body: JSON.stringify({
 				oldUsername,
-				username: newUsername
+				username: newUsername,
+				userExists : shownUser !== null
 			})
 		});
 
@@ -63,10 +64,10 @@
 			</a>
 		{/each}
 	</div>
-	{#if shownUser !== null && hasPermission($page.data.user, Permission.RenameUser)}
+	{#if hasPermission($page.data.user, Permission.RenameUser)}
 		<button on:click={() => dialog.showModal()}>Edit Name</button>
 	{/if}
-	<Dialog bind:dialog>
+	<Dialog bind:dialog={dialog}>
 		<div class="flex column content-width">
 			<h2>Edit Name</h2>
 			<form on:submit|preventDefault={() => editName()}>

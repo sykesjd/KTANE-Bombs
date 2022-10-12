@@ -2,10 +2,11 @@ import client from '$lib/client';
 import { getData } from '$lib/repo';
 import { Permission } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
-import type { RequestHandlerOutput, RequestEvent } from '@sveltejs/kit';
+import type { ServerLoadEvent } from '@sveltejs/kit';
 import {error} from '@sveltejs/kit';
 
-export async function load({ params, locals }: RequestEvent): Promise<RequestHandlerOutput> {
+/** @type {import('./$types').PageServerLoad} */
+export async function load({ params, locals }: ServerLoadEvent) {
 	const { mission } = params;
 	const missionResult = await client.mission.findFirst({
 		where: {

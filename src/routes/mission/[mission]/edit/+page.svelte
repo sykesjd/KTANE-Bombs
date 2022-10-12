@@ -1,6 +1,5 @@
 <script lang="ts">
 
-	import { session } from '$app/stores';
 	import Checkbox from '$lib/controls/Checkbox.svelte';
 	import Input from '$lib/controls/Input.svelte';
 	import NoContent from '$lib/comp/NoContent.svelte';

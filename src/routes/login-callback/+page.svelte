@@ -34,7 +34,7 @@
 <h1 class="header">Username Conflict</h1>
 <div class="block flex column content-width">
 	<div>Someone already has that username, please select another.</div>
-	<form method="POST", on:submit|preventDefault={submit}>
+	<form method="POST" on:submit|preventDefault={submit}>
 		<Input
 			name="username"
 			id="username"

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import {page} from '$app/stores'
 	export let status: number = $page.status;
-	export let error: Error = $page.error;
-	export let path: string = $page.url;
+	export let error: App.Error|null = $page.error;
+	export let path: string = $page.url?.pathname;
 
 	const user: { username: string } | null = $page.data.user;
 
@@ -31,7 +31,7 @@
 
 <div class="block" style="padding: var(--big-gap);">
 	<h1 style="margin-top: 0;">{status}</h1>
-	<div>{error.message}</div>
+	<div>{error?.message}</div>
 </div>
 <div class="block" style="padding: var(--big-gap);">
 	<i>{message}</i>
