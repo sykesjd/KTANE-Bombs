@@ -42,7 +42,7 @@ export class Bomb {
 }
 
 export class Pool {
-	modules: string[];	//listed by Module ID, not name
+	modules: string[]; //listed by Module ID, not name
 	count: number;
 
 	constructor(modules: string[], count: number) {
@@ -67,14 +67,14 @@ export enum MustHave {
 }
 export class HomeOptions {
 	sortOrder: string = '';
-	checks: { [k:string]: boolean } = {};
-	modules: { [k:string]: any } = {};
+	checks: { [k: string]: boolean } = {};
+	modules: { [k: string]: any } = {};
 	numMods = [1, 600];
-	time = [1,1500];
-	strikes = [1,150];
-	widgets = [0,40];
-	profPerc = [80]
-	mustHave: { [k:string]: MustHave } = {};
+	time = [1, 1500];
+	strikes = [1, 150];
+	widgets = [0, 40];
+	profPerc = [80];
+	mustHave: { [k: string]: MustHave } = {};
 }
 
 export enum Operation {

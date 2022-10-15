@@ -1,8 +1,7 @@
-
 import client from '$lib/client';
 
 /** @type {import('./$types').PageServerLoad} */
-export const load= async function () {
+export const load = async function () {
 	const names = (
 		await client.mission.findMany({
 			select: {
@@ -21,7 +20,7 @@ export const load= async function () {
 	});
 
 	return {
-			missionNames: names,
-			packs
+		missionNames: names,
+		packs
 	};
 };

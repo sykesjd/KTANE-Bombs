@@ -1,15 +1,15 @@
 <script lang="ts">
-
 	import Dialog from '$lib/controls/Dialog.svelte';
 	import Input from '$lib/controls/Input.svelte';
 	import { Completion, Mission, Permission, type FrontendUser } from '$lib/types';
 	import { hasPermission } from '$lib/util';
 	import UserPermissions from '../_UserPermissions.svelte';
-	import {page} from '$app/stores';
+	import { page } from '$app/stores';
 	export let data;
 	let username: string = data.username;
 	let shownUser: FrontendUser | null = data.shownUser;
-	let completions: (Pick<Completion, 'team' | 'solo'> & { mission: { name: string } })[] = data.completions;
+	let completions: (Pick<Completion, 'team' | 'solo'> & { mission: { name: string } })[] =
+		data.completions;
 
 	let newUsername = username;
 	const oldUsername = username;
@@ -22,7 +22,7 @@
 			body: JSON.stringify({
 				oldUsername,
 				username: newUsername,
-				userExists : shownUser !== null
+				userExists: shownUser !== null
 			})
 		});
 
@@ -67,7 +67,7 @@
 	{#if hasPermission($page.data.user, Permission.RenameUser)}
 		<button on:click={() => dialog.showModal()}>Edit Name</button>
 	{/if}
-	<Dialog bind:dialog={dialog}>
+	<Dialog bind:dialog>
 		<div class="flex column content-width">
 			<h2>Edit Name</h2>
 			<form on:submit|preventDefault={() => editName()}>

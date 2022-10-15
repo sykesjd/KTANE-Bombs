@@ -30,16 +30,16 @@
 
 	async function saveChanges() {
 		const fData = new FormData();
-		fData.append('perms', JSON.stringify(Array.from(newPermissions)))
-		fData.append('user',shownUser.id)
+		fData.append('perms', JSON.stringify(Array.from(newPermissions)));
+		fData.append('user', shownUser.id);
 		const response = await fetch(`?/editPermissions`, {
 			method: 'POST',
 			body: fData
 		});
-		 /** @type {import('@sveltejs/kit').ActionResult} */
-    	const result = await response.json();
+		/** @type {import('@sveltejs/kit').ActionResult} */
+		const result = await response.json();
 
-    	applyAction(result);
+		applyAction(result);
 		shownUser.permissions = Array.from(newPermissions);
 	}
 </script>

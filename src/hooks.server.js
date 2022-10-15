@@ -1,8 +1,8 @@
 import client from '$lib/client';
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
-  const token = event.cookies.get("token");
-  const conflict = event.cookies.get("usernameConflict")
+	const token = event.cookies.get('token');
+	const conflict = event.cookies.get('usernameConflict');
 
 	event.locals.token = token ?? null;
 	if (!conflict) {
@@ -20,7 +20,7 @@ export async function handle({ event, resolve }) {
 			  })
 			: null;
 	}
-  const response = await resolve(event);
- 
-  return response;
+	const response = await resolve(event);
+
+	return response;
 }

@@ -2,9 +2,9 @@ import client from '$lib/client';
 import { getData } from '$lib/repo';
 import { Completion, Permission, type ID } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
-import type {RequestEvent, ServerLoadEvent } from '@sveltejs/kit';
+import type { RequestEvent, ServerLoadEvent } from '@sveltejs/kit';
 import type { EditMission } from './_types';
-import {redirect, error} from '@sveltejs/kit';
+import { redirect, error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params, locals }: ServerLoadEvent) {
@@ -42,7 +42,7 @@ export async function load({ params, locals }: ServerLoadEvent) {
 	});
 
 	if (missionResult === null) {
-		throw error(404, "Mission not found.")
+		throw error(404, 'Mission not found.');
 	}
 
 	const packs = await client.missionPack.findMany({
@@ -63,45 +63,44 @@ export async function load({ params, locals }: ServerLoadEvent) {
 }
 /** @type {import('./$types').Actions} */
 export const actions = {
-	
-	deleteMission : async ({locals, request}:RequestEvent) => {
+	deleteMission: async ({ locals, request }: RequestEvent) => {
 		if (!hasPermission(locals.user, Permission.VerifyMission)) {
 			throw forbidden(locals);
 		}
 		const fData = await request.formData();
-		const mission = JSON.parse(fData.get('mission')?.toString()??"")
-	
+		const mission = JSON.parse(fData.get('mission')?.toString() ?? '');
+
 		await client.mission.delete({
 			where: {
 				name: mission.name
-			}})
-			
-		throw redirect(303, "/")
+			}
+		});
+
+		throw redirect(303, '/');
 	},
-	deleteCompletion : async ({locals, request}:RequestEvent) => {
+	deleteCompletion: async ({ locals, request }: RequestEvent) => {
 		if (!hasPermission(locals.user, Permission.VerifyCompletion)) {
 			throw forbidden(locals);
 		}
 		const fData = await request.formData();
-		const completion: ID<Completion> = JSON.parse(fData.get('completion')?.toString()??"");
-	
+		const completion: ID<Completion> = JSON.parse(fData.get('completion')?.toString() ?? '');
+
 		await client.completion.delete({
 			where: {
 				id: completion.id
 			}
 		});
-		
-		return {}
-		
+
+		return {};
 	},
-	editMission : async ({locals, request}:RequestEvent) => {
+	editMission: async ({ locals, request }: RequestEvent) => {
 		if (!hasPermission(locals.user, Permission.VerifyMission)) {
 			throw forbidden(locals);
 		}
-	
+
 		const fData = await request.formData();
-		const mission:EditMission = JSON.parse(fData.get('mission')?.toString()??"")
-	
+		const mission: EditMission = JSON.parse(fData.get('mission')?.toString() ?? '');
+
 		await client.mission.update({
 			where: {
 				id: mission.id
@@ -121,10 +120,10 @@ export const actions = {
 				tpSolve: mission.tpSolve
 			}
 		});
-		
-		throw redirect(303, "/mission/" + mission.name)
+
+		throw redirect(303, '/mission/' + mission.name);
 	}
-}
+};
 
 export async function POST({ locals, request }: RequestEvent) {
 	if (!hasPermission(locals.user, Permission.VerifyMission)) {
@@ -153,7 +152,7 @@ export async function POST({ locals, request }: RequestEvent) {
 		}
 	});
 
-	return new Response(undefined)
+	return new Response(undefined);
 }
 
 export async function DELETE({ locals, request }: RequestEvent) {
@@ -169,5 +168,5 @@ export async function DELETE({ locals, request }: RequestEvent) {
 		}
 	});
 
-	return new Response(undefined)
+	return new Response(undefined);
 }

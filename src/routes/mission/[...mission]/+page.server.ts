@@ -3,7 +3,7 @@ import { getData } from '$lib/repo';
 import { Permission } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
 import type { ServerLoadEvent } from '@sveltejs/kit';
-import {error} from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params, locals }: ServerLoadEvent) {
@@ -35,7 +35,7 @@ export async function load({ params, locals }: ServerLoadEvent) {
 	});
 
 	if (missionResult === null) {
-		throw error(404, "Mission not found.")
+		throw error(404, 'Mission not found.');
 	}
 
 	const variantId = missionResult.variant;

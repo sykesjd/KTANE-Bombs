@@ -2,7 +2,7 @@ import client from '$lib/client';
 import { Permission } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
 import type { RequestHandler } from '@sveltejs/kit';
-import {redirect} from '@sveltejs/kit'
+import { redirect } from '@sveltejs/kit';
 
 export const POST: RequestHandler = async function ({ locals, request }) {
 	if (!hasPermission(locals.user, Permission.RenameUser)) forbidden(locals);
@@ -52,13 +52,11 @@ export const POST: RequestHandler = async function ({ locals, request }) {
 
 	await client.$transaction(queries);
 
-	const user = await client.user.findFirst(
-		{
-			where:{
-				username : oldUsername
-			}
+	const user = await client.user.findFirst({
+		where: {
+			username: oldUsername
 		}
-	);
+	});
 
 	if (user !== null && user !== undefined) {
 		// User
@@ -69,8 +67,8 @@ export const POST: RequestHandler = async function ({ locals, request }) {
 			data: {
 				username
 			}
-		})
+		});
 	}
 
-	throw redirect(301,`/user/${username}`);
+	throw redirect(301, `/user/${username}`);
 };

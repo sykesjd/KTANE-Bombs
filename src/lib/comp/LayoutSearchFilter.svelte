@@ -4,9 +4,9 @@
 	import { onMount, createEventDispatcher } from 'svelte';
 
 	export let id: string;
-	export let label: string = "Find:";
+	export let label: string = 'Find:';
 	export let items: { [name: string]: any };
-	export let filterFunc: (itemKey:string, text:string) => boolean;
+	export let filterFunc: (itemKey: string, text: string) => boolean;
 	export let searchText: string = '';
 	export let title: string = '';
 	export let textArea: boolean = false;
@@ -16,7 +16,7 @@
 	export let numResults: number = 0;
 	export let showNoneForBlank: boolean = false;
 	export let searching: boolean = false;
-	
+
 	const dispatch = createEventDispatcher();
 	let searchField: HTMLInputElement | null;
 	let rawSearchText: string = '';
@@ -31,20 +31,18 @@
 		searching = false;
 		searchText = rawSearchText.replace(/[\r\n]/g, ' ').trim();
 		updateSearchFilter();
-	}
+	};
 
 	function updateSearchFilter() {
 		numResults = 0;
 		searching = true;
-		Object.keys(items).forEach(item => {
+		Object.keys(items).forEach((item) => {
 			if (showNoneForBlank && searchText.length == 0)
-				items[item]?.classList.add("search-filtered-out");
+				items[item]?.classList.add('search-filtered-out');
 			else if (filterFunc(item, searchText)) {
-				items[item]?.classList.remove("search-filtered-out");
+				items[item]?.classList.remove('search-filtered-out');
 				numResults++;
-			}
-			else
-				items[item]?.classList.add("search-filtered-out");
+			} else items[item]?.classList.add('search-filtered-out');
 		});
 		searching = false;
 		dispatch('change');
@@ -56,21 +54,43 @@
 </script>
 
 {#if textArea}
-	<TextArea {label} {id} {title} labelClass="help" sideLabel classes="search-field {classes}"
-			on:input={updateSearch} {autoExpand} {rows}
-			bind:value={rawSearchText}/>
+	<TextArea
+		{label}
+		{id}
+		{title}
+		labelClass="help"
+		sideLabel
+		classes="search-field {classes}"
+		on:input={updateSearch}
+		{autoExpand}
+		{rows}
+		bind:value={rawSearchText}
+	/>
 {:else}
-	<Input {label} {id} {title} labelClass="help" sideLabel classes="search-field {classes}"
-			on:input={updateSearch}
-			bind:value={rawSearchText}/>
+	<Input
+		{label}
+		{id}
+		{title}
+		labelClass="help"
+		sideLabel
+		classes="search-field {classes}"
+		on:input={updateSearch}
+		bind:value={rawSearchText}
+	/>
 {/if}
-<div class="search-field-clear dark-invert" on:click={clearSearch}></div>
+<div class="search-field-clear dark-invert" on:click={clearSearch} />
 
 <style>
-	:global(.search-field) { min-width: 65px; }
-	:global(.search-filtered-out) { display: none !important; }
+	:global(.search-field) {
+		min-width: 65px;
+	}
+	:global(.search-filtered-out) {
+		display: none !important;
+	}
 
-	:global(label.help) { cursor: help; }
+	:global(label.help) {
+		cursor: help;
+	}
 
 	.search-field-clear {
 		background: url('$lib/img/clear-button.svg') right center no-repeat;

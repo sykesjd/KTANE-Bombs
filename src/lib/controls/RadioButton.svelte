@@ -16,7 +16,7 @@
 			<slot />
 		</label>
 	{/if}
-	<input {id} type="radio" bind:group {name} {value} {disabled} on:change/>
+	<input {id} type="radio" bind:group {name} {value} {disabled} on:change />
 	{#if labelAfter}
 		<label for={id}>
 			{label}

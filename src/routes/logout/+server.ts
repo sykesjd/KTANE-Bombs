@@ -1,11 +1,11 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import {redirect} from '@sveltejs/kit'
+import { redirect } from '@sveltejs/kit';
 
-export const GET: RequestHandler = function GET({cookies}) {
+export const GET: RequestHandler = function GET({ cookies }) {
 	cookies.set('token', '', {
 		secure: true,
 		httpOnly: true,
 		maxAge: 0
-	})
-	throw redirect(302,'/')
+	});
+	throw redirect(302, '/');
 };

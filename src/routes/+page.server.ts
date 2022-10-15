@@ -1,7 +1,6 @@
 import client from '$lib/client';
 import { getData } from '$lib/repo';
 
-
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
 	const missions = await client.mission.findMany({

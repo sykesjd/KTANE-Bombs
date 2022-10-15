@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import Input from '$lib/controls/Input.svelte';
 	import type { TokenRequestResult } from 'discord-oauth2';
 	import { applyAction } from '$app/forms';
@@ -10,20 +9,19 @@
 
 	async function submit() {
 		if (takenUsernames.includes(username)) return;
-		
+
 		const fData = new FormData();
-		fData.append('result', JSON.stringify(oauthResult))
-		fData.append('username',username)
+		fData.append('result', JSON.stringify(oauthResult));
+		fData.append('username', username);
 
 		const response = await fetch('?/editName', {
 			method: 'POST',
 			body: fData
 		});
 		/** @type {import('@sveltejs/kit').ActionResult} */
-	 const result = await response.json();
+		const result = await response.json();
 
-	 applyAction(result);
-		
+		applyAction(result);
 	}
 </script>
 

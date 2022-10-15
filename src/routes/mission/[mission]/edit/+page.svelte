@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import Checkbox from '$lib/controls/Checkbox.svelte';
 	import Input from '$lib/controls/Input.svelte';
 	import NoContent from '$lib/comp/NoContent.svelte';
@@ -10,7 +9,7 @@
 	import equal from 'fast-deep-equal';
 	import { sortBombs } from '../../_shared';
 	import type { EditMission } from './_types';
-	import {page} from '$app/stores';
+	import { page } from '$app/stores';
 	import { applyAction } from '$app/forms';
 
 	export let data;
@@ -33,49 +32,49 @@
 
 	async function saveChanges() {
 		const fData = new FormData();
-		fData.append('mission', JSON.stringify(mission))
-		
-		const response = await fetch("?/editMission", {
+		fData.append('mission', JSON.stringify(mission));
+
+		const response = await fetch('?/editMission', {
 			method: 'POST',
 			body: fData
 		});
-		 /** @type {import('@sveltejs/kit').ActionResult} */
-    const result = await response.json();
+		/** @type {import('@sveltejs/kit').ActionResult} */
+		const result = await response.json();
 
-    applyAction(result);
+		applyAction(result);
 	}
 
 	async function deleteMission() {
 		if (!confirm('This cannot be undone. Are you sure?')) return;
 		const fData = new FormData();
-		fData.append('mission', JSON.stringify(originalMission))
+		fData.append('mission', JSON.stringify(originalMission));
 
-		const response = await fetch("?/deleteMission", {
+		const response = await fetch('?/deleteMission', {
 			method: 'POST',
 			body: fData
 		});
 
-		 /** @type {import('@sveltejs/kit').ActionResult} */
-    const result = await response.json();
+		/** @type {import('@sveltejs/kit').ActionResult} */
+		const result = await response.json();
 
-    applyAction(result);
+		applyAction(result);
 	}
 
 	async function deleteCompletion(completion: ID<Completion>) {
 		if (!confirm('This cannot be undone. Are you sure?')) return;
 		const fData = new FormData();
-		fData.append('completion', JSON.stringify(completion))
+		fData.append('completion', JSON.stringify(completion));
 
-		const response = await fetch("?/deleteCompletion", {
+		const response = await fetch('?/deleteCompletion', {
 			method: 'POST',
 			body: fData
 		});
 
 		mission.completions = mission.completions.filter((comp) => completion.id !== comp.id);
-		 /** @type {import('@sveltejs/kit').ActionResult} */
-    const result = await response.json();
+		/** @type {import('@sveltejs/kit').ActionResult} */
+		const result = await response.json();
 
-    applyAction(result);
+		applyAction(result);
 		setOriginalMission();
 	}
 

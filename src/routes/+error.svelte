@@ -1,7 +1,7 @@
 <script lang="ts">
-	import {page} from '$app/stores'
+	import { page } from '$app/stores';
 	export let status: number = $page.status;
-	export let error: App.Error|null = $page.error;
+	export let error: App.Error | null = $page.error;
 	export let path: string = $page.url?.pathname;
 
 	const user: { username: string } | null = $page.data.user;

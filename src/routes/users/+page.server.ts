@@ -1,5 +1,3 @@
-
-
 import client from '$lib/client';
 
 export const load = async function () {
@@ -13,6 +11,6 @@ export const load = async function () {
 	});
 
 	return {
-			users : users
+		users: users
 	};
 };

@@ -1,6 +1,6 @@
 import client from '$lib/client';
 import type { Completion } from '$lib/types';
-import type { RequestEvent, RequestHandler} from '@sveltejs/kit';
+import type { RequestEvent, RequestHandler } from '@sveltejs/kit';
 
 export async function POST({ request }: RequestEvent) {
 	const { completion, missionName }: { completion: Completion; missionName: string } =

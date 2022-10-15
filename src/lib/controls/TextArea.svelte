@@ -40,8 +40,8 @@
 
 		if (handleValidity(newValue)) value = newValue;
 		if (autoExpand) {
-			text_area.style.height = "";
-			text_area.style.height = (text_area.scrollHeight + 3) + "px";
+			text_area.style.height = '';
+			text_area.style.height = text_area.scrollHeight + 3 + 'px';
 		}
 		dispatch('input');
 	};

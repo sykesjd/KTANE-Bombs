@@ -1,6 +1,6 @@
 import type { RepoModule } from '$lib/repo';
 import type { Mission } from '$lib/types';
-import { getModule } from "$lib/util";
+import { getModule } from '$lib/util';
 
 export function sortBombs(mission: Mission, modules: Record<string, RepoModule> | null) {
 	const getName = (id: string) => getModule(id, modules).Name;

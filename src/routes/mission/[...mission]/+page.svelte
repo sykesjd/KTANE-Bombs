@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import { Permission, type Mission, type MissionPack } from '$lib/types';
 	import { formatTime, getModule, hasPermission, pluralize } from '$lib/util';
 	import CompletionList from '$lib/comp/CompletionList.svelte';

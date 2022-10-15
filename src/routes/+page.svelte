@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import MissionCard from '$lib/cards/MissionCard.svelte';
 	import HomeSearchBar from '$lib/home/HomeSearchBar.svelte';
 	import type { Mission } from '$lib/types';
@@ -13,9 +12,12 @@
 	let searchBar: HomeSearchBar;
 
 	function onChange() {
-		if (!render) setTimeout(() => {searchBar.updateSearch();}, 200);
-		render = true; 			//don't render until first sort has finished on page load
-		missions = missions;	//signals svelte to rerender the bombs section
+		if (!render)
+			setTimeout(() => {
+				searchBar.updateSearch();
+			}, 200);
+		render = true; //don't render until first sort has finished on page load
+		missions = missions; //signals svelte to rerender the bombs section
 	}
 </script>
 
@@ -23,13 +25,22 @@
 	<title>Challenge Bombs</title>
 </svelte:head>
 <h1 class="header">Challenge Bombs</h1>
-<HomeSearchBar bind:this={searchBar} bind:missions={missions} bind:missionCards={missionCards} on:change={onChange} {modules}/>
+<HomeSearchBar
+	bind:this={searchBar}
+	bind:missions
+	bind:missionCards
+	on:change={onChange}
+	{modules}
+/>
 <div class="bombs">
 	{#each missions as mission, index (mission.name)}
 		{#if render}
-			<MissionCard {mission} 
-				id={'mission-input-' + index} cardID={'mission-' + mission.name}
-				bind:card={missionCards[mission.name]}/>
+			<MissionCard
+				{mission}
+				id={'mission-input-' + index}
+				cardID={'mission-' + mission.name}
+				bind:card={missionCards[mission.name]}
+			/>
 		{/if}
 	{/each}
 </div>

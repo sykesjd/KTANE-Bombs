@@ -1,12 +1,11 @@
-
 import client from '$lib/client';
 import { Permission } from '$lib/types';
 import { forbidden, hasPermission } from '$lib/util';
 import type { RequestEvent, ServerLoadEvent } from '@sveltejs/kit';
-import {error} from '@sveltejs/kit'
+import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
-export const load = async function ({ params } : ServerLoadEvent) {
+export const load = async function ({ params }: ServerLoadEvent) {
 	const user = await client.user.findFirst({
 		where: {
 			username: params.user
@@ -37,26 +36,26 @@ export const load = async function ({ params } : ServerLoadEvent) {
 	});
 
 	if (user === null && completions.length === 0) {
-		throw error(404)
+		throw error(404);
 	}
 	return {
-			username: params.user,
-			shownUser : user,
-			completions
+		username: params.user,
+		shownUser: user,
+		completions
 	};
 };
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-	editPermissions : async ({locals, request} : RequestEvent) =>{
+	editPermissions: async ({ locals, request }: RequestEvent) => {
 		if (!hasPermission(locals.user, Permission.ModifyPermissions)) {
 			return forbidden(locals);
 		}
 		const fData = await request.formData();
-		const body: Permission[] = JSON.parse(fData.get('perms')?.toString()??"");
-		const user = fData.get('user')?.toString()
-		if(user === null || user === undefined) {
-			throw error(400)
+		const body: Permission[] = JSON.parse(fData.get('perms')?.toString() ?? '');
+		const user = fData.get('user')?.toString();
+		if (user === null || user === undefined) {
+			throw error(400);
 		}
 		await client.user.update({
 			where: {
@@ -66,9 +65,7 @@ export const actions = {
 				permissions: body
 			}
 		});
-	
-		return {
-			
-		};
+
+		return {};
 	}
-}
+};

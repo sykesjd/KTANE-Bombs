@@ -41,7 +41,8 @@
 	{#if bombs.length > 1}
 		{bombs.length} B ·
 	{/if}
-	{statBomb.modules} {bombs.length > 1 ? "Mods":"Modules"} · {formatTime(statBomb.time)} · {statBomb.strikes}
+	{statBomb.modules}
+	{bombs.length > 1 ? 'Mods' : 'Modules'} · {formatTime(statBomb.time)} · {statBomb.strikes}
 	Strikes · {statBomb.widgets}
 	Widgets
 	{#if mission.factory !== null}

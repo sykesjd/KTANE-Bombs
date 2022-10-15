@@ -1,7 +1,7 @@
 import type * as client from '@prisma/client';
 import type { Bomb, FrontendUser, Mission, Permission, Pool } from './types';
-import {redirect, error} from '@sveltejs/kit'
-import type { RepoModule } from "./repo";
+import { redirect, error } from '@sveltejs/kit';
+import type { RepoModule } from './repo';
 
 export function formatTime(seconds: number, milliseconds = false): string {
 	let timeParts = [];
@@ -71,10 +71,9 @@ export function hasAnyPermission(user: FrontendUser | null, ...permissions: Perm
 
 export function forbidden(locals: App.Locals) {
 	// If the user is not logged in, they might just need to login.
-	if (locals.user === null)
-		return redirect(302, '/login')
+	if (locals.user === null) return redirect(302, '/login');
 
-	return error(403, "You do not have permission for to do that.")
+	return error(403, 'You do not have permission for to do that.');
 }
 
 export function fixPools<T>(mission: T & { bombs: client.Bomb[] }): T & { bombs: Bomb[] } {
@@ -104,7 +103,7 @@ export function parseList(value: string) {
 		.filter((name) => name.length !== 0);
 }
 
-function findMatchingBrackets(str:string, left:string, right:string): number[] {
+function findMatchingBrackets(str: string, left: string, right: string): number[] {
 	const lPar = str.indexOf(left);
 	let lPar2 = str.indexOf(left, lPar + 2);
 	let rPar = str.indexOf(right, lPar + 2);
@@ -120,27 +119,29 @@ function findMatchingBrackets(str:string, left:string, right:string): number[] {
 // example: thing one && aaa || bbb && !!ccc
 // which means: ("thing one" and "aaa") or ("bbb" and not "ccc")
 // brackets are supported too: [[ thing one || aaa ]] && [[ bbb || !!ccc ]]
-export function evaluateLogicalStringSearch(expression:string, searchWhat:string): boolean {
-	const left =	"[[";
-	const right =	"]]";
-	const aand =	"&&";
-	const oor =		"||";
-	const nnot =	"!!";
+export function evaluateLogicalStringSearch(expression: string, searchWhat: string): boolean {
+	const left = '[[';
+	const right = ']]';
+	const aand = '&&';
+	const oor = '||';
+	const nnot = '!!';
 	const expr = expression.trim();
 	let exprAfter = expr;
 
 	let br = findMatchingBrackets(expr, left, right);
-	while (br[0] >= 0 && br[1] >= 0 && br[1] > br[0]) {		//valid parentheses found
+	while (br[0] >= 0 && br[1] >= 0 && br[1] > br[0]) {
+		//valid parentheses found
 		const stripped = exprAfter.slice(br[0] + 2, br[1]);
 		const val = evaluateLogicalStringSearch(stripped, searchWhat);
-		exprAfter = exprAfter.slice(0, br[0]) + (val ? " " : "!@#%^&*)(*&#@!") + exprAfter.slice(br[1] + 2);
+		exprAfter =
+			exprAfter.slice(0, br[0]) + (val ? ' ' : '!@#%^&*)(*&#@!') + exprAfter.slice(br[1] + 2);
 		br = findMatchingBrackets(exprAfter, left, right);
 	}
 
-	const searchParamOr = exprAfter.split(oor).map(x => x.trim());
+	const searchParamOr = exprAfter.split(oor).map((x) => x.trim());
 	let matches = false;
 	for (let oo = 0; !matches && oo < searchParamOr.length; oo++) {
-		const searchParamAnd = searchParamOr[oo].split(aand).map(x => x.trim());
+		const searchParamAnd = searchParamOr[oo].split(aand).map((x) => x.trim());
 		matches = true;
 		for (let aa = 0; matches && aa < searchParamAnd.length; aa++) {
 			const notThis = searchParamAnd[aa].indexOf(nnot) == 0;
@@ -150,8 +151,7 @@ export function evaluateLogicalStringSearch(expression:string, searchWhat:string
 					matches = false;
 					break;
 				}
-			}
-			else if (!searchWhat.includes(searchParamAnd[aa])) {
+			} else if (!searchWhat.includes(searchParamAnd[aa])) {
 				matches = false;
 				break;
 			}
@@ -169,7 +169,7 @@ export function getWindowWidth(): number {
 		document.documentElement.clientWidth
 	);
 }
-  
+
 export function getWindowHeight(): number {
 	return Math.max(
 		document.body.scrollHeight,
@@ -181,37 +181,46 @@ export function getWindowHeight(): number {
 }
 
 export function disappear(preventDisappear = 0): number {
-	if (preventDisappear === 0)
-	{
+	if (preventDisappear === 0) {
 		const toHide = document.getElementsByClassName('disappear');
-		for (let i = 0; i < toHide.length; i++)
-			toHide[i].classList.add("hidden");
-	}
-	else
-		return preventDisappear - 1;
+		for (let i = 0; i < toHide.length; i++) toHide[i].classList.add('hidden');
+	} else return preventDisappear - 1;
 	return preventDisappear;
 }
 
-export function popup (event:any, wnd:HTMLElement, obj:HTMLElement, pd:number, relative = false, skew:number[] = [0,0]): number {
+export function popup(
+	event: any,
+	wnd: HTMLElement,
+	obj: HTMLElement,
+	pd: number,
+	relative = false,
+	skew: number[] = [0, 0]
+): number {
 	const wasHidden = wnd.classList.contains('hidden');
 	const pd2 = disappear(pd);
 	if (wasHidden) {
 		wnd.style.left = '';
 		wnd.style.top = '';
-		wnd.classList.remove("hidden");
+		wnd.classList.remove('hidden');
 		// Desktop interface: position relative to the object clicked
 		const maxLeft = Math.max(getWindowWidth() - wnd.clientWidth - 30, 0);
 		const maxTop = Math.max(getWindowHeight() - wnd.clientHeight - 30, 0);
 		const rect = obj.getBoundingClientRect();
-		wnd.style.left = Math.min((relative? obj.offsetLeft : rect.left) - wnd.clientWidth*0.5 + skew[0], maxLeft) + 'px';
-		wnd.style.top = Math.min((relative? rect.height + obj.offsetTop : rect.bottom) + skew[1], maxTop) + 'px';
+		wnd.style.left =
+			Math.min((relative ? obj.offsetLeft : rect.left) - wnd.clientWidth * 0.5 + skew[0], maxLeft) +
+			'px';
+		wnd.style.top =
+			Math.min((relative ? rect.height + obj.offsetTop : rect.bottom) + skew[1], maxTop) + 'px';
 	}
 
 	return pd2;
 }
 
-export function titleCase(str:string): string {
-	return str.split(" ").map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(" ");
+export function titleCase(str: string): string {
+	return str
+		.split(' ')
+		.map((x) => x.charAt(0).toUpperCase() + x.slice(1))
+		.join(' ');
 }
 
 export function getModule(

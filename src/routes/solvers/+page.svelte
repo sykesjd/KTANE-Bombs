@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import type { Completer } from '$lib/types';
 	export let data;
 	let completers: Completer[] = data.completers;

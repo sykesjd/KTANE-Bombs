@@ -140,12 +140,7 @@
 		<div class="missions flex column">
 			{#each missions as mission, i}
 				<div class="flex">
-					<MissionCard
-						{mission}
-						selectable
-						id={i.toString()}
-						bind:selected={selectedMissions[i]}
-					/>
+					<MissionCard {mission} selectable id={i.toString()} bind:selected={selectedMissions[i]} />
 					<div class="block">
 						<Input
 							name="Authors"
