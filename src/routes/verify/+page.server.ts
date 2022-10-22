@@ -3,9 +3,9 @@ import type { CompletionQueueItem, MissionQueueItem, QueueItem } from '$lib/type
 import { Permission, type MissionPackQueueItem } from '$lib/types';
 import { fixPools, forbidden, hasAnyPermission, hasPermission } from '$lib/util';
 import type { ServerLoadEvent } from '@sveltejs/kit';
+import type { PageServerLoad } from './$types';
 
-/** @type {import('./$types').PageServerLoad} */
-export const load = async function ({ parent, locals }: ServerLoadEvent) {
+export const load : PageServerLoad = async function ({ parent, locals }: ServerLoadEvent) {
 	const { user } = await parent();
 	if (
 		!hasAnyPermission(

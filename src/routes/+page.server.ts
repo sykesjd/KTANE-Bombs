@@ -1,8 +1,8 @@
 import client from '$lib/client';
 import { getData } from '$lib/repo';
+import type { PageServerLoad } from './$types';
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load() {
+export const load: PageServerLoad = async function () {
 	const missions = await client.mission.findMany({
 		where: {
 			verified: true

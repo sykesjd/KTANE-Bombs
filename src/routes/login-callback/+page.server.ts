@@ -5,10 +5,9 @@ import type { RequestEvent, Cookies, ServerLoadEvent } from '@sveltejs/kit';
 import * as cookie from 'cookie';
 import type { TokenRequestResult } from 'discord-oauth2';
 import { redirect, error } from '@sveltejs/kit';
-import { setContext, getContext } from 'svelte';
+import type { PageServerLoad } from './$types';
 
-/** @type {import('./$types').PageServerLoad} */
-export const load = async function load({ url, cookies }: ServerLoadEvent) {
+export const load : PageServerLoad = async function load({ url, cookies }: ServerLoadEvent) {
 	const code = url.searchParams.get('code');
 	if (code === null) throw error(406);
 

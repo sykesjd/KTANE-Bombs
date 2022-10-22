@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Input from '$lib/controls/Input.svelte';
 	import type { MissionPack } from '$lib/types';
-	import { toasts } from 'svelte-toasts';
+	import toast from 'svelte-french-toast';
 
 	let pack: MissionPack = {
 		name: '',
@@ -20,12 +20,12 @@
 		})
 			.then((response) => {
 				if (response.ok) {
-					toasts.success(`Mission pack uploaded successfully!`);
+					toast.success(`Mission pack uploaded successfully!`);
 				} else {
-					toasts.error(`Mission pack failed to upload.`);
+					toast.error(`Mission pack failed to upload.`);
 				}
 			})
-			.catch(() => toasts.error('An error occurred.'));
+			.catch(() => toast.error('An error occurred.'));
 	}
 </script>
 

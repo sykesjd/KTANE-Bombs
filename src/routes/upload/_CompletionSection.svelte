@@ -4,7 +4,7 @@
 	import Input from '$lib/controls/Input.svelte';
 	import { Completion } from '$lib/types';
 	import { formatTime, parseList, parseTime } from '$lib/util';
-	import { toasts } from 'svelte-toasts';
+	import toast from 'svelte-french-toast';
 
 	export let missionNames: string[];
 
@@ -52,12 +52,12 @@
 		})
 			.then((response) => {
 				if (response.ok) {
-					toasts.success('Solve uploaded successfully!');
+					toast.success('Solve uploaded successfully!');
 				} else {
-					toasts.error('Solve failed to upload.');
+					toast.error('Solve failed to upload.');
 				}
 			})
-			.catch(() => toasts.error('An error occurred.'));
+			.catch(() => toast.error('An error occurred.'));
 	}
 </script>
 

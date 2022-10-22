@@ -3,7 +3,7 @@
 	import MissionCard from '$lib/cards/MissionCard.svelte';
 	import { Bomb, Mission, Pool, type MissionPackSelection } from '$lib/types';
 	import { parseList } from '$lib/util';
-	import { toasts } from 'svelte-toasts';
+	import toast from 'svelte-french-toast';
 
 	export let packs: MissionPackSelection[];
 
@@ -118,12 +118,12 @@
 				const plural = Object.values(selectedMissions).filter((value) => value).length > 1;
 				const word = `Misison${plural ? 's' : ''}`;
 				if (response.ok) {
-					toasts.success(`${word} uploaded successfully!`);
+					toast.success(`${word} uploaded successfully!`);
 				} else {
-					toasts.error(`${word} failed to upload.`);
+					toast.error(`${word} failed to upload.`);
 				}
 			})
-			.catch(() => toasts.error('An error occurred.'));
+			.catch(() => toast.error('An error occurred.'));
 	}
 </script>
 

@@ -5,9 +5,9 @@ import { forbidden, hasPermission } from '$lib/util';
 import type { RequestEvent, ServerLoadEvent } from '@sveltejs/kit';
 import type { EditMission } from './_types';
 import { redirect, error } from '@sveltejs/kit';
+import type { PageServerLoad, Actions } from './$types';
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load({ params, locals }: ServerLoadEvent) {
+export const load : PageServerLoad = async function({ params, locals }: ServerLoadEvent) {
 	if (!hasPermission(locals.user, Permission.VerifyMission)) {
 		throw forbidden(locals);
 	}
@@ -61,8 +61,8 @@ export async function load({ params, locals }: ServerLoadEvent) {
 		modules: await getData()
 	};
 }
-/** @type {import('./$types').Actions} */
-export const actions = {
+
+export const actions : Actions = {
 	deleteMission: async ({ locals, request }: RequestEvent) => {
 		if (!hasPermission(locals.user, Permission.VerifyMission)) {
 			throw forbidden(locals);
