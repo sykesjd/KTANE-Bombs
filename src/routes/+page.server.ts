@@ -21,4 +21,4 @@ export const load: PageServerLoad = async function () {
 		missions,
 		modules: await getData()
 	};
-}
+};

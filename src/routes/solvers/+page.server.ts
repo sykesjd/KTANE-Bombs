@@ -3,7 +3,7 @@ import type { Completer } from '$lib/types';
 import type { RequestHandler, RequestEvent } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
-export const load : PageServerLoad = async function() {
+export const load: PageServerLoad = async function () {
 	const completions = await client.completion.findMany({
 		select: {
 			mission: {
@@ -71,4 +71,4 @@ export const load : PageServerLoad = async function() {
 	return {
 		completers: sortedCompleters
 	};
-}
+};

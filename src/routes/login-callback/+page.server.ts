@@ -7,7 +7,7 @@ import type { TokenRequestResult } from 'discord-oauth2';
 import { redirect, error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
-export const load : PageServerLoad = async function load({ url, cookies }: ServerLoadEvent) {
+export const load: PageServerLoad = async function load({ url, cookies }: ServerLoadEvent) {
 	const code = url.searchParams.get('code');
 	if (code === null) throw error(406);
 

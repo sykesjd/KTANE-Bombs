@@ -5,7 +5,7 @@ import type { RequestEvent, ServerLoadEvent } from '@sveltejs/kit';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
 
-export const load : PageServerLoad = async function ({ params }: ServerLoadEvent) {
+export const load: PageServerLoad = async function ({ params }: ServerLoadEvent) {
 	const user = await client.user.findFirst({
 		where: {
 			username: params.user
@@ -45,7 +45,7 @@ export const load : PageServerLoad = async function ({ params }: ServerLoadEvent
 	};
 };
 
-export const actions : Actions = {
+export const actions: Actions = {
 	editPermissions: async ({ locals, request }: RequestEvent) => {
 		if (!hasPermission(locals.user, Permission.ModifyPermissions)) {
 			return forbidden(locals);

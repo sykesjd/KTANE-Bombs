@@ -1,7 +1,7 @@
 import client from '$lib/client';
 import type { PageServerLoad } from './$types';
 
-export const load : PageServerLoad = async function () {
+export const load: PageServerLoad = async function () {
 	const names = (
 		await client.mission.findMany({
 			select: {

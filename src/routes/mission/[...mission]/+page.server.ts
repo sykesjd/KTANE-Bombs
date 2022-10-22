@@ -6,7 +6,7 @@ import type { ServerLoadEvent } from '@sveltejs/kit';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
-export const load : PageServerLoad = async function({ params, locals }: ServerLoadEvent) {
+export const load: PageServerLoad = async function ({ params, locals }: ServerLoadEvent) {
 	const { mission } = params;
 	const missionResult = await client.mission.findFirst({
 		where: {
@@ -67,4 +67,4 @@ export const load : PageServerLoad = async function({ params, locals }: ServerLo
 		variants,
 		modules: await getData()
 	};
-}
+};

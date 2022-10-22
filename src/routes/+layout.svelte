@@ -4,23 +4,23 @@
 	import UserCard from '$lib/cards/UserCard.svelte';
 	import { hasPermission, hasAnyPermission } from '$lib/util';
 	import { onMount } from 'svelte';
-	import toast, {Toaster} from 'svelte-french-toast';
+	import toast, { Toaster } from 'svelte-french-toast';
 	export let data;
 	const user: FrontendUser | null = data.user;
 
-	let toastStyle = 'duration: 5000;'
+	let toastStyle = 'duration: 5000;';
 
 	onMount(() => {
 		const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-		if(darkQuery.matches){
-			toastStyle = 'border-radius: 200px; background: #393939; color: #fff;'
+		if (darkQuery.matches) {
+			toastStyle = 'border-radius: 200px; background: #393939; color: #fff;';
 		}
 
 		darkQuery.addEventListener('change', (event) => {
-			if(event.matches){
-				toastStyle = 'border-radius: 200px; background: #393939; color: #fff;'
-			}else{
-				toastStyle = ''
+			if (event.matches) {
+				toastStyle = 'border-radius: 200px; background: #393939; color: #fff;';
+			} else {
+				toastStyle = '';
 			}
 		});
 	});
@@ -52,7 +52,10 @@
 	<slot />
 </div>
 
-<Toaster bind:containerStyle={toastStyle} toastOptions = {{duration: 5000, position: 'top-center'}} />
+<Toaster
+	bind:containerStyle={toastStyle}
+	toastOptions={{ duration: 5000, position: 'top-center' }}
+/>
 
 <style>
 	:root {
