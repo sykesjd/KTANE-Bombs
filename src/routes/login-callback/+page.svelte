@@ -24,7 +24,11 @@
 		});
 		const resp: ActionResult = await response.json();
 
-		applyAction(resp);
+		if (resp.type === "redirect") {
+			location.href = resp.location;
+		} else {
+			applyAction(resp);
+		}
 	}
 </script>
 
