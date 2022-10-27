@@ -47,7 +47,7 @@
 
 	function localSubscribe(item: any, key: string) {
 		let wr = writable(item);
-		wr.subscribe((value) => {
+		wr.subscribe(value => {
 			localStorage.setItem(key, JSON.stringify(value));
 		});
 		lStore[key] = wr;
@@ -105,7 +105,7 @@
 	function removeNonRegNeedyMods(list: string[]) {
 		let listC: string[] = [];
 		Object.assign(listC, list);
-		listC.forEach((mod) => {
+		listC.forEach(mod => {
 			let found = getModule(mod, modules);
 			if (!found || (found.Type != 'Regular' && found.Type != 'Needy'))
 				list.splice(
@@ -253,9 +253,7 @@
 			localSubscribe(mustHaves[x], `option-${x}`);
 		});
 
-		prevSortOrder = sortOrder = JSON.parse(
-			localStorage.getItem('option-sort-order') || '"alphabetical"'
-		);
+		prevSortOrder = sortOrder = JSON.parse(localStorage.getItem('option-sort-order') || '"alphabetical"');
 		localSubscribe(sortOrder, 'option-sort-order');
 		prefersMatchSort = JSON.parse(localStorage.getItem('prefers-match-sort') || 'true');
 		localSubscribe(prefersMatchSort, 'prefers-match-sort');

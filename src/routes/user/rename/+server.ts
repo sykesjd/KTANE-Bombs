@@ -27,24 +27,24 @@ export const POST: RequestHandler = async function ({ locals, request }) {
 
 	const queries = [
 		// Mission
-		...missions.map((mission) =>
+		...missions.map(mission =>
 			client.mission.update({
 				where: {
 					id: mission.id
 				},
 				data: {
-					authors: mission.authors.map((name) => (name === oldUsername ? username : name))
+					authors: mission.authors.map(name => (name === oldUsername ? username : name))
 				}
 			})
 		),
 		// Completions
-		...completions.map((completion) =>
+		...completions.map(completion =>
 			client.completion.update({
 				where: {
 					id: completion.id
 				},
 				data: {
-					team: completion.team.map((name) => (name === oldUsername ? username : name))
+					team: completion.team.map(name => (name === oldUsername ? username : name))
 				}
 			})
 		)

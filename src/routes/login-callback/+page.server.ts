@@ -7,7 +7,7 @@ import type { TokenRequestResult } from 'discord-oauth2';
 import { redirect, error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
-export const load = async function load({ url, cookies }:any) {
+export const load = async function load({ url, cookies }: any) {
 	const code = url.searchParams.get('code');
 	if (code === null) throw error(406);
 
@@ -21,15 +21,15 @@ export const load = async function load({ url, cookies }:any) {
 };
 
 export const actions = {
-	selectUsername: async ({ request, cookies }:any) => {
+	selectUsername: async ({ request, cookies }: any) => {
 		const fData = await request.formData();
 		const username = JSON.parse(fData.get('username'));
 		const result = JSON.parse(fData.get('result'));
 		return await login(<TokenRequestResult>result, cookies, username);
 	}
-}
+};
 
-async function login(result: TokenRequestResult, cookies: Cookies,  username: string | null = null) {
+async function login(result: TokenRequestResult, cookies: Cookies, username: string | null = null) {
 	try {
 		const user = await OAuth.getUser(result.access_token);
 
@@ -40,7 +40,7 @@ async function login(result: TokenRequestResult, cookies: Cookies,  username: st
 				return {
 					username: user.username,
 					firstTime: true,
-					takenUsernames: users.map((user) => user.username),
+					takenUsernames: users.map(user => user.username),
 					result: result
 				};
 			}
@@ -76,7 +76,7 @@ async function login(result: TokenRequestResult, cookies: Cookies,  username: st
 		return {
 			username: username,
 			firstTime: false,
-			takenUsernames: users.map((user) => user.username),
+			takenUsernames: users.map(user => user.username),
 			result: result
 		};
 	}

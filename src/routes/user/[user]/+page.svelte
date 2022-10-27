@@ -8,8 +8,7 @@
 	export let data;
 	let username: string = data.username;
 	let shownUser: FrontendUser | null = data.shownUser;
-	let completions: (Pick<Completion, 'team' | 'solo'> & { mission: { name: string } })[] =
-		data.completions;
+	let completions: (Pick<Completion, 'team' | 'solo'> & { mission: { name: string } })[] = data.completions;
 
 	let newUsername = username;
 	const oldUsername = username;
@@ -76,8 +75,7 @@
 					label="Username"
 					bind:value={newUsername}
 					required
-					validate={(value) => (value === oldUsername ? 'Please enter the new username.' : true)}
-				/>
+					validate={value => (value === oldUsername ? 'Please enter the new username.' : true)} />
 				<button type="submit">Submit</button>
 			</form>
 		</div>

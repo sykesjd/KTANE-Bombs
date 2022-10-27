@@ -38,7 +38,7 @@
 
 	function localSubscribe(item: any, key: string) {
 		let wr = writable(item);
-		wr.subscribe((value) => {
+		wr.subscribe(value => {
 			localStorage.setItem(key, JSON.stringify(value || ''));
 		});
 		lStore[key] = wr;
@@ -63,7 +63,7 @@
 	function bombSearchFilter(name: string, searchText: string): boolean {
 		let text = searchText.toLowerCase();
 		let searchWhat = '';
-		let ms = missions.find((x) => x.name == name) || missions[0];
+		let ms = missions.find(x => x.name == name) || missions[0];
 		// let modIDsInMission = modulesInMission[name].map(m => m.ModuleID).join(' ');
 		if (searchOptions?.includes('mission')) searchWhat += ' ' + name.toLowerCase();
 		if (searchOptions?.includes('module'))
@@ -106,10 +106,7 @@
 				!meetsHave(numCompletions(ms) > 0, options.mustHave['has-been-solved']) ||
 				!meetsHave(specialsInMission[name]['boss'].length > 0, options.mustHave['has-boss']) ||
 				!meetsHave(specialsInMission[name]['semi'].length > 0, options.mustHave['has-semi-boss']) ||
-				!meetsHave(
-					specialsInMission[name]['psdn'].length > 0,
-					options.mustHave['has-pseudoneedy']
-				) ||
+				!meetsHave(specialsInMission[name]['psdn'].length > 0, options.mustHave['has-pseudoneedy']) ||
 				!meetsHave(specialsInMission[name]['need'].length > 0, options.mustHave['has-needy']);
 			if (!filtered && options.modules['Operation'] != undefined) {
 				filtered =
@@ -264,7 +261,7 @@
 				.flat(2)
 				.map(m => getModule(m, modules));
 		});
-		missions.forEach((m) => {
+		missions.forEach(m => {
 			specialsInMission[m.name] = separateSpecialModules(m.name);
 		});
 		updateSearch();
@@ -304,8 +301,7 @@
 		bind:this={filterTab}
 		on:click={event => {
 			prevDisap = popup(event, filters, filterTab, prevDisap + 2, true);
-		}}
-	>
+		}}>
 		Filters
 	</div>
 	<HomeFiltersMenu bind:div={filters} on:update={homeOptionUpdate} on:click={() => prevDisap++} {modules} />

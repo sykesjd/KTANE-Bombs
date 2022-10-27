@@ -26,7 +26,7 @@
 
 	$: modified =
 		shownUser.permissions.length != newPermissions.size ||
-		shownUser.permissions.some((permission) => !newPermissions.has(permission));
+		shownUser.permissions.some(permission => !newPermissions.has(permission));
 
 	async function saveChanges() {
 		const fData = new FormData();
@@ -47,12 +47,7 @@
 <div class="block flex column content-width">
 	<div class="flex">
 		{#each Object.entries(permissions) as [name, value]}
-			<input
-				type="checkbox"
-				id={name}
-				checked={newPermissions.has(value)}
-				on:change={() => togglePermission(value)}
-			/>
+			<input type="checkbox" id={name} checked={newPermissions.has(value)} on:change={() => togglePermission(value)} />
 			<label for={name}>{name}</label>
 		{/each}
 	</div>

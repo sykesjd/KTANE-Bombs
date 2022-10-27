@@ -10,13 +10,15 @@
 	export let takenUsernames: string[] = data.takenUsernames;
 	export let firstTime: boolean = false;
 
-	function unameVal (val:any): boolean | string { return takenUsernames.includes(val) ? 'Name is taken' : (/\S/.test(val) ? true : 'Cannot be blank'); }
-	
+	function unameVal(val: any): boolean | string {
+		return takenUsernames.includes(val) ? 'Name is taken' : /\S/.test(val) ? true : 'Cannot be blank';
+	}
+
 	async function submit() {
-		if (takenUsernames.includes(username) || !(/\S/.test(username))) return;
+		if (takenUsernames.includes(username) || !/\S/.test(username)) return;
 		const fData = new FormData();
-		fData.append('username', JSON.stringify(username))
-		fData.append('result', JSON.stringify(oauthResult)) 
+		fData.append('username', JSON.stringify(username));
+		fData.append('result', JSON.stringify(oauthResult));
 
 		const response = await fetch('?/selectUsername', {
 			method: 'POST',
@@ -24,7 +26,7 @@
 		});
 		const resp: ActionResult = await response.json();
 
-		if (resp.type === "redirect") {
+		if (resp.type === 'redirect') {
 			location.href = resp.location;
 		} else {
 			applyAction(resp);
@@ -34,37 +36,31 @@
 
 <svelte:head>
 	{#if firstTime}
-	<title>Choose Username</title>
+		<title>Choose Username</title>
 	{:else}
-	<title>Username Conflict</title>
+		<title>Username Conflict</title>
 	{/if}
 </svelte:head>
 
 <h1 class="header">
 	{#if firstTime}
-	Choose Username for Solves
+		Choose Username for Solves
 	{:else}
-	Username Conflict
+		Username Conflict
 	{/if}
 </h1>
 <div class="block flex column content-width">
 	<div>
 		{#if firstTime}
-		Choose a username as you want it to appear on the list of bomb solves.<br>
-		This will be changed an admin if your chosen name is inappropriate.<br>
-		The name you choose now can only be changed by asking an admin.
+			Choose a username as you want it to appear on the list of bomb solves.<br />
+			This will be changed an admin if your chosen name is inappropriate.<br />
+			The name you choose now can only be changed by asking an admin.
 		{:else}
-		Someone already has that username, please select another.
+			Someone already has that username, please select another.
 		{/if}
 	</div>
 	<form on:submit|preventDefault={submit} method="POST">
-		<Input
-			name="username"
-			id="username"
-			label="Username"
-			bind:value={username}
-			validate={unameVal}
-		/>
+		<Input name="username" id="username" label="Username" bind:value={username} validate={unameVal} />
 		<button type="submit">Submit</button>
 	</form>
 </div>
