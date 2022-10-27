@@ -44,17 +44,17 @@
 		dispatch('input');
 	};
 
-	function handleValidity(value: any) {
+	function handleValidity(value: any, showErrors: boolean = true): boolean {
 		const validity = validate(value);
 		input.setCustomValidity(typeof validity === 'string' ? validity : validity ? '' : 'Invalid value.');
 		input.reportValidity();
 
-		error = input.validationMessage;
+		if (showErrors) error = input.validationMessage;
 
 		return validity === true || validity === '';
 	}
 
-	onMount(() => handleValidity(value));
+	onMount(() => handleValidity(value, false));
 </script>
 
 <div class:hstack={sideLabel}>
