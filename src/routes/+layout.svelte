@@ -3,26 +3,9 @@
 	import type { FrontendUser } from '$lib/types';
 	import UserCard from '$lib/cards/UserCard.svelte';
 	import { hasPermission, hasAnyPermission } from '$lib/util';
-	import { onMount } from 'svelte';
-	import { toasts, ToastContainer, FlatToast } from 'svelte-toasts';
+	import { Toaster } from 'svelte-french-toast';
 	export let data;
 	const user: FrontendUser | null = data.user;
-
-	onMount(() => {
-		const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-		toasts.setDefaults({
-			theme: darkQuery.matches ? 'dark' : 'light',
-			placement: 'top-center',
-			duration: 5000
-		});
-
-		darkQuery.addEventListener('change', event => {
-			toasts.setDefaults({
-				theme: event.matches ? 'dark' : 'light'
-			});
-		});
-	});
 </script>
 
 <div class="navbar-background">
@@ -51,9 +34,11 @@
 	<slot />
 </div>
 
-<ToastContainer let:data>
-	<FlatToast {data} />
-</ToastContainer>
+<Toaster toastOptions={{
+	style: "background: var(--background); color: var(--text-color);",
+	duration: 5000,
+	position: "top-center"
+}} />
 
 <style>
 	:root {
