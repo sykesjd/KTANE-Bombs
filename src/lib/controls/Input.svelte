@@ -28,14 +28,16 @@
 
 		let newValue = parse(e.currentTarget.value);
 		if (options !== null) {
+			let match = false;
 			for (const option of options) {
 				if (newValue === display(option)) {
-					value = option;
-					return;
+					newValue = option;
+					match = true;
+					break;
 				}
 			}
 
-			newValue = null;
+			if (!match) newValue = null;
 		}
 
 		if (handleValidity(newValue)) value = newValue;
