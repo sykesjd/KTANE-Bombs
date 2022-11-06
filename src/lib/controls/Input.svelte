@@ -46,8 +46,10 @@
 
 	function handleValidity(value: any, showErrors: boolean = true): boolean {
 		const validity = validate(value);
-		input.setCustomValidity(typeof validity === 'string' ? validity : validity ? '' : 'Invalid value.');
-		input.reportValidity();
+		if (required) {
+			input.setCustomValidity(typeof validity === 'string' ? validity : validity ? '' : 'Invalid value.');
+			input.reportValidity();
+		}
 
 		if (showErrors) error = input.validationMessage;
 

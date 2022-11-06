@@ -55,8 +55,10 @@
 
 	function handleValidity(value: any) {
 		const validity = validate(value);
-		text_area.setCustomValidity(typeof validity === 'string' ? validity : validity ? '' : 'Invalid value.');
-		text_area.reportValidity();
+		if (required) {
+			text_area.setCustomValidity(typeof validity === 'string' ? validity : validity ? '' : 'Invalid value.');
+			text_area.reportValidity();
+		}
 
 		error = text_area.validationMessage;
 
