@@ -1,9 +1,13 @@
 import client from '$lib/client';
-import type { Mission } from '$lib/types';
-import type { RequestEvent } from '@sveltejs/kit';
+import type { MissionWithPack } from '$lib/types';
+import { error, type RequestEvent } from '@sveltejs/kit';
 
 export async function POST({ request }: RequestEvent) {
-	const missions: Mission[] = await request.json();
+	const missions: MissionWithPack[] = await request.json();
+	if (missions.some(m => m.missionPack === null)) {
+		throw error(400, 'Mission pack is required');
+	}
+
 	for (const mission of missions) {
 		await client.mission.create({
 			data: {
@@ -17,6 +21,7 @@ export async function POST({ request }: RequestEvent) {
 						};
 					})
 				},
+				missionPackId: mission.missionPack?.id,
 				verified: false
 			}
 		});

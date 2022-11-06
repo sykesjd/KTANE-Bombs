@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Input from '$lib/controls/Input.svelte';
 	import MissionCard from '$lib/cards/MissionCard.svelte';
-	import { Bomb, Mission, Pool, type MissionPackSelection } from '$lib/types';
+	import { Bomb, Pool, type MissionPackSelection, type MissionWithPack } from '$lib/types';
 	import { parseList } from '$lib/util';
 	import toast from 'svelte-french-toast';
 
@@ -10,8 +10,6 @@
 	let files: FileList;
 	let missions: MissionWithPack[] = [];
 	let selectedMissions: Record<number, boolean> = {};
-
-	type MissionWithPack = Mission & { missionPack: MissionPackSelection | null };
 
 	function parseMissions(text: string) {
 		let missions: MissionWithPack[] = [];

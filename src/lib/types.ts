@@ -25,6 +25,8 @@ export interface MissionPack {
 
 export type MissionPackSelection = Pick<ID<MissionPack>, 'id' | 'name'>;
 
+export type MissionWithPack = Mission & { missionPack: MissionPackSelection | null };
+
 export class Mission {
 	name = '';
 	authors: string[] = [];
@@ -67,7 +69,7 @@ export enum MustHave {
 	No = 2
 }
 export class HomeOptions {
-	sortOrder: string = '';
+	sortOrder = '';
 	checks: { [k: string]: boolean } = {};
 	modules: { [k: string]: any } = {};
 	numMods = [1, 600];

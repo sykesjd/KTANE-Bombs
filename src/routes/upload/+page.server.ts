@@ -15,6 +15,7 @@ export const load: PageServerLoad = async function () {
 
 	const packs = await client.missionPack.findMany({
 		select: {
+			id: true,
 			name: true
 		}
 	});
