@@ -60,7 +60,7 @@
 		let text = searchText.toLowerCase();
 		let searchWhat = '';
 		let ms = missions.find(x => x.name == name) || missions[0];
-		// let modIDsInMission = modulesInMission[name].map(m => m.ModuleID).join(' ');
+
 		if (searchOptions?.includes('mission')) searchWhat += ' ' + name.toLowerCase();
 		if (searchOptions?.includes('module'))
 			searchWhat +=
@@ -100,6 +100,7 @@
 				widg < options.widgets[0] ||
 				widg > options.widgets[1] ||
 				!meetsHave(numCompletions(ms) > 0, options.mustHave['has-been-solved']) ||
+				!meetsHave(ms.designedForTP, options.mustHave['designed-for-tp']) ||
 				!meetsHave(specialsInMission[name]['boss'].length > 0, options.mustHave['has-boss']) ||
 				!meetsHave(specialsInMission[name]['semi'].length > 0, options.mustHave['has-semi-boss']) ||
 				!meetsHave(specialsInMission[name]['psdn'].length > 0, options.mustHave['has-pseudoneedy']) ||
@@ -186,7 +187,7 @@
 
 	function homeOptionUpdate(event: any) {
 		Object.assign(options, event.detail.op);
-		//console.log(options);
+		// console.log(options);
 		if (sortOrder != options.sortOrder || reverse != options.checks['sort-reverse']) {
 			sortOrder = options.sortOrder;
 			reverse = options.checks['sort-reverse'];

@@ -14,13 +14,14 @@ export async function POST({ request }: RequestEvent) {
 				name: mission.name,
 				authors: mission.authors,
 				bombs: {
-					create: mission.bombs.map((bomb) => {
+					create: mission.bombs.map(bomb => {
 						return {
 							...bomb,
 							pools: JSON.parse(JSON.stringify(bomb.pools))
 						};
 					})
 				},
+				designedForTP: mission.designedForTP,
 				missionPackId: mission.missionPack?.id,
 				verified: false
 			}

@@ -5,16 +5,9 @@ import { fixPools, forbidden, hasAnyPermission, hasPermission } from '$lib/util'
 import type { ServerLoadEvent } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
-export const load = async function ({ parent, locals }:any) {
-	const {user} = await parent()
-	if (
-		!hasAnyPermission(
-			user,
-			Permission.VerifyMission,
-			Permission.VerifyCompletion,
-			Permission.VerifyMissionPack
-		)
-	) {
+export const load = async function ({ parent, locals }: any) {
+	const { user } = await parent();
+	if (!hasAnyPermission(user, Permission.VerifyMission, Permission.VerifyCompletion, Permission.VerifyMissionPack)) {
 		throw forbidden(locals);
 	}
 
@@ -36,12 +29,13 @@ export const load = async function ({ parent, locals }:any) {
 		});
 
 		queue.push(
-			...missions.map((mission) => {
+			...missions.map(mission => {
 				return {
 					type: 'mission',
 					mission: {
 						...fixPools(mission),
 						completions: [],
+						designedForTP: false,
 						tpSolve: false
 					}
 				} as MissionQueueItem;
@@ -66,7 +60,7 @@ export const load = async function ({ parent, locals }:any) {
 		});
 
 		queue.push(
-			...completions.map((completion) => {
+			...completions.map(completion => {
 				return {
 					type: 'completion',
 					completion,
@@ -85,7 +79,7 @@ export const load = async function ({ parent, locals }:any) {
 		});
 
 		queue.push(
-			...missionPacks.map((pack) => {
+			...missionPacks.map(pack => {
 				return {
 					type: 'missionpack',
 					pack

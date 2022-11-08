@@ -22,6 +22,7 @@ export const load: PageServerLoad = async function ({ params, locals }: ServerLo
 					verified: true
 				}
 			},
+			designedForTP: true,
 			tpSolve: true,
 			factory: true,
 			variant: true,

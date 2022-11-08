@@ -11,6 +11,7 @@ export const load: PageServerLoad = async function () {
 			name: true,
 			authors: true,
 			bombs: true,
+			designedForTP: true,
 			tpSolve: true,
 			factory: true,
 			completions: true

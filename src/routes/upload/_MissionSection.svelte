@@ -4,6 +4,7 @@
 	import { Bomb, Pool, type MissionPackSelection, type MissionWithPack } from '$lib/types';
 	import { parseList } from '$lib/util';
 	import toast from 'svelte-french-toast';
+	import Checkbox from '$lib/controls/Checkbox.svelte';
 
 	export let packs: MissionPackSelection[];
 
@@ -30,6 +31,7 @@
 					bombs: [],
 					name: '',
 					authors: [],
+					designedForTP: false,
 					tpSolve: false,
 					factory: '',
 					missionPack: null
@@ -95,7 +97,7 @@
 	async function readFiles() {
 		missions = (
 			await Promise.all(
-				Array.from(files ?? []).map(async (file) => {
+				Array.from(files ?? []).map(async file => {
 					const text = await file.text();
 
 					return parseMissions(text);
@@ -112,8 +114,8 @@
 			},
 			body: JSON.stringify(missions.filter((_, index) => selectedMissions[index]))
 		})
-			.then((response) => {
-				const plural = Object.values(selectedMissions).filter((value) => value).length > 1;
+			.then(response => {
+				const plural = Object.values(selectedMissions).filter(value => value).length > 1;
 				const word = `Misison${plural ? 's' : ''}`;
 				if (response.ok) {
 					toast.success(`${word} uploaded successfully!`);
@@ -140,34 +142,25 @@
 				<div class="flex">
 					<MissionCard {mission} selectable id={i.toString()} bind:selected={selectedMissions[i]} />
 					<div class="block">
-						<Input
-							name="Authors"
-							label="Authors"
-							id="mission-authors"
-							bind:value={mission.authors}
-							parse={parseList}
-						/>
+						<Input name="Authors" label="Authors" id="mission-authors" bind:value={mission.authors} parse={parseList} />
 						<Input
 							name="Mission Pack"
 							label="Mission Pack"
 							id="mission-pack"
 							bind:value={mission.missionPack}
 							options={packs}
-							display={(pack) => (pack === null ? '' : pack.name)}
-							validate={(pack) => pack !== null}
-							required={selectedMissions[i]}
-						/>
+							display={pack => (pack === null ? '' : pack.name)}
+							validate={pack => pack !== null}
+							required={selectedMissions[i]} />
+						<Checkbox id="designed-for-tp" label="Designed for TP" bind:checked={mission.designedForTP} sideLabel />
 					</div>
 				</div>
 			{/each}
 		</div>
-		{#if Object.values(selectedMissions).some((a) => a)}
+		{#if Object.values(selectedMissions).some(a => a)}
 			<div class="block">
 				<button type="submit"
-					>Upload Mission{Object.values(selectedMissions).filter((a) => a).length == 1
-						? ''
-						: 's'}</button
-				>
+					>Upload Mission{Object.values(selectedMissions).filter(a => a).length == 1 ? '' : 's'}</button>
 			</div>
 		{/if}
 	</form>

@@ -18,7 +18,7 @@
 			},
 			body: JSON.stringify(pack)
 		})
-			.then((response) => {
+			.then(response => {
 				if (response.ok) {
 					toast.success(`Mission pack uploaded successfully!`);
 				} else {

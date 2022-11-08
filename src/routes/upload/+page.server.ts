@@ -21,7 +21,7 @@ export const load: PageServerLoad = async function () {
 	});
 
 	return {
-		missionNames: names,
+		missionNames: names.sort(),
 		packs: packs.sort((a, b) => {
 			return a.name.localeCompare(b.name);
 		})

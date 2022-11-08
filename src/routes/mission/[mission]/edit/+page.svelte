@@ -14,7 +14,7 @@
 
 	export let data;
 
-	let mission: EditMission = data.mission;
+	let mission: EditMission & { verified: boolean } = data.mission;
 	let packs: Pick<ID<MissionPack>, 'id' | 'name'>[] = data.packs;
 	let modules: Record<string, RepoModule> | null = data.modules;
 
@@ -70,7 +70,7 @@
 			body: fData
 		});
 
-		mission.completions = mission.completions.filter((comp) => completion.id !== comp.id);
+		mission.completions = mission.completions.filter(comp => completion.id !== comp.id);
 		/** @type {import('@sveltejs/kit').ActionResult} */
 		const result = await response.json();
 
@@ -94,9 +94,8 @@
 		id="mission-pack"
 		bind:value={mission.missionPack}
 		options={packs}
-		display={(pack) => pack.name}
-		validate={(value) => value !== null}
-	/>
+		display={pack => pack.name}
+		validate={value => value !== null} />
 	<div class="actions">
 		<button on:click={deleteMission}>Delete</button>
 	</div>
@@ -107,29 +106,33 @@
 		id="mission-factory"
 		bind:value={mission.factory}
 		options={[null, 'Static', 'Sequence']}
-		display={(mode) => mode ?? 'None'}
-	/>
+		display={mode => mode ?? 'None'} />
 </div>
+{#if !mission.verified}
+	<div class="block centered not-verified">This mission has not been verified.</div>
+{/if}
 <div class="main-content">
 	<div class="bombs">
 		{#each mission.bombs as bomb}
 			<div class="block">
-				{pluralize(bomb.modules, 'Module')} · {formatTime(bomb.time)} · {pluralize(
-					bomb.strikes,
-					'Strike'
-				)} · {pluralize(bomb.widgets, 'Widget')}
+				{pluralize(bomb.modules, 'Module')} · {formatTime(bomb.time)} · {pluralize(bomb.strikes, 'Strike')} · {pluralize(
+					bomb.widgets,
+					'Widget'
+				)}
+				{#if mission.designedForTP}
+					· <span class="designed-for-tp">Designed for TP</span>
+				{/if}
 			</div>
 			<div class="pools">
 				{#each bomb.pools as pool}
 					<div class="pool">
 						<div class="modules">
-							{#each pool.modules.map((module) => getModule(module, modules)) as module}
+							{#each pool.modules.map(module => getModule(module, modules)) as module}
 								<div class="module">
 									<img
 										src="https://ktane.timwi.de/iconsprite"
 										alt={module.Name}
-										style="object-position: -{module.X * 32}px -{module.Y * 32}px"
-									/>
+										style="object-position: -{module.X * 32}px -{module.Y * 32}px" />
 									<span>{module.Name}</span>
 								</div>
 							{/each}
@@ -147,20 +150,13 @@
 		{#each mission.completions as completion}
 			<div class="block flex column relative">
 				<Input label="Proof" id="completion-proof" bind:value={completion.proofs} />
-				<Input
-					label="Time"
-					id="completion-time"
-					bind:value={completion.time}
-					parse={parseTime}
-					display={formatTime}
-				/>
+				<Input label="Time" id="completion-time" bind:value={completion.time} parse={parseTime} display={formatTime} />
 				<Input
 					label="Team"
 					id="completion-team"
 					bind:value={completion.team}
-					parse={(value) => value.split(',').map((person) => person.trim())}
-					display={(list) => list.join(', ')}
-				/>
+					parse={value => value.split(',').map(person => person.trim())}
+					display={list => list.join(', ')} />
 				{#if hasPermission($page.data.user, Permission.VerifyCompletion)}
 					<div class="actions">
 						<button on:click={() => deleteCompletion(completion)}>Delete</button>
@@ -203,6 +199,16 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--gap);
+	}
+
+	.designed-for-tp {
+		color: #9146ff;
+	}
+	.not-verified {
+		color: red;
+	}
+	.centered {
+		text-align: center;
 	}
 
 	.pools {

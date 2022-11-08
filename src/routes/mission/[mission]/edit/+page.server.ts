@@ -29,6 +29,7 @@ export const load: PageServerLoad = async function ({ params, locals }: ServerLo
 				},
 				select: client.$exclude('completion', ['missionId'])
 			},
+			designedForTP: true,
 			tpSolve: true,
 			factory: true,
 			variant: true,
@@ -107,7 +108,7 @@ export const actions: Actions = {
 			},
 			data: {
 				completions: {
-					update: mission.completions.map((completion) => ({
+					update: mission.completions.map(completion => ({
 						where: {
 							id: completion.id
 						},
@@ -138,7 +139,7 @@ export async function POST({ locals, request }: RequestEvent) {
 		},
 		data: {
 			completions: {
-				update: mission.completions.map((completion) => ({
+				update: mission.completions.map(completion => ({
 					where: {
 						id: completion.id
 					},

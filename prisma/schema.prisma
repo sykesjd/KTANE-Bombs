@@ -26,15 +26,16 @@ model MissionPack {
 }
 
 model Mission {
-  id          Int          @id @default(autoincrement())
-  name        String       @unique
-  authors     String[]
-  bombs       Bomb[]
-  completions Completion[]
-  tpSolve     Boolean      @default(false)
-  factory     String?
-  verified    Boolean      @default(true)
-  variant     Int?
+  id             Int          @id @default(autoincrement())
+  name           String       @unique
+  authors        String[]
+  bombs          Bomb[]
+  completions    Completion[]
+  designedForTP  Boolean      @default(false)
+  tpSolve        Boolean      @default(false)
+  factory        String?
+  verified       Boolean      @default(true)
+  variant        Int?
 
   missionPack   MissionPack? @relation(fields: [missionPackId], references: [id])
   missionPackId Int?

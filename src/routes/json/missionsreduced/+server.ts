@@ -11,6 +11,7 @@ export async function GET() {
 			name: true,
 			authors: true,
 			bombs: true,
+			designedForTP: true,
 			tpSolve: true,
 			completions: true
 		}
@@ -38,6 +39,7 @@ export async function GET() {
 					name: m.name,
 					authors: m.authors,
 					bombs: reducedBombs,
+					designedForTP: m.designedForTP,
 					moduleList: list,
 					tpSolve: m.tpSolve,
 					completions: m.completions.length

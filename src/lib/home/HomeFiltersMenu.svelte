@@ -24,7 +24,7 @@
 	let filesValid = true;
 	let yesList: string[] = [];
 	let noList: string[] = [];
-	let hasOptions = ['Has Been Solved', 'Has Boss', 'Has Semi-Boss', 'Has PseudoNeedy', 'Has Needy'];
+	let hasOptions = ['Has Been Solved', 'Has Boss', 'Has Semi-Boss', 'Has PseudoNeedy', 'Has Needy', 'Designed for TP'];
 	let sortOptions = ['Alphabetical', 'Module Count', 'Bomb Time', 'Solves', 'Rule Seeded Mods %'];
 	let limitDef: { [k: string]: number[] } = {
 		mods: [1, 600],
@@ -524,7 +524,7 @@
 		margin: 0.3em 0;
 		white-space: normal;
 	}
-	/* .explanation {width: 470px;} */
+
 	.opexplain {
 		cursor: help;
 	}
@@ -585,7 +585,7 @@
 	}
 	.center-divider {
 		width: 0;
-		height: 255px;
+		height: 265px;
 		border: 1px solid var(--light-text-color);
 		margin: 0 0.8em;
 	}

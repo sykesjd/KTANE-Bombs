@@ -8,10 +8,11 @@
 
 	type Variant = Pick<Mission, 'name' | 'completions' | 'tpSolve'>;
 	export let data;
-	export let mission: Mission & { missionPack: MissionPack } = data.mission;
+	export let mission: Mission & { missionPack: MissionPack, verified: boolean } = data.mission;
 	export let variants: Variant[] | null = data.variants;
 	export let modules: Record<string, RepoModule> | null = data.modules;
 
+	console.log(mission);
 	sortBombs(mission, modules);
 </script>
 
@@ -20,7 +21,7 @@
 </svelte:head>
 <div class="block relative">
 	<h1 class="header">{mission.name}</h1>
-	<div style="text-align: center;">
+	<div class="centered">
 		by {mission.authors.join(', ')}
 		from
 		<a href="https://steamcommunity.com/sharedfiles/filedetails/?id={mission.missionPack.steamId}">
@@ -31,29 +32,34 @@
 		<a href={$page.url.href + '/edit'} class="top-right">Edit</a>
 	{/if}
 </div>
+{#if !mission.verified}
+	<div class="block centered not-verified">This mission has not been verified.</div>
+{/if}
 {#if mission.factory !== null}
-	<div class="block" style="text-align: center">Factory: {mission.factory}</div>
+	<div class="block centered">Factory: {mission.factory}</div>
 {/if}
 <div class="main-content">
 	<div class="bombs">
 		{#each mission.bombs as bomb}
 			<div class="block">
-				{pluralize(bomb.modules, 'Module')} · {formatTime(bomb.time)} · {pluralize(
-					bomb.strikes,
-					'Strike'
-				)} · {pluralize(bomb.widgets, 'Widget')}
+				{pluralize(bomb.modules, 'Module')} · {formatTime(bomb.time)} · {pluralize(bomb.strikes, 'Strike')} · {pluralize(
+					bomb.widgets,
+					'Widget'
+				)}
+				{#if mission.designedForTP}
+					· <span class="designed-for-tp">Designed for TP</span>
+				{/if}
 			</div>
 			<div class="pools">
 				{#each bomb.pools as pool}
 					<div class="pool">
 						<div class="modules">
-							{#each pool.modules.map((module) => getModule(module, modules)) as module}
+							{#each pool.modules.map(module => getModule(module, modules)) as module}
 								<div class="module">
 									<img
 										src="https://ktane.timwi.de/iconsprite"
 										alt={module.Name}
-										style="object-position: -{module.X * 32}px -{module.Y * 32}px"
-									/>
+										style="object-position: -{module.X * 32}px -{module.Y * 32}px" />
 									<span>{module.Name}</span>
 								</div>
 							{/each}
@@ -97,6 +103,16 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--gap);
+	}
+
+	.designed-for-tp {
+		color: #9146ff;
+	}
+	.not-verified {
+		color: red;
+	}
+	.centered {
+		text-align: center;
 	}
 
 	.pools {

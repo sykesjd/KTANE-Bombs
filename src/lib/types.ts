@@ -32,6 +32,7 @@ export class Mission {
 	authors: string[] = [];
 	bombs: Bomb[] = [];
 	completions: Completion[] = [];
+	designedForTP = false;
 	tpSolve = false;
 	factory: string | null = null;
 }
