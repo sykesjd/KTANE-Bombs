@@ -11,7 +11,7 @@ export const load: PageServerLoad = async function () {
 				verified: true
 			}
 		})
-	).map((mission) => mission.name);
+	).map(mission => mission.name);
 
 	const packs = await client.missionPack.findMany({
 		select: {
@@ -22,6 +22,8 @@ export const load: PageServerLoad = async function () {
 
 	return {
 		missionNames: names,
-		packs
+		packs: packs.sort((a, b) => {
+			return a.name.localeCompare(b.name);
+		})
 	};
 };
