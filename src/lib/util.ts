@@ -243,3 +243,7 @@ export function getModule(
 		Y: 0
 	};
 }
+
+export function onlyUnique(item: any, pos: number, self: any[]): boolean {
+	return self.indexOf(item) == pos;
+}

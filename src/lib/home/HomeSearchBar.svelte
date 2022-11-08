@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Bomb, Completion, HomeOptions, Mission, MustHave, Operation } from '$lib/types';
-	import { evaluateLogicalStringSearch, disappear, popup, titleCase, getModule } from '$lib/util';
+	import { evaluateLogicalStringSearch, disappear, popup, titleCase, getModule, onlyUnique } from '$lib/util';
 	import Checkbox from '$lib/controls/Checkbox.svelte';
 	import LayoutSearchFilter from '$lib/comp/LayoutSearchFilter.svelte';
 	import { onMount, createEventDispatcher } from 'svelte';
@@ -54,10 +54,6 @@
 			validSearchOptions[i] = searchOptions.includes(o);
 		});
 		updateSearch();
-	}
-
-	function onlyUnique(item: any, pos: number, self: any[]): boolean {
-		return self.indexOf(item) == pos;
 	}
 
 	function bombSearchFilter(name: string, searchText: string): boolean {
