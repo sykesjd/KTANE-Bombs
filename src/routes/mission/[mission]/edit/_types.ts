@@ -1,6 +1,7 @@
-import type { ID, Mission, Completion, MissionPack } from '$lib/types';
+import type { ID, Mission, Completion, MissionPack, Bomb } from '$lib/types';
 
-export type EditMission = Omit<ID<Mission>, 'completions'> & {
+export type EditMission = Omit<ID<Mission>, 'completions' | 'bombs'> & {
+	bombs: ID<Bomb>[];
 	completions: ID<Completion>[];
 	missionPack: Pick<ID<MissionPack>, 'id' | 'name'>;
 };

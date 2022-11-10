@@ -4,7 +4,7 @@
 	import RadioButton from '$lib/controls/RadioButton.svelte';
 	import type { RepoModule } from '$lib/repo';
 	import { HomeOptions, MustHave, Operation } from '$lib/types';
-	import { getModule } from '$lib/util';
+	import { getModule, parseInteger } from '$lib/util';
 	import { onMount, createEventDispatcher } from 'svelte';
 	import { writable, type Writable } from 'svelte/store';
 
@@ -34,10 +34,7 @@
 		prof: [80]
 	};
 	let checkDef: { [k: string]: boolean } = {
-		'sort-reverse': false,
-		'search-missname': true,
-		'search-modname': false,
-		'search-modid': false
+		'sort-reverse': false
 	};
 	let opExplain =
 		'Expert: A minimum percent of mods in the mission must be found in the "Yes" list\n' +
@@ -212,9 +209,6 @@
 		return str.replace(/ /g, '-').toLowerCase();
 	}
 
-	function integer(str: string): any {
-		return parseInt(str);
-	}
 	function intnan(val: number): boolean | string {
 		return isNaN(val) ? 'int' : val >= 0 ? true : '≥0';
 	}
@@ -288,20 +282,22 @@
 			<span>Module Count</span>
 			<div class="flex">
 				<Input
+					required
 					name="option-mcl"
 					id="option-mcl"
 					bind:value={limits['mods'][0]}
 					classes="limits"
-					parse={integer}
+					parse={parseInteger}
 					validate={intnan}
 					on:change={setOption} />
 				<span class="through" />
 				<Input
+					required
 					name="option-mcu"
 					id="option-mcu"
 					bind:value={limits['mods'][1]}
 					classes="limits"
-					parse={integer}
+					parse={parseInteger}
 					validate={intnan}
 					on:change={setOption} />
 			</div>
@@ -309,20 +305,22 @@
 			<span>Time (minutes)</span>
 			<div class="flex">
 				<Input
+					required
 					name="option-tml"
 					id="option-tml"
 					bind:value={limits['time'][0]}
 					classes="limits"
-					parse={integer}
+					parse={parseInteger}
 					validate={intnan}
 					on:change={setOption} />
 				<span class="through" />
 				<Input
+					required
 					name="option-tmu"
 					id="option-tmu"
 					bind:value={limits['time'][1]}
 					classes="limits"
-					parse={integer}
+					parse={parseInteger}
 					validate={intnan}
 					on:change={setOption} />
 			</div>
@@ -330,20 +328,22 @@
 			<span>Strikes</span>
 			<div class="flex">
 				<Input
+					required
 					name="option-stkl"
 					id="option-stkl"
 					bind:value={limits['strk'][0]}
 					classes="limits"
-					parse={integer}
+					parse={parseInteger}
 					validate={intnan}
 					on:change={setOption} />
 				<span class="through" />
 				<Input
+					required
 					name="option-stku"
 					id="option-stku"
 					bind:value={limits['strk'][1]}
 					classes="limits"
-					parse={integer}
+					parse={parseInteger}
 					validate={intnan}
 					on:change={setOption} />
 			</div>
@@ -351,20 +351,22 @@
 			<span>Widgets</span>
 			<div class="flex">
 				<Input
+					required
 					name="option-wdgl"
 					id="option-wdgl"
 					bind:value={limits['widg'][0]}
 					classes="limits"
-					parse={integer}
+					parse={parseInteger}
 					validate={intnan}
 					on:change={setOption} />
 				<span class="through" />
 				<Input
+					required
 					name="option-wdgu"
 					id="option-wdgu"
 					bind:value={limits['widg'][1]}
 					classes="limits"
-					parse={integer}
+					parse={parseInteger}
 					validate={intnan}
 					on:change={setOption} />
 			</div>
@@ -473,11 +475,12 @@
 			<div class="hstack smallgap">
 				<b>≥</b>
 				<Input
+					required
 					name="profile-percentage"
 					id="profile-percentage"
 					bind:value={limits['prof'][0]}
 					classes="percent"
-					parse={integer}
+					parse={parseInteger}
 					validate={percent}
 					on:change={setOption} />
 				<span><b>%</b> from profile</span>
@@ -529,6 +532,17 @@
 		cursor: help;
 	}
 
+	.hstack {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+	.hstack.center {
+		justify-content: center;
+	}
+	.hstack.wrap {
+		flex-wrap: wrap;
+	}
 	.hstack.gap {
 		gap: 10px;
 	}

@@ -320,6 +320,11 @@
 		width: 50px;
 	}
 
+	.hstack {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
 	.hstack.boxes {
 		flex-wrap: wrap;
 		gap: 7px;
@@ -334,22 +339,6 @@
 		color: var(--text-color);
 		box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 		z-index: 100;
-	}
-
-	:global(.hstack) {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-	}
-
-	:global(.hstack.wrap) {
-		flex-wrap: wrap;
-	}
-	:global(.hstack.center) {
-		justify-content: center;
-	}
-	:global(.hstack.right) {
-		justify-content: right;
 	}
 
 	:global(.hidden) {

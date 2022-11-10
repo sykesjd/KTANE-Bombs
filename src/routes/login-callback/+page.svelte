@@ -8,10 +8,14 @@
 	export let oauthResult: TokenRequestResult = data.result;
 	export let username: string = data.username;
 	export let takenUsernames: string[] = data.takenUsernames;
-	export let firstTime: boolean = false;
+	export let firstTime: boolean = data.firstTime;
+
+	function trimName(str: string): any {
+		return str.trim();
+	}
 
 	function unameVal(val: any): boolean | string {
-		return takenUsernames.includes(val) ? 'Name is taken' : /\S/.test(val) ? true : 'Cannot be blank';
+		return takenUsernames.includes(val) ? 'Name is taken' : val.length > 50 ? '50 characters max' : /\S/.test(val) ? true : 'Cannot be blank';
 	}
 
 	async function submit() {
@@ -52,15 +56,15 @@
 <div class="block flex column content-width">
 	<div>
 		{#if firstTime}
-			Choose a username as you want it to appear on the list of bomb solves.<br />
-			This will be changed an admin if your chosen name is inappropriate.<br />
-			The name you choose now can only be changed by asking an admin.
+			Choose a username as you want it to appear on the list of bomb solves.<br>
+			The name you choose now can only be changed by asking an admin, and <b>will</b> be changed for you if your chosen
+			name is inappropriate.
 		{:else}
 			Someone already has that username, please select another.
 		{/if}
 	</div>
 	<form on:submit|preventDefault={submit} method="POST">
-		<Input name="username" id="username" label="Username" bind:value={username} validate={unameVal} />
+		<Input name="username" id="username" label="Username" required bind:value={username} parse={trimName} validate={unameVal} />
 		<button type="submit">Submit</button>
 	</form>
 </div>

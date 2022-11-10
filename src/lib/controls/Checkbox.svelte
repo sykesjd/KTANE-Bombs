@@ -35,6 +35,9 @@
 		user-select: none;
 	}
 	.hstack {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
 		gap: 2px;
 	}
 </style>

@@ -107,6 +107,24 @@ export const actions: Actions = {
 				id: mission.id
 			},
 			data: {
+				authors: mission.authors,
+				bombs: {
+					update: mission.bombs.map(bomb => ({
+						where: {
+							id: bomb.id
+						},
+						data: {
+							modules: bomb.modules,
+							time: bomb.time,
+							strikes: bomb.strikes,
+							widgets: bomb.widgets,
+							pools: bomb.pools.map(pool => ({
+								modules: pool.modules,
+								count: pool.count
+							}))
+						}
+					}))
+				},
 				completions: {
 					update: mission.completions.map(completion => ({
 						where: {
@@ -118,7 +136,8 @@ export const actions: Actions = {
 				factory: mission.factory,
 				missionPackId: mission.missionPack.id,
 				name: mission.name,
-				tpSolve: mission.tpSolve
+				tpSolve: mission.tpSolve,
+				designedForTP: mission.designedForTP
 			}
 		});
 

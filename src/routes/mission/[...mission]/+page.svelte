@@ -12,7 +12,7 @@
 	export let variants: Variant[] | null = data.variants;
 	export let modules: Record<string, RepoModule> | null = data.modules;
 
-	console.log(mission);
+	//console.log(mission);
 	sortBombs(mission, modules);
 </script>
 

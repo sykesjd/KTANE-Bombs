@@ -44,6 +44,10 @@ export function parseTime(time: string): number | null {
 	return parseInt(groups.hours ?? '0') * 3600 + minutes * 60 + seconds;
 }
 
+export function parseInteger(integer: string): number {
+	return parseInt(integer);
+}
+
 export function pluralize(value: number, singular: string): string {
 	return `${value} ${value == 1 ? singular : singular + 's'}`;
 }
@@ -101,6 +105,10 @@ export function parseList(value: string) {
 		.split(',')
 		.map((name) => name.trim())
 		.filter((name) => name.length !== 0);
+}
+
+export function displayStringList(list: string[]): string {
+	return list.join(', ');
 }
 
 function findMatchingBrackets(str: string, left: string, right: string): number[] {

@@ -59,7 +59,7 @@
 	onMount(() => handleValidity(value, false));
 </script>
 
-<div class:hstack={sideLabel}>
+<div class={sideLabel ? "hstack" : "vstack"}>
 	<label for={id} {title} class={labelClass}>
 		{label}
 		<slot />
@@ -104,7 +104,14 @@
 		box-sizing: border-box;
 	}
 	.hstack {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
 		gap: 3px;
+	}
+	.vstack {
+		display: flex;
+		flex-direction: column;
 	}
 	label {
 		user-select: none;

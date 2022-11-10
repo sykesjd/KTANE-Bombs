@@ -5,7 +5,7 @@
 	import type { RepoModule } from '$lib/repo';
 	import Select from '$lib/controls/Select.svelte';
 	import { Permission, type Completion, type ID, type Mission, type MissionPack } from '$lib/types';
-	import { formatTime, getModule, hasPermission, parseList, parseTime, pluralize } from '$lib/util';
+	import { displayStringList, formatTime, getModule, hasPermission, parseInteger, parseList, parseTime, pluralize } from '$lib/util';
 	import equal from 'fast-deep-equal';
 	import { sortBombs } from '../../_shared';
 	import type { EditMission } from './_types';
@@ -29,6 +29,13 @@
 	setOriginalMission();
 
 	$: modified = !equal(mission, originalMission);
+
+	function intnan0(val: number): boolean | string {
+		return isNaN(val) ? 'int' : val >= 0 ? true : '≥0';
+	}
+	function intnan1(val: number): boolean | string {
+		return isNaN(val) ? 'int' : val > 0 ? true : '>0';
+	}
 
 	async function saveChanges() {
 		const fData = new FormData();
@@ -114,32 +121,60 @@
 <div class="main-content">
 	<div class="bombs">
 		{#each mission.bombs as bomb}
-			<div class="block">
-				{pluralize(bomb.modules, 'Module')} · {formatTime(bomb.time)} · {pluralize(bomb.strikes, 'Strike')} · {pluralize(
-					bomb.widgets,
-					'Widget'
-				)}
-				{#if mission.designedForTP}
-					· <span class="designed-for-tp">Designed for TP</span>
-				{/if}
+			<div class="block flex column relative">
+				<Input
+					label="Number of Modules"
+					id="bomb-modules-{bomb.id}"
+					parse={parseInteger}
+					validate={intnan1}
+					required
+					bind:value={bomb.modules} />
+				<Input
+					label="Bomb Time"
+					id="bomb-time-{bomb.id}"
+					type="text"
+					parse={parseTime}
+					validate={value => value != null}
+					display={formatTime}
+					placeholder="1:23:45.67"
+					required
+					bind:value={bomb.time} />
+				<Input
+					label="Number of Strikes"
+					id="bomb-strikes-{bomb.id}"
+					parse={parseInteger}
+					validate={intnan1}
+					required
+					bind:value={bomb.strikes} />
+				<Input
+					label="Number of Widgets"
+					id="bomb-widgets-{bomb.id}"
+					parse={parseInteger}
+					validate={intnan0}
+					required
+					bind:value={bomb.widgets} />
+				<Checkbox sideLabel label="Designed for TP" id="designed-for-tp" bind:checked={mission.designedForTP} />
 			</div>
-			<div class="pools">
-				{#each bomb.pools as pool}
+			<div class="block flex column relative">
+				{#each bomb.pools as pool, index}
 					<div class="pool">
-						<div class="modules">
-							{#each pool.modules.map(module => getModule(module, modules)) as module}
-								<div class="module">
-									<img
-										src="https://ktane.timwi.de/iconsprite"
-										alt={module.Name}
-										style="object-position: -{module.X * 32}px -{module.Y * 32}px" />
-									<span>{module.Name}</span>
-								</div>
-							{/each}
-						</div>
-						{#if pool.count !== 1}
-							<span style="white-space: nowrap"> ×{pool.count}</span>
-						{/if}
+						<Input
+							label="Count"
+							id="pool-count-{bomb.id}-{index}"
+							classes="pool-count"
+							parse={parseInteger}
+							validate={intnan1}
+							required
+							bind:value={pool.count} />
+						<Input
+							label="Modules (comma-separated)"
+							id="pool-modules-{bomb.id}-{index}"
+							classes="pool-modules"
+							parse={parseList}
+							display={displayStringList}
+							validate={value => value != null}
+							required
+							bind:value={pool.modules} />
 					</div>
 				{/each}
 			</div>
@@ -201,25 +236,11 @@
 		gap: var(--gap);
 	}
 
-	.designed-for-tp {
-		color: #9146ff;
-	}
 	.not-verified {
 		color: red;
 	}
 	.centered {
 		text-align: center;
-	}
-
-	.pools {
-		display: flex;
-		flex-wrap: wrap;
-		/*
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-		*/
-		gap: var(--gap);
-		align-content: start;
 	}
 
 	.pool {
@@ -232,27 +253,11 @@
 		align-items: center;
 	}
 
-	.pool > div {
-		flex-grow: 1;
+	:global(.pool input.pool-count) {
+		width: 6em;
 	}
-
-	.modules {
-		display: flex;
-		flex-wrap: wrap;
-		gap: calc(var(--gap) * 3);
-	}
-
-	.module {
-		display: flex;
-		align-items: center;
-		gap: var(--gap);
-	}
-
-	.module > img {
-		height: 32px;
-		width: 32px;
-		object-fit: none;
-		image-rendering: crisp-edges;
+	:global(.pool input.pool-modules) {
+		width: 40em;
 	}
 
 	.tp-solve {
@@ -288,6 +293,7 @@
 		justify-content: center;
 		align-items: center;
 		box-shadow: var(--foreground) 0 0 10px;
+		color: #ddd;
 		background-color: rgb(15, 15, 15);
 	}
 </style>
