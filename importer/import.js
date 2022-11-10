@@ -32,12 +32,14 @@ const { PrismaClient } = pkg;
 						create: mission.completions
 					},
 					tpSolve: mission.tpsolve,
+					designedForTP: mission.designedfortp,
 					factory: mission.factory,
 					variant: mission.variant,
 					missionPackId: missionPack.id
 				},
 				update: {
 					tpSolve: mission.tpsolve,
+					designedForTP: mission.designedfortp,
 					factory: mission.factory,
 					variant: mission.variant,
 					missionPackId: missionPack.id

@@ -131,7 +131,8 @@ namespace bombdata
 							};
 						}).ToArray(),
 						completions = GetCompletions(2),
-						tpsolve = missionRow[7].Content == "Solved"
+						tpsolve = missionRow[7].Content == "Solved",
+						designedfortp = Path.GetFileName(path) == "KTaNE - Challenge Bombs Spreadsheets (TP Section)",
 					};
 
 					var factory = sheet[mission.bombs.Length + 2][3].Content;
@@ -323,6 +324,7 @@ namespace bombdata
 		public Bomb[] bombs { get; set; }
 		public List<Completion> completions { get; set; }
 		public bool tpsolve { get; set; }
+		public bool designedfortp { get; set; }
 		public string factory { get; set; }
 		public int? variant { get; set; }
 
