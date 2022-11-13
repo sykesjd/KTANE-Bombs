@@ -29,28 +29,26 @@
 
 		let newValue = parse(e.currentTarget.value);
 		if (options !== null) {
+			let match = false;
 			for (const option of options) {
 				if (newValue === display(option)) {
-					value = option;
-					return;
+					newValue = option;
+					match = true;
+					break;
 				}
 			}
-			newValue = null;
+
+			if (!match) newValue = null;
 		}
 
 		if (handleValidity(newValue)) value = newValue;
-		autoHeightExpand();
+		if (autoExpand) autoSetHeight();
 		dispatch('input');
 	};
 
-	function autoHeightExpand() {
-		if (autoExpand) {
-			text_area.style.overflow = 'scroll';
-			let scrollHeight = text_area.scrollHeight;
-			text_area.style.overflow = 'hidden';
-			text_area.style.height = '';
-			text_area.style.height = scrollHeight + 3 + 'px';
-		}
+	function autoSetHeight() {
+		text_area.style.height = '0';
+		text_area.style.height = text_area.scrollHeight + 3 + 'px';
 	}
 
 	function handleValidity(value: any) {
@@ -67,11 +65,14 @@
 
 	onMount(() => {
 		handleValidity(value);
-		autoHeightExpand();
+		text_area.setAttribute('style', 'height:' + text_area.scrollHeight + 'px;overflow-y:hidden;');
+		text_area.style.height = '0';
+		text_area.style.height = text_area.scrollHeight + 3 + 'px';
+		autoSetHeight();
 	});
 </script>
 
-<div class={sideLabel ? "hstack" : "vstack"}>
+<div class={sideLabel ? 'hstack' : 'vstack'}>
 	<label for={id} {title} class={labelClass}>
 		{label}
 		<slot />
