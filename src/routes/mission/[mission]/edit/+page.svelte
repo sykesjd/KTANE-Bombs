@@ -136,6 +136,7 @@
 					parse={parseTime}
 					validate={value => value != null}
 					display={formatTime}
+					instantFormat={false}
 					placeholder="1:23:45.67"
 					required
 					bind:value={bomb.time} />

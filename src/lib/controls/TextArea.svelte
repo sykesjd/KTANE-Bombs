@@ -13,6 +13,7 @@
 	export let sideLabel: boolean = false;
 	export let autoExpand: boolean = false;
 	export let rows: number = 2;
+	export let instantFormat: boolean = true;
 	export let options: any[] | null = null;
 	export let display = (value: any) => value.toString();
 	export let parse = (value: string): any => value;
@@ -20,7 +21,10 @@
 
 	const dispatch = createEventDispatcher();
 	let text_area: HTMLTextAreaElement;
-	$: displayValue = display(value);
+	let displayValue = display(value);
+	$: {
+		if (instantFormat) displayValue = display(value);
+	}
 
 	let error = '';
 

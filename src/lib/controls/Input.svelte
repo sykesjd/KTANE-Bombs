@@ -12,6 +12,7 @@
 	export let title: string = '';
 	export let required: boolean = false;
 	export let sideLabel: boolean = false;
+	export let instantFormat: boolean = true;
 	export let options: any[] | null = null;
 	export let display = (value: any) => value.toString();
 	export let parse = (value: string): any => value;
@@ -19,13 +20,15 @@
 
 	const dispatch = createEventDispatcher();
 	let input: HTMLInputElement;
-	$: displayValue = display(value);
+	let displayValue = display(value);
+	$: {
+		if (instantFormat) displayValue = display(value);
+	}
 
 	let error = '';
 
 	const handleInput = (e: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
 		displayValue = e.currentTarget.value;
-
 		let newValue = parse(e.currentTarget.value);
 		if (options !== null) {
 			let match = false;

@@ -8,11 +8,10 @@
 
 	type Variant = Pick<Mission, 'name' | 'completions' | 'tpSolve'>;
 	export let data;
-	export let mission: Mission & { missionPack: MissionPack, verified: boolean } = data.mission;
+	export let mission: Mission & { missionPack: MissionPack; verified: boolean } = data.mission;
 	export let variants: Variant[] | null = data.variants;
 	export let modules: Record<string, RepoModule> | null = data.modules;
 
-	//console.log(mission);
 	sortBombs(mission, modules);
 </script>
 

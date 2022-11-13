@@ -71,7 +71,8 @@
 		type="text"
 		parse={parseTime}
 		validate={value => value != null}
-		display={formatTime}
+		display={value => formatTime(value, value % 1 != 0)}
+		instantFormat={false}
 		label="Time Remaining"
 		placeholder="1:23:45.67"
 		required
