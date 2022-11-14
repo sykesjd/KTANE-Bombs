@@ -7,9 +7,7 @@ import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async function ({ params, locals }: ServerLoadEvent) {
-	console.log(params);
 	const { mission } = params;
-	console.log(mission);
 	const missionResult = await client.mission.findFirst({
 		where: {
 			name: `${mission}`
