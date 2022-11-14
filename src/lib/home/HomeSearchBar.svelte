@@ -266,7 +266,7 @@
 </script>
 
 <div class="search-bar hstack">
-	<span>Results: {resultsText}</span>
+	<span>Results: {resultsText} of {missions.length}</span>
 	<div class="spacer" />
 	<LayoutSearchFilter
 		id="bomb-search-field"
@@ -317,7 +317,7 @@
 		min-width: 100px;
 	}
 	.search-bar .spacer {
-		width: 50px;
+		width: 45px;
 	}
 
 	.hstack {
