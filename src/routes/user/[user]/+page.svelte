@@ -56,7 +56,7 @@
 	<h2>Solves</h2>
 	<div class="solves flex grow">
 		{#each completions as completion}
-			<a href="/mission/{completion.mission.name}">
+			<a href="/mission/{encodeURIComponent(completion.mission.name)}">
 				<div class="block" style:background-color={getPersonColor(completion)}>
 					{completion.mission.name}
 				</div>
