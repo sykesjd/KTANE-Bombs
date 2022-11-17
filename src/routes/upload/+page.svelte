@@ -6,6 +6,7 @@
 	export let data;
 
 	let missionNames: string[] = data.missionNames;
+	let authorNames: string[] = data.authorNames;
 	let solverNames: string[] = data.solverNames;
 	let packs: MissionPackSelection[] = data.packs;
 
@@ -25,7 +26,7 @@
 	</div>
 </div>
 {#if section == 'mission'}
-	<MissionSection {packs} />
+	<MissionSection {packs} {authorNames} />
 {:else if section == 'missionpack'}
 	<MissionPackSection />
 {:else}

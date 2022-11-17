@@ -111,6 +111,10 @@ export function displayStringList(list: string[]): string {
 	return list.join(', ');
 }
 
+export function isOnlyDigits(str: string): boolean {
+	return /^[0-9]+$/.test(str);
+}
+
 function findMatchingBrackets(str: string, left: string, right: string): number[] {
 	const lPar = str.indexOf(left);
 	let lPar2 = str.indexOf(left, lPar + 2);

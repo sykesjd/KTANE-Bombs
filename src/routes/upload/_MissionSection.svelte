@@ -2,15 +2,25 @@
 	import Input from '$lib/controls/Input.svelte';
 	import MissionCard from '$lib/cards/MissionCard.svelte';
 	import { Bomb, Pool, type MissionPackSelection, type MissionWithPack } from '$lib/types';
-	import { parseList } from '$lib/util';
+	import { displayStringList, parseList } from '$lib/util';
 	import toast from 'svelte-french-toast';
 	import Checkbox from '$lib/controls/Checkbox.svelte';
 
 	export let packs: MissionPackSelection[];
+	export let authorNames: string[];
 
 	let files: FileList;
 	let missions: MissionWithPack[] = [];
 	let selectedMissions: Record<number, boolean> = {};
+
+	function correctNameCapitalization(names: string): string[] {
+		let replaced = parseList(names).map(n => {
+			if (authorNames.some(an => an.toLowerCase() === n.toLowerCase()))
+				return <string>authorNames.find(an => an.toLowerCase() === n.toLowerCase());
+			else return n;
+		});
+		return replaced;
+	}
 
 	function parseMissions(text: string) {
 		let missions: MissionWithPack[] = [];
@@ -142,7 +152,15 @@
 				<div class="flex">
 					<MissionCard {mission} selectable id={i.toString()} bind:selected={selectedMissions[i]} />
 					<div class="block">
-						<Input name="Authors" label="Authors" id="mission-authors" bind:value={mission.authors} parse={parseList} />
+						<Input
+							name="Authors"
+							label="Authors"
+							id="mission-authors"
+							parse={correctNameCapitalization}
+							validate={value => value != null}
+							display={displayStringList}
+							instantFormat={false}
+							bind:value={mission.authors} />
 						<Input
 							name="Mission Pack"
 							label="Mission Pack"

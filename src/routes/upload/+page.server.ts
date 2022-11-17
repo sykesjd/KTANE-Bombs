@@ -6,7 +6,8 @@ export const load: PageServerLoad = async function () {
 	const missions = await client.mission.findMany({
 		select: {
 			name: true,
-			completions: true
+			completions: true,
+			authors: true
 		},
 		where: {
 			verified: true
@@ -22,6 +23,10 @@ export const load: PageServerLoad = async function () {
 
 	return {
 		missionNames: missions.map(mission => mission.name).sort(),
+		authorNames: missions
+			.map(mission => mission.authors)
+			.flat()
+			.filter(onlyUnique),
 		solverNames: missions
 			.map(mission => mission.completions.map(comp => comp.team))
 			.flat(2)
