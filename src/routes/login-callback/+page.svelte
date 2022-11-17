@@ -14,12 +14,24 @@
 		return str.trim();
 	}
 
+	function nameTaken(name: string): boolean {
+		return takenUsernames.some(un => {
+			return un.toLowerCase() === name.toLowerCase();
+		});
+	}
+
 	function unameVal(val: any): boolean | string {
-		return takenUsernames.includes(val) ? 'Name is taken' : val.length > 50 ? '50 characters max' : /\S/.test(val) ? true : 'Cannot be blank';
+		return nameTaken(val)
+			? 'Name is taken'
+			: val.length > 50
+			? '50 characters max'
+			: /\S/.test(val)
+			? true
+			: 'Cannot be blank';
 	}
 
 	async function submit() {
-		if (takenUsernames.includes(username) || !/\S/.test(username)) return;
+		if (nameTaken(username) || !/\S/.test(username)) return;
 		const fData = new FormData();
 		fData.append('username', JSON.stringify(username));
 		fData.append('result', JSON.stringify(oauthResult));
@@ -56,15 +68,22 @@
 <div class="block flex column content-width">
 	<div>
 		{#if firstTime}
-			Choose a username as you want it to appear on the list of bomb solves.<br>
-			The name you choose now can only be changed by asking an admin, and <b>will</b> be changed for you if your chosen
-			name is inappropriate.
+			Choose a username as you want it to appear on the list of bomb solves.<br />
+			The name you choose now can only be changed by asking an admin, and <b>will</b> be changed for you if your chosen name
+			is inappropriate.
 		{:else}
 			Someone already has that username, please select another.
 		{/if}
 	</div>
 	<form on:submit|preventDefault={submit} method="POST">
-		<Input name="username" id="username" label="Username" required bind:value={username} parse={trimName} validate={unameVal} />
+		<Input
+			name="username"
+			id="username"
+			label="Username"
+			required
+			bind:value={username}
+			parse={trimName}
+			validate={unameVal} />
 		<button type="submit">Submit</button>
 	</form>
 </div>

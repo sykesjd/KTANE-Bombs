@@ -1,7 +1,7 @@
 import client from '$lib/client';
 import type { CompletionQueueItem, MissionQueueItem, QueueItem } from '$lib/types';
 import { Permission, type MissionPackQueueItem } from '$lib/types';
-import { fixPools, forbidden, hasAnyPermission, hasPermission } from '$lib/util';
+import { fixPools, forbidden, hasAnyPermission, hasPermission, onlyUnique } from '$lib/util';
 import type { ServerLoadEvent } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
@@ -43,6 +43,20 @@ export const load = async function ({ parent, locals }: any) {
 		);
 	}
 
+	const vMissions = await client.mission.findMany({
+		select: {
+			completions: {
+				where: {
+					verified: true
+				}
+			}
+		},
+		where: {
+			verified: true
+		}
+	});
+	let solverNames: string[] = [];
+
 	// Completions
 	if (hasPermission(user, Permission.VerifyCompletion)) {
 		const completions = await client.completion.findMany({
@@ -58,6 +72,11 @@ export const load = async function ({ parent, locals }: any) {
 				}
 			}
 		});
+
+		solverNames = vMissions
+			.map(mission => mission.completions.map(comp => comp.team))
+			.flat(2)
+			.filter(onlyUnique);
 
 		queue.push(
 			...completions.map(completion => {
@@ -89,6 +108,7 @@ export const load = async function ({ parent, locals }: any) {
 	}
 
 	return {
-		queue
+		queue,
+		solverNames
 	};
 };

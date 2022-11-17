@@ -6,6 +6,7 @@
 	export let data;
 
 	let missionNames: string[] = data.missionNames;
+	let solverNames: string[] = data.solverNames;
 	let packs: MissionPackSelection[] = data.packs;
 
 	let section: 'solve' | 'mission' | 'missionpack' = 'solve';
@@ -17,17 +18,9 @@
 
 <h1 class="header">Upload</h1>
 <div class="section-selector flex grow">
-	<div class="block" class:selected={section == 'solve'} on:click={() => (section = 'solve')}>
-		Solve
-	</div>
-	<div class="block" class:selected={section == 'mission'} on:click={() => (section = 'mission')}>
-		Mission
-	</div>
-	<div
-		class="block"
-		class:selected={section == 'missionpack'}
-		on:click={() => (section = 'missionpack')}
-	>
+	<div class="block" class:selected={section == 'solve'} on:click={() => (section = 'solve')}>Solve</div>
+	<div class="block" class:selected={section == 'mission'} on:click={() => (section = 'mission')}>Mission</div>
+	<div class="block" class:selected={section == 'missionpack'} on:click={() => (section = 'missionpack')}>
 		Mission Pack
 	</div>
 </div>
@@ -36,7 +29,7 @@
 {:else if section == 'missionpack'}
 	<MissionPackSection />
 {:else}
-	<CompletionSection {missionNames} />
+	<CompletionSection {missionNames} {solverNames} />
 {/if}
 
 <style>

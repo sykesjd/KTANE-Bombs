@@ -7,12 +7,13 @@
 	import toast from 'svelte-french-toast';
 
 	export let missionNames: string[];
+	export let solverNames: string[];
 
 	let missionName: string = '';
+	let teamString: string = '';
 
 	let completion: Completion = new Completion();
 	let proofString: string = '';
-	let teamString: string = '';
 
 	let valid: boolean = false;
 
@@ -32,6 +33,7 @@
 			completion.proofs = [];
 		}
 
+		teamString = correctNameCapitalization(teamString);
 		completion.team = parseList(teamString);
 
 		if (completion.team.length > 1) completion.solo = false;
@@ -39,7 +41,25 @@
 		valid = missionNames.includes(missionName) && completion.proofs.length !== 0 && completion.team.length !== 0;
 	}
 
+	function uniqueNames(): string[] {
+		return completion.team.filter(n => !solverNames.some(sn => sn.toLowerCase() === n.toLowerCase()));
+	}
+
+	function correctNameCapitalization(names: string): string {
+		let replaced = parseList(names).map(n => {
+			if (solverNames.some(sn => sn.toLowerCase() === n.toLowerCase()))
+				return solverNames.find(sn => sn.toLowerCase() === n.toLowerCase());
+			else return n;
+		});
+		return replaced.join(', ');
+	}
+
 	function upload() {
+		let uNames = uniqueNames();
+		if (uNames.length > 0) {
+			let conf = `Are you sure? These names are NOT currently credited with any solves: ${uNames.join(', ')}`;
+			if (!confirm(conf)) return;
+		}
 		fetch('/upload/completion', {
 			method: 'POST',
 			headers: {
@@ -77,7 +97,14 @@
 		placeholder="1:23:45.67"
 		required
 		bind:value={completion.time} />
-	<Input id="team" type="text" label="Team" placeholder="Defuser, Expert 1, ..." required bind:value={teamString} />
+	<Input
+		id="team"
+		type="text"
+		label="Team"
+		placeholder="Defuser, Expert 1, ..."
+		required
+		instantFormat={false}
+		bind:value={teamString} />
 	<Checkbox id="solo" label="Solo" bind:checked={completion.solo} disabled={completion.team.length > 1} />
 </form>
 <CompletionCard {completion} />

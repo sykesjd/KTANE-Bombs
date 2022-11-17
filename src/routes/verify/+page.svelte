@@ -5,8 +5,20 @@
 	import NoContent from '$lib/comp/NoContent.svelte';
 	export let data;
 	let queue: QueueItem[] = data.queue;
+	let solverNames: string[] = data.solverNames;
+
+	function uniqueNames(names: string[]): string[] {
+		return names.filter(n => !solverNames.some(sn => sn.toLowerCase() === n.toLowerCase()));
+	}
 
 	async function verify(item: QueueItem, accept: boolean) {
+		if (accept && item.type == 'completion' && solverNames?.length > 0) {
+			let uNames = uniqueNames(item.completion.team);
+			if (uNames.length > 0) {
+				let conf = `Are you sure? These names are NOT currently credited with any solves: ${uNames.join(', ')}`;
+				if (!confirm(conf)) return;
+			}
+		}
 		try {
 			await fetch('verify/item', {
 				method: 'POST',
@@ -20,7 +32,7 @@
 			return;
 		}
 
-		queue = queue.filter((otherItem) => otherItem !== item);
+		queue = queue.filter(otherItem => otherItem !== item);
 	}
 </script>
 
