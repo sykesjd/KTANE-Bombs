@@ -97,7 +97,14 @@
 		placeholder="1:23:45.67"
 		required
 		bind:value={completion.time} />
-	<Input id="team" type="text" label="Team" placeholder="Defuser, Expert 1, ..." required bind:value={teamString} />
+	<Input
+		id="team"
+		type="text"
+		label="Team"
+		placeholder="Defuser, Expert 1, ..."
+		required
+		instantFormat={false}
+		bind:value={teamString} />
 	<Checkbox id="solo" label="Solo" bind:checked={completion.solo} disabled={completion.team.length > 1} />
 </form>
 <CompletionCard {completion} />
