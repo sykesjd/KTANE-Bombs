@@ -248,6 +248,17 @@ export function getModule(moduleID: string, modules: Record<string, RepoModule> 
 	};
 }
 
+export function hasSpecialIcon(moduleID: string): boolean {
+	return [
+		'ALL_NEEDY',
+		'ALL_SOLVABLE',
+		'ALL_VANILLA_SOLVABLE',
+		'ALL_VANILLA_NEEDY',
+		'ALL_MODS_SOLVABLE',
+		'ALL_MODS_NEEDY'
+	].includes(moduleID);
+}
+
 export function onlyUnique(item: any, pos: number, self: any[]): boolean {
 	return self.indexOf(item) == pos;
 }

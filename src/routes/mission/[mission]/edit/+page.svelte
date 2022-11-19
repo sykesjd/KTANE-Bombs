@@ -15,6 +15,7 @@
 	export let data;
 
 	let mission: EditMission & { verified: boolean } = data.mission;
+	let missionNames: string[] = data.missionNames;
 	let packs: Pick<ID<MissionPack>, 'id' | 'name'>[] = data.packs;
 	let modules: Record<string, RepoModule> | null = data.modules;
 
@@ -98,6 +99,7 @@
 	for (const bomb of mission.bombs) {
 		bomb.pools.sort((a, b) => a.modules.join().localeCompare(b.modules.join()));
 	}
+	missionNames.unshift('');
 </script>
 
 <svelte:head>
@@ -113,6 +115,12 @@
 		options={packs}
 		display={pack => pack.name}
 		validate={value => value !== null} />
+	<Input
+		id="mission-variant"
+		label="Variant of"
+		options={missionNames}
+		validate={value => missionNames.includes(value)}
+		bind:value={mission.variantOf} />
 	<div class="actions">
 		<button on:click={deleteMission}>Delete</button>
 	</div>
@@ -323,6 +331,7 @@
 		width: calc((min(100vw, 1150px) - 4 * var(--gap)));
 
 		transform: translateY(100%);
+		pointer-events: none;
 		opacity: 0;
 		transition: transform 0.4s, opacity 0.4s;
 		transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
@@ -334,6 +343,7 @@
 	}
 
 	.save-changes {
+		pointer-events: auto;
 		justify-content: center;
 		align-items: center;
 		box-shadow: var(--foreground) 0 0 10px;

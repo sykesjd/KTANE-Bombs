@@ -52,12 +52,41 @@ export const load: PageServerLoad = async function ({ params, locals }: ServerLo
 		}
 	});
 
+	const missions = await client.mission.findMany({
+		where: {
+			NOT: {
+				name: mission
+			}
+		},
+		select: {
+			name: true
+		}
+	});
+
+	const firstVariant = await client.mission.findFirst({
+		where: {
+			variant: missionResult.variant ?? -1,
+			NOT: {
+				id: missionResult.id
+			}
+		},
+		select: {
+			name: true
+		}
+	});
+
+	// console.log(firstVariant);
+
 	if (!missionResult.verified && !hasPermission(locals.user, Permission.VerifyMission)) {
 		throw forbidden(locals);
 	}
 
 	return {
-		mission: missionResult,
+		mission: {
+			...missionResult,
+			variantOf: firstVariant?.name ?? ''
+		},
+		missionNames: missions.map(m => m.name).sort(),
 		packs,
 		modules: await getData()
 	};
@@ -101,6 +130,65 @@ export const actions: Actions = {
 
 		const fData = await request.formData();
 		const mission: EditMission = JSON.parse(fData.get('mission')?.toString() ?? '');
+		console.log(mission.variantOf);
+		if (mission.variantOf != null) {
+			let selected = await client.mission.findFirst({
+				where: {
+					name: mission.variantOf
+				},
+				select: {
+					variant: true,
+					id: true
+				}
+			});
+			console.log(selected);
+			if (!selected) {
+				let other = await client.mission.findMany({
+					where: {
+						variant: mission.variant,
+						NOT: {
+							id: mission.id
+						}
+					},
+					select: {
+						id: true
+					}
+				});
+				if (other.length == 1) {
+					await client.mission.update({
+						where: {
+							id: other[0].id
+						},
+						data: {
+							variant: null
+						}
+					});
+				}
+				mission.variant = null;
+			} else if (!selected.variant) {
+				let variants = await client.mission.findMany({
+					where: {
+						NOT: {
+							variant: null
+						}
+					},
+					select: {
+						variant: true
+					}
+				});
+				console.log(variants);
+				let max = Math.max(...variants.map(v => v.variant ?? -1));
+				mission.variant = max + 1;
+				await client.mission.update({
+					where: {
+						id: selected.id
+					},
+					data: {
+						variant: mission.variant
+					}
+				});
+			} else mission.variant = selected.variant;
+		}
 
 		await client.mission.update({
 			where: {
@@ -137,7 +225,8 @@ export const actions: Actions = {
 				missionPackId: mission.missionPack.id,
 				name: mission.name,
 				tpSolve: mission.tpSolve,
-				designedForTP: mission.designedForTP
+				designedForTP: mission.designedForTP,
+				variant: mission.variant
 			}
 		});
 
