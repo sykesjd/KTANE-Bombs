@@ -5,6 +5,7 @@
 	import type { RepoModule } from '$lib/repo';
 	import { page } from '$app/stores';
 	import { sortBombs } from '../_shared';
+	import ModuleCard from '$lib/cards/ModuleCard.svelte';
 
 	type Variant = Pick<Mission, 'name' | 'completions' | 'tpSolve'>;
 	export let data;
@@ -54,13 +55,7 @@
 					<div class="pool">
 						<div class="modules">
 							{#each pool.modules.map(module => getModule(module, modules)) as module}
-								<div class="module">
-									<img
-										src="https://ktane.timwi.de/iconsprite"
-										alt={module.Name}
-										style="object-position: -{module.X * 32}px -{module.Y * 32}px" />
-									<span>{module.Name}</span>
-								</div>
+								<ModuleCard {module} />
 							{/each}
 						</div>
 						{#if pool.count !== 1}
@@ -143,19 +138,6 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: calc(var(--gap) * 3);
-	}
-
-	.module {
-		display: flex;
-		align-items: center;
-		gap: var(--gap);
-	}
-
-	.module > img {
-		height: 32px;
-		width: 32px;
-		object-fit: none;
-		image-rendering: crisp-edges;
 	}
 
 	.header {
