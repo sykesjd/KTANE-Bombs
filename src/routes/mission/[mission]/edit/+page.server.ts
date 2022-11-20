@@ -75,8 +75,6 @@ export const load: PageServerLoad = async function ({ params, locals }: ServerLo
 		}
 	});
 
-	// console.log(firstVariant);
-
 	if (!missionResult.verified && !hasPermission(locals.user, Permission.VerifyMission)) {
 		throw forbidden(locals);
 	}
@@ -130,7 +128,6 @@ export const actions: Actions = {
 
 		const fData = await request.formData();
 		const mission: EditMission = JSON.parse(fData.get('mission')?.toString() ?? '');
-		console.log(mission.variantOf);
 		if (mission.variantOf != null) {
 			let selected = await client.mission.findFirst({
 				where: {
@@ -141,7 +138,6 @@ export const actions: Actions = {
 					id: true
 				}
 			});
-			console.log(selected);
 			if (!selected) {
 				let other = await client.mission.findMany({
 					where: {
@@ -176,7 +172,6 @@ export const actions: Actions = {
 						variant: true
 					}
 				});
-				console.log(variants);
 				let max = Math.max(...variants.map(v => v.variant ?? -1));
 				mission.variant = max + 1;
 				await client.mission.update({

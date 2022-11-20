@@ -5,7 +5,11 @@
 	export let module: RepoModule;
 </script>
 
-<div class="module">
+<div
+	class="module"
+	class:boss={module.BossStatus != undefined}
+	class:pseudoneedy={module.Quirks?.includes('PseudoNeedy')}
+	class:needy={module.Type == 'Needy'}>
 	{#if hasSpecialIcon(module.ModuleID)}
 		<div class="image {module.ModuleID}" alt={module.Name} />
 	{:else}
@@ -22,6 +26,7 @@
 		display: flex;
 		align-items: center;
 		gap: var(--gap);
+		padding: var(--gap);
 	}
 
 	:global(.image.ALL_SOLVABLE) { background-image: url('$lib/img/icon/ALL_SOLVABLE.png'); }

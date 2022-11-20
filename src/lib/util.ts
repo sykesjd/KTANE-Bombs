@@ -259,6 +259,16 @@ export function hasSpecialIcon(moduleID: string): boolean {
 	].includes(moduleID);
 }
 
+export function getPersonColor(size: number, index: number, solo: boolean): string {
+	return size === 1
+		? solo
+			? '#00ffff'
+			: 'hsl(300, 100%, 75%)'
+		: index === 0
+		? 'hsl(210, 100%, 65%)'
+		: 'hsl(0, 100%, 70%)';
+}
+
 export function onlyUnique(item: any, pos: number, self: any[]): boolean {
 	return self.indexOf(item) == pos;
 }

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Permission, type Mission, type MissionPack } from '$lib/types';
-	import { formatTime, getModule, hasPermission, pluralize } from '$lib/util';
+	import { Permission, Pool, type Mission, type MissionPack } from '$lib/types';
+	import { formatTime, getModule, getPersonColor, hasPermission, pluralize } from '$lib/util';
 	import CompletionList from '$lib/comp/CompletionList.svelte';
 	import type { RepoModule } from '$lib/repo';
 	import { page } from '$app/stores';
@@ -12,6 +12,17 @@
 	export let mission: Mission & { missionPack: MissionPack; verified: boolean } = data.mission;
 	export let variants: Variant[] | null = data.variants;
 	export let modules: Record<string, RepoModule> | null = data.modules;
+
+	function poolClass(pool: Pool): string {
+		let classes = 'pool';
+		if (pool.modules.length == 1) {
+			let mod = getModule(pool.modules[0], modules);
+			if (mod.BossStatus != undefined) classes += ' boss';
+			if (mod.Quirks != undefined) classes += ' quirks';
+			if (mod.Type == 'Needy') classes += ' needy';
+		}
+		return classes;
+	}
 
 	sortBombs(mission, modules);
 </script>
@@ -38,6 +49,17 @@
 {#if mission.factory !== null}
 	<div class="block centered">Factory: {mission.factory}</div>
 {/if}
+<div class="block legend flex">
+	<span class="boss">Boss</span>
+	<span class="needy">Needy</span>
+	<span class="quirks">Quirky</span>
+	<div class="hspace" />
+	<span class="first-solve">First Solve</span>
+	<span style="background-color: {getPersonColor(2, 0, false)}; color:#000">Defuser</span>
+	<span style="background-color: {getPersonColor(2, 1, false)}; color:#000">Expert</span>
+	<span style="background-color: {getPersonColor(1, 0, false)}; color:#000">EFM</span>
+	<span style="background-color: {getPersonColor(1, 0, true)}; color:#000">Solo</span>
+</div>
 <div class="main-content">
 	<div class="bombs">
 		{#each mission.bombs as bomb}
@@ -52,7 +74,7 @@
 			</div>
 			<div class="pools">
 				{#each bomb.pools as pool}
-					<div class="pool">
+					<div class={poolClass(pool)}>
 						<div class="modules">
 							{#each pool.modules.map(module => getModule(module, modules)) as module}
 								<ModuleCard {module} />
@@ -93,6 +115,10 @@
 		}
 	}
 
+	.hspace {
+		width: 100px;
+	}
+
 	.bombs {
 		display: flex;
 		flex-direction: column;
@@ -119,9 +145,35 @@
 		gap: var(--gap);
 		align-content: start;
 	}
+	:global(.pool:not(.quirks) .module.quirks),
+	.pool.quirks,
+	span.quirks {
+		background-color: #00bbff55 !important;
+	}
+	:global(.pool:not(.boss) .module.boss),
+	.pool.boss,
+	span.boss {
+		background-color: #ff000055 !important;
+	}
+	:global(.pool:not(.needy) .module.needy),
+	.pool.needy,
+	span.needy {
+		background-color: #0000ff66 !important;
+	}
+	span.first-solve {
+		background-color: hsl(43, 74%, 70%);
+		color: black;
+	}
+
+	.legend {
+		justify-content: center;
+	}
+	.legend > span {
+		padding: var(--gap);
+	}
 
 	.pool {
-		padding: var(--gap);
+		/* padding: var(--gap); */
 		flex-grow: 1;
 		background: var(--foreground);
 
@@ -130,6 +182,9 @@
 		align-items: center;
 	}
 
+	.pool > span {
+		padding: var(--gap) var(--gap) var(--gap) 0;
+	}
 	.pool > div {
 		flex-grow: 1;
 	}

@@ -119,7 +119,7 @@
 		id="mission-variant"
 		label="Variant of"
 		options={missionNames}
-		validate={value => missionNames.includes(value)}
+		validate={value => value !== null}
 		bind:value={mission.variantOf} />
 	<div class="actions">
 		<button on:click={deleteMission}>Delete</button>
