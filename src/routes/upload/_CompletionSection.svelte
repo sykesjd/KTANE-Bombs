@@ -3,63 +3,99 @@
 	import CompletionCard from '$lib/cards/CompletionCard.svelte';
 	import Input from '$lib/controls/Input.svelte';
 	import { Completion } from '$lib/types';
-	import { formatTime, parseList, parseTime } from '$lib/util';
+	import { formatTime, parseTime } from '$lib/util';
 	import toast from 'svelte-french-toast';
 
 	export let missionNames: string[];
 	export let solverNames: string[];
 
 	let missionName: string = '';
-	let teamString: string = '';
 
 	let completion: Completion = new Completion();
-	let proofString: string = '';
 
 	let valid: boolean = false;
 
-	$: {
-		let url: URL | null = null;
-		try {
-			url = new URL(proofString);
-		} catch {}
+	let missionInvalid = false;
+	let timerInvalid = false;
 
+	let team = [{ invalid: false, text: '' }];
+	let proofs = [{ invalid: false, text: '' }];
+
+	function dynamicBoxes(inputList: any[]) {
+		let max = inputList.length - 1;
+		for (let i = 0; i < max; i++) {
+			if (inputList[i].text === '') {
+				for (let j = i; j < inputList.length - 1; j++) {
+					inputList[j] = inputList[j + 1];
+				}
+				break;
+			}
+		}
+		if (inputList[inputList.length - 1].text !== '') {
+			inputList[inputList.length] = { invalid: false, text: '' };
+		} else if (inputList.length > 1 && inputList[inputList.length - 2].text === '') {
+			inputList.pop();
+		}
+	}
+
+	function parseURL(text: string): any[] {
+		if (text === '') {
+			return [true, ''];
+		}
+		let url: URL | null = null;
+
+		try {
+			url = new URL(text);
+		} catch (e: any) {
+			return [false, 'Invalid URL'];
+		}
 		if (url?.protocol === 'http:') {
 			url.protocol = 'https:';
 		}
-
-		if (url?.protocol === 'https:') {
-			completion.proofs = [url.toString()];
-		} else {
-			completion.proofs = [];
+		if (url?.protocol !== 'https:') {
+			return [false, 'Invalid URL'];
 		}
+		return [true, url.toString()];
+	}
 
-		teamString = correctNameCapitalization(teamString);
-		completion.team = parseList(teamString);
+	function validateURL(text: any): string | boolean {
+		let funcReturn = parseURL(text);
+		return !funcReturn[0] ? funcReturn[1] : '';
+	}
+
+	function parseTeam(teamList: any[], func: Function | null): string[] {
+		let outTeam: string[] = [];
+		for (let i = 0; i < teamList.length - 1; i++) {
+			if (teamList[i].invalid) {
+				return [];
+			}
+			if (func === null) outTeam[outTeam.length] = teamList[i].text;
+			else {
+				let funcReturn = func(teamList[i].text);
+				if (funcReturn[0]) outTeam[outTeam.length] = funcReturn[1];
+			}
+		}
+		return outTeam;
+	}
+
+	$: {
+		dynamicBoxes(proofs);
+		completion.proofs = parseTeam(proofs, parseURL);
+
+		dynamicBoxes(team);
+		completion.team = parseTeam(team, null);
 
 		if (completion.team.length > 1) completion.solo = false;
 
-		valid = missionNames.includes(missionName) && completion.proofs.length !== 0 && completion.team.length !== 0;
-	}
-
-	function uniqueNames(): string[] {
-		return completion.team.filter(n => !solverNames.some(sn => sn.toLowerCase() === n.toLowerCase()));
-	}
-
-	function correctNameCapitalization(names: string): string {
-		let replaced = parseList(names).map(n => {
-			if (solverNames.some(sn => sn.toLowerCase() === n.toLowerCase()))
-				return solverNames.find(sn => sn.toLowerCase() === n.toLowerCase());
-			else return n;
-		});
-		return replaced.join(', ');
+		valid =
+			!missionInvalid &&
+			missionName !== '' &&
+			completion.proofs.length !== 0 &&
+			completion.team.length !== 0 &&
+			!timerInvalid;
 	}
 
 	function upload() {
-		let uNames = uniqueNames();
-		if (uNames.length > 0) {
-			let conf = `Are you sure? These names are NOT currently credited with any solves: ${uNames.join(', ')}`;
-			if (!confirm(conf)) return;
-		}
 		fetch('/upload/completion', {
 			method: 'POST',
 			headers: {
@@ -79,13 +115,30 @@
 </script>
 
 <form class="block flex">
-	<Input
-		id="mission"
-		label="Mission"
-		options={missionNames}
-		validate={value => value !== null}
-		bind:value={missionName} />
-	<Input id="proof" type="url" label="Proof" placeholder="https://ktane.timwi.de" required bind:value={proofString} />
+	<div class="wideBox">
+		<Input
+			id="mission"
+			label="Mission"
+			options={missionNames}
+			validate={value => value !== null}
+			bind:invalid={missionInvalid}
+			bind:value={missionName} />
+	</div>
+	<div class="wideBox">
+		{#each proofs as proof, i}
+			<div class="dynamicBlock">
+				<Input
+					id="proof"
+					type="url"
+					label="Proof #{i + 1}"
+					placeholder="https://ktane.timwi.de"
+					validate={validateURL}
+					forceValidate={true}
+					bind:invalid={proof.invalid}
+					bind:value={proof.text} />
+			</div>
+		{/each}
+	</div>
 	<Input
 		id="time"
 		type="text"
@@ -96,15 +149,21 @@
 		label="Time Remaining"
 		placeholder="1:23:45.67"
 		required
+		bind:invalid={timerInvalid}
 		bind:value={completion.time} />
-	<Input
-		id="team"
-		type="text"
-		label="Team"
-		placeholder="Defuser, Expert 1, ..."
-		required
-		instantFormat={false}
-		bind:value={teamString} />
+	<div>
+		{#each team as member, index}
+			<div class="dynamicBlock">
+				<Input
+					id="member"
+					type="text"
+					label={index == 0 ? 'Defuser' : 'Expert'}
+					optionalOptions={true}
+					options={solverNames}
+					bind:value={member.text} />
+			</div>
+		{/each}
+	</div>
 	<Checkbox id="solo" label="Solo" bind:checked={completion.solo} disabled={completion.team.length > 1} />
 </form>
 <CompletionCard {completion} />
@@ -115,5 +174,11 @@
 <style>
 	form {
 		gap: calc(var(--gap) * 2);
+	}
+	.dynamicBlock + .dynamicBlock {
+		margin-top: 10px;
+	}
+	.wideBox {
+		width: 25%;
 	}
 </style>
