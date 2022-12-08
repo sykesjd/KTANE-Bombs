@@ -3,6 +3,30 @@
 	import { formatTime, getPersonColor } from '$lib/util';
 
 	export let completion: Completion;
+
+	function classifyLink(link: string): string {
+		let url: URL | null = null;
+		try {
+			url = new URL(link);
+		} catch (e: any) {
+			return 'Link';
+		}
+
+		let host = url.hostname.toLowerCase();
+		let path = url.pathname.toLowerCase();
+		if (
+			host.includes('youtube.com') ||
+			host.includes('youtu.be') ||
+			host.includes('vimeo.com') ||
+			host.includes('twitch.tv') ||
+			host.includes('bilibili.com')
+		) {
+			return 'Vid';
+		} else if (host.includes('ktane.timwi.de') && (path.includes('more/logfile') || path.includes('lfa'))) {
+			return 'Log';
+		}
+		return 'Link';
+	}
 </script>
 
 <div class="completion">
@@ -16,7 +40,7 @@
 	</div>
 	<div class="flex column">
 		{#each completion.proofs as proof}
-			<a href={proof}>Link</a>
+			<a href={proof}>{classifyLink(proof)}</a>
 		{/each}
 	</div>
 </div>
