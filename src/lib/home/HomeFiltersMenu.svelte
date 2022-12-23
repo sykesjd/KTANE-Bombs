@@ -4,7 +4,7 @@
 	import RadioButton from '$lib/controls/RadioButton.svelte';
 	import type { RepoModule } from '$lib/repo';
 	import { HomeOptions, MustHave, Operation } from '$lib/types';
-	import { getModule, parseInteger } from '$lib/util';
+	import { excludeArticleSort, getModule, parseInteger } from '$lib/util';
 	import { onMount, createEventDispatcher } from 'svelte';
 	import { writable, type Writable } from 'svelte/store';
 
@@ -24,7 +24,15 @@
 	let filesValid = true;
 	let yesList: string[] = [];
 	let noList: string[] = [];
-	let hasOptions = ['Has Been Solved', 'Has Boss', 'Has Semi-Boss', 'Has PseudoNeedy', 'Has Needy', 'Designed for TP'];
+	let hasOptions = [
+		'Has Team/EFM Solve',
+		'Has TP Solve',
+		'Has Boss',
+		'Has Semi-Boss',
+		'Has PseudoNeedy',
+		'Has Needy',
+		'Designed for TP'
+	];
 	let sortOptions = ['Alphabetical', 'Module Count', 'Bomb Time', 'Solves', 'Rule Seeded Mods %'];
 	let limitDef: { [k: string]: number[] } = {
 		mods: [1, 600],
@@ -178,12 +186,12 @@
 					noList = [];
 					if (profile['DisabledList']) {
 						Object.assign(noList, profile['DisabledList']);
-						noList = noList.map(m => getModule(m, modules).Name).sort();
+						noList = noList.map(m => getModule(m, modules).Name).sort(excludeArticleSort);
 					}
 					yesList = [];
 					if (profile['EnabledList']) {
 						Object.assign(yesList, profile['EnabledList']);
-						yesList = yesList.map(m => getModule(m, modules).Name).sort();
+						yesList = yesList.map(m => getModule(m, modules).Name).sort(excludeArticleSort);
 					}
 
 					profile == profile;
@@ -599,7 +607,7 @@
 	}
 	.center-divider {
 		width: 0;
-		height: 265px;
+		height: 285px;
 		border: 1px solid var(--light-text-color);
 		margin: 0 0.8em;
 	}

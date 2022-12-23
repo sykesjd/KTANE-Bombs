@@ -1,6 +1,14 @@
 <script lang="ts">
 	import { Bomb, Completion, HomeOptions, Mission, MustHave, Operation } from '$lib/types';
-	import { evaluateLogicalStringSearch, disappear, popup, titleCase, getModule, onlyUnique } from '$lib/util';
+	import {
+		evaluateLogicalStringSearch,
+		disappear,
+		popup,
+		titleCase,
+		getModule,
+		onlyUnique,
+		withoutArticle
+	} from '$lib/util';
 	import Checkbox from '$lib/controls/Checkbox.svelte';
 	import LayoutSearchFilter from '$lib/comp/LayoutSearchFilter.svelte';
 	import { onMount, createEventDispatcher } from 'svelte';
@@ -99,7 +107,8 @@
 				strk > options.strikes[1] ||
 				widg < options.widgets[0] ||
 				widg > options.widgets[1] ||
-				!meetsHave(numCompletions(ms) > 0, options.mustHave['has-been-solved']) ||
+				!meetsHave(numCompletions(ms, false) > 0, options.mustHave['has-team/efm-solve']) ||
+				!meetsHave(ms.tpSolve, options.mustHave['has-tp-solve']) ||
 				!meetsHave(ms.designedForTP, options.mustHave['designed-for-tp']) ||
 				!meetsHave(specialsInMission[name]['boss'].length > 0, options.mustHave['has-boss']) ||
 				!meetsHave(specialsInMission[name]['semi'].length > 0, options.mustHave['has-semi-boss']) ||
@@ -151,8 +160,8 @@
 		return rs.filter(x => x).length / rs.length;
 	}
 
-	function numCompletions(m: Mission) {
-		return m.completions.length + (m.tpSolve ? 1 : 0);
+	function numCompletions(m: Mission, countTP: boolean = true) {
+		return m.completions.length + (countTP && m.tpSolve ? 1 : 0);
 	}
 
 	function compare(
@@ -182,7 +191,9 @@
 	}
 
 	function defaultSort() {
-		missions.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() != reverse ? 1 : -1));
+		missions.sort((a, b) =>
+			withoutArticle(a.name.toLowerCase()) > withoutArticle(b.name.toLowerCase()) != reverse ? 1 : -1
+		);
 	}
 
 	function homeOptionUpdate(event: any) {
@@ -308,7 +319,7 @@
 	.search-bar {
 		position: sticky;
 		background: var(--foreground);
-		top: 44px;
+		top: calc(var(--stick-under-navbar) + 1px);
 		justify-content: center;
 		gap: 3px;
 		padding: 5px 0;
