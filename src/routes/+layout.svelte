@@ -4,8 +4,18 @@
 	import UserCard from '$lib/cards/UserCard.svelte';
 	import { hasPermission, hasAnyPermission } from '$lib/util';
 	import { Toaster } from 'svelte-french-toast';
+	import { beforeNavigate } from '$app/navigation';
 	export let data;
 	const user: FrontendUser | null = data.user;
+
+	beforeNavigate(({ from, to, cancel }) => {
+		// If we're navigating to the same route, use browser navigation instead
+		// This saves us from having to make our pages reactive to the data variable
+		if (to !== null && from?.routeId === to.routeId) {
+			cancel();
+			location.href = to.url.href;
+		}
+	});
 </script>
 
 <div class="navbar-background">
