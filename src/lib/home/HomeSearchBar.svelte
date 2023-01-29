@@ -293,6 +293,8 @@
 		});
 		options.checks['persist-searchtext'];
 		updateSearch();
+
+		return () => document.onclick = null;
 	});
 </script>
 
