@@ -5,7 +5,7 @@
 	<h1 class="header">What’s New?</h1>
 </div>
 <div class="block update">
-	<h3>6 February 2023</h3>
+	<h3>8 February 2023</h3>
 	<ul>
 		<li>New page: What's New? (You're looking at it!)</li>
 		<li>
