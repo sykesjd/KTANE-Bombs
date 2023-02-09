@@ -56,8 +56,8 @@ const { PrismaClient } = pkg;
 			}
 		}
 	}
-	missions.sort((a, b) => a.id > b.id);
-	completions.sort((a, b) => a.id > b.id);
+	missions.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+	completions.sort((a, b) => parseInt(a.id) - parseInt(b.id));
 
 	let missionQueries = [];
 	for (const mission of missions) {
@@ -110,8 +110,8 @@ const { PrismaClient } = pkg;
 				JSON.stringify(completion.team.slice(0, 1).concat(completion.team.slice(1).sort()))
 		);
 
-		if (equalSolve >= 0) {
-			missionQueries.push(
+		if (equalSolve < 0) {
+			completionQueries.push(
 				client.completion.create({
 					data: {
 						proofs: completion.proofs,
@@ -122,17 +122,17 @@ const { PrismaClient } = pkg;
 						solo: completion.solo,
 						notes: completion.notes,
 						mission: {
-							connect: { id: completion.missionId }
+							connect: { name: completion.missionName }
 						},
 						verified: completion.verified
 					}
 				})
 			);
 		} else {
-			missionQueries.push(
+			completionQueries.push(
 				client.completion.update({
 					where: {
-						id: completion.id
+						id: comp[equalSolve].id
 					},
 					data: {
 						proofs: completion.proofs,
