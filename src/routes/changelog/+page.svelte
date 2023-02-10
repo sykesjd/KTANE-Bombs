@@ -11,7 +11,8 @@
 		<li>
 			New Info tab in the top navigation bar
 			<ul>
-				<li>GitHub link where you can post suggestions, issues, or even contribute to the project</li>
+				<li>Link to Rules page</li>
+				<li>Link to GitHub where you can post suggestions, issues, or even contribute to the project</li>
 				<li>Link to What's New page</li>
 			</ul>
 		</li>
