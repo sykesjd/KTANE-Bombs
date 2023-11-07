@@ -217,7 +217,7 @@
 			reverse = options.checks['sort-reverse'];
 			let fastSort = true;
 			switch (sortOrder) {
-				case 'bomb-time':
+				case 'total-time':
 					missions.sort((a, b) => (compare(a, b, timeSum, modSum) != reverse ? 1 : -1));
 					break;
 				case 'module-count':
