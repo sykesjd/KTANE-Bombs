@@ -5,6 +5,7 @@ export type RepoModule = {
 	Origin: string;
 	Quirks: string | null;
 	RuleSeedSupport: string | null;
+	Published: string;
 	Type: string;
 	X: number;
 	Y: number;

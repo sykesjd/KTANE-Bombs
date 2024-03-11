@@ -3,20 +3,15 @@
 	import ModuleCard from '$lib/cards/ModuleCard.svelte';
 	import LayoutSearchFilter from '$lib/comp/LayoutSearchFilter.svelte';
 	import type { RepoModule } from '$lib/repo.js';
-	import type { Bomb, ID, Mission } from '$lib/types.js';
-	import {
-		allSpecialModules,
-		evaluateLogicalStringSearch,
-		getModule,
-		logicalSearchTooltip,
-		onlyUnique
-	} from '$lib/util.js';
+	import type { Bomb, Mission } from '$lib/types.js';
+	import { evaluateLogicalStringSearch, getModule, logicalSearchTooltip, onlyUnique } from '$lib/util.js';
 
 	export let data;
 	type ShortMission = Pick<Mission, 'name' | 'bombs'>;
 	let missions: ShortMission[] = data.missions;
 	let modules: Record<string, RepoModule> = data.modules;
 	let moduleRows: any = {};
+	let sortOption: 'alphabetical' | 'popular' | 'published' = 'alphabetical';
 
 	let missionsOf: Record<string, ShortMission[]> = {};
 	missions.forEach(miss => {
@@ -36,20 +31,17 @@
 	function popular() {
 		mods.sort((a, b) => (missionsOf[b[0]]?.length ?? 0) - (missionsOf[a[0]]?.length ?? 0));
 		mods = mods;
-		if (browser) {
-			document.querySelector('.sort-option.alphabetical')?.classList.remove('selected');
-			document.querySelector('.sort-option.popular')?.classList.add('selected');
-		}
+		if (browser) sortOption = 'popular';
 	}
 	function alphabetical() {
-		mods.sort((a, b) => {
-			return a[1].Name.localeCompare(b[1].Name);
-		});
+		mods.sort((a, b) => a[1].Name.localeCompare(b[1].Name));
 		mods = mods;
-		if (browser) {
-			document.querySelector('.sort-option.popular')?.classList.remove('selected');
-			document.querySelector('.sort-option.alphabetical')?.classList.add('selected');
-		}
+		if (browser) sortOption = 'alphabetical';
+	}
+	function published() {
+		mods.sort((a, b) => new Date(b[1].Published).getTime() - new Date(a[1].Published).getTime());
+		mods = mods;
+		if (browser) sortOption = 'published';
 	}
 	function closeeAll() {
 		document.querySelectorAll('.missions-dropdown:not(.few)').forEach(el => {
@@ -100,8 +92,10 @@
 			filterFunc={moduleSearchFilter}
 			classes="help" />
 		<button on:click={closeeAll}>Close All</button>
-		<span class="sort-option popular" on:click={popular}>Popular</span>
-		<span class="sort-option selected alphabetical" on:click={alphabetical}>Alphabetical</span>
+		<span class="sort-option alphabetical" class:selected={sortOption == 'alphabetical'} on:click={alphabetical}
+			>Alphabetical</span>
+		<span class="sort-option popular" class:selected={sortOption == 'popular'} on:click={popular}>Popular</span>
+		<span class="sort-option published" class:selected={sortOption == 'published'} on:click={published}>Published</span>
 	</div>
 </div>
 <div class="flex column">
@@ -113,7 +107,7 @@
 				class:expand={!missionsOf[modID] || missionsOf[modID].length <= 4}
 				class:few={!missionsOf[modID] || missionsOf[modID].length <= 4}
 				on:click={() => reveal(modID)}>
-				<div class="">
+				<div>
 					<span>Missions: </span>
 					{#if missionsOf[modID]}
 						<span>{missionsOf[modID].length}</span>
@@ -142,7 +136,7 @@
 <style>
 	.module-card {
 		background-color: var(--foreground);
-		width: 250px;
+		width: 308px;
 		justify-content: center;
 	}
 	:global(.module-card .module) {

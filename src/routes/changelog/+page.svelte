@@ -8,7 +8,8 @@
 	<h3>11 March 2024</h3>
 	<ul>
 		<li>
-			New <a href="/modules">Modules</a> page! Lists which missions contain each module, sortable by popularity or alphabetical.
+			New <a href="/modules">Modules</a> page! Lists which missions contain each module, sortable by popularity, published
+			date, or alphabetical.
 		</li>
 		<li>
 			New <a href="/rules">rule</a>: new missions must not contain modules that are not on the
