@@ -11,6 +11,10 @@
 			New <a href="/modules">Modules</a> page! Lists which missions contain each module, sortable by popularity or alphabetical.
 		</li>
 		<li>
+			New <a href="/rules">rule</a>: new missions must not contain modules that are not on the
+			<a href="https://ktane.timwi.de/">repo</a>.
+		</li>
+		<li>
 			Rank on the <a href="/solvers">Solvers</a> page now works like most leaderboards, ties in rank <i>X</i> mean that
 			no one holds rank <i>X + 1</i>.
 		</li>

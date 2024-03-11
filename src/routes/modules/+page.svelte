@@ -27,7 +27,7 @@
 			.forEach((mod: RepoModule) => {
 				if (missionsOf[mod.ModuleID] == undefined) {
 					missionsOf[mod.ModuleID] = [miss];
-				} else if (!(miss.name in missionsOf[mod.ModuleID])) {
+				} else if (!missionsOf[mod.ModuleID].some(mission => mission.name === miss.name)) {
 					missionsOf[mod.ModuleID].push(miss);
 				}
 			});
