@@ -376,7 +376,7 @@
 	}
 
 	.mission-notes {
-		white-space: pre;
+		white-space: pre-wrap;
 	}
 
 	.header {
