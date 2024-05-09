@@ -105,8 +105,8 @@
 			--contrast-block-background: rgb(50, 50, 50);
 			--accent-gray: #444;
 			--light-text-color: rgb(150, 150, 150);
-			--link-text-color: rgb(200, 200, 200);
-			--link-visited-text-color: rgb(130, 130, 130);
+			--link-text-color: currentColor
+			--link-visited-text-color: rgb(200, 200, 200);
 			--blue-link-color: rgb(85, 167, 255);
 			--blue-link-visited-color: rgb(174, 93, 240);
 			--boss-color: #762121;
