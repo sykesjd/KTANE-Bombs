@@ -7,11 +7,12 @@
 	export let alwaysShow: boolean = false;
 </script>
 
-<div
+<a
 	class="module"
 	class:boss={module.BossStatus != undefined}
 	class:quirks={module.Quirks != undefined}
-	class:needy={module.Type == 'Needy'}>
+	class:needy={module.Type == 'Needy'}
+	href={`https://ktane.timwi.de/redirect/#${encodeURIComponent(module.Name)}`}>
 	{#if hasSpecialIcon(module.ModuleID)}
 		<div class="image {module.ModuleID}" />
 	{:else}
@@ -26,7 +27,7 @@
 	{:else if fraction < 1 || alwaysShow}
 		<b>{Math.round(fraction * 100)}%</b>
 	{/if}
-</div>
+</a>
 
 <style>
 	.module {
