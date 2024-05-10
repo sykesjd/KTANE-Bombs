@@ -9,6 +9,8 @@ export type RepoModule = {
 	Type: string;
 	X: number;
 	Y: number;
+	FileName: string | null;
+	TranslationOf: string | null;
 };
 
 export type RepoManual = {
@@ -42,6 +44,14 @@ export async function getData(): Promise<Record<string, RepoModule> | null> {
 				),
 				timestamp: new Date()
 			};
+
+			// Add FileName for translated modules
+			for (const module of Object.values(moduleCache.modules)) {
+				if (!module.TranslationOf) continue;
+
+				const translationOf = moduleCache.modules[module.TranslationOf];
+				module.FileName = translationOf.FileName ?? translationOf.Name;
+			}
 		}
 	}
 

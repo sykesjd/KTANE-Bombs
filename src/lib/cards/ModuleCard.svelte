@@ -12,7 +12,7 @@
 	class:boss={module.BossStatus != undefined}
 	class:quirks={module.Quirks != undefined}
 	class:needy={module.Type == 'Needy'}
-	href={`https://ktane.timwi.de/redirect/#${encodeURIComponent(module.Name)}`}>
+	href={`https://ktane.timwi.de/redirect/#${encodeURIComponent(module.FileName ?? module.Name)}`}>
 	{#if hasSpecialIcon(module.ModuleID)}
 		<div class="image {module.ModuleID}" />
 	{:else}
