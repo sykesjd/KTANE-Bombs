@@ -5,6 +5,14 @@
 	<h1 class="header">What’s New?</h1>
 </div>
 <div class="block update">
+	<h3>9 May 2024</h3>
+	<ul>
+		<li>
+			Modules now link to your preferred manual page for that module on the <a href="https://ktane.timwi.de/">repo</a>.
+		</li>
+	</ul>
+</div>
+<div class="block update">
 	<h3>11 March 2024</h3>
 	<ul>
 		<li>
