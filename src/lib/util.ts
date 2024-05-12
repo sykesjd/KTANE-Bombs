@@ -279,10 +279,12 @@ export function getModule(moduleID: string, modules: Record<string, RepoModule> 
 		BossStatus: null,
 		ModuleID: moduleID,
 		Name: moduleID,
+		FileName: null,
 		Origin: moduleID.match(/vanilla/gi) ? 'Vanilla' : 'Mods',
 		Published: '2015-01-01',
 		Quirks: null,
 		RuleSeedSupport: null,
+		TranslationOf: null,
 		Type: moduleID.match(/needy/gi) ? 'Needy' : 'Regular',
 		X: 0,
 		Y: 0

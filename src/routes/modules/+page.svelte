@@ -12,6 +12,7 @@
 	let modules: Record<string, RepoModule> = data.modules;
 	let moduleRows: any = {};
 	let sortOption: 'alphabetical' | 'popular' | 'published' = 'alphabetical';
+	let layoutSearch: LayoutSearchFilter;
 
 	let missionsOf: Record<string, ShortMission[]> = {};
 	missions.forEach(miss => {
@@ -28,20 +29,30 @@
 			});
 	});
 
+	function updateSearch() {
+		if (browser) {
+			setTimeout(() => {
+				layoutSearch?.updateSearch();
+			}, 100);
+		}
+	}
 	function popular() {
 		mods.sort((a, b) => (missionsOf[b[0]]?.length ?? 0) - (missionsOf[a[0]]?.length ?? 0));
 		mods = mods;
-		if (browser) sortOption = 'popular';
+		sortOption = 'popular';
+		updateSearch();
 	}
 	function alphabetical() {
 		mods.sort((a, b) => a[1].Name.localeCompare(b[1].Name));
 		mods = mods;
-		if (browser) sortOption = 'alphabetical';
+		sortOption = 'alphabetical';
+		updateSearch();
 	}
 	function published() {
 		mods.sort((a, b) => new Date(b[1].Published).getTime() - new Date(a[1].Published).getTime());
 		mods = mods;
-		if (browser) sortOption = 'published';
+		sortOption = 'published';
+		updateSearch();
 	}
 	function closeeAll() {
 		document.querySelectorAll('.missions-dropdown:not(.few)').forEach(el => {
@@ -89,6 +100,7 @@
 			title={logicalSearchTooltip}
 			bind:items={moduleRows}
 			bind:numResults={resultsText}
+			bind:this={layoutSearch}
 			filterFunc={moduleSearchFilter}
 			classes="help" />
 		<button on:click={closeeAll}>Close All</button>

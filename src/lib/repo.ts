@@ -61,7 +61,7 @@ export async function getData(): Promise<Record<string, RepoModule> | null> {
 export async function getRestrictedManuals(): Promise<RepoManual[] | null> {
 	if (manualCache === null || Date.now() - manualCache.timestamp.getTime() > 60 * 60 * 1000) {
 		const repo = await fetch('https://ktane.timwi.de/More/ChallengeBombRestrictedManuals.json');
-		if (!repo.ok) {
+		if (repo.ok) {
 			manualCache = {
 				manuals: (await repo.json()).Restricted.map((module: string) => {
 					let row: (string | null)[] = [null, module, null, null, null];
@@ -86,7 +86,6 @@ export async function getRestrictedManuals(): Promise<RepoManual[] | null> {
 				timestamp: new Date()
 			};
 		}
-
 	}
 
 	return manualCache?.manuals ?? null;
