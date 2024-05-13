@@ -84,6 +84,7 @@
 		{id}
 		{placeholder}
 		class={classes}
+		class:autoresize={autoExpand}
 		{required}
 		{rows}
 		bind:this={text_area}
@@ -116,6 +117,9 @@
 		color: var(--textbox-text-color);
 		width: 100%;
 		box-sizing: border-box;
+	}
+	textarea.autoresize {
+		resize: horizontal;
 	}
 	.hstack {
 		display: flex;
