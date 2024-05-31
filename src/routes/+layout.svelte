@@ -10,6 +10,7 @@
 	import { disappearAll } from '$lib/util';
 	import { onMount } from 'svelte';
 	import HomeInfoMenu from '$lib/home/HomeInfoMenu.svelte';
+	import { navigating } from '$app/stores';
 
 	export let data;
 	const user: FrontendUser | null = data.user;
@@ -59,6 +60,7 @@
 			<a class="block" rel="external" href="/login">Login</a>
 		{/if}
 	</div>
+	<div class="loader" class:visible={$navigating} />
 </div>
 <div class="flex column max-width padding">
 	<slot />
@@ -317,5 +319,27 @@
 	.max-width {
 		width: min(calc(100vw - 4 * var(--gap)), 1150px);
 		margin: 0 auto;
+	}
+
+	.loader {
+		position: absolute;
+		top: 0;
+		z-index: 2;
+		height: 0;
+		width: 100vw;
+		--c: no-repeat linear-gradient(color-mix(in oklab, black 20%, var(--accent)) 0 0);
+		background: var(--c), var(--c), color-mix(in oklab, white, var(--accent));
+		background-size: 60% 100%;
+		animation: l16 3s infinite;
+		transition: height 0.25s 0.25s;
+	}
+	@keyframes l16 {
+		0%   {background-position:-150% 0,-150% 0}
+		66%  {background-position: 250% 0,-150% 0}
+		100% {background-position: 250% 0, 250% 0}
+	}
+
+	.loader.visible {
+		height: 3px;
 	}
 </style>
