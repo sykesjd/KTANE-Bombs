@@ -3,6 +3,7 @@
 	import NoContent from '$lib/comp/NoContent.svelte';
 	import { TP_TEAM } from '$lib/const';
 	import type { Mission } from '$lib/types';
+	import { classifyLink } from '$lib/util';
 
 	export let mission: Pick<Mission, 'completions' | 'tpSolve'>;
 	let tpSolve = mission.completions.find(c => c.team[0] === TP_TEAM);
@@ -20,7 +21,16 @@
 		<NoContent>No solves, <a href="/upload">be the first</a>!</NoContent>
 	{/each}
 	{#if mission.tpSolve}
-		<div class="block">Solved using <span class="tp-solve">{TP_TEAM}</span></div>
+		<div class="block tp-solve-block">
+			<div><span>Solved using</span> <span class="tp-solve">{TP_TEAM}</span></div>
+			<div class="flex column proof">
+				{#if tpSolve != undefined}
+					{#each tpSolve.proofs as proof}
+						<a href={proof}>{classifyLink(proof)}</a>
+					{/each}
+				{/if}
+			</div>
+		</div>
 	{/if}
 </div>
 
@@ -41,5 +51,10 @@
 		border-radius: 5px;
 		background-color: #9146ff;
 		color: #fff;
+	}
+
+	.tp-solve-block {
+		display: grid;
+		grid-template-columns: auto 27px;
 	}
 </style>
