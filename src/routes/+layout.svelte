@@ -263,7 +263,7 @@
 		display: none !important;
 	}
 
-	:global(label.help) {
+	:global(:is(label, input).help) {
 		cursor: help;
 	}
 

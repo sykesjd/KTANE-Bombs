@@ -68,7 +68,7 @@
 
 	function getInfo(text: string) {
 		let lineIndex = 0;
-		const lines = text.split('\n').map(line => line.length > 20000 ? "" : line);
+		const lines = text.split('\n').map(line => (line.length > 20000 ? '' : line));
 
 		function readLine() {
 			return lines[lineIndex++];
@@ -273,7 +273,13 @@
 			</div>
 		{/each}
 	</div>
-	<Checkbox id="solo" label="Solo" bind:checked={completion.solo} disabled={tpSolve || completion.team.length > 1} />
+	<Checkbox
+		id="solo"
+		label="Solo"
+		classes="help"
+		title="A solo solve is done entirely from memory, without using any experts, manuals, notes, or external tools. Video evidence must be provided for solo solves."
+		bind:checked={completion.solo}
+		disabled={tpSolve || completion.team.length > 1} />
 	<Checkbox
 		id="tpSolve"
 		label="TP Solve"

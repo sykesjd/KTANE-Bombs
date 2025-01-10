@@ -20916,6 +20916,6035 @@
 			"timestamp": "2024-12-14T18:53:18.790Z",
 			"before": { "verified": false },
 			"after": { "verified": true }
+		},
+		{
+			"id": 1396,
+			"userId": "667939964448931842",
+			"model": "Completion",
+			"recordId": "60853",
+			"name": "Easy Challenge||Masked Mystery, sphere, IHateLife",
+			"action": "create",
+			"timestamp": "2024-12-15T07:51:30.623Z"
+		},
+		{
+			"id": 1397,
+			"userId": "459108669636739072",
+			"model": "Completion",
+			"recordId": "60854",
+			"name": "Veritaserum||Kugel",
+			"action": "create",
+			"timestamp": "2024-12-15T09:10:35.312Z"
+		},
+		{
+			"id": 1398,
+			"userId": "597035767503519765",
+			"model": "Completion",
+			"recordId": "60855",
+			"name": ":((=||hyeon72",
+			"action": "create",
+			"timestamp": "2024-12-15T15:32:46.260Z"
+		},
+		{
+			"id": 1399,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10808",
+			"name": "Elevator Bomb",
+			"action": "update",
+			"timestamp": "2024-12-15T18:02:16.377Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1400,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10817",
+			"name": "Golden Cocaine Bear",
+			"action": "update",
+			"timestamp": "2024-12-15T18:02:22.360Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1401,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10819",
+			"name": "Leap of Faith",
+			"action": "update",
+			"timestamp": "2024-12-15T18:02:26.431Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1402,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10820",
+			"name": "One More Time",
+			"action": "update",
+			"timestamp": "2024-12-15T18:38:51.867Z",
+			"before": { "logfile": "https://ktane.timwi.de/lfa#file=69ace8322aa35bc6c43958393f1e38324e9b70a2" },
+			"after": { "logfile": "https://ktane.timwi.de/lfa#file=01c5b40eb25fd04ffe461d1688d9915b190c4dff" }
+		},
+		{
+			"id": 1403,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10820",
+			"name": "One More Time",
+			"action": "update",
+			"timestamp": "2024-12-15T18:39:41.514Z",
+			"before": { "inGameId": "mod_blvd_viggo, DisplayNameTerm: mod/blvd_viggo_DisplayName" },
+			"after": { "inGameId": "mod_blvd_viggo" }
+		},
+		{
+			"id": 1404,
+			"userId": "689219553531658292",
+			"model": "Completion",
+			"recordId": "60856",
+			"name": "Leap of Faith||Faith",
+			"action": "create",
+			"timestamp": "2024-12-15T18:56:43.567Z"
+		},
+		{
+			"id": 1405,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60857",
+			"name": "Rendezvous (Pt. 3)||denial140",
+			"action": "create",
+			"timestamp": "2024-12-15T18:58:57.044Z"
+		},
+		{
+			"id": 1406,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60853",
+			"name": "Easy Challenge||Masked Mystery, sphere, IHateLife",
+			"action": "update",
+			"timestamp": "2024-12-15T19:27:35.815Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1407,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60858",
+			"name": "Wire Madness||Crazycaleb",
+			"action": "create",
+			"timestamp": "2024-12-16T02:16:43.977Z"
+		},
+		{
+			"id": 1408,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60854",
+			"name": "Veritaserum||Kugel",
+			"action": "update",
+			"timestamp": "2024-12-16T07:37:25.114Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1409,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60855",
+			"name": ":((=||hyeon72",
+			"action": "update",
+			"timestamp": "2024-12-16T07:37:54.850Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1410,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60857",
+			"name": "Rendezvous (Pt. 3)||denial140",
+			"action": "update",
+			"timestamp": "2024-12-16T07:40:06.399Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1411,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60856",
+			"name": "Leap of Faith||Faith",
+			"action": "update",
+			"timestamp": "2024-12-16T07:40:24.104Z",
+			"before": { "first": false, "verified": false },
+			"after": { "first": true, "verified": true }
+		},
+		{
+			"id": 1412,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60858",
+			"name": "Wire Madness||Crazycaleb",
+			"action": "update",
+			"timestamp": "2024-12-16T07:40:55.367Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1413,
+			"userId": "705094454717186119",
+			"model": "Completion",
+			"recordId": "60859",
+			"name": "Light in the Dark||BladePL",
+			"action": "create",
+			"timestamp": "2024-12-16T10:40:17.381Z"
+		},
+		{
+			"id": 1414,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60859",
+			"name": "Light in the Dark||BladePL",
+			"action": "update",
+			"timestamp": "2024-12-16T20:58:01.349Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1415,
+			"userId": "705094454717186119",
+			"model": "Completion",
+			"recordId": "60860",
+			"name": "Small Hope||BladePL",
+			"action": "create",
+			"timestamp": "2024-12-17T13:12:00.478Z"
+		},
+		{
+			"id": 1416,
+			"userId": "104464697775882240",
+			"model": "Completion",
+			"recordId": "60861",
+			"name": "Soloist||Framzo, nameless",
+			"action": "create",
+			"timestamp": "2024-12-17T15:12:52.231Z"
+		},
+		{
+			"id": 1417,
+			"userId": "1131645350554390560",
+			"model": "Completion",
+			"recordId": "60862",
+			"name": "A-Not-So-Hard||Termet",
+			"action": "create",
+			"timestamp": "2024-12-17T20:20:01.518Z"
+		},
+		{
+			"id": 1418,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60860",
+			"name": "Small Hope||BladePL",
+			"action": "update",
+			"timestamp": "2024-12-17T20:20:46.050Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1419,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10813",
+			"name": "100 Stage Endurance",
+			"action": "delete",
+			"timestamp": "2024-12-17T20:20:58.594Z",
+			"before": {
+				"id": 10813,
+				"name": "100 Stage Endurance",
+				"notes": null,
+				"authors": ["Awesome7285"],
+				"factory": "Sequence",
+				"logfile": "https://ktane.timwi.de/lfa#file=fcf445f228fc753e3f958cc954ece9efff59eee6",
+				"tpSolve": false,
+				"variant": null,
+				"inGameId": "mod_awesome7285_missions_100 Stage Endurance",
+				"timeMode": "Global",
+				"verified": false,
+				"dateAdded": "2024-11-29T05:59:44.167Z",
+				"inGameName": null,
+				"strikeMode": "Global",
+				"uploadedBy": "244616599443603456",
+				"designedForTP": false,
+				"missionPackId": 595
+			}
+		},
+		{
+			"id": 1420,
+			"userId": "192330681987235840",
+			"model": "Completion",
+			"recordId": "60863",
+			"name": "Easy Challenge||Enty, Sierra",
+			"action": "create",
+			"timestamp": "2024-12-17T22:58:30.064Z"
+		},
+		{
+			"id": 1421,
+			"userId": "349646830012727296",
+			"model": "Completion",
+			"recordId": "60864",
+			"name": "Alfa Alfa Alpha||tactualdwarf519, GreatQuestion",
+			"action": "create",
+			"timestamp": "2024-12-17T23:12:54.580Z"
+		},
+		{
+			"id": 1422,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60861",
+			"name": "Soloist||Framzo, nameless",
+			"action": "update",
+			"timestamp": "2024-12-18T08:13:30.065Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1423,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60862",
+			"name": "A-Not-So-Hard||Termet",
+			"action": "update",
+			"timestamp": "2024-12-18T08:13:50.724Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1424,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60863",
+			"name": "Easy Challenge||Enty, Sierra",
+			"action": "update",
+			"timestamp": "2024-12-18T08:15:28.646Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1425,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60864",
+			"name": "Alfa Alfa Alpha||tactualdwarf519, GreatQuestion",
+			"action": "update",
+			"timestamp": "2024-12-18T08:15:50.155Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1426,
+			"userId": "705094454717186119",
+			"model": "Completion",
+			"recordId": "60865",
+			"name": "101MC new ones||BladePL",
+			"action": "create",
+			"timestamp": "2024-12-18T13:06:52.610Z"
+		},
+		{
+			"id": 1427,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10490",
+			"name": "CommRUniturion",
+			"action": "update",
+			"timestamp": "2024-12-18T18:51:39.493Z",
+			"before": { "authors": ["Megum"] },
+			"after": { "authors": ["Megum", "Rand06"] }
+		},
+		{
+			"id": 1428,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10490",
+			"name": "CommRUniturion",
+			"action": "update",
+			"timestamp": "2024-12-18T18:53:22.528Z",
+			"before": { "authors": ["Megum", "Rand06"] },
+			"after": { "authors": ["Megum", "rand06"] }
+		},
+		{
+			"id": 1429,
+			"userId": "1131645350554390560",
+			"model": "Completion",
+			"recordId": "60866",
+			"name": "Adapted Swan Hell||Termet",
+			"action": "create",
+			"timestamp": "2024-12-18T19:40:03.286Z"
+		},
+		{
+			"id": 1430,
+			"userId": "459108669636739072",
+			"model": "Completion",
+			"recordId": "60867",
+			"name": "Adapted Swan Hell||Kugel",
+			"action": "create",
+			"timestamp": "2024-12-19T00:20:19.566Z"
+		},
+		{
+			"id": 1431,
+			"userId": "1199637423215353866",
+			"model": "Completion",
+			"recordId": "60868",
+			"name": "c12 is feeling lucky||Twitch Plays",
+			"action": "create",
+			"timestamp": "2024-12-19T01:32:08.879Z"
+		},
+		{
+			"id": 1432,
+			"userId": "459108669636739072",
+			"model": "Completion",
+			"recordId": "60869",
+			"name": "Swan Hell||Kugel",
+			"action": "create",
+			"timestamp": "2024-12-19T01:50:13.152Z"
+		},
+		{
+			"id": 1433,
+			"userId": "1199637423215353866",
+			"model": "Completion",
+			"recordId": "60870",
+			"name": "Pandora||Twitch Plays",
+			"action": "create",
+			"timestamp": "2024-12-19T02:43:59.811Z"
+		},
+		{
+			"id": 1434,
+			"userId": "564025785573179407",
+			"model": "Completion",
+			"recordId": "60871",
+			"name": "Decimator||Chokokafe",
+			"action": "create",
+			"timestamp": "2024-12-19T10:32:27.544Z"
+		},
+		{
+			"id": 1435,
+			"userId": "1131645350554390560",
+			"model": "Completion",
+			"recordId": "60872",
+			"name": "Just Vibin'||Termet",
+			"action": "create",
+			"timestamp": "2024-12-19T17:45:52.082Z"
+		},
+		{
+			"id": 1436,
+			"userId": "1131645350554390560",
+			"model": "Completion",
+			"recordId": "60873",
+			"name": "Quibi||Termet",
+			"action": "create",
+			"timestamp": "2024-12-19T18:46:40.060Z"
+		},
+		{
+			"id": 1437,
+			"userId": "1131645350554390560",
+			"model": "Completion",
+			"recordId": "60874",
+			"name": "Experienced EFM||Termet",
+			"action": "create",
+			"timestamp": "2024-12-19T21:11:18.360Z"
+		},
+		{
+			"id": 1438,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "10740",
+			"name": "c12 is feeling lucky",
+			"action": "update",
+			"timestamp": "2024-12-19T21:38:10.903Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1439,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60868",
+			"name": "c12 is feeling lucky||Twitch Plays",
+			"action": "update",
+			"timestamp": "2024-12-19T21:38:10.928Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1440,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "10609",
+			"name": "Pandora",
+			"action": "update",
+			"timestamp": "2024-12-19T21:38:11.444Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1441,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60870",
+			"name": "Pandora||Twitch Plays",
+			"action": "update",
+			"timestamp": "2024-12-19T21:38:11.455Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1442,
+			"userId": "1199637423215353866",
+			"model": "Completion",
+			"recordId": "60875",
+			"name": "Culmination||Twitch Plays",
+			"action": "create",
+			"timestamp": "2024-12-19T22:46:56.112Z"
+		},
+		{
+			"id": 1443,
+			"userId": "392030801266737172",
+			"model": "Completion",
+			"recordId": "60876",
+			"name": "Parallel Bombs||Superstep, Soul Of Cinder Tomas, Sierra",
+			"action": "create",
+			"timestamp": "2024-12-19T23:22:30.221Z"
+		},
+		{
+			"id": 1444,
+			"userId": "459108669636739072",
+			"model": "Completion",
+			"recordId": "60877",
+			"name": "BOTM Apr22||Kugel, Gwendolyn",
+			"action": "create",
+			"timestamp": "2024-12-20T02:32:54.913Z"
+		},
+		{
+			"id": 1445,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60865",
+			"name": "101MC new ones||BladePL",
+			"action": "update",
+			"timestamp": "2024-12-20T12:55:11.558Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1446,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60866",
+			"name": "Adapted Swan Hell||Termet",
+			"action": "update",
+			"timestamp": "2024-12-20T12:55:38.742Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1447,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60867",
+			"name": "Adapted Swan Hell||Kugel",
+			"action": "update",
+			"timestamp": "2024-12-20T13:01:32.695Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1448,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60869",
+			"name": "Swan Hell||Kugel",
+			"action": "update",
+			"timestamp": "2024-12-20T13:01:51.691Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1449,
+			"userId": "150650873884704769",
+			"model": "Completion",
+			"recordId": "60878",
+			"name": "Reasonable||AzaFTW, Aaron Kitty Boiii",
+			"action": "create",
+			"timestamp": "2024-12-20T15:50:12.775Z"
+		},
+		{
+			"id": 1450,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60879",
+			"name": "Jesús||Twitch Plays",
+			"action": "create",
+			"timestamp": "2024-12-20T19:46:08.421Z"
+		},
+		{
+			"id": 1451,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60880",
+			"name": "Ultimaturion||Twitch Plays",
+			"action": "create",
+			"timestamp": "2024-12-20T19:46:16.722Z"
+		},
+		{
+			"id": 1452,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "10803",
+			"name": "Jesús",
+			"action": "update",
+			"timestamp": "2024-12-20T19:46:22.706Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1453,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60879",
+			"name": "Jesús||Twitch Plays",
+			"action": "update",
+			"timestamp": "2024-12-20T19:46:22.714Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1454,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "9751",
+			"name": "Ultimaturion",
+			"action": "update",
+			"timestamp": "2024-12-20T19:46:23.150Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1455,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60880",
+			"name": "Ultimaturion||Twitch Plays",
+			"action": "update",
+			"timestamp": "2024-12-20T19:46:23.171Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1456,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60881",
+			"name": "ÜberKlax Endurance||denial140, Lyph",
+			"action": "create",
+			"timestamp": "2024-12-20T20:31:30.341Z"
+		},
+		{
+			"id": 1457,
+			"userId": "261983800429510658",
+			"model": "Completion",
+			"recordId": "60882",
+			"name": "Soloist||nameless",
+			"action": "create",
+			"timestamp": "2024-12-21T01:41:03.818Z"
+		},
+		{
+			"id": 1458,
+			"userId": "294221057311899649",
+			"model": "Completion",
+			"recordId": "60883",
+			"name": "Color Square Madness||GreenPower",
+			"action": "create",
+			"timestamp": "2024-12-21T05:12:12.320Z"
+		},
+		{
+			"id": 1459,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60884",
+			"name": "17 Again||denial140",
+			"action": "create",
+			"timestamp": "2024-12-21T17:18:42.392Z"
+		},
+		{
+			"id": 1460,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60885",
+			"name": "Step By Step||Twitch Plays",
+			"action": "create",
+			"timestamp": "2024-12-21T18:34:39.201Z"
+		},
+		{
+			"id": 1461,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "10783",
+			"name": "Step By Step",
+			"action": "update",
+			"timestamp": "2024-12-21T18:34:41.477Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1462,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60885",
+			"name": "Step By Step||Twitch Plays",
+			"action": "update",
+			"timestamp": "2024-12-21T18:34:41.488Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1463,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60878",
+			"name": "Reasonable||AzaFTW, Aaron Kitty Boiii",
+			"action": "update",
+			"timestamp": "2024-12-21T18:35:15.207Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1464,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60871",
+			"name": "Decimator||Chokokafe",
+			"action": "update",
+			"timestamp": "2024-12-21T18:35:43.050Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1465,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60871",
+			"name": "Decimator||Chokokafe",
+			"action": "update",
+			"timestamp": "2024-12-21T18:36:02.706Z",
+			"before": {
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=33676fc473683a8e0d9460e1cc5832df39f251c3;bomb=E41FX1",
+					"https://cdn.discordapp.com/attachments/957375798615097414/1319250420417302588/image.png?ex=67654732&is=6763f5b2&hm=f7bfe371b5ac7406efce2f32ab0c7fed2e7f3102cc82d05471265a365e13046f&"
+				]
+			},
+			"after": {
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=33676fc473683a8e0d9460e1cc5832df39f251c3;bomb=E41FX1"
+				]
+			}
+		},
+		{
+			"id": 1466,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60872",
+			"name": "Just Vibin'||Termet",
+			"action": "update",
+			"timestamp": "2024-12-21T18:38:47.960Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1467,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60873",
+			"name": "Quibi||Termet",
+			"action": "update",
+			"timestamp": "2024-12-21T18:39:16.355Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1468,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60874",
+			"name": "Experienced EFM||Termet",
+			"action": "update",
+			"timestamp": "2024-12-21T18:39:31.129Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1469,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "9245",
+			"name": "Culmination",
+			"action": "update",
+			"timestamp": "2024-12-21T18:39:51.394Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1470,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60875",
+			"name": "Culmination||Twitch Plays",
+			"action": "update",
+			"timestamp": "2024-12-21T18:39:51.403Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1471,
+			"userId": "483182665776889856",
+			"model": "Completion",
+			"recordId": "60886",
+			"name": "The Diamond Dungeon||Twitch Plays",
+			"action": "create",
+			"timestamp": "2024-12-21T20:57:16.538Z"
+		},
+		{
+			"id": 1472,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "10619",
+			"name": "The Diamond Dungeon",
+			"action": "update",
+			"timestamp": "2024-12-21T21:21:48.344Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1473,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60886",
+			"name": "The Diamond Dungeon||Twitch Plays",
+			"action": "update",
+			"timestamp": "2024-12-21T21:21:48.358Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1474,
+			"userId": "597035767503519765",
+			"model": "Completion",
+			"recordId": "60887",
+			"name": "Undefined 47||hyeon72",
+			"action": "create",
+			"timestamp": "2024-12-22T05:18:03.712Z"
+		},
+		{
+			"id": 1475,
+			"userId": "597035767503519765",
+			"model": "Completion",
+			"recordId": "60888",
+			"name": "ÜberKlax Endurance||hyeon72",
+			"action": "create",
+			"timestamp": "2024-12-22T07:52:02.325Z"
+		},
+		{
+			"id": 1476,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60876",
+			"name": "Parallel Bombs||Superstep, Soul Of Cinder Tomas, Sierra",
+			"action": "update",
+			"timestamp": "2024-12-22T09:12:32.824Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1477,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60877",
+			"name": "BOTM Apr22||Kugel, Gwendolyn",
+			"action": "update",
+			"timestamp": "2024-12-22T09:13:12.862Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1478,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60881",
+			"name": "ÜberKlax Endurance||denial140, Lyph",
+			"action": "update",
+			"timestamp": "2024-12-22T09:13:52.298Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1479,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60882",
+			"name": "Soloist||nameless",
+			"action": "update",
+			"timestamp": "2024-12-22T09:14:09.402Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1480,
+			"userId": "597035767503519765",
+			"model": "Completion",
+			"recordId": "60889",
+			"name": "Boss Module Endurance||hyeon72",
+			"action": "create",
+			"timestamp": "2024-12-22T14:51:48.539Z"
+		},
+		{
+			"id": 1481,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60890",
+			"name": "Tricycle: Unhinged||Twitch Plays",
+			"action": "create",
+			"timestamp": "2024-12-22T17:03:20.080Z"
+		},
+		{
+			"id": 1482,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60891",
+			"name": "Baking Soda||Twitch Plays",
+			"action": "create",
+			"timestamp": "2024-12-22T17:03:30.696Z"
+		},
+		{
+			"id": 1483,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "9396",
+			"name": "Tricycle: Unhinged",
+			"action": "update",
+			"timestamp": "2024-12-22T17:03:34.002Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1484,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60890",
+			"name": "Tricycle: Unhinged||Twitch Plays",
+			"action": "update",
+			"timestamp": "2024-12-22T17:03:34.013Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1485,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "10788",
+			"name": "Baking Soda",
+			"action": "update",
+			"timestamp": "2024-12-22T17:03:34.574Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1486,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60891",
+			"name": "Baking Soda||Twitch Plays",
+			"action": "update",
+			"timestamp": "2024-12-22T17:03:34.585Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1487,
+			"userId": "154814006261972992",
+			"model": "Mission",
+			"recordId": "10833",
+			"name": "Platinum Cocaine Bear",
+			"action": "create",
+			"timestamp": "2024-12-22T23:55:13.595Z"
+		},
+		{
+			"id": 1488,
+			"userId": "569550498462564354",
+			"model": "MissionPack",
+			"recordId": "616",
+			"name": "rand06's Missions",
+			"action": "create",
+			"timestamp": "2024-12-23T11:21:39.122Z"
+		},
+		{
+			"id": 1489,
+			"userId": "569550498462564354",
+			"model": "Mission",
+			"recordId": "10834",
+			"name": "Solo-47",
+			"action": "create",
+			"timestamp": "2024-12-23T11:22:35.373Z"
+		},
+		{
+			"id": 1490,
+			"userId": "569550498462564354",
+			"model": "Mission",
+			"recordId": "10835",
+			"name": "rand's 47",
+			"action": "create",
+			"timestamp": "2024-12-23T11:23:57.240Z"
+		},
+		{
+			"id": 1491,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10812",
+			"name": "Challenge Bomb Endurance",
+			"action": "update",
+			"timestamp": "2024-12-23T13:54:27.034Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1492,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10836",
+			"name": "[[UPDATE]] Challenge Bomb Endurance",
+			"action": "create",
+			"timestamp": "2024-12-23T13:55:01.785Z"
+		},
+		{
+			"id": 1493,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10812",
+			"name": "Challenge Bomb Endurance",
+			"action": "update",
+			"timestamp": "2024-12-23T13:55:07.141Z",
+			"before": { "logfile": "https://ktane.timwi.de/lfa#file=fcf445f228fc753e3f958cc954ece9efff59eee6" },
+			"after": {
+				"bombs": {
+					"create": [
+						{
+							"time": 600,
+							"pools": [
+								{ "count": 1, "modules": ["ALL_NEEDY"] },
+								{ "count": 6, "modules": ["ALL_VANILLA_SOLVABLE"] },
+								{ "count": 4, "modules": ["BlackHoleModule"] }
+							],
+							"modules": 11,
+							"strikes": 3,
+							"widgets": 5
+						},
+						{
+							"time": 720,
+							"pools": [
+								{
+									"count": 1,
+									"modules": [
+										"FiveZeroOne",
+										"MemoryV2",
+										"HexiEvilFMN",
+										"forgetEnigma",
+										"forgetItNot",
+										"forgetMeLater",
+										"forgetMazeNot",
+										"forgetThis",
+										"simonsStages",
+										"whiteout"
+									]
+								},
+								{
+									"count": 10,
+									"modules": [
+										"accumulation",
+										"Addition",
+										"algebra",
+										"AppreciateArt",
+										"AtbashCipher",
+										"bigegg",
+										"BigSwitch",
+										"BitOps",
+										"blockbusters",
+										"blueCipher",
+										"boolMaze",
+										"buttonSequencesModule",
+										"CaesarCipherModule",
+										"calendar",
+										"CheapCheckoutModule",
+										"colorCycleButton",
+										"Color Decoding",
+										"coloredMaze",
+										"ColoredSquaresModule",
+										"DecoloredSquaresModule",
+										"FlavorText",
+										"FollowTheLeaderModule",
+										"greenArrowsModule",
+										"greenCipher",
+										"jukebox",
+										"KiloTalk",
+										"ledGrid",
+										"lgndZoni",
+										"orangeArrowsModule",
+										"OrientationCube",
+										"PianoKeys",
+										"Playfair",
+										"plungerButton",
+										"poetry",
+										"Poker",
+										"PressX",
+										"purpleArrowsModule",
+										"redArrowsModule",
+										"switchModule",
+										"theCodeModule",
+										"UncoloredSquaresModule",
+										"unfairCipher",
+										"UnownCipher",
+										"WordScrambleModule",
+										"yellowArrowsModule"
+									]
+								}
+							],
+							"modules": 11,
+							"strikes": 3,
+							"widgets": 5
+						},
+						{
+							"time": 720,
+							"pools": [
+								{ "count": 1, "modules": ["soulscream"] },
+								{ "count": 1, "modules": ["organizationModule"] },
+								{
+									"count": 9,
+									"modules": [
+										"ColourFlash",
+										"PianoKeys",
+										"Semaphore",
+										"Emoji Math",
+										"switchModule",
+										"AnagramsModule",
+										"WordScrambleModule",
+										"combinationLock",
+										"KeypadV2",
+										"graphModule",
+										"OrientationCube",
+										"LetterKeys",
+										"spwizAstrology",
+										"CrazyTalk",
+										"MazeV2",
+										"ChessModule",
+										"MouseInTheMaze",
+										"alphabet",
+										"CaesarCipherModule",
+										"BlindAlleyModule",
+										"TheBulbModule",
+										"BitmapsModule",
+										"ColoredSquaresModule",
+										"BattleshipModule",
+										"TextField",
+										"WordSearchModule",
+										"DoubleOhModule",
+										"Mastermind Simple",
+										"poetry",
+										"identityParade",
+										"ledGrid",
+										"mashematics",
+										"redArrowsModule",
+										"greenArrowsModule",
+										"digitalRoot",
+										"boggle",
+										"shikaku",
+										"TheDigitModule",
+										"plungerButton",
+										"MemoryV2"
+									]
+								}
+							],
+							"modules": 11,
+							"strikes": 3,
+							"widgets": 5
+						},
+						{
+							"time": 720,
+							"pools": [
+								{ "count": 1, "modules": ["klaxon"] },
+								{ "count": 1, "modules": ["ubermodule"] },
+								{
+									"count": 9,
+									"modules": [
+										"spwiz3DMaze",
+										"murder",
+										"BigCircle",
+										"BrailleModule",
+										"ChordQualities",
+										"DecoloredSquaresModule",
+										"hunting",
+										"shapeshift",
+										"TheGamepadModule",
+										"simonScrambles",
+										"coloredMaze",
+										"europeanTravel",
+										"spwizPerspectivePegs",
+										"forgetItNot",
+										"numberCipher",
+										"mortalKombat",
+										"Sink",
+										"Playfair",
+										"Poker",
+										"symbolicPasswordModule",
+										"SetModule",
+										"symbolicCoordinates",
+										"BlindMaze",
+										"pictionaryModule",
+										"booleanVennModule",
+										"GridlockModule",
+										"BinaryPuzzleModule",
+										"MazeV2",
+										"fastMath",
+										"reverseMorse",
+										"YahtzeeModule",
+										"HigherOrLower",
+										"BattleshipModule",
+										"FaultyBackgrounds",
+										"purpleArrowsModule",
+										"FollowTheLeaderModule",
+										"Microcontroller",
+										"MysticSquareModule",
+										"NotWiresword",
+										"theRule"
+									]
+								}
+							],
+							"modules": 11,
+							"strikes": 3,
+							"widgets": 5
+						},
+						{
+							"time": 900,
+							"pools": [
+								{ "count": 6, "modules": ["BartendingModule"] },
+								{ "count": 3, "modules": ["hangover"] },
+								{ "count": 2, "modules": ["NeedyBeer"] }
+							],
+							"modules": 11,
+							"strikes": 3,
+							"widgets": 5
+						},
+						{
+							"time": 600,
+							"pools": [
+								{ "count": 1, "modules": ["DividedSquaresModule"] },
+								{ "count": 1, "modules": ["BigCircle"] },
+								{ "count": 1, "modules": ["ModuleMaze"] },
+								{ "count": 1, "modules": ["AppreciateArt"] },
+								{ "count": 1, "modules": ["ledGrid"] },
+								{ "count": 1, "modules": ["ColoredSquaresModule"] },
+								{ "count": 1, "modules": ["coloredMaze"] },
+								{ "count": 1, "modules": ["giantsDrink"] },
+								{ "count": 1, "modules": ["poetry"] },
+								{ "count": 1, "modules": ["europeanTravel"] },
+								{ "count": 1, "modules": ["BattleshipModule"] }
+							],
+							"modules": 11,
+							"strikes": 3,
+							"widgets": 5
+						},
+						{
+							"time": 480,
+							"pools": [
+								{ "count": 1, "modules": ["plungerButton"] },
+								{ "count": 1, "modules": ["boggle"] },
+								{ "count": 1, "modules": ["BlindAlleyModule"] },
+								{ "count": 1, "modules": ["Backgrounds"] },
+								{ "count": 1, "modules": ["FaultyBackgrounds"] },
+								{ "count": 1, "modules": ["faultyDigitalRootModule"] },
+								{ "count": 1, "modules": ["cruelDigitalRootModule"] },
+								{ "count": 1, "modules": ["LetterKeys"] },
+								{ "count": 1, "modules": ["PressX"] },
+								{ "count": 1, "modules": ["luckyDice"] },
+								{ "count": 1, "modules": ["numberCipher"] }
+							],
+							"modules": 11,
+							"strikes": 1,
+							"widgets": 0
+						},
+						{
+							"time": 900,
+							"pools": [
+								{
+									"count": 1,
+									"modules": [
+										"NeedyVentGas",
+										"NeedyCapacitor",
+										"NeedyKnob",
+										"NeedyVentV2",
+										"NeedyKnobV2",
+										"Filibuster",
+										"Needy Math",
+										"spwizTetris",
+										"monsplodeWho",
+										"VentGasTranslated",
+										"http",
+										"MotionSense",
+										"EdgeworkModule",
+										"LightsOut"
+									]
+								},
+								{ "count": 1, "modules": ["TurnTheKeyAdvanced"] },
+								{ "count": 1, "modules": ["SouvenirModule"] },
+								{ "count": 1, "modules": ["Wires", "BigButton", "WhosOnFirst", "Morse", "Password", "Maze"] },
+								{ "count": 1, "modules": ["ColourFlash", "KeypadV2", "CrazyTalk"] },
+								{
+									"count": 1,
+									"modules": ["FollowTheLeaderModule", "HexamazeModule", "spwiz3DMaze", "WirePlacementModule"]
+								},
+								{
+									"count": 1,
+									"modules": [
+										"BigButtonTranslated",
+										"PasswordsTranslated",
+										"MorseCodeTranslated",
+										"WhosOnFirstTranslated"
+									]
+								},
+								{
+									"count": 1,
+									"modules": [
+										"MouseInTheMaze",
+										"Emoji Math",
+										"RockPaperScissorsLizardSpockModule",
+										"TheBulbModule",
+										"Semaphore",
+										"booleanVennModule"
+									]
+								},
+								{
+									"count": 1,
+									"modules": [
+										"colormath",
+										"FriendshipModule",
+										"PointOfOrderModule",
+										"ColoredSquaresModule",
+										"ZooModule"
+									]
+								},
+								{ "count": 1, "modules": ["OrientationCube"] },
+								{
+									"count": 1,
+									"modules": [
+										"monsplodeFight",
+										"TheGamepadModule",
+										"BinaryLeds",
+										"symbolicPasswordModule",
+										"complicatedButtonsModule"
+									]
+								}
+							],
+							"modules": 11,
+							"strikes": 3,
+							"widgets": 5
+						},
+						{
+							"time": 900,
+							"pools": [
+								{ "count": 1, "modules": ["ALL_VANILLA_SOLVABLE"] },
+								{ "count": 1, "modules": ["ALL_NEEDY"] },
+								{ "count": 1, "modules": ["TurnTheKey"] },
+								{ "count": 1, "modules": ["MemoryV2"] },
+								{ "count": 1, "modules": ["Microcontroller"] },
+								{ "count": 1, "modules": ["Listening"] },
+								{ "count": 1, "modules": ["Probing"] },
+								{ "count": 1, "modules": ["RubiksCubeModule"] },
+								{ "count": 1, "modules": ["TwoBits"] },
+								{ "count": 1, "modules": ["combinationLock"] },
+								{ "count": 1, "modules": ["Laundry"] }
+							],
+							"modules": 11,
+							"strikes": 3,
+							"widgets": 5
+						},
+						{
+							"time": 900,
+							"pools": [
+								{ "count": 1, "modules": ["CruelPianoKeys"] },
+								{ "count": 1, "modules": ["Mastermind Cruel"] },
+								{ "count": 1, "modules": ["GridlockModule"] },
+								{ "count": 1, "modules": ["ColoredSwitchesModule"] },
+								{ "count": 1, "modules": ["GameOfLifeCruel"] },
+								{ "count": 1, "modules": ["SetModule"] },
+								{ "count": 1, "modules": ["NonogramModule"] },
+								{ "count": 1, "modules": ["curriculum"] },
+								{ "count": 1, "modules": ["hunting"] },
+								{ "count": 1, "modules": ["FlagsModule"] },
+								{ "count": 1, "modules": ["theSwan"] }
+							],
+							"modules": 11,
+							"strikes": 3,
+							"widgets": 5
+						}
+					]
+				},
+				"logfile": "https://ktane.timwi.de/lfa#file=374098094e5487aac879335a25483c253a597c43"
+			}
+		},
+		{
+			"id": 1494,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10836",
+			"name": "[[UPDATE]] Challenge Bomb Endurance",
+			"action": "delete",
+			"timestamp": "2024-12-23T13:55:07.161Z",
+			"before": {
+				"id": 10836,
+				"name": "[[UPDATE]] Challenge Bomb Endurance",
+				"notes": null,
+				"authors": ["Awesome7285"],
+				"factory": "Sequence",
+				"logfile": "https://ktane.timwi.de/lfa#file=374098094e5487aac879335a25483c253a597c43",
+				"tpSolve": false,
+				"variant": null,
+				"inGameId": "mod_awesome7285_missions_Challenge Bomb Endurance",
+				"timeMode": "Local",
+				"verified": false,
+				"dateAdded": "2024-12-23T13:54:33.552Z",
+				"inGameName": null,
+				"strikeMode": "Local",
+				"uploadedBy": "486602438103531520",
+				"designedForTP": false,
+				"missionPackId": 595
+			}
+		},
+		{
+			"id": 1495,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10431",
+			"name": "Cyanturion",
+			"action": "update",
+			"timestamp": "2024-12-23T13:55:25.719Z",
+			"before": {
+				"logfile": "https://ktane.timwi.de/lfa#file=78429efcd48a6800fff4c6ffec736bbb1eea63f4",
+				"inGameId": "mod_AxoRandoMission_Cyanturion"
+			},
+			"after": {
+				"bombs": {
+					"create": [
+						{
+							"time": 6300,
+							"pools": [
+								{ "count": 1, "modules": ["FourtyTwo", "FiveZeroOne"] },
+								{ "count": 1, "modules": ["MistakeModule"] },
+								{ "count": 1, "modules": ["puppet"] },
+								{ "count": 1, "modules": ["misorderedKeys"] },
+								{ "count": 1, "modules": ["TDSAmogus"] },
+								{ "count": 1, "modules": ["AnagramsModule"] },
+								{ "count": 1, "modules": ["AppreciateArt"] },
+								{ "count": 1, "modules": ["spwizAstrology"] },
+								{ "count": 1, "modules": ["AudioKeypad"] },
+								{ "count": 1, "modules": ["Backgrounds"] },
+								{ "count": 1, "modules": ["BigCircle"] },
+								{ "count": 1, "modules": ["BinaryButtons"] },
+								{ "count": 1, "modules": ["challengeAndContact"] },
+								{ "count": 1, "modules": ["britishSlang"] },
+								{ "count": 1, "modules": ["TheBulbModule"] },
+								{ "count": 1, "modules": ["CaesarCipherModule"] },
+								{ "count": 1, "modules": ["CastorModule"] },
+								{ "count": 1, "modules": ["catchphrase"] },
+								{ "count": 1, "modules": ["ChamberNoFive"] },
+								{ "count": 1, "modules": ["nonverbalSimon"] },
+								{ "count": 1, "modules": ["sphere"] },
+								{ "count": 1, "modules": ["ColourFlash"] },
+								{ "count": 1, "modules": ["ColourFlashES"] },
+								{ "count": 1, "modules": ["iPhone"] },
+								{ "count": 1, "modules": ["scrutinySquares"] },
+								{ "count": 1, "modules": ["countdown"] },
+								{ "count": 1, "modules": ["CrazyTalk"] },
+								{ "count": 1, "modules": ["simonSaidModule"] },
+								{ "count": 1, "modules": ["CreationModule"] },
+								{ "count": 1, "modules": ["directionalButton"] },
+								{ "count": 1, "modules": ["DividedSquaresModule"] },
+								{ "count": 1, "modules": ["CruelPianoKeys"] },
+								{ "count": 1, "modules": ["MentalMath"] },
+								{ "count": 1, "modules": ["doubleColor"] },
+								{ "count": 1, "modules": ["quantumPasswords"] },
+								{ "count": 1, "modules": ["DoubleOhModule"] },
+								{ "count": 1, "modules": ["bigegg"] },
+								{ "count": 1, "modules": ["EnglishTest"] },
+								{ "count": 1, "modules": ["FaultyBackgrounds"] },
+								{ "count": 1, "modules": ["festiveJukebox"] },
+								{ "count": 1, "modules": ["FestivePianoKeys"] },
+								{ "count": 1, "modules": ["GSBottomGear2"] },
+								{ "count": 1, "modules": ["fourOperands"] },
+								{ "count": 1, "modules": ["FreePassword"] },
+								{ "count": 1, "modules": ["graduallyWatermelon"] },
+								{ "count": 1, "modules": ["theGreenWireModule"] },
+								{ "count": 1, "modules": ["Averageh"] },
+								{ "count": 1, "modules": ["harmonySequence"] },
+								{ "count": 1, "modules": ["ultimateTeam"] },
+								{ "count": 1, "modules": ["decimation"] },
+								{ "count": 1, "modules": ["impostor"] },
+								{ "count": 1, "modules": ["juliettModule"] },
+								{ "count": 1, "modules": ["jukebox"] },
+								{ "count": 1, "modules": ["Coordination"] },
+								{ "count": 1, "modules": ["LargeFreePassword"] },
+								{ "count": 1, "modules": ["LargeVanillaPassword"] },
+								{ "count": 1, "modules": ["LetterKeys"] },
+								{ "count": 1, "modules": ["melodySequencer"] },
+								{ "count": 1, "modules": ["metamorse"] },
+								{ "count": 1, "modules": ["MorseWar"] },
+								{ "count": 1, "modules": ["mortalKombat"] },
+								{ "count": 1, "modules": ["simpleMove"] },
+								{ "count": 1, "modules": ["boneAppleTea"] },
+								{ "count": 1, "modules": ["novemberModule"] },
+								{ "count": 1, "modules": ["NotWiresword"] },
+								{ "count": 1, "modules": ["oneitemOneMeal"] },
+								{ "count": 1, "modules": ["PolluxModule"] },
+								{ "count": 1, "modules": ["PressX"] },
+								{ "count": 1, "modules": ["Rules"] },
+								{ "count": 1, "modules": ["PurgatoryModule"] },
+								{ "count": 1, "modules": ["QuadButtonRegular"] },
+								{ "count": 1, "modules": ["numpath"] },
+								{ "count": 1, "modules": ["colouredArrowsModule"] },
+								{ "count": 1, "modules": ["RubiksSlideModule"] },
+								{ "count": 1, "modules": ["sevenWires"] },
+								{ "count": 1, "modules": ["simonScrambles"] },
+								{ "count": 1, "modules": ["SimonScreamsModule"] },
+								{ "count": 1, "modules": ["simonSelectsModule"] },
+								{ "count": 1, "modules": ["SimonShiftsModule"] },
+								{ "count": 1, "modules": ["simonStages"] },
+								{ "count": 1, "modules": ["SimonV2"] },
+								{ "count": 1, "modules": ["simonsOnFirst"] },
+								{ "count": 1, "modules": ["simonsStages"] },
+								{ "count": 1, "modules": ["simonsStar"] },
+								{ "count": 1, "modules": ["DoublePitch"] },
+								{ "count": 1, "modules": ["Sink"] },
+								{ "count": 1, "modules": ["skinnyWires"] },
+								{ "count": 1, "modules": ["sun"] },
+								{ "count": 1, "modules": ["synapseSays"] },
+								{ "count": 1, "modules": ["tWords"] },
+								{ "count": 1, "modules": ["troll"] },
+								{ "count": 1, "modules": ["coopharmonySequence"] },
+								{ "count": 1, "modules": ["WordScrambleModule"] },
+								{ "count": 1, "modules": ["WordSearchModule", "WordSearchModulePL", "cruelWordSearchModule"] },
+								{ "count": 1, "modules": ["stars"] },
+								{ "count": 1, "modules": ["PineapplePenModule"] },
+								{ "count": 1, "modules": ["witheredFoxy", "witheredBonnie"] },
+								{ "count": 1, "modules": ["SmallTalk"] },
+								{ "count": 1, "modules": ["BitOps"] },
+								{ "count": 1, "modules": ["colorNumbers"] },
+								{ "count": 1, "modules": ["numberCipher"] }
+							],
+							"modules": 101,
+							"strikes": 8,
+							"widgets": 5
+						}
+					]
+				},
+				"logfile": "https://ktane.timwi.de/lfa#file=58111b508e503f602aa632a54d2e4e11db1c4e55",
+				"inGameId": "mod_cyanix_missions_Random Chance Cyanturion"
+			}
+		},
+		{
+			"id": 1496,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10815",
+			"name": "[[UPDATE]] Cyanturion",
+			"action": "delete",
+			"timestamp": "2024-12-23T13:55:25.741Z",
+			"before": {
+				"id": 10815,
+				"name": "[[UPDATE]] Cyanturion",
+				"notes": null,
+				"authors": ["Cyanix"],
+				"factory": null,
+				"logfile": "https://ktane.timwi.de/lfa#file=58111b508e503f602aa632a54d2e4e11db1c4e55",
+				"tpSolve": false,
+				"variant": null,
+				"inGameId": "mod_cyanix_missions_Random Chance Cyanturion",
+				"timeMode": null,
+				"verified": false,
+				"dateAdded": "2024-12-01T11:56:17.506Z",
+				"inGameName": null,
+				"strikeMode": null,
+				"uploadedBy": "832703757615497298",
+				"designedForTP": false,
+				"missionPackId": 604
+			}
+		},
+		{
+			"id": 1497,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10432",
+			"name": "Random Chance Cyanturion",
+			"action": "update",
+			"timestamp": "2024-12-23T13:55:27.084Z",
+			"before": {
+				"logfile": "https://ktane.timwi.de/lfa#file=78429efcd48a6800fff4c6ffec736bbb1eea63f4",
+				"inGameId": "mod_AxoRandoMission_Random Chance Cyanturion"
+			},
+			"after": {
+				"bombs": {
+					"create": [
+						{
+							"time": 6300,
+							"pools": [
+								{ "count": 1, "modules": ["stars"] },
+								{ "count": 1, "modules": ["MistakeModule"] },
+								{ "count": 1, "modules": ["puppet"] },
+								{ "count": 1, "modules": ["misorderedKeys"] },
+								{ "count": 1, "modules": ["TDSAmogus"] },
+								{ "count": 1, "modules": ["AnagramsModule"] },
+								{ "count": 1, "modules": ["AppreciateArt"] },
+								{ "count": 1, "modules": ["spwizAstrology"] },
+								{ "count": 1, "modules": ["AudioKeypad"] },
+								{ "count": 1, "modules": ["Backgrounds"] },
+								{ "count": 1, "modules": ["BigCircle"] },
+								{ "count": 1, "modules": ["BinaryButtons"] },
+								{ "count": 1, "modules": ["challengeAndContact"] },
+								{ "count": 1, "modules": ["britishSlang"] },
+								{ "count": 1, "modules": ["TheBulbModule"] },
+								{ "count": 1, "modules": ["CaesarCipherModule"] },
+								{ "count": 1, "modules": ["CastorModule"] },
+								{ "count": 1, "modules": ["catchphrase"] },
+								{ "count": 1, "modules": ["ChamberNoFive"] },
+								{ "count": 1, "modules": ["nonverbalSimon"] },
+								{ "count": 1, "modules": ["sphere"] },
+								{ "count": 1, "modules": ["ColourFlash"] },
+								{ "count": 1, "modules": ["ColourFlashES"] },
+								{ "count": 1, "modules": ["iPhone"] },
+								{ "count": 1, "modules": ["scrutinySquares"] },
+								{ "count": 1, "modules": ["countdown"] },
+								{ "count": 1, "modules": ["CrazyTalk"] },
+								{ "count": 1, "modules": ["simonSaidModule"] },
+								{ "count": 1, "modules": ["CreationModule"] },
+								{ "count": 1, "modules": ["directionalButton"] },
+								{ "count": 1, "modules": ["DividedSquaresModule"] },
+								{ "count": 1, "modules": ["CruelPianoKeys"] },
+								{ "count": 1, "modules": ["MentalMath"] },
+								{ "count": 1, "modules": ["doubleColor"] },
+								{ "count": 1, "modules": ["quantumPasswords"] },
+								{ "count": 1, "modules": ["DoubleOhModule"] },
+								{ "count": 1, "modules": ["bigegg"] },
+								{ "count": 1, "modules": ["EnglishTest"] },
+								{ "count": 1, "modules": ["FaultyBackgrounds"] },
+								{ "count": 1, "modules": ["festiveJukebox"] },
+								{ "count": 1, "modules": ["FestivePianoKeys"] },
+								{
+									"count": 1,
+									"modules": ["forgetItNot", "forgetInfinity", "MemoryV2", "forgetUsNot", "forgetMeLater"]
+								},
+								{ "count": 1, "modules": ["fourOperands"] },
+								{ "count": 1, "modules": ["FreePassword"] },
+								{ "count": 1, "modules": ["graduallyWatermelon"] },
+								{ "count": 1, "modules": ["theGreenWireModule"] },
+								{ "count": 1, "modules": ["Averageh"] },
+								{ "count": 1, "modules": ["harmonySequence"] },
+								{ "count": 1, "modules": ["ultimateTeam"] },
+								{ "count": 1, "modules": ["GSBottomGear2"] },
+								{ "count": 1, "modules": ["impostor"] },
+								{ "count": 1, "modules": ["juliettModule"] },
+								{ "count": 1, "modules": ["jukebox"] },
+								{ "count": 1, "modules": ["Coordination"] },
+								{ "count": 1, "modules": ["LargeFreePassword"] },
+								{ "count": 1, "modules": ["LargeVanillaPassword"] },
+								{ "count": 1, "modules": ["LetterKeys"] },
+								{ "count": 1, "modules": ["melodySequencer"] },
+								{ "count": 1, "modules": ["metamorse"] },
+								{ "count": 1, "modules": ["MorseWar"] },
+								{ "count": 1, "modules": ["mortalKombat"] },
+								{ "count": 1, "modules": ["simpleMove"] },
+								{ "count": 1, "modules": ["boneAppleTea"] },
+								{ "count": 1, "modules": ["novemberModule"] },
+								{ "count": 1, "modules": ["NotWiresword"] },
+								{ "count": 1, "modules": ["oneitemOneMeal"] },
+								{ "count": 1, "modules": ["PolluxModule"] },
+								{ "count": 1, "modules": ["PressX"] },
+								{ "count": 1, "modules": ["Rules"] },
+								{ "count": 1, "modules": ["PurgatoryModule"] },
+								{ "count": 1, "modules": ["QuadButtonRegular"] },
+								{ "count": 1, "modules": ["decimation"] },
+								{ "count": 1, "modules": ["numpath"] },
+								{ "count": 1, "modules": ["RubiksSlideModule"] },
+								{ "count": 1, "modules": ["sevenWires"] },
+								{ "count": 1, "modules": ["simonScrambles"] },
+								{ "count": 1, "modules": ["SimonScreamsModule"] },
+								{ "count": 1, "modules": ["simonSelectsModule"] },
+								{ "count": 1, "modules": ["SimonShiftsModule"] },
+								{ "count": 1, "modules": ["simonStages"] },
+								{ "count": 1, "modules": ["SimonV2"] },
+								{ "count": 1, "modules": ["simonsOnFirst"] },
+								{ "count": 1, "modules": ["simonsStages"] },
+								{ "count": 1, "modules": ["simonsStar"] },
+								{ "count": 1, "modules": ["DoublePitch"] },
+								{ "count": 1, "modules": ["Sink"] },
+								{ "count": 1, "modules": ["skinnyWires"] },
+								{ "count": 1, "modules": ["sun"] },
+								{ "count": 1, "modules": ["synapseSays"] },
+								{ "count": 1, "modules": ["tWords"] },
+								{ "count": 1, "modules": ["troll"] },
+								{ "count": 1, "modules": ["colouredArrowsModule"] },
+								{ "count": 1, "modules": ["WordScrambleModule"] },
+								{ "count": 1, "modules": ["WordSearchModule", "WordSearchModulePL", "cruelWordSearchModule"] },
+								{ "count": 1, "modules": ["coopharmonySequence"] },
+								{ "count": 1, "modules": ["PineapplePenModule"] },
+								{
+									"count": 1,
+									"modules": [
+										"literallyDeaging",
+										"literallyLaughing",
+										"literallyTaunting",
+										"literallyDying",
+										"literallyMalding",
+										"literallyCrying",
+										"literallyNothing",
+										"NeedyBeer",
+										"NeedyVentV2",
+										"witheredFoxy",
+										"lgndEightPages",
+										"simonStashes",
+										"ksmSimonLitSays",
+										"simonsSequence",
+										"simonSquawks",
+										"Needy Math",
+										"witheredBonnie"
+									]
+								},
+								{ "count": 1, "modules": ["SmallTalk"] },
+								{ "count": 1, "modules": ["BitOps"] },
+								{ "count": 1, "modules": ["colorNumbers"] },
+								{ "count": 1, "modules": ["numberCipher"] }
+							],
+							"modules": 101,
+							"strikes": 8,
+							"widgets": 5
+						}
+					]
+				},
+				"logfile": "https://ktane.timwi.de/lfa#file=58111b508e503f602aa632a54d2e4e11db1c4e55",
+				"inGameId": "mod_cyanix_missions_Random Chance Cyanturion"
+			}
+		},
+		{
+			"id": 1498,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10816",
+			"name": "[[UPDATE]] Random Chance Cyanturion",
+			"action": "delete",
+			"timestamp": "2024-12-23T13:55:27.105Z",
+			"before": {
+				"id": 10816,
+				"name": "[[UPDATE]] Random Chance Cyanturion",
+				"notes": null,
+				"authors": ["Cyanix"],
+				"factory": null,
+				"logfile": "https://ktane.timwi.de/lfa#file=58111b508e503f602aa632a54d2e4e11db1c4e55",
+				"tpSolve": false,
+				"variant": null,
+				"inGameId": "mod_cyanix_missions_Random Chance Cyanturion",
+				"timeMode": null,
+				"verified": false,
+				"dateAdded": "2024-12-01T11:56:17.531Z",
+				"inGameName": null,
+				"strikeMode": null,
+				"uploadedBy": "832703757615497298",
+				"designedForTP": false,
+				"missionPackId": 604
+			}
+		},
+		{
+			"id": 1499,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10820",
+			"name": "One More Time",
+			"action": "update",
+			"timestamp": "2024-12-23T13:55:32.281Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1500,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10821",
+			"name": "Talking 'Bout Regeneration",
+			"action": "update",
+			"timestamp": "2024-12-23T13:55:33.972Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1501,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10822",
+			"name": "_Play_'s Sillier Favourites",
+			"action": "update",
+			"timestamp": "2024-12-23T13:55:35.098Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1502,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10823",
+			"name": "Set Up Madness",
+			"action": "update",
+			"timestamp": "2024-12-23T13:55:38.262Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1503,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10824",
+			"name": "Devil's Advocate",
+			"action": "update",
+			"timestamp": "2024-12-23T13:55:40.293Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1504,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10825",
+			"name": "Timespread Tribulations",
+			"action": "update",
+			"timestamp": "2024-12-23T13:55:42.169Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1505,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10728",
+			"name": "What a Bunch of Bull",
+			"action": "update",
+			"timestamp": "2024-12-23T13:56:01.359Z",
+			"before": {},
+			"after": {
+				"bombs": {
+					"update": [
+						{
+							"data": {
+								"time": 7200,
+								"pools": [
+									{ "count": 1, "modules": ["15MysticLights"] },
+									{ "count": 1, "modules": ["GSNineBall"] },
+									{ "count": 1, "modules": ["actual4x4x4SudokuModule"] },
+									{ "count": 1, "modules": ["spwizAdventureGame"] },
+									{ "count": 1, "modules": ["algebra"] },
+									{ "count": 1, "modules": ["BattleshipModule"] },
+									{ "count": 1, "modules": ["BigCircle"] },
+									{ "count": 1, "modules": ["xelBrownBricks"] },
+									{ "count": 1, "modules": ["burgerAlarm"] },
+									{ "count": 1, "modules": ["buttonSequencesModule"] },
+									{ "count": 1, "modules": ["calendar"] },
+									{ "count": 1, "modules": ["console"] },
+									{ "count": 1, "modules": ["cooking"] },
+									{ "count": 1, "modules": ["CoordinatesModule"] },
+									{ "count": 1, "modules": ["deckOfManyThings"] },
+									{ "count": 1, "modules": ["derivatives"] },
+									{ "count": 1, "modules": ["eightTilesPanic"] },
+									{ "count": 1, "modules": ["fishing"] },
+									{ "count": 1, "modules": ["FittingInModule"] },
+									{ "count": 1, "modules": ["forgetMazeNot"] },
+									{ "count": 1, "modules": ["HigherOrLower"] },
+									{ "count": 1, "modules": ["ingredients"] },
+									{ "count": 1, "modules": ["iPhone"] },
+									{ "count": 1, "modules": ["jewelVault"] },
+									{ "count": 1, "modules": ["KudosudokuModule"] },
+									{ "count": 1, "modules": ["LightCycleModule"] },
+									{ "count": 1, "modules": ["mini"] },
+									{ "count": 1, "modules": ["MorseV2"] },
+									{ "count": 1, "modules": ["mortalKombat"] },
+									{ "count": 1, "modules": ["mysticmaze"] },
+									{ "count": 1, "modules": ["MysticSquareModule"] },
+									{ "count": 1, "modules": ["NeutralButtonModule"] },
+									{ "count": 1, "modules": ["OnlyConnectModule"] },
+									{ "count": 1, "modules": ["PianoKeys"] },
+									{ "count": 1, "modules": ["purpleArrowsModule"] },
+									{ "count": 1, "modules": ["RedButtonModule"] },
+									{ "count": 1, "modules": ["rgbMaze"] },
+									{ "count": 1, "modules": ["roger"] },
+									{ "count": 1, "modules": ["SamuelSays"] },
+									{ "count": 1, "modules": ["shapesAndColors"] },
+									{ "count": 1, "modules": ["simonSelectsModule"] },
+									{ "count": 1, "modules": ["SimonSpeaksModule"] },
+									{ "count": 1, "modules": ["streetFighter"] },
+									{ "count": 1, "modules": ["smbh"] },
+									{ "count": 1, "modules": ["SynchronizationModule"] },
+									{ "count": 1, "modules": ["lgndTerrariaQuiz"] },
+									{ "count": 1, "modules": ["ubermodule"] }
+								],
+								"modules": 47,
+								"strikes": 5,
+								"widgets": 5
+							},
+							"where": { "id": 14680 }
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 1506,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10728",
+			"name": "What a Bunch of Bull",
+			"action": "update",
+			"timestamp": "2024-12-23T13:56:01.369Z",
+			"before": { "notes": "Updated version pending review. Solves temporarily frozen." },
+			"after": { "notes": null }
+		},
+		{
+			"id": 1507,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10431",
+			"name": "Cyanturion",
+			"action": "update",
+			"timestamp": "2024-12-23T14:03:47.239Z",
+			"before": { "notes": "Updated version pending review. Solves temporarily frozen." },
+			"after": { "notes": null }
+		},
+		{
+			"id": 1508,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10432",
+			"name": "Random Chance Cyanturion",
+			"action": "update",
+			"timestamp": "2024-12-23T14:03:57.291Z",
+			"before": { "notes": "Updated version pending review. Solves temporarily frozen." },
+			"after": { "notes": null }
+		},
+		{
+			"id": 1509,
+			"userId": "689219553531658292",
+			"model": "Completion",
+			"recordId": "60892",
+			"name": "One More Time||Faith",
+			"action": "create",
+			"timestamp": "2024-12-23T14:08:03.650Z"
+		},
+		{
+			"id": 1510,
+			"userId": "689219553531658292",
+			"model": "Completion",
+			"recordId": "60893",
+			"name": "Challenge Bomb Endurance||Faith",
+			"action": "create",
+			"timestamp": "2024-12-23T14:10:59.094Z"
+		},
+		{
+			"id": 1511,
+			"userId": "459108669636739072",
+			"model": "Completion",
+			"recordId": "60894",
+			"name": "Bravo Echo||Kugel",
+			"action": "create",
+			"timestamp": "2024-12-23T14:17:15.533Z"
+		},
+		{
+			"id": 1512,
+			"userId": "459108669636739072",
+			"model": "Completion",
+			"recordId": "60895",
+			"name": "Challenge Bomb Endurance||Kugel",
+			"action": "create",
+			"timestamp": "2024-12-23T15:53:09.898Z"
+		},
+		{
+			"id": 1513,
+			"userId": "486602438103531520",
+			"model": "MissionPack",
+			"recordId": "616",
+			"name": "rand06's Missions",
+			"action": "update",
+			"timestamp": "2024-12-23T20:14:41.446Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1514,
+			"userId": "622198629670584330",
+			"model": "Completion",
+			"recordId": "60896",
+			"name": "Keypad Madness||EricB",
+			"action": "create",
+			"timestamp": "2024-12-23T21:12:15.625Z"
+		},
+		{
+			"id": 1515,
+			"userId": "261983800429510658",
+			"model": "Completion",
+			"recordId": "60897",
+			"name": "Boss Soloing||nameless",
+			"action": "create",
+			"timestamp": "2024-12-23T21:14:41.310Z"
+		},
+		{
+			"id": 1516,
+			"userId": "234075130521714689",
+			"model": "Completion",
+			"recordId": "60898",
+			"name": "SoulOrg Endurance||Lyph, denial140",
+			"action": "create",
+			"timestamp": "2024-12-24T05:45:06.975Z"
+		},
+		{
+			"id": 1517,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60883",
+			"name": "Color Square Madness||GreenPower",
+			"action": "update",
+			"timestamp": "2024-12-24T08:11:54.254Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1518,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "59492",
+			"name": "17 Again||denial140",
+			"action": "update",
+			"timestamp": "2024-12-24T08:12:43.228Z",
+			"before": {
+				"time": 460.09,
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=f6c1596ec281342c7008c25901331a351fae6988;bomb=7G7KE4"
+				]
+			},
+			"after": {
+				"time": 1724.03,
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=6927d1757d3d783833fa4717d5ce5854592eb52c;bomb=A48PN6",
+					"https://youtu.be/zVF9zRbr6T4"
+				]
+			}
+		},
+		{
+			"id": 1519,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60884",
+			"name": "17 Again||denial140",
+			"action": "delete",
+			"timestamp": "2024-12-24T08:12:43.237Z",
+			"before": {
+				"id": 60884,
+				"old": false,
+				"solo": false,
+				"team": ["denial140"],
+				"time": 1724.03,
+				"first": false,
+				"notes": null,
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=6927d1757d3d783833fa4717d5ce5854592eb52c;bomb=A48PN6",
+					"https://youtu.be/zVF9zRbr6T4"
+				],
+				"verified": false,
+				"dateAdded": "2024-12-21T16:34:07.507Z",
+				"missionId": 9831,
+				"uploadedBy": "118831126239248397"
+			}
+		},
+		{
+			"id": 1520,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60887",
+			"name": "Undefined 47||hyeon72",
+			"action": "update",
+			"timestamp": "2024-12-24T08:13:08.351Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1521,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60888",
+			"name": "ÜberKlax Endurance||hyeon72",
+			"action": "update",
+			"timestamp": "2024-12-24T08:13:18.642Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1522,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60889",
+			"name": "Boss Module Endurance||hyeon72",
+			"action": "update",
+			"timestamp": "2024-12-24T08:13:31.866Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1523,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60892",
+			"name": "One More Time||Faith",
+			"action": "update",
+			"timestamp": "2024-12-24T08:14:21.004Z",
+			"before": { "first": false, "verified": false },
+			"after": { "first": true, "verified": true }
+		},
+		{
+			"id": 1524,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60893",
+			"name": "Challenge Bomb Endurance||Faith",
+			"action": "update",
+			"timestamp": "2024-12-24T08:19:40.108Z",
+			"before": { "first": false, "verified": false },
+			"after": { "first": true, "verified": true }
+		},
+		{
+			"id": 1525,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60893",
+			"name": "Challenge Bomb Endurance||Faith",
+			"action": "update",
+			"timestamp": "2024-12-24T08:19:58.797Z",
+			"before": { "time": 6441.25 },
+			"after": { "time": 3081.25 }
+		},
+		{
+			"id": 1526,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60894",
+			"name": "Bravo Echo||Kugel",
+			"action": "update",
+			"timestamp": "2024-12-24T08:20:46.381Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1527,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60895",
+			"name": "Challenge Bomb Endurance||Kugel",
+			"action": "update",
+			"timestamp": "2024-12-24T08:21:00.694Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1528,
+			"userId": "877179000684941383",
+			"model": "Completion",
+			"recordId": "60899",
+			"name": "Games within the game||Sideral, GreenPower",
+			"action": "create",
+			"timestamp": "2024-12-24T18:44:18.944Z"
+		},
+		{
+			"id": 1529,
+			"userId": "597035767503519765",
+			"model": "Completion",
+			"recordId": "60900",
+			"name": "Dove||hyeon72",
+			"action": "create",
+			"timestamp": "2024-12-25T06:26:32.936Z"
+		},
+		{
+			"id": 1530,
+			"userId": "294221057311899649",
+			"model": "Completion",
+			"recordId": "60901",
+			"name": "Blank Madness||GreenPower",
+			"action": "create",
+			"timestamp": "2024-12-25T08:31:22.991Z"
+		},
+		{
+			"id": 1531,
+			"userId": "385672905616392214",
+			"model": "Completion",
+			"recordId": "60902",
+			"name": "Reasonable||Azzaman",
+			"action": "create",
+			"timestamp": "2024-12-25T14:57:33.571Z"
+		},
+		{
+			"id": 1532,
+			"userId": "564025785573179407",
+			"model": "Completion",
+			"recordId": "60903",
+			"name": "Boss Module Endurance||Chokokafe",
+			"action": "create",
+			"timestamp": "2024-12-25T20:48:10.073Z"
+		},
+		{
+			"id": 1533,
+			"userId": "234075130521714689",
+			"model": "Completion",
+			"recordId": "60904",
+			"name": "Just Vibin'||Lyph, denial140",
+			"action": "create",
+			"timestamp": "2024-12-26T04:53:06.642Z"
+		},
+		{
+			"id": 1534,
+			"userId": "564025785573179407",
+			"model": "Completion",
+			"recordId": "60905",
+			"name": "Reasonable||Chokokafe",
+			"action": "create",
+			"timestamp": "2024-12-26T17:49:07.132Z"
+		},
+		{
+			"id": 1535,
+			"userId": "243193229661569024",
+			"model": "Completion",
+			"recordId": "60906",
+			"name": "Chuzzinator||Dicey",
+			"action": "create",
+			"timestamp": "2024-12-26T19:02:49.966Z"
+		},
+		{
+			"id": 1536,
+			"userId": "134114144096878593",
+			"model": "Completion",
+			"recordId": "60907",
+			"name": "SoulOrg Endurance||NinjaBorn, Masked Mystery",
+			"action": "create",
+			"timestamp": "2024-12-27T03:23:58.789Z"
+		},
+		{
+			"id": 1537,
+			"userId": "705094454717186119",
+			"model": "Completion",
+			"recordId": "60908",
+			"name": "Triforce||BladePL",
+			"action": "create",
+			"timestamp": "2024-12-27T11:01:16.648Z"
+		},
+		{
+			"id": 1538,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60896",
+			"name": "Keypad Madness||EricB",
+			"action": "update",
+			"timestamp": "2024-12-27T11:24:47.837Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1539,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60897",
+			"name": "Boss Soloing||nameless",
+			"action": "update",
+			"timestamp": "2024-12-27T11:25:10.957Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1540,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60898",
+			"name": "SoulOrg Endurance||Lyph, denial140",
+			"action": "update",
+			"timestamp": "2024-12-27T11:25:22.535Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1541,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60899",
+			"name": "Games within the game||Sideral, GreenPower",
+			"action": "update",
+			"timestamp": "2024-12-27T11:26:08.438Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1542,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60900",
+			"name": "Dove||hyeon72",
+			"action": "update",
+			"timestamp": "2024-12-27T11:26:35.689Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1543,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60901",
+			"name": "Blank Madness||GreenPower",
+			"action": "update",
+			"timestamp": "2024-12-27T11:27:10.010Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1544,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60902",
+			"name": "Reasonable||Azzaman",
+			"action": "update",
+			"timestamp": "2024-12-27T11:27:25.135Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1545,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60903",
+			"name": "Boss Module Endurance||Chokokafe",
+			"action": "update",
+			"timestamp": "2024-12-27T11:27:47.043Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1546,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60903",
+			"name": "Boss Module Endurance||Chokokafe",
+			"action": "update",
+			"timestamp": "2024-12-27T11:28:07.589Z",
+			"before": {
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=66d87a7f7bc62acdcf4e2f278cb8ff4da3d97d6e;bomb=QM5TH0",
+					"https://media.discordapp.net/attachments/957375798615097414/1321579284711870604/image.png?ex=676dc01f&is=676c6e9f&hm=1e2bde2446b2cdf29564ab742facb9a34486cb302ff1c714decc0e31d7e2149f&=&format=webp&quality=lossless&width=1872&height=1038"
+				]
+			},
+			"after": {
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=66d87a7f7bc62acdcf4e2f278cb8ff4da3d97d6e;bomb=QM5TH0"
+				]
+			}
+		},
+		{
+			"id": 1547,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60904",
+			"name": "Just Vibin'||Lyph, denial140",
+			"action": "update",
+			"timestamp": "2024-12-27T11:28:32.382Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1548,
+			"userId": "705094454717186119",
+			"model": "Completion",
+			"recordId": "60909",
+			"name": "Triforce No Needy||BladePL",
+			"action": "create",
+			"timestamp": "2024-12-27T12:49:06.847Z"
+		},
+		{
+			"id": 1549,
+			"userId": "73186070136619008",
+			"model": "Completion",
+			"recordId": "60910",
+			"name": "Lost In Many Mazes V2||BigLittle, Crazycaleb, Draket",
+			"action": "create",
+			"timestamp": "2024-12-28T05:37:07.799Z"
+		},
+		{
+			"id": 1550,
+			"userId": "597035767503519765",
+			"model": "Completion",
+			"recordId": "60911",
+			"name": "SoulOrg Endurance||hyeon72",
+			"action": "create",
+			"timestamp": "2024-12-28T08:03:28.192Z"
+		},
+		{
+			"id": 1551,
+			"userId": "725302560432324637",
+			"model": "Mission",
+			"recordId": "10837",
+			"name": "Cooldown Madness",
+			"action": "create",
+			"timestamp": "2024-12-28T10:34:08.331Z"
+		},
+		{
+			"id": 1552,
+			"userId": "725302560432324637",
+			"model": "Mission",
+			"recordId": "10838",
+			"name": "Storingkloof",
+			"action": "create",
+			"timestamp": "2024-12-28T10:34:38.716Z"
+		},
+		{
+			"id": 1553,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10539",
+			"name": "Semipseudoquirky",
+			"action": "update",
+			"timestamp": "2024-12-28T13:39:29.839Z",
+			"before": {
+				"logfile": "https://ktane.timwi.de/lfa#file=c1fa2128c83eabf4430eab83250f95523a950dd2",
+				"inGameId": "mod_AxoRandoMission_Semipseudoquirky"
+			},
+			"after": {
+				"bombs": {
+					"create": [
+						{
+							"time": 7200,
+							"pools": [
+								{ "count": 1, "modules": ["DividedSquaresModule"] },
+								{ "count": 1, "modules": ["theSwan"] },
+								{ "count": 1, "modules": ["Amnesia"] },
+								{ "count": 1, "modules": ["klaxon"] },
+								{ "count": 1, "modules": ["FourtyTwo"] },
+								{ "count": 1, "modules": ["FiveZeroOne"] },
+								{ "count": 1, "modules": ["kataCheatCheckout"] },
+								{ "count": 1, "modules": ["multitask"] },
+								{ "count": 1, "modules": ["PineapplePenModule"] },
+								{ "count": 1, "modules": ["ApplePenModule"] },
+								{ "count": 1, "modules": ["CastorModule"] },
+								{ "count": 1, "modules": ["PolluxModule"] },
+								{ "count": 1, "modules": ["lightspeed"] },
+								{ "count": 1, "modules": ["monsplodeFight"] },
+								{ "count": 1, "modules": ["combinationLock"] },
+								{ "count": 1, "modules": ["Laundry"] },
+								{ "count": 1, "modules": ["PointOfOrderModule"] },
+								{ "count": 1, "modules": ["iceCreamModule"] },
+								{ "count": 1, "modules": ["GameOfLifeCruel"] },
+								{ "count": 1, "modules": ["TurnTheKey"] },
+								{ "count": 1, "modules": ["Playfair"] },
+								{ "count": 1, "modules": ["doubleColor"] },
+								{ "count": 1, "modules": ["TennisModule"] },
+								{ "count": 1, "modules": ["LionsShareModule"] },
+								{ "count": 1, "modules": ["simonStages"] },
+								{ "count": 1, "modules": ["tashaSqueals"] },
+								{ "count": 1, "modules": ["borderedKeys"] },
+								{ "count": 1, "modules": ["bombDiffusal"] },
+								{ "count": 1, "modules": ["doubleExpert"] },
+								{ "count": 1, "modules": ["qwirkle"] },
+								{ "count": 1, "modules": ["ksmHighScore"] },
+								{ "count": 1, "modules": ["timingIsEverything"] },
+								{ "count": 1, "modules": ["NotPassword"] },
+								{ "count": 1, "modules": ["ReformedRoleReversal"] },
+								{ "count": 1, "modules": ["shellGame"] },
+								{ "count": 1, "modules": ["KiloTalk"] },
+								{ "count": 1, "modules": ["OutOfTime"] },
+								{ "count": 1, "modules": ["theMissingLetter"] },
+								{ "count": 1, "modules": ["graduallyWatermelon"] },
+								{ "count": 1, "modules": ["puppet"] },
+								{ "count": 1, "modules": ["TurnTheKeyAdvanced"] },
+								{ "count": 1, "modules": ["fakeBeans"] },
+								{ "count": 1, "modules": ["connectFourModule"] },
+								{ "count": 1, "modules": ["SimonShoutsModule"] },
+								{ "count": 1, "modules": ["phones"] },
+								{ "count": 1, "modules": ["theGarnetThief"] },
+								{ "count": 1, "modules": ["LabelPrioritiesModule"] }
+							],
+							"modules": 47,
+							"strikes": 6,
+							"widgets": 5
+						}
+					]
+				},
+				"logfile": "https://ktane.timwi.de/lfa#file=599c4f11f12d061f76810c1365b1b9d08078d9a3",
+				"inGameId": "mod_cyanix_missions_Semipseudoquirky"
+			}
+		},
+		{
+			"id": 1554,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10814",
+			"name": "[[UPDATE]] Semipseudoquirky",
+			"action": "delete",
+			"timestamp": "2024-12-28T13:39:29.860Z",
+			"before": {
+				"id": 10814,
+				"name": "[[UPDATE]] Semipseudoquirky",
+				"notes": null,
+				"authors": ["Cyanix"],
+				"factory": null,
+				"logfile": "https://ktane.timwi.de/lfa#file=599c4f11f12d061f76810c1365b1b9d08078d9a3",
+				"tpSolve": false,
+				"variant": null,
+				"inGameId": "mod_cyanix_missions_Semipseudoquirky",
+				"timeMode": null,
+				"verified": false,
+				"dateAdded": "2024-11-30T23:44:04.895Z",
+				"inGameName": null,
+				"strikeMode": null,
+				"uploadedBy": "832703757615497298",
+				"designedForTP": false,
+				"missionPackId": 604
+			}
+		},
+		{
+			"id": 1555,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10826",
+			"name": "Burger King Is Not Real",
+			"action": "update",
+			"timestamp": "2024-12-28T13:39:32.077Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1556,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10828",
+			"name": "\"Can we do this bomb while I charge my phone?\"",
+			"action": "update",
+			"timestamp": "2024-12-28T13:39:33.281Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1557,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10829",
+			"name": "Crumbl Cookie Review",
+			"action": "update",
+			"timestamp": "2024-12-28T13:39:33.763Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1558,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10830",
+			"name": "Multifandom",
+			"action": "update",
+			"timestamp": "2024-12-28T13:39:34.683Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1559,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10831",
+			"name": "Tyler-Why",
+			"action": "update",
+			"timestamp": "2024-12-28T13:39:35.504Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1560,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10832",
+			"name": "Axodoreduxion - Take 2",
+			"action": "update",
+			"timestamp": "2024-12-28T13:39:47.875Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1561,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10839",
+			"name": "[[UPDATE]] Axodoreduxion - Take 2",
+			"action": "create",
+			"timestamp": "2024-12-28T13:40:03.017Z"
+		},
+		{
+			"id": 1562,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10832",
+			"name": "Axodoreduxion - Take 2",
+			"action": "update",
+			"timestamp": "2024-12-28T13:40:06.545Z",
+			"before": { "logfile": "https://ktane.timwi.de/lfa#file=0925eb03487014adfb93e65b523048398d6d6efc" },
+			"after": {
+				"bombs": {
+					"create": [
+						{
+							"time": 14400,
+							"pools": [
+								{ "count": 1, "modules": ["limboKeysRB"] },
+								{ "count": 1, "modules": ["GSFourElements"] },
+								{ "count": 1, "modules": ["answerSmashModule"] },
+								{ "count": 1, "modules": ["ChessModule"] },
+								{ "count": 1, "modules": ["LongWords"] },
+								{ "count": 1, "modules": ["flashingCircles"] },
+								{ "count": 1, "modules": ["dualSequences"] },
+								{ "count": 1, "modules": ["jupiter"] },
+								{ "count": 1, "modules": ["GSAbyss"] },
+								{ "count": 1, "modules": ["AudioKeypad"] },
+								{ "count": 1, "modules": ["starmap_reconstruction"] },
+								{ "count": 1, "modules": ["xo"] },
+								{ "count": 1, "modules": ["klaxon"] },
+								{ "count": 1, "modules": ["MissionIdentification"] },
+								{ "count": 1, "modules": ["scattershot"] },
+								{ "count": 1, "modules": ["alcoholicRampageModule"] },
+								{ "count": 1, "modules": ["foxtrotModule"] },
+								{ "count": 1, "modules": ["q&a"] },
+								{ "count": 1, "modules": ["GSCrazyHamburger"] },
+								{ "count": 1, "modules": ["GSLuigiPoker"] },
+								{ "count": 1, "modules": ["Yippee"] },
+								{ "count": 1, "modules": ["emoji"] },
+								{ "count": 1, "modules": ["vigilantPsycho"] },
+								{ "count": 1, "modules": ["setupWizard"] },
+								{ "count": 1, "modules": ["synapseCipher"] },
+								{ "count": 1, "modules": ["enaCipher"] },
+								{ "count": 1, "modules": ["ThirtyDollarModule"] },
+								{ "count": 1, "modules": ["IDVerification"] },
+								{ "count": 1, "modules": ["wordCount"] },
+								{ "count": 1, "modules": ["GSBlindfoldedYahtzee"] },
+								{ "count": 1, "modules": ["airStrikes"] },
+								{ "count": 1, "modules": ["GSTeaSet"] },
+								{ "count": 1, "modules": ["ReformedRoleReversal"] },
+								{ "count": 1, "modules": ["ultimateTeam"] },
+								{ "count": 1, "modules": ["GSSuitShuffle"] },
+								{ "count": 1, "modules": ["captainWheeler"] },
+								{ "count": 1, "modules": ["reflexFactoryModule"] },
+								{ "count": 1, "modules": ["GSBottomGear3"] },
+								{ "count": 1, "modules": ["BlankSlate"] },
+								{ "count": 1, "modules": ["matchRefereeing"] },
+								{ "count": 1, "modules": ["PuzzlePandemoniumModule"] },
+								{ "count": 1, "modules": ["palindromes"] },
+								{ "count": 1, "modules": ["schulteTable"] },
+								{ "count": 1, "modules": ["mercury"] },
+								{ "count": 1, "modules": ["uranus"] },
+								{ "count": 1, "modules": ["neptune"] },
+								{ "count": 1, "modules": ["mars"] },
+								{ "count": 1, "modules": ["subblyJubbly"] },
+								{ "count": 1, "modules": ["mini"] },
+								{ "count": 1, "modules": ["xelGraphIdentification"] },
+								{ "count": 1, "modules": ["factoryCubes"] },
+								{ "count": 1, "modules": ["thermostat"] },
+								{ "count": 1, "modules": ["RebootingM-Os"] },
+								{ "count": 1, "modules": ["marcoPolo"] },
+								{ "count": 1, "modules": ["YellowButtonModule"] },
+								{ "count": 1, "modules": ["maskedMorse"] },
+								{ "count": 1, "modules": ["metapuzzle"] },
+								{ "count": 1, "modules": ["PuzzwordModule"] },
+								{ "count": 1, "modules": ["Wendithapn"] },
+								{ "count": 1, "modules": ["SimonsSatire"] },
+								{ "count": 1, "modules": ["FlaminFinger"] },
+								{ "count": 1, "modules": ["eightTilesPanic"] },
+								{ "count": 1, "modules": ["TDSNya"] },
+								{ "count": 1, "modules": ["theGarnetThief"] },
+								{ "count": 1, "modules": ["hexNull"] },
+								{ "count": 1, "modules": ["bombDiffusal"] },
+								{ "count": 1, "modules": ["anomia"] },
+								{ "count": 1, "modules": ["hexOrbits"] },
+								{ "count": 1, "modules": ["TheOneTwoThreeGame"] },
+								{ "count": 1, "modules": ["xelLetterLayers"] },
+								{ "count": 1, "modules": ["worseVenn"] },
+								{ "count": 1, "modules": ["xelTruchetTiles"] },
+								{ "count": 1, "modules": ["faultyAccelerandoModule"] },
+								{ "count": 1, "modules": ["digitalClock"] },
+								{ "count": 1, "modules": ["ingredients"] },
+								{ "count": 1, "modules": ["hyperlink"] },
+								{ "count": 1, "modules": ["yellowCipher"] },
+								{ "count": 1, "modules": ["moduleListening"] },
+								{ "count": 1, "modules": ["OddOneOutModule"] },
+								{ "count": 1, "modules": ["unfairCipher"] },
+								{ "count": 1, "modules": ["hangover"] },
+								{ "count": 1, "modules": ["hieroglyphics"] },
+								{ "count": 1, "modules": ["KudosudokuModule"] },
+								{ "count": 1, "modules": ["londonUnderground"] },
+								{ "count": 1, "modules": ["britishSlang"] },
+								{ "count": 1, "modules": ["Playfair"] },
+								{ "count": 1, "modules": ["SymbolCycleModule"] },
+								{ "count": 1, "modules": ["GSCatchMeIfYouCan"] },
+								{ "count": 1, "modules": ["GSWinningLine"] },
+								{ "count": 1, "modules": ["zoomModule"] },
+								{ "count": 1, "modules": ["bakery"] },
+								{ "count": 1, "modules": ["backdoorKeypad"] },
+								{ "count": 1, "modules": ["simonSteps"] },
+								{ "count": 1, "modules": ["TechnicalKeypad"] },
+								{ "count": 1, "modules": ["LengthyLockdown"] },
+								{ "count": 1, "modules": ["mixedEmotions"] },
+								{ "count": 1, "modules": ["danielDice"] },
+								{ "count": 1, "modules": ["baseOn"] },
+								{ "count": 1, "modules": ["cucumberModule"] },
+								{ "count": 1, "modules": ["YellowHuffmanCipherModule"] },
+								{ "count": 1, "modules": ["metalmaths"] }
+							],
+							"modules": 101,
+							"strikes": 7,
+							"widgets": 5
+						}
+					]
+				},
+				"logfile": "https://ktane.timwi.de/lfa#file=4e93f3c1e095b52777cf92d5cb5351cf2f7e6408"
+			}
+		},
+		{
+			"id": 1563,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10839",
+			"name": "[[UPDATE]] Axodoreduxion - Take 2",
+			"action": "delete",
+			"timestamp": "2024-12-28T13:40:06.564Z",
+			"before": {
+				"id": 10839,
+				"name": "[[UPDATE]] Axodoreduxion - Take 2",
+				"notes": null,
+				"authors": ["Axodeau"],
+				"factory": null,
+				"logfile": "https://ktane.timwi.de/lfa#file=4e93f3c1e095b52777cf92d5cb5351cf2f7e6408",
+				"tpSolve": false,
+				"variant": null,
+				"inGameId": "mod_AxoRandoMission_Axodoreduxion - Take 2",
+				"timeMode": null,
+				"verified": false,
+				"dateAdded": "2024-12-28T13:39:53.141Z",
+				"inGameName": null,
+				"strikeMode": null,
+				"uploadedBy": "486602438103531520",
+				"designedForTP": false,
+				"missionPackId": 404
+			}
+		},
+		{
+			"id": 1564,
+			"userId": "1131645350554390560",
+			"model": "Completion",
+			"recordId": "60912",
+			"name": "Sky's the Minimum||Termet",
+			"action": "create",
+			"timestamp": "2024-12-28T14:58:46.623Z"
+		},
+		{
+			"id": 1565,
+			"userId": "459108669636739072",
+			"model": "Completion",
+			"recordId": "60913",
+			"name": "Tyler-Why||Kugel",
+			"action": "create",
+			"timestamp": "2024-12-28T15:56:17.961Z"
+		},
+		{
+			"id": 1566,
+			"userId": "705094454717186119",
+			"model": "Completion",
+			"recordId": "60914",
+			"name": "Reaper||BladePL",
+			"action": "create",
+			"timestamp": "2024-12-28T16:05:47.813Z"
+		},
+		{
+			"id": 1567,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60905",
+			"name": "Reasonable||Chokokafe",
+			"action": "update",
+			"timestamp": "2024-12-28T16:49:41.835Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1568,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60905",
+			"name": "Reasonable||Chokokafe",
+			"action": "update",
+			"timestamp": "2024-12-28T16:50:02.422Z",
+			"before": {
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=f909c39444efe6bccb943795787edf563d7dc569;bomb=JH7RT8",
+					"https://media.discordapp.net/attachments/957375798615097414/1321896894883958784/image.png?ex=676ee7eb&is=676d966b&hm=538bd4a513a66d841d2bfd7a80c20fd3a05843de74dbe16f79cc7e014e9744b1&=&format=webp&quality=lossless&width=1100&height=584"
+				]
+			},
+			"after": {
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=f909c39444efe6bccb943795787edf563d7dc569;bomb=JH7RT8"
+				]
+			}
+		},
+		{
+			"id": 1569,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60906",
+			"name": "Chuzzinator||Dicey",
+			"action": "update",
+			"timestamp": "2024-12-28T16:50:32.101Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1570,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60907",
+			"name": "SoulOrg Endurance||NinjaBorn, Masked Mystery",
+			"action": "update",
+			"timestamp": "2024-12-28T20:20:21.393Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1571,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60908",
+			"name": "Triforce||BladePL",
+			"action": "update",
+			"timestamp": "2024-12-28T20:20:39.086Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1572,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60909",
+			"name": "Triforce No Needy||BladePL",
+			"action": "update",
+			"timestamp": "2024-12-28T20:21:16.443Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1573,
+			"userId": "1131645350554390560",
+			"model": "Completion",
+			"recordId": "60915",
+			"name": "Nightmare Mode: Savor the Moment||Termet",
+			"action": "create",
+			"timestamp": "2024-12-28T20:34:57.191Z"
+		},
+		{
+			"id": 1574,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60916",
+			"name": "Would You Rather (Multicolored Squares Edition)||Twitch Plays",
+			"action": "create",
+			"timestamp": "2024-12-29T01:11:32.459Z"
+		},
+		{
+			"id": 1575,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60917",
+			"name": "Verbal Madness||Twitch Plays",
+			"action": "create",
+			"timestamp": "2024-12-29T01:11:42.271Z"
+		},
+		{
+			"id": 1576,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "10687",
+			"name": "Would You Rather (Multicolored Squares Edition)",
+			"action": "update",
+			"timestamp": "2024-12-29T01:11:44.328Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1577,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60916",
+			"name": "Would You Rather (Multicolored Squares Edition)||Twitch Plays",
+			"action": "update",
+			"timestamp": "2024-12-29T01:11:44.344Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1578,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "9355",
+			"name": "Verbal Madness",
+			"action": "update",
+			"timestamp": "2024-12-29T01:11:44.814Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1579,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60917",
+			"name": "Verbal Madness||Twitch Plays",
+			"action": "update",
+			"timestamp": "2024-12-29T01:11:44.821Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1580,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60918",
+			"name": "Fat Man||Twitch Plays",
+			"action": "create",
+			"timestamp": "2024-12-29T02:23:22.189Z"
+		},
+		{
+			"id": 1581,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "9464",
+			"name": "Fat Man",
+			"action": "update",
+			"timestamp": "2024-12-29T02:23:24.432Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1582,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60918",
+			"name": "Fat Man||Twitch Plays",
+			"action": "update",
+			"timestamp": "2024-12-29T02:23:24.442Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1583,
+			"userId": "240325182391058434",
+			"model": "Completion",
+			"recordId": "60919",
+			"name": "No-Needy Centurion||Kangablue",
+			"action": "create",
+			"timestamp": "2024-12-29T10:10:53.103Z"
+		},
+		{
+			"id": 1584,
+			"userId": "459108669636739072",
+			"model": "Completion",
+			"recordId": "60920",
+			"name": "No Mistakes Again||Kugel",
+			"action": "create",
+			"timestamp": "2024-12-29T13:53:35.634Z"
+		},
+		{
+			"id": 1585,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60910",
+			"name": "Lost In Many Mazes V2||BigLittle, Crazycaleb, Draket",
+			"action": "update",
+			"timestamp": "2024-12-29T15:24:20.123Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1586,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60911",
+			"name": "SoulOrg Endurance||hyeon72",
+			"action": "update",
+			"timestamp": "2024-12-29T15:24:29.905Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1587,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60912",
+			"name": "Sky's the Minimum||Termet",
+			"action": "update",
+			"timestamp": "2024-12-29T15:24:53.900Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1588,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60913",
+			"name": "Tyler-Why||Kugel",
+			"action": "update",
+			"timestamp": "2024-12-29T15:25:15.809Z",
+			"before": { "first": false, "verified": false },
+			"after": { "first": true, "verified": true }
+		},
+		{
+			"id": 1589,
+			"userId": "104464697775882240",
+			"model": "Completion",
+			"recordId": "60921",
+			"name": "Boss Soloing||Framzo, nameless",
+			"action": "create",
+			"timestamp": "2024-12-29T22:35:06.893Z"
+		},
+		{
+			"id": 1590,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60922",
+			"name": "Jesús||denial140",
+			"action": "create",
+			"timestamp": "2024-12-29T23:59:48.719Z"
+		},
+		{
+			"id": 1591,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60923",
+			"name": "Jesús||denial140",
+			"action": "create",
+			"timestamp": "2024-12-29T23:59:48.721Z"
+		},
+		{
+			"id": 1592,
+			"userId": "124729675309121539",
+			"model": "Completion",
+			"recordId": "60924",
+			"name": "Dove||azuretone, Masked Mystery, Danumbah",
+			"action": "create",
+			"timestamp": "2024-12-30T06:13:02.001Z"
+		},
+		{
+			"id": 1593,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60925",
+			"name": "17 Again||denial140, azuretone, Masked Mystery",
+			"action": "create",
+			"timestamp": "2024-12-30T08:22:34.172Z"
+		},
+		{
+			"id": 1594,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60914",
+			"name": "Reaper||BladePL",
+			"action": "update",
+			"timestamp": "2024-12-30T08:34:46.292Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1595,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60915",
+			"name": "Nightmare Mode: Savor the Moment||Termet",
+			"action": "update",
+			"timestamp": "2024-12-30T08:35:06.824Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1596,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60919",
+			"name": "No-Needy Centurion||Kangablue",
+			"action": "update",
+			"timestamp": "2024-12-30T08:35:34.884Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1597,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60920",
+			"name": "No Mistakes Again||Kugel",
+			"action": "update",
+			"timestamp": "2024-12-30T09:37:13.968Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1598,
+			"userId": "424696431345926144",
+			"model": "Completion",
+			"recordId": "60926",
+			"name": "Sky's the Minimum||Poke",
+			"action": "create",
+			"timestamp": "2024-12-30T10:56:48.913Z"
+		},
+		{
+			"id": 1599,
+			"userId": "150650873884704769",
+			"model": "Completion",
+			"recordId": "60927",
+			"name": "Experienced Group||AzaFTW, Termet",
+			"action": "create",
+			"timestamp": "2024-12-30T12:36:35.166Z"
+		},
+		{
+			"id": 1600,
+			"userId": "455035517872898050",
+			"model": "Completion",
+			"recordId": "60928",
+			"name": "Experienced EFM||_Play_",
+			"action": "create",
+			"timestamp": "2024-12-30T12:40:41.371Z"
+		},
+		{
+			"id": 1601,
+			"userId": "455035517872898050",
+			"model": "Completion",
+			"recordId": "60929",
+			"name": "BlvdBroken's Bomb of Bangers (Easy): Abridged||_Play_",
+			"action": "create",
+			"timestamp": "2024-12-30T14:21:57.984Z"
+		},
+		{
+			"id": 1602,
+			"userId": "705094454717186119",
+			"model": "Completion",
+			"recordId": "60930",
+			"name": "OWAE new ones||BladePL",
+			"action": "create",
+			"timestamp": "2024-12-30T15:05:49.187Z"
+		},
+		{
+			"id": 1603,
+			"userId": "597035767503519765",
+			"model": "Completion",
+			"recordId": "60931",
+			"name": "Simplifier||hyeon72",
+			"action": "create",
+			"timestamp": "2024-12-30T15:26:22.034Z"
+		},
+		{
+			"id": 1604,
+			"userId": "424696431345926144",
+			"model": "Completion",
+			"recordId": "60932",
+			"name": "Nexus||Poke",
+			"action": "create",
+			"timestamp": "2024-12-30T18:15:46.947Z"
+		},
+		{
+			"id": 1605,
+			"userId": "455035517872898050",
+			"model": "Completion",
+			"recordId": "60933",
+			"name": "A Koopa's Favorite Modules||_Play_",
+			"action": "create",
+			"timestamp": "2024-12-30T18:35:36.677Z"
+		},
+		{
+			"id": 1606,
+			"userId": "622198629670584330",
+			"model": "Completion",
+			"recordId": "60934",
+			"name": "Dove||EricB",
+			"action": "create",
+			"timestamp": "2024-12-30T22:02:33.178Z"
+		},
+		{
+			"id": 1607,
+			"userId": "261983800429510658",
+			"model": "Completion",
+			"recordId": "60935",
+			"name": "Soloist||nameless, Framzo",
+			"action": "create",
+			"timestamp": "2024-12-30T22:24:08.287Z"
+		},
+		{
+			"id": 1608,
+			"userId": "455035517872898050",
+			"model": "Completion",
+			"recordId": "60936",
+			"name": "Baka, Baka, Baka||_Play_",
+			"action": "create",
+			"timestamp": "2024-12-30T22:41:57.091Z"
+		},
+		{
+			"id": 1609,
+			"userId": "265294329709330432",
+			"model": "Completion",
+			"recordId": "60937",
+			"name": "Orion||Blan, Deaf, Fish",
+			"action": "create",
+			"timestamp": "2024-12-31T01:08:36.215Z"
+		},
+		{
+			"id": 1610,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60938",
+			"name": "The Pigeon||denial140",
+			"action": "create",
+			"timestamp": "2024-12-31T05:51:31.554Z"
+		},
+		{
+			"id": 1611,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60939",
+			"name": "Undefined 47||denial140",
+			"action": "create",
+			"timestamp": "2024-12-31T08:52:26.005Z"
+		},
+		{
+			"id": 1612,
+			"userId": "1043099159084929024",
+			"model": "Completion",
+			"recordId": "60940",
+			"name": "Sweet 16||Srećko",
+			"action": "create",
+			"timestamp": "2024-12-31T09:04:23.010Z"
+		},
+		{
+			"id": 1613,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60921",
+			"name": "Boss Soloing||Framzo, nameless",
+			"action": "update",
+			"timestamp": "2024-12-31T10:46:29.535Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1614,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60922",
+			"name": "Jesús||denial140",
+			"action": "delete",
+			"timestamp": "2024-12-31T10:47:24.899Z",
+			"before": {
+				"id": 60922,
+				"old": false,
+				"solo": false,
+				"team": ["denial140"],
+				"time": 2611.04,
+				"first": false,
+				"notes": null,
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=945f01a10b54750f4e4d3db6506bfa1cf448f8e3;bomb=KV4ID4",
+					"https://youtu.be/kmIh6ZiV_7M"
+				],
+				"verified": false,
+				"dateAdded": "2024-12-29T23:38:29.401Z",
+				"missionId": 10803,
+				"uploadedBy": "118831126239248397"
+			}
+		},
+		{
+			"id": 1615,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60923",
+			"name": "Jesús||denial140",
+			"action": "update",
+			"timestamp": "2024-12-31T10:47:26.111Z",
+			"before": { "first": false, "verified": false },
+			"after": { "first": true, "verified": true }
+		},
+		{
+			"id": 1616,
+			"userId": "1043099159084929024",
+			"model": "Completion",
+			"recordId": "60941",
+			"name": "17 Again||Srećko",
+			"action": "create",
+			"timestamp": "2024-12-31T11:45:32.592Z"
+		},
+		{
+			"id": 1617,
+			"userId": "779013250367881216",
+			"model": "Completion",
+			"recordId": "60942",
+			"name": "ÜberKlax Endurance||GoodHood",
+			"action": "create",
+			"timestamp": "2024-12-31T11:51:28.201Z"
+		},
+		{
+			"id": 1618,
+			"userId": "424696431345926144",
+			"model": "Completion",
+			"recordId": "60943",
+			"name": "One or the Other||Poke",
+			"action": "create",
+			"timestamp": "2024-12-31T13:20:32.723Z"
+		},
+		{
+			"id": 1619,
+			"userId": "1043099159084929024",
+			"model": "Completion",
+			"recordId": "60944",
+			"name": "Easy Challenge||Srećko",
+			"action": "create",
+			"timestamp": "2024-12-31T13:52:33.381Z"
+		},
+		{
+			"id": 1620,
+			"userId": "705507300634263653",
+			"model": "Completion",
+			"recordId": "60945",
+			"name": "Just Vibin'||Possessed",
+			"action": "create",
+			"timestamp": "2024-12-31T16:22:17.927Z"
+		},
+		{
+			"id": 1621,
+			"userId": "370356150350249984",
+			"model": "Completion",
+			"recordId": "60946",
+			"name": "Tyler-Why||Aaron Kitty Boiii, Possessed",
+			"action": "create",
+			"timestamp": "2024-12-31T17:24:29.682Z"
+		},
+		{
+			"id": 1622,
+			"userId": "705094454717186119",
+			"model": "Completion",
+			"recordId": "60947",
+			"name": "Inhumane||BladePL",
+			"action": "create",
+			"timestamp": "2024-12-31T18:50:09.698Z"
+		},
+		{
+			"id": 1623,
+			"userId": "261983800429510658",
+			"model": "Completion",
+			"recordId": "60948",
+			"name": "Boss Soloing||nameless, Framzo",
+			"action": "create",
+			"timestamp": "2024-12-31T23:22:07.365Z"
+		},
+		{
+			"id": 1624,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60949",
+			"name": "Pedro||denial140",
+			"action": "create",
+			"timestamp": "2025-01-01T06:15:56.676Z"
+		},
+		{
+			"id": 1625,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60950",
+			"name": "Series of Similarities||denial140",
+			"action": "create",
+			"timestamp": "2025-01-01T09:43:07.087Z"
+		},
+		{
+			"id": 1626,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60951",
+			"name": "Tyler-Why||denial140",
+			"action": "create",
+			"timestamp": "2025-01-01T11:18:15.440Z"
+		},
+		{
+			"id": 1627,
+			"userId": "725302560432324637",
+			"model": "Completion",
+			"recordId": "60952",
+			"name": "Tyler-Why||Cookina",
+			"action": "create",
+			"timestamp": "2025-01-01T11:52:58.078Z"
+		},
+		{
+			"id": 1628,
+			"userId": "597035767503519765",
+			"model": "Completion",
+			"recordId": "60953",
+			"name": "Reasonable||hyeon72",
+			"action": "create",
+			"timestamp": "2025-01-01T12:45:34.139Z"
+		},
+		{
+			"id": 1629,
+			"userId": "705094454717186119",
+			"model": "Completion",
+			"recordId": "60954",
+			"name": "101 Module Challenge||BladePL",
+			"action": "create",
+			"timestamp": "2025-01-01T12:52:19.563Z"
+		},
+		{
+			"id": 1630,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60924",
+			"name": "Dove||azuretone, Masked Mystery, Danumbah",
+			"action": "update",
+			"timestamp": "2025-01-01T15:43:32.596Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1631,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60925",
+			"name": "17 Again||denial140, azuretone, Masked Mystery",
+			"action": "update",
+			"timestamp": "2025-01-01T15:44:15.354Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1632,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60926",
+			"name": "Sky's the Minimum||Poke",
+			"action": "update",
+			"timestamp": "2025-01-01T15:44:25.759Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1633,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60927",
+			"name": "Experienced Group||AzaFTW, Termet",
+			"action": "update",
+			"timestamp": "2025-01-01T15:45:14.463Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1634,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60928",
+			"name": "Experienced EFM||_Play_",
+			"action": "update",
+			"timestamp": "2025-01-01T15:45:26.330Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1635,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60929",
+			"name": "BlvdBroken's Bomb of Bangers (Easy): Abridged||_Play_",
+			"action": "update",
+			"timestamp": "2025-01-01T15:45:48.637Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1636,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60930",
+			"name": "OWAE new ones||BladePL",
+			"action": "update",
+			"timestamp": "2025-01-01T15:46:01.448Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1637,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60931",
+			"name": "Simplifier||hyeon72",
+			"action": "update",
+			"timestamp": "2025-01-01T15:46:13.458Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1638,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60932",
+			"name": "Nexus||Poke",
+			"action": "update",
+			"timestamp": "2025-01-01T15:46:26.216Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1639,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60933",
+			"name": "A Koopa's Favorite Modules||_Play_",
+			"action": "update",
+			"timestamp": "2025-01-01T15:46:41.756Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1640,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60935",
+			"name": "Soloist||nameless, Framzo",
+			"action": "update",
+			"timestamp": "2025-01-01T15:47:23.343Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1641,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60934",
+			"name": "Dove||EricB",
+			"action": "update",
+			"timestamp": "2025-01-01T15:47:47.479Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1642,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60936",
+			"name": "Baka, Baka, Baka||_Play_",
+			"action": "update",
+			"timestamp": "2025-01-01T15:48:08.651Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1643,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60937",
+			"name": "Orion||Blan, Deaf, Fish",
+			"action": "update",
+			"timestamp": "2025-01-01T15:49:05.850Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1644,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60938",
+			"name": "The Pigeon||denial140",
+			"action": "update",
+			"timestamp": "2025-01-01T15:49:45.810Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1645,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "59246",
+			"name": "Undefined 47||denial140",
+			"action": "update",
+			"timestamp": "2025-01-01T15:50:04.249Z",
+			"before": {
+				"time": 1701.48,
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=4f7d9eeeabb738d03d548883f35cfe7a451e76ab;bomb=C39QB9"
+				]
+			},
+			"after": {
+				"time": 4242.66,
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=7fb339754f596637bb5704a74c9c396e175c45cc;bomb=LI3AK8"
+				]
+			}
+		},
+		{
+			"id": 1646,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60939",
+			"name": "Undefined 47||denial140",
+			"action": "delete",
+			"timestamp": "2025-01-01T15:50:04.257Z",
+			"before": {
+				"id": 60939,
+				"old": false,
+				"solo": false,
+				"team": ["denial140"],
+				"time": 4242.66,
+				"first": false,
+				"notes": null,
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=7fb339754f596637bb5704a74c9c396e175c45cc;bomb=LI3AK8"
+				],
+				"verified": false,
+				"dateAdded": "2024-12-31T08:52:21.264Z",
+				"missionId": 9425,
+				"uploadedBy": "118831126239248397"
+			}
+		},
+		{
+			"id": 1647,
+			"userId": "575228839903494157",
+			"model": "Completion",
+			"recordId": "60955",
+			"name": "Easy Challenge||Birb",
+			"action": "create",
+			"timestamp": "2025-01-01T20:03:27.122Z"
+		},
+		{
+			"id": 1648,
+			"userId": "150650873884704769",
+			"model": "Completion",
+			"recordId": "60956",
+			"name": "Amnesia Hell||AzaFTW, Termet",
+			"action": "create",
+			"timestamp": "2025-01-01T23:12:23.220Z"
+		},
+		{
+			"id": 1649,
+			"userId": "434345780375977994",
+			"model": "Completion",
+			"recordId": "60957",
+			"name": "Boss Module Endurance||Masked Mystery, TylerY2992",
+			"action": "create",
+			"timestamp": "2025-01-02T05:15:31.655Z"
+		},
+		{
+			"id": 1650,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60940",
+			"name": "Sweet 16||Srećko",
+			"action": "update",
+			"timestamp": "2025-01-02T10:00:21.423Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1651,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60941",
+			"name": "17 Again||Srećko",
+			"action": "update",
+			"timestamp": "2025-01-02T10:00:34.576Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1652,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60942",
+			"name": "ÜberKlax Endurance||GoodHood",
+			"action": "update",
+			"timestamp": "2025-01-02T10:00:44.910Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1653,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60943",
+			"name": "One or the Other||Poke",
+			"action": "update",
+			"timestamp": "2025-01-02T10:01:03.460Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1654,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60944",
+			"name": "Easy Challenge||Srećko",
+			"action": "update",
+			"timestamp": "2025-01-02T10:01:25.368Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1655,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60945",
+			"name": "Just Vibin'||Possessed",
+			"action": "update",
+			"timestamp": "2025-01-02T10:01:56.661Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1656,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60946",
+			"name": "Tyler-Why||Aaron Kitty Boiii, Possessed",
+			"action": "update",
+			"timestamp": "2025-01-02T10:02:35.768Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1657,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60947",
+			"name": "Inhumane||BladePL",
+			"action": "update",
+			"timestamp": "2025-01-02T10:03:14.353Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1658,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60948",
+			"name": "Boss Soloing||nameless, Framzo",
+			"action": "update",
+			"timestamp": "2025-01-02T10:03:50.844Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1659,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60949",
+			"name": "Pedro||denial140",
+			"action": "update",
+			"timestamp": "2025-01-02T10:05:11.041Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1660,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60950",
+			"name": "Series of Similarities||denial140",
+			"action": "update",
+			"timestamp": "2025-01-02T10:05:32.766Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1661,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60951",
+			"name": "Tyler-Why||denial140",
+			"action": "update",
+			"timestamp": "2025-01-02T10:05:56.887Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1662,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60952",
+			"name": "Tyler-Why||Cookina",
+			"action": "update",
+			"timestamp": "2025-01-02T10:06:19.871Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1663,
+			"userId": "429274195801669653",
+			"model": "MissionPack",
+			"recordId": "617",
+			"name": "Setra's Mission Pack",
+			"action": "create",
+			"timestamp": "2025-01-02T10:47:12.199Z"
+		},
+		{
+			"id": 1664,
+			"userId": "429274195801669653",
+			"model": "Mission",
+			"recordId": "10840",
+			"name": "Setra's 47",
+			"action": "create",
+			"timestamp": "2025-01-02T11:14:03.846Z"
+		},
+		{
+			"id": 1665,
+			"userId": "705094454717186119",
+			"model": "Completion",
+			"recordId": "60958",
+			"name": "Memory Hell||BladePL",
+			"action": "create",
+			"timestamp": "2025-01-02T12:18:46.284Z"
+		},
+		{
+			"id": 1666,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60959",
+			"name": "Speeding: Lap 2||denial140",
+			"action": "create",
+			"timestamp": "2025-01-02T12:26:39.511Z"
+		},
+		{
+			"id": 1667,
+			"userId": "486602438103531520",
+			"model": "MissionPack",
+			"recordId": "617",
+			"name": "Setra's Mission Pack",
+			"action": "update",
+			"timestamp": "2025-01-02T14:58:15.295Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1668,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60953",
+			"name": "Reasonable||hyeon72",
+			"action": "update",
+			"timestamp": "2025-01-02T14:59:09.506Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1669,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60954",
+			"name": "101 Module Challenge||BladePL",
+			"action": "update",
+			"timestamp": "2025-01-02T14:59:35.454Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1670,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60955",
+			"name": "Easy Challenge||Birb",
+			"action": "update",
+			"timestamp": "2025-01-02T14:59:59.180Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1671,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60960",
+			"name": "Parallel Bombs||denial140",
+			"action": "create",
+			"timestamp": "2025-01-02T17:10:08.856Z"
+		},
+		{
+			"id": 1672,
+			"userId": "424696431345926144",
+			"model": "Completion",
+			"recordId": "60961",
+			"name": "Challenge Bomb Endurance||Poke",
+			"action": "create",
+			"timestamp": "2025-01-02T18:12:36.198Z"
+		},
+		{
+			"id": 1673,
+			"userId": "389555807634587678",
+			"model": "Completion",
+			"recordId": "60962",
+			"name": "SoulOrg Endurance||Danumbah",
+			"action": "create",
+			"timestamp": "2025-01-02T20:07:22.214Z"
+		},
+		{
+			"id": 1674,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60956",
+			"name": "Amnesia Hell||AzaFTW, Termet",
+			"action": "update",
+			"timestamp": "2025-01-02T20:09:07.966Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1675,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60957",
+			"name": "Boss Module Endurance||Masked Mystery, TylerY2992",
+			"action": "update",
+			"timestamp": "2025-01-02T20:09:18.622Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1676,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60958",
+			"name": "Memory Hell||BladePL",
+			"action": "update",
+			"timestamp": "2025-01-02T20:09:43.618Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1677,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60959",
+			"name": "Speeding: Lap 2||denial140",
+			"action": "update",
+			"timestamp": "2025-01-02T20:36:19.927Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1678,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60960",
+			"name": "Parallel Bombs||denial140",
+			"action": "update",
+			"timestamp": "2025-01-02T20:36:52.417Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1679,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60961",
+			"name": "Challenge Bomb Endurance||Poke",
+			"action": "update",
+			"timestamp": "2025-01-02T20:37:17.413Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1680,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60962",
+			"name": "SoulOrg Endurance||Danumbah",
+			"action": "update",
+			"timestamp": "2025-01-02T20:37:29.300Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1681,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10841",
+			"name": "[[UPDATE]] TP: M.O.A.B.",
+			"action": "create",
+			"timestamp": "2025-01-02T20:44:28.317Z"
+		},
+		{
+			"id": 1682,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "9807",
+			"name": "TP: M.O.A.B.",
+			"action": "update",
+			"timestamp": "2025-01-02T20:44:52.058Z",
+			"before": { "designedForTP": false },
+			"after": {
+				"bombs": {
+					"create": [
+						{
+							"time": 6000,
+							"pools": [
+								{ "count": 1, "modules": ["http", "lgndColorMatch", "buttonMasherNeedy"] },
+								{ "count": 1, "modules": ["NeedyVentGas", "NeedyKnob", "NeedyCapacitor"] },
+								{ "count": 2, "modules": ["MemoryV2"] },
+								{ "count": 1, "modules": ["theSwan"] },
+								{
+									"count": 20,
+									"modules": [
+										"alphabet",
+										"spwizAstrology",
+										"BitOps",
+										"BrokenButtonsModule",
+										"TheBulbModule",
+										"ChessModule",
+										"colormath",
+										"combinationLock",
+										"complicatedButtonsModule",
+										"CryptModule",
+										"Emoji Math",
+										"fastMath",
+										"FlagsModule",
+										"FriendshipModule",
+										"TheGamepadModule",
+										"iceCreamModule",
+										"identityParade",
+										"LEDEnc",
+										"Listening",
+										"mashematics",
+										"Microcontroller",
+										"theNumber",
+										"NumberPad",
+										"OrientationCube",
+										"PianoKeys",
+										"poetry",
+										"RockPaperScissorsLizardSpockModule",
+										"screw",
+										"shapeshift",
+										"SimonScreamsModule"
+									]
+								},
+								{
+									"count": 20,
+									"modules": [
+										"spwiz3DMaze",
+										"AdjacentLettersModule",
+										"spwizAdventureGame",
+										"algebra",
+										"BattleshipModule",
+										"BigCircle",
+										"BinaryLeds",
+										"BitmapsModule",
+										"BrailleModule",
+										"BlindAlleyModule",
+										"CheapCheckoutModule",
+										"ColoredSwitchesModule",
+										"cooking",
+										"fizzBuzzModule",
+										"HexamazeModule",
+										"LightCycleModule",
+										"MafiaModule",
+										"radiator",
+										"monsplodeFight",
+										"neutralization",
+										"spwizPerspectivePegs",
+										"MusicRhythms",
+										"Semaphore",
+										"SkewedSlotsModule",
+										"stopwatch",
+										"symbolicPasswordModule",
+										"TextField",
+										"TicTacToeModule",
+										"webDesign",
+										"YahtzeeModule"
+									]
+								},
+								{
+									"count": 10,
+									"modules": [
+										"burglarAlarm",
+										"buttonSequencesModule",
+										"ChordQualities",
+										"Color Generator",
+										"CoordinatesModule",
+										"CruelPianoKeys",
+										"curriculum",
+										"GameOfLifeSimple",
+										"GridlockModule",
+										"iPhone",
+										"jewelVault",
+										"Logic",
+										"maintenance",
+										"MarbleTumbleModule",
+										"modernCipher",
+										"RubiksCubeModule",
+										"PasswordV2",
+										"SillySlots",
+										"sonic",
+										"SymbolCycleModule",
+										"ThirdBase",
+										"visual_impairment",
+										"X01",
+										"XRayModule",
+										"ZooModule",
+										"Tangrams",
+										"PolyhedralMazeModule"
+									]
+								},
+								{ "count": 3, "modules": ["Laundry"] },
+								{
+									"count": 1,
+									"modules": ["dragonEnergy", "cube", "EncryptedMorse", "KudosudokuModule", "unfairCipher"]
+								},
+								{
+									"count": 12,
+									"modules": [
+										"Backgrounds",
+										"CaesarCipherModule",
+										"theCodeModule",
+										"ColoredSquaresModule",
+										"ColorMorseModule",
+										"CrazyTalk",
+										"digitalRoot",
+										"EnglishTest",
+										"europeanTravel",
+										"ForeignExchangeRates",
+										"graffitiNumbers",
+										"jukebox",
+										"ledGrid",
+										"murder",
+										"WordSearchModule",
+										"WirePlacementModule",
+										"TwoBits",
+										"PartyTime",
+										"lgndZoni",
+										"unrelatedAnagrams"
+									]
+								}
+							],
+							"modules": 71,
+							"strikes": 7,
+							"widgets": 18
+						}
+					]
+				},
+				"designedForTP": true
+			}
+		},
+		{
+			"id": 1683,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10841",
+			"name": "[[UPDATE]] TP: M.O.A.B.",
+			"action": "delete",
+			"timestamp": "2025-01-02T20:44:52.072Z",
+			"before": {
+				"id": 10841,
+				"name": "[[UPDATE]] TP: M.O.A.B.",
+				"notes": null,
+				"authors": ["LeGeND"],
+				"factory": null,
+				"logfile": "https://ktane.timwi.de/lfa#file=0b3acd663bd109ecc39db670669d437df4566ea4",
+				"tpSolve": false,
+				"variant": null,
+				"inGameId": "mod_theMOABmission_TP MOAB",
+				"timeMode": null,
+				"verified": false,
+				"dateAdded": "2025-01-02T20:43:57.228Z",
+				"inGameName": null,
+				"strikeMode": null,
+				"uploadedBy": "486602438103531520",
+				"designedForTP": true,
+				"missionPackId": 463
+			}
+		},
+		{
+			"id": 1684,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10439",
+			"name": "Quickly Now!: !zoom 30",
+			"action": "delete",
+			"timestamp": "2025-01-02T20:45:46.895Z",
+			"before": {
+				"id": 10439,
+				"name": "Quickly Now!: !zoom 30",
+				"notes": null,
+				"authors": ["upsilon"],
+				"factory": null,
+				"logfile": "https://ktane.timwi.de/lfa#file=d9058afbef2a092ec4c0615729fd09f48619952c",
+				"tpSolve": false,
+				"variant": null,
+				"inGameId": "mod_Treachery_Bombs_Quickly Now zoom 30",
+				"timeMode": null,
+				"verified": true,
+				"dateAdded": "2024-02-11T03:45:29.457Z",
+				"inGameName": "Quickly Now zoom 30",
+				"strikeMode": null,
+				"uploadedBy": "690375957877620757",
+				"designedForTP": true,
+				"missionPackId": 590
+			}
+		},
+		{
+			"id": 1685,
+			"userId": "138339442346819584",
+			"model": "Mission",
+			"recordId": "10842",
+			"name": "The Sideral9999 Endurance Challenge",
+			"action": "create",
+			"timestamp": "2025-01-02T22:07:43.144Z"
+		},
+		{
+			"id": 1686,
+			"userId": "240325182391058434",
+			"model": "Completion",
+			"recordId": "60963",
+			"name": "Crocell||Kangablue, AzaFTW",
+			"action": "create",
+			"timestamp": "2025-01-03T01:45:42.778Z"
+		},
+		{
+			"id": 1687,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60963",
+			"name": "Crocell||Kangablue, AzaFTW",
+			"action": "update",
+			"timestamp": "2025-01-03T09:23:42.054Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1688,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60964",
+			"name": "Tenth Day of Christmas||denial140",
+			"action": "create",
+			"timestamp": "2025-01-03T10:00:31.774Z"
+		},
+		{
+			"id": 1689,
+			"userId": "370356150350249984",
+			"model": "Completion",
+			"recordId": "60965",
+			"name": "Challenge Bomb Endurance||Aaron Kitty Boiii, Dani was here",
+			"action": "create",
+			"timestamp": "2025-01-03T10:39:37.522Z"
+		},
+		{
+			"id": 1690,
+			"userId": "495546834010505216",
+			"model": "Completion",
+			"recordId": "60966",
+			"name": "Challenge Bomb Endurance||Megum",
+			"action": "create",
+			"timestamp": "2025-01-03T10:50:59.052Z"
+		},
+		{
+			"id": 1691,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60967",
+			"name": "Baka, Baka, Baka||denial140",
+			"action": "create",
+			"timestamp": "2025-01-03T11:27:53.758Z"
+		},
+		{
+			"id": 1692,
+			"userId": "495546834010505216",
+			"model": "Completion",
+			"recordId": "60968",
+			"name": "Carraphim||Megum",
+			"action": "create",
+			"timestamp": "2025-01-03T12:04:06.423Z"
+		},
+		{
+			"id": 1693,
+			"userId": "597035767503519765",
+			"model": "Completion",
+			"recordId": "60969",
+			"name": "Experienced EFM||hyeon72",
+			"action": "create",
+			"timestamp": "2025-01-03T13:27:56.657Z"
+		},
+		{
+			"id": 1694,
+			"userId": "424696431345926144",
+			"model": "Completion",
+			"recordId": "60970",
+			"name": "The Pigeon||Poke",
+			"action": "create",
+			"timestamp": "2025-01-03T13:51:20.671Z"
+		},
+		{
+			"id": 1695,
+			"userId": "569550498462564354",
+			"model": "Completion",
+			"recordId": "60971",
+			"name": "ÜberKlax Endurance||rand06, FolGo, _Play_",
+			"action": "create",
+			"timestamp": "2025-01-03T15:40:03.277Z"
+		},
+		{
+			"id": 1696,
+			"userId": "495546834010505216",
+			"model": "Completion",
+			"recordId": "60972",
+			"name": "Baking Soda||Megum",
+			"action": "create",
+			"timestamp": "2025-01-03T16:54:22.093Z"
+		},
+		{
+			"id": 1697,
+			"userId": "688220820945895424",
+			"model": "MissionPack",
+			"recordId": "606",
+			"name": "Pandoras",
+			"action": "update",
+			"timestamp": "2025-01-03T18:19:12.850Z",
+			"before": { "steamId": "3287544125" },
+			"after": { "steamId": "3310895732" }
+		},
+		{
+			"id": 1698,
+			"userId": "705094454717186119",
+			"model": "Completion",
+			"recordId": "60973",
+			"name": "Hardest modules, but only 47||BladePL",
+			"action": "create",
+			"timestamp": "2025-01-03T18:31:37.959Z"
+		},
+		{
+			"id": 1699,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60974",
+			"name": "Millienator||Twitch Plays",
+			"action": "create",
+			"timestamp": "2025-01-03T18:37:41.013Z"
+		},
+		{
+			"id": 1700,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "9658",
+			"name": "Millienator",
+			"action": "update",
+			"timestamp": "2025-01-03T18:38:03.062Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1701,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60974",
+			"name": "Millienator||Twitch Plays",
+			"action": "update",
+			"timestamp": "2025-01-03T18:38:03.075Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1702,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60975",
+			"name": "Cheers||Twitch Plays",
+			"action": "create",
+			"timestamp": "2025-01-03T18:38:13.258Z"
+		},
+		{
+			"id": 1703,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "9833",
+			"name": "Cheers",
+			"action": "update",
+			"timestamp": "2025-01-03T18:38:16.070Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1704,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60975",
+			"name": "Cheers||Twitch Plays",
+			"action": "update",
+			"timestamp": "2025-01-03T18:38:16.081Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1705,
+			"userId": "459108669636739072",
+			"model": "Completion",
+			"recordId": "60976",
+			"name": "101MC new ones||Kugel",
+			"action": "create",
+			"timestamp": "2025-01-03T19:12:41.005Z"
+		},
+		{
+			"id": 1706,
+			"userId": "234075130521714689",
+			"model": "Completion",
+			"recordId": "60977",
+			"name": "Boss Soloing||Lyph",
+			"action": "create",
+			"timestamp": "2025-01-04T03:34:00.689Z"
+		},
+		{
+			"id": 1707,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60978",
+			"name": "Boss Soloing||denial140",
+			"action": "create",
+			"timestamp": "2025-01-04T05:31:09.139Z"
+		},
+		{
+			"id": 1708,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60979",
+			"name": "Boss Soloing||denial140, Lyph",
+			"action": "create",
+			"timestamp": "2025-01-04T05:32:04.359Z"
+		},
+		{
+			"id": 1709,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60980",
+			"name": "Eleventh Day of Christmas||denial140",
+			"action": "create",
+			"timestamp": "2025-01-04T06:45:01.647Z"
+		},
+		{
+			"id": 1710,
+			"userId": "240325182391058434",
+			"model": "Completion",
+			"recordId": "60981",
+			"name": "Blind Man||Kangablue",
+			"action": "create",
+			"timestamp": "2025-01-04T12:17:44.235Z"
+		},
+		{
+			"id": 1711,
+			"userId": "575228839903494157",
+			"model": "Completion",
+			"recordId": "60982",
+			"name": "Just Vibin'||Birb",
+			"action": "create",
+			"timestamp": "2025-01-04T13:28:14.539Z"
+		},
+		{
+			"id": 1712,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "60983",
+			"name": "Player's Choice||denial140",
+			"action": "create",
+			"timestamp": "2025-01-04T15:47:30.594Z"
+		},
+		{
+			"id": 1713,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60984",
+			"name": "Camturion||Twitch Plays",
+			"action": "create",
+			"timestamp": "2025-01-04T18:39:06.600Z"
+		},
+		{
+			"id": 1714,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "9280",
+			"name": "Camturion",
+			"action": "update",
+			"timestamp": "2025-01-04T18:39:09.338Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1715,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60984",
+			"name": "Camturion||Twitch Plays",
+			"action": "update",
+			"timestamp": "2025-01-04T18:39:09.351Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1716,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60985",
+			"name": "Chronos||Twitch Plays",
+			"action": "create",
+			"timestamp": "2025-01-04T19:49:11.091Z"
+		},
+		{
+			"id": 1717,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "9738",
+			"name": "Chronos",
+			"action": "update",
+			"timestamp": "2025-01-04T19:49:13.201Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1718,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60985",
+			"name": "Chronos||Twitch Plays",
+			"action": "update",
+			"timestamp": "2025-01-04T19:49:13.209Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1719,
+			"userId": "424696431345926144",
+			"model": "Completion",
+			"recordId": "60986",
+			"name": "Mandate||Poke",
+			"action": "create",
+			"timestamp": "2025-01-04T21:59:51.486Z"
+		},
+		{
+			"id": 1720,
+			"userId": "389555807634587678",
+			"model": "Completion",
+			"recordId": "60987",
+			"name": "ÜberKlax Endurance||Danumbah",
+			"action": "create",
+			"timestamp": "2025-01-04T22:33:40.926Z"
+		},
+		{
+			"id": 1721,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60988",
+			"name": "The Pigeon||Twitch Plays",
+			"action": "create",
+			"timestamp": "2025-01-05T01:57:54.626Z"
+		},
+		{
+			"id": 1722,
+			"userId": "213189526837919745",
+			"model": "Mission",
+			"recordId": "10681",
+			"name": "The Pigeon",
+			"action": "update",
+			"timestamp": "2025-01-05T01:57:57.033Z",
+			"before": { "tpSolve": false },
+			"after": { "tpSolve": true }
+		},
+		{
+			"id": 1723,
+			"userId": "213189526837919745",
+			"model": "Completion",
+			"recordId": "60988",
+			"name": "The Pigeon||Twitch Plays",
+			"action": "update",
+			"timestamp": "2025-01-05T01:57:57.042Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1724,
+			"userId": "597035767503519765",
+			"model": "Completion",
+			"recordId": "60989",
+			"name": "Nothing To Spare: Quickly Now!||hyeon72",
+			"action": "create",
+			"timestamp": "2025-01-05T10:20:37.259Z"
+		},
+		{
+			"id": 1725,
+			"userId": "424696431345926144",
+			"model": "Completion",
+			"recordId": "60990",
+			"name": "Reasonable||Poke",
+			"action": "create",
+			"timestamp": "2025-01-05T12:33:20.572Z"
+		},
+		{
+			"id": 1726,
+			"userId": "705094454717186119",
+			"model": "Completion",
+			"recordId": "60991",
+			"name": "Myosotis||BladePL",
+			"action": "create",
+			"timestamp": "2025-01-05T12:34:09.847Z"
+		},
+		{
+			"id": 1727,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10833",
+			"name": "Platinum Cocaine Bear",
+			"action": "update",
+			"timestamp": "2025-01-05T12:58:56.650Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1728,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10835",
+			"name": "rand's 47",
+			"action": "update",
+			"timestamp": "2025-01-05T12:58:57.920Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1729,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10837",
+			"name": "Cooldown Madness",
+			"action": "update",
+			"timestamp": "2025-01-05T12:58:59.483Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1730,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10838",
+			"name": "Storingkloof",
+			"action": "update",
+			"timestamp": "2025-01-05T12:59:00.248Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1731,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60964",
+			"name": "Tenth Day of Christmas||denial140",
+			"action": "update",
+			"timestamp": "2025-01-05T13:03:51.179Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1732,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60965",
+			"name": "Challenge Bomb Endurance||Aaron Kitty Boiii, Dani was here",
+			"action": "update",
+			"timestamp": "2025-01-05T13:04:04.994Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1733,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60966",
+			"name": "Challenge Bomb Endurance||Megum",
+			"action": "update",
+			"timestamp": "2025-01-05T13:04:23.138Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1734,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60967",
+			"name": "Baka, Baka, Baka||denial140",
+			"action": "update",
+			"timestamp": "2025-01-05T13:06:01.248Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1735,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60968",
+			"name": "Carraphim||Megum",
+			"action": "update",
+			"timestamp": "2025-01-05T13:06:29.291Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1736,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60969",
+			"name": "Experienced EFM||hyeon72",
+			"action": "update",
+			"timestamp": "2025-01-05T13:06:43.862Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1737,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60970",
+			"name": "The Pigeon||Poke",
+			"action": "update",
+			"timestamp": "2025-01-05T13:07:02.458Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1738,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60971",
+			"name": "ÜberKlax Endurance||rand06, FolGo, _Play_",
+			"action": "update",
+			"timestamp": "2025-01-05T13:07:25.495Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1739,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60972",
+			"name": "Baking Soda||Megum",
+			"action": "update",
+			"timestamp": "2025-01-05T13:07:42.885Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1740,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60973",
+			"name": "Hardest modules, but only 47||BladePL",
+			"action": "update",
+			"timestamp": "2025-01-05T13:08:11.889Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1741,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60976",
+			"name": "101MC new ones||Kugel",
+			"action": "update",
+			"timestamp": "2025-01-05T13:08:39.661Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1742,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60977",
+			"name": "Boss Soloing||Lyph",
+			"action": "update",
+			"timestamp": "2025-01-05T13:08:57.926Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1743,
+			"userId": "424696431345926144",
+			"model": "Completion",
+			"recordId": "60992",
+			"name": "Speeding||Poke",
+			"action": "create",
+			"timestamp": "2025-01-05T14:22:50.379Z"
+		},
+		{
+			"id": 1744,
+			"userId": "424696431345926144",
+			"model": "Completion",
+			"recordId": "60993",
+			"name": "Speeding: Lap 2||Poke",
+			"action": "create",
+			"timestamp": "2025-01-05T16:57:35.135Z"
+		},
+		{
+			"id": 1745,
+			"userId": "996401106819235840",
+			"model": "Completion",
+			"recordId": "60994",
+			"name": "SoulOrg Endurance||ghdyo1",
+			"action": "create",
+			"timestamp": "2025-01-05T19:23:59.069Z"
+		},
+		{
+			"id": 1746,
+			"userId": "389555807634587678",
+			"model": "Completion",
+			"recordId": "60995",
+			"name": "Possibly Impossible: Ultra Deluxe Edition||Danumbah",
+			"action": "create",
+			"timestamp": "2025-01-06T00:51:20.389Z"
+		},
+		{
+			"id": 1747,
+			"userId": "384957853116661760",
+			"model": "Mission",
+			"recordId": "10843",
+			"name": "Ringing Nightmare",
+			"action": "create",
+			"timestamp": "2025-01-06T06:57:48.893Z"
+		},
+		{
+			"id": 1748,
+			"userId": "534166956652232755",
+			"model": "Completion",
+			"recordId": "60000",
+			"name": "SoulOrg Endurance||ghdyo1",
+			"action": "update",
+			"timestamp": "2025-01-06T07:00:38.138Z",
+			"before": {
+				"time": 3614.49,
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=6e0dd623061edefd0db4694491f53816688ed077;bomb=KK6UM0"
+				]
+			},
+			"after": {
+				"time": 2999.69,
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=f25c5f57b76de2ef2886d94439ddbf0daac568c2;bomb=JQ3LV3"
+				]
+			}
+		},
+		{
+			"id": 1749,
+			"userId": "534166956652232755",
+			"model": "Completion",
+			"recordId": "60994",
+			"name": "SoulOrg Endurance||ghdyo1",
+			"action": "delete",
+			"timestamp": "2025-01-06T07:00:38.147Z",
+			"before": {
+				"id": 60994,
+				"old": false,
+				"solo": false,
+				"team": ["ghdyo1"],
+				"time": 2999.69,
+				"first": false,
+				"notes": null,
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=f25c5f57b76de2ef2886d94439ddbf0daac568c2;bomb=JQ3LV3"
+				],
+				"verified": false,
+				"dateAdded": "2025-01-05T19:23:27.472Z",
+				"missionId": 10460,
+				"uploadedBy": "996401106819235840"
+			}
+		},
+		{
+			"id": 1750,
+			"userId": "384957853116661760",
+			"model": "Mission",
+			"recordId": "10844",
+			"name": "Very Swift Challenge",
+			"action": "create",
+			"timestamp": "2025-01-06T07:09:24.453Z"
+		},
+		{
+			"id": 1751,
+			"userId": "294221057311899649",
+			"model": "Completion",
+			"recordId": "60996",
+			"name": "maplebomb||GreenPower",
+			"action": "create",
+			"timestamp": "2025-01-06T07:50:41.439Z"
+		},
+		{
+			"id": 1752,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60978",
+			"name": "Boss Soloing||denial140",
+			"action": "delete",
+			"timestamp": "2025-01-06T08:15:51.031Z",
+			"before": {
+				"id": 60978,
+				"old": false,
+				"solo": false,
+				"team": ["denial140"],
+				"time": 3441.8,
+				"first": false,
+				"notes": null,
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=120cff18db5e2ce8e92ce7639fad7f4b1da69c71;bomb=U85PR1",
+					"https://youtu.be/7HQrIWeJ4OU"
+				],
+				"verified": false,
+				"dateAdded": "2025-01-04T05:30:57.291Z",
+				"missionId": 9473,
+				"uploadedBy": "118831126239248397"
+			}
+		},
+		{
+			"id": 1753,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60979",
+			"name": "Boss Soloing||denial140, Lyph",
+			"action": "update",
+			"timestamp": "2025-01-06T08:16:26.605Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1754,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60980",
+			"name": "Eleventh Day of Christmas||denial140",
+			"action": "update",
+			"timestamp": "2025-01-06T08:17:17.259Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1755,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60981",
+			"name": "Blind Man||Kangablue",
+			"action": "update",
+			"timestamp": "2025-01-06T08:18:23.359Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1756,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60982",
+			"name": "Just Vibin'||Birb",
+			"action": "update",
+			"timestamp": "2025-01-06T08:18:50.525Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1757,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60983",
+			"name": "Player's Choice||denial140",
+			"action": "update",
+			"timestamp": "2025-01-06T08:20:07.563Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1758,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60986",
+			"name": "Mandate||Poke",
+			"action": "update",
+			"timestamp": "2025-01-06T08:20:56.351Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1759,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60987",
+			"name": "ÜberKlax Endurance||Danumbah",
+			"action": "update",
+			"timestamp": "2025-01-06T08:21:16.344Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1760,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60989",
+			"name": "Nothing To Spare: Quickly Now!||hyeon72",
+			"action": "update",
+			"timestamp": "2025-01-06T08:21:34.384Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1761,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60990",
+			"name": "Reasonable||Poke",
+			"action": "update",
+			"timestamp": "2025-01-06T08:22:18.989Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1762,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60991",
+			"name": "Myosotis||BladePL",
+			"action": "update",
+			"timestamp": "2025-01-06T08:23:23.276Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1763,
+			"userId": "192330681987235840",
+			"model": "Completion",
+			"recordId": "60997",
+			"name": "Blind Man||Sierra",
+			"action": "create",
+			"timestamp": "2025-01-06T17:44:39.509Z"
+		},
+		{
+			"id": 1764,
+			"userId": "575228839903494157",
+			"model": "Completion",
+			"recordId": "60998",
+			"name": "SoulOrg Endurance||Birb",
+			"action": "create",
+			"timestamp": "2025-01-06T18:18:16.570Z"
+		},
+		{
+			"id": 1765,
+			"userId": "192330681987235840",
+			"model": "Completion",
+			"recordId": "60999",
+			"name": "Mandate||AzaFTW, Sierra, Termet",
+			"action": "create",
+			"timestamp": "2025-01-06T18:40:01.160Z"
+		},
+		{
+			"id": 1766,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60992",
+			"name": "Speeding||Poke",
+			"action": "update",
+			"timestamp": "2025-01-06T20:35:23.940Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1767,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60993",
+			"name": "Speeding: Lap 2||Poke",
+			"action": "update",
+			"timestamp": "2025-01-06T20:35:46.684Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1768,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60995",
+			"name": "Possibly Impossible: Ultra Deluxe Edition||Danumbah",
+			"action": "update",
+			"timestamp": "2025-01-06T20:36:07.669Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1769,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60996",
+			"name": "maplebomb||GreenPower",
+			"action": "update",
+			"timestamp": "2025-01-06T21:59:50.952Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1770,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60997",
+			"name": "Blind Man||Sierra",
+			"action": "update",
+			"timestamp": "2025-01-06T22:00:32.548Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1771,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60998",
+			"name": "SoulOrg Endurance||Birb",
+			"action": "update",
+			"timestamp": "2025-01-06T22:01:29.681Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1772,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60999",
+			"name": "Mandate||AzaFTW, Sierra, Termet",
+			"action": "update",
+			"timestamp": "2025-01-06T22:02:19.027Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1773,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "60999",
+			"name": "Mandate||AzaFTW, Sierra, Termet",
+			"action": "update",
+			"timestamp": "2025-01-06T22:02:38.333Z",
+			"before": {
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=751cdd1704be7d97d7de19ed05bb95974bfd8c45",
+					"https://youtu.be/f46Pbszz2cE",
+					"https://youtu.be/Hp54piW2AHM",
+					"https://cdn.discordapp.com/attachments/833723030071935006/1325896051495800943/2Q.png?ex=677d746c&is=677c22ec&hm=0b285378a07290f0022d3df450a8a872a82f29aaa87b393089bca4870f98b2dd&"
+				]
+			},
+			"after": {
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=751cdd1704be7d97d7de19ed05bb95974bfd8c45",
+					"https://youtu.be/Hp54piW2AHM",
+					"https://youtu.be/f46Pbszz2cE"
+				]
+			}
+		},
+		{
+			"id": 1774,
+			"userId": "482616311822680086",
+			"model": "Completion",
+			"recordId": "61000",
+			"name": "Easy Challenge||Speeri",
+			"action": "create",
+			"timestamp": "2025-01-07T01:48:10.434Z"
+		},
+		{
+			"id": 1775,
+			"userId": "459108669636739072",
+			"model": "Completion",
+			"recordId": "61001",
+			"name": "Small Hope||Kugel",
+			"action": "create",
+			"timestamp": "2025-01-07T01:49:06.027Z"
+		},
+		{
+			"id": 1776,
+			"userId": "459108669636739072",
+			"model": "Completion",
+			"recordId": "61002",
+			"name": "Bless the Orange Juice||Kugel",
+			"action": "create",
+			"timestamp": "2025-01-07T20:03:38.643Z"
+		},
+		{
+			"id": 1777,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "61003",
+			"name": "Easy Challenge||Burniel",
+			"action": "create",
+			"timestamp": "2025-01-07T20:33:46.852Z"
+		},
+		{
+			"id": 1778,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "61003",
+			"name": "Easy Challenge||Burniel",
+			"action": "delete",
+			"timestamp": "2025-01-07T20:33:50.711Z",
+			"before": {
+				"id": 61003,
+				"old": false,
+				"solo": true,
+				"team": ["Burniel"],
+				"time": 698.69,
+				"first": false,
+				"notes": null,
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=237abe367d3738208450b0edd9006f3414f0a200;bomb=494UQ5"
+				],
+				"verified": false,
+				"dateAdded": "2025-01-07T20:26:28.671Z",
+				"missionId": 9636,
+				"uploadedBy": "486602438103531520"
+			}
+		},
+		{
+			"id": 1779,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "61000",
+			"name": "Easy Challenge||Speeri",
+			"action": "delete",
+			"timestamp": "2025-01-07T21:27:48.957Z",
+			"before": {
+				"id": 61000,
+				"old": false,
+				"solo": true,
+				"team": ["Speeri"],
+				"time": 698.69,
+				"first": false,
+				"notes": null,
+				"proofs": [
+					"https://ktane.timwi.de/More/Logfile%20Analyzer.html#file=237abe367d3738208450b0edd9006f3414f0a200;bomb=494UQ5"
+				],
+				"verified": false,
+				"dateAdded": "2025-01-07T01:47:15.419Z",
+				"missionId": 9636,
+				"uploadedBy": "482616311822680086"
+			}
+		},
+		{
+			"id": 1780,
+			"userId": "534166956652232755",
+			"model": "Completion",
+			"recordId": "61001",
+			"name": "Small Hope||Kugel",
+			"action": "update",
+			"timestamp": "2025-01-08T02:29:43.658Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1781,
+			"userId": "455035517872898050",
+			"model": "Completion",
+			"recordId": "61004",
+			"name": "Australia Bomb||_Play_",
+			"action": "create",
+			"timestamp": "2025-01-08T14:21:29.486Z"
+		},
+		{
+			"id": 1782,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "61002",
+			"name": "Bless the Orange Juice||Kugel",
+			"action": "update",
+			"timestamp": "2025-01-08T20:32:04.699Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1783,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "61004",
+			"name": "Australia Bomb||_Play_",
+			"action": "update",
+			"timestamp": "2025-01-08T20:32:32.408Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1784,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10845",
+			"name": "[[UPDATE]] Module Marathon",
+			"action": "create",
+			"timestamp": "2025-01-08T20:38:07.895Z"
+		},
+		{
+			"id": 1785,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10699",
+			"name": "Module Marathon",
+			"action": "update",
+			"timestamp": "2025-01-08T20:38:12.728Z",
+			"before": { "logfile": "https://ktane.timwi.de/lfa#file=e60d8f5050feba1ce9dbd79b4ce110f22c0c8d59" },
+			"after": {
+				"bombs": {
+					"create": [
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["Venn"] },
+								{ "count": 1, "modules": ["Emoji Math"] },
+								{ "count": 1, "modules": ["Keypad"] },
+								{ "count": 1, "modules": ["Maze"] },
+								{ "count": 1, "modules": ["Password"] },
+								{ "count": 1, "modules": ["PianoKeys"] },
+								{ "count": 1, "modules": ["Semaphore"] },
+								{ "count": 1, "modules": ["switchModule"] },
+								{ "count": 1, "modules": ["BigButton"] },
+								{ "count": 1, "modules": ["Wires"] },
+								{ "count": 1, "modules": ["WordScrambleModule"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["alphabet"] },
+								{ "count": 1, "modules": ["spwizAstrology"] },
+								{ "count": 1, "modules": ["CaesarCipherModule"] },
+								{ "count": 1, "modules": ["ChessModule"] },
+								{ "count": 1, "modules": ["graphModule"] },
+								{ "count": 1, "modules": ["CrazyTalk"] },
+								{ "count": 1, "modules": ["FollowTheLeaderModule"] },
+								{ "count": 1, "modules": ["LetterKeys"] },
+								{ "count": 1, "modules": ["murder"] },
+								{ "count": 1, "modules": ["KeypadV2"] },
+								{ "count": 1, "modules": ["TheBulbModule"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["BlindAlleyModule"] },
+								{ "count": 1, "modules": ["ColoredSquaresModule"] },
+								{ "count": 1, "modules": ["complicatedButtonsModule"] },
+								{ "count": 1, "modules": ["DoubleOhModule"] },
+								{ "count": 1, "modules": ["LightCycleModule"] },
+								{ "count": 1, "modules": ["RockPaperScissorsLizardSpockModule"] },
+								{ "count": 1, "modules": ["ButtonV2"] },
+								{ "count": 1, "modules": ["symbolicPasswordModule"] },
+								{ "count": 1, "modules": ["TextField"] },
+								{ "count": 1, "modules": ["WirePlacementModule"] },
+								{ "count": 1, "modules": ["WordSearchModule"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["BitOps"] },
+								{ "count": 1, "modules": ["ChordQualities"] },
+								{ "count": 1, "modules": ["colormath"] },
+								{ "count": 1, "modules": ["CreationModule"] },
+								{ "count": 1, "modules": ["fastMath"] },
+								{ "count": 1, "modules": ["fizzBuzzModule"] },
+								{ "count": 1, "modules": ["neutralization"] },
+								{ "count": 1, "modules": ["MusicRhythms"] },
+								{ "count": 1, "modules": ["RubiksCubeModule"] },
+								{ "count": 1, "modules": ["TheClockModule"] },
+								{ "count": 1, "modules": ["webDesign"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["BinaryLeds"] },
+								{ "count": 1, "modules": ["booleanVennModule"] },
+								{ "count": 1, "modules": ["ColorMorseModule"] },
+								{ "count": 1, "modules": ["GridlockModule"] },
+								{ "count": 1, "modules": ["Mastermind Simple"] },
+								{ "count": 1, "modules": ["MinesweeperModule"] },
+								{ "count": 1, "modules": ["PointOfOrderModule"] },
+								{ "count": 1, "modules": ["screw"] },
+								{ "count": 1, "modules": ["XRayModule"] },
+								{ "count": 1, "modules": ["YahtzeeModule"] },
+								{ "count": 1, "modules": ["ZooModule"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["BrailleModule"] },
+								{ "count": 1, "modules": ["Color Generator"] },
+								{ "count": 1, "modules": ["ColoredSwitchesModule"] },
+								{ "count": 1, "modules": ["ExtendedPassword"] },
+								{ "count": 1, "modules": ["FestivePianoKeys"] },
+								{ "count": 1, "modules": ["FlagsModule"] },
+								{ "count": 1, "modules": ["NonogramModule"] },
+								{ "count": 1, "modules": ["Painting"] },
+								{ "count": 1, "modules": ["PerplexingWiresModule"] },
+								{ "count": 1, "modules": ["SetModule"] },
+								{ "count": 1, "modules": ["timezone"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["Backgrounds"] },
+								{ "count": 1, "modules": ["errorCodes"] },
+								{ "count": 1, "modules": ["identityParade"] },
+								{ "count": 1, "modules": ["ledGrid"] },
+								{ "count": 1, "modules": ["mashematics"] },
+								{ "count": 1, "modules": ["mortalKombat"] },
+								{ "count": 1, "modules": ["pieModule"] },
+								{ "count": 1, "modules": ["poetry"] },
+								{ "count": 1, "modules": ["radiator"] },
+								{ "count": 1, "modules": ["Sink"] },
+								{ "count": 1, "modules": ["visual_impairment"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["calendar"] },
+								{ "count": 1, "modules": ["complexKeypad"] },
+								{ "count": 1, "modules": ["digitalRoot"] },
+								{ "count": 1, "modules": ["graffitiNumbers"] },
+								{ "count": 1, "modules": ["GridMatching"] },
+								{ "count": 1, "modules": ["MazeScrambler"] },
+								{ "count": 1, "modules": ["MorseWar"] },
+								{ "count": 1, "modules": ["Playfair"] },
+								{ "count": 1, "modules": ["tapCode"] },
+								{ "count": 1, "modules": ["theCodeModule"] },
+								{ "count": 1, "modules": ["USA"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["boggle"] },
+								{ "count": 1, "modules": ["britishSlang"] },
+								{ "count": 1, "modules": ["characterShift"] },
+								{ "count": 1, "modules": ["doubleColor"] },
+								{ "count": 1, "modules": ["flashingLights"] },
+								{ "count": 1, "modules": ["KritHomework"] },
+								{ "count": 1, "modules": ["reverseMorse"] },
+								{ "count": 1, "modules": ["shikaku"] },
+								{ "count": 1, "modules": ["numberCipher"] },
+								{ "count": 1, "modules": ["BigSwitch"] },
+								{ "count": 1, "modules": ["UncoloredSquaresModule"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["CrackboxModule"] },
+								{ "count": 1, "modules": ["dominoes"] },
+								{ "count": 1, "modules": ["instructions"] },
+								{ "count": 1, "modules": ["modulo"] },
+								{ "count": 1, "modules": ["skinnyWires"] },
+								{ "count": 1, "modules": ["spinningButtons"] },
+								{ "count": 1, "modules": ["streetFighter"] },
+								{ "count": 1, "modules": ["tWords"] },
+								{ "count": 1, "modules": ["TheDigitModule"] },
+								{ "count": 1, "modules": ["hangover"] },
+								{ "count": 1, "modules": ["KritRadio"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["digitalCipher"] },
+								{ "count": 1, "modules": ["groceryStore"] },
+								{ "count": 1, "modules": ["homophones"] },
+								{ "count": 1, "modules": ["lgndLEDMath"] },
+								{ "count": 1, "modules": ["megaMan2"] },
+								{ "count": 1, "modules": ["Numbers"] },
+								{ "count": 1, "modules": ["Questionmark"] },
+								{ "count": 1, "modules": ["simonScrambles"] },
+								{ "count": 1, "modules": ["stackem"] },
+								{ "count": 1, "modules": ["VaricoloredSquaresModule"] },
+								{ "count": 1, "modules": ["lgndZoni"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["MistakeModule"] },
+								{ "count": 1, "modules": ["babaIsWho"] },
+								{ "count": 1, "modules": ["daylightDirections"] },
+								{ "count": 1, "modules": ["purpleArrowsModule"] },
+								{ "count": 1, "modules": ["redArrowsModule"] },
+								{ "count": 1, "modules": ["riskyWires"] },
+								{ "count": 1, "modules": ["stainedGlass"] },
+								{ "count": 1, "modules": ["symbolicColouring"] },
+								{ "count": 1, "modules": ["theBlock"] },
+								{ "count": 1, "modules": ["giantsDrink"] },
+								{ "count": 1, "modules": ["unorderedKeys"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["boneAppleTea"] },
+								{ "count": 1, "modules": ["caesarCycle"] },
+								{ "count": 1, "modules": ["faultyDigitalRootModule"] },
+								{ "count": 1, "modules": ["FlashMemory"] },
+								{ "count": 1, "modules": ["fruits"] },
+								{ "count": 1, "modules": ["luckyDice"] },
+								{ "count": 1, "modules": ["matchematics"] },
+								{ "count": 1, "modules": ["pictionaryModule"] },
+								{ "count": 1, "modules": ["PrimeChecker"] },
+								{ "count": 1, "modules": ["ksmTetraVex"] },
+								{ "count": 1, "modules": ["theRule"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["chineseCounting"] },
+								{ "count": 1, "modules": ["colorAddition"] },
+								{ "count": 1, "modules": ["divisibleNumbers"] },
+								{ "count": 1, "modules": ["EncryptedDice"] },
+								{ "count": 1, "modules": ["ingredients"] },
+								{ "count": 1, "modules": ["KanjiModule"] },
+								{ "count": 1, "modules": ["NandMs"] },
+								{ "count": 1, "modules": ["spellingBee"] },
+								{ "count": 1, "modules": ["coloredMaze"] },
+								{ "count": 1, "modules": ["bigegg"] },
+								{ "count": 1, "modules": ["nonverbalSimon"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["punctuationMarks"] },
+								{ "count": 1, "modules": ["OneDimensionalMaze"] },
+								{ "count": 1, "modules": ["gatekeeper"] },
+								{ "count": 1, "modules": ["LightBulbs"] },
+								{ "count": 1, "modules": ["NotMemory"] },
+								{ "count": 1, "modules": ["NotSimaze"] },
+								{ "count": 1, "modules": ["NotWiresword"] },
+								{ "count": 1, "modules": ["sequencesModule"] },
+								{ "count": 1, "modules": ["shellGame"] },
+								{ "count": 1, "modules": ["topsyTurvy"] },
+								{ "count": 1, "modules": ["VCRCS"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["BasicMorse"] },
+								{ "count": 1, "modules": ["buttonOrder"] },
+								{ "count": 1, "modules": ["caesarsMaths"] },
+								{ "count": 1, "modules": ["JadenSmithTalk"] },
+								{ "count": 1, "modules": ["JustNumbersModule"] },
+								{ "count": 1, "modules": ["ModuleRick"] },
+								{ "count": 1, "modules": ["stars"] },
+								{ "count": 1, "modules": ["StockImages"] },
+								{ "count": 1, "modules": ["strikeSolve"] },
+								{ "count": 1, "modules": ["TheCalculator"] },
+								{ "count": 1, "modules": ["theDuck"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["breaktime"] },
+								{ "count": 1, "modules": ["colorNumbers"] },
+								{ "count": 1, "modules": ["colorCycleButton"] },
+								{ "count": 1, "modules": ["ColoredButtons"] },
+								{ "count": 1, "modules": ["digitalClock"] },
+								{ "count": 1, "modules": ["evenOrOdd"] },
+								{ "count": 1, "modules": ["HigherOrLower"] },
+								{ "count": 1, "modules": ["mastermindRestricted"] },
+								{ "count": 1, "modules": ["mindlock"] },
+								{ "count": 1, "modules": ["PixelArt"] },
+								{ "count": 1, "modules": ["workingTitle"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["AtbashCipher"] },
+								{ "count": 1, "modules": ["bigBean"] },
+								{ "count": 1, "modules": ["colouredArrowsModule"] },
+								{ "count": 1, "modules": ["CosmicModule"] },
+								{ "count": 1, "modules": ["doubleScreenModule"] },
+								{ "count": 1, "modules": ["numberedButtonsModule"] },
+								{ "count": 1, "modules": ["pressTheShape"] },
+								{ "count": 1, "modules": ["redHexabuttons"] },
+								{ "count": 1, "modules": ["standardButtonMasher"] },
+								{ "count": 1, "modules": ["xelSymmetriesOfASquare"] },
+								{ "count": 1, "modules": ["valuedKeysModule"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["BinaryButtons"] },
+								{ "count": 1, "modules": ["CodeCracker"] },
+								{ "count": 1, "modules": ["GSDirectingButtons"] },
+								{ "count": 1, "modules": ["functionalMapping"] },
+								{ "count": 1, "modules": ["CaptchaModule"] },
+								{ "count": 1, "modules": ["Indentation"] },
+								{ "count": 1, "modules": ["mischmodul"] },
+								{ "count": 1, "modules": ["newline"] },
+								{ "count": 1, "modules": ["numpath"] },
+								{ "count": 1, "modules": ["TDSAmogus"] },
+								{ "count": 1, "modules": ["TDSNya"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["blueWhale"] },
+								{ "count": 1, "modules": ["CactusPConundrum"] },
+								{ "count": 1, "modules": ["flippingTriangles"] },
+								{ "count": 1, "modules": ["flyswatting"] },
+								{ "count": 1, "modules": ["HitmanModule"] },
+								{ "count": 1, "modules": ["leds"] },
+								{ "count": 1, "modules": ["mirror"] },
+								{ "count": 1, "modules": ["RedHerring"] },
+								{ "count": 1, "modules": ["squeeze"] },
+								{ "count": 1, "modules": ["warningSigns"] },
+								{ "count": 1, "modules": ["Words"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["base1"] },
+								{ "count": 1, "modules": ["candyLand"] },
+								{ "count": 1, "modules": ["cursorMazeModule"] },
+								{ "count": 1, "modules": ["invisymbol"] },
+								{ "count": 1, "modules": ["letterMath"] },
+								{ "count": 1, "modules": ["myMom"] },
+								{ "count": 1, "modules": ["PurchasingProperties"] },
+								{ "count": 1, "modules": ["shogiIdentification"] },
+								{ "count": 1, "modules": ["ShutTheBox"] },
+								{ "count": 1, "modules": ["GrayButtonModule"] },
+								{ "count": 1, "modules": ["UNO"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["4buttons"] },
+								{ "count": 1, "modules": ["bafflingBox"] },
+								{ "count": 1, "modules": ["factoryCode"] },
+								{ "count": 1, "modules": ["factoryCubes"] },
+								{ "count": 1, "modules": ["marcoPolo"] },
+								{ "count": 1, "modules": ["NotColoredSquaresModule"] },
+								{ "count": 1, "modules": ["notes"] },
+								{ "count": 1, "modules": ["signLanguage"] },
+								{ "count": 1, "modules": ["GSSurroundingButtons"] },
+								{ "count": 1, "modules": ["NeutralButtonModule"] },
+								{ "count": 1, "modules": ["USACycle"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["double_on"] },
+								{ "count": 1, "modules": ["keyedButtons"] },
+								{ "count": 1, "modules": ["logicPlumbing"] },
+								{ "count": 1, "modules": ["MatchingSigns"] },
+								{ "count": 1, "modules": ["mini"] },
+								{ "count": 1, "modules": ["NiftyNumber"] },
+								{ "count": 1, "modules": ["oneitemOneMeal"] },
+								{ "count": 1, "modules": ["parity"] },
+								{ "count": 1, "modules": ["PigfairCipher"] },
+								{ "count": 1, "modules": ["RDKeypad"] },
+								{ "count": 1, "modules": ["Wordle"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["Fillominordle"] },
+								{ "count": 1, "modules": ["FittingInModule"] },
+								{ "count": 1, "modules": ["midCircle"] },
+								{ "count": 1, "modules": ["Patterns"] },
+								{ "count": 1, "modules": ["ReadingBetweentheLines"] },
+								{ "count": 1, "modules": ["saulGoodmanButton"] },
+								{ "count": 1, "modules": ["scrutinySquares"] },
+								{ "count": 1, "modules": ["technicalButtons"] },
+								{ "count": 1, "modules": ["theGreenWireModule"] },
+								{ "count": 1, "modules": ["translatedKeypadModule"] },
+								{ "count": 1, "modules": ["WanderModule"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["alphabetButtons"] },
+								{ "count": 1, "modules": ["ChesswordModule"] },
+								{ "count": 1, "modules": ["epicShapes"] },
+								{ "count": 1, "modules": ["FindTheInvisibleCowModule"] },
+								{ "count": 1, "modules": ["genMaze"] },
+								{ "count": 1, "modules": ["mercury"] },
+								{ "count": 1, "modules": ["Quadrants"] },
+								{ "count": 1, "modules": ["Rambopo"] },
+								{ "count": 1, "modules": ["schulteTable"] },
+								{ "count": 1, "modules": ["funnyNumber"] },
+								{ "count": 1, "modules": ["yoshiEgg"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["activities"] },
+								{ "count": 1, "modules": ["baseOn"] },
+								{ "count": 1, "modules": ["blindfoldedRubiksClockModule"] },
+								{ "count": 1, "modules": ["fourOperands"] },
+								{ "count": 1, "modules": ["GTACheats"] },
+								{ "count": 1, "modules": ["memoryWires"] },
+								{ "count": 1, "modules": ["compMorse"] },
+								{ "count": 1, "modules": ["RecursivePassword"] },
+								{ "count": 1, "modules": ["shapesAndColors"] },
+								{ "count": 1, "modules": ["subway"] },
+								{ "count": 1, "modules": ["turingMachine"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["colorPong"] },
+								{ "count": 1, "modules": ["CruelSimpleton"] },
+								{ "count": 1, "modules": ["GSDialTrial"] },
+								{ "count": 1, "modules": ["FollowMe"] },
+								{ "count": 1, "modules": ["gameboyCart"] },
+								{ "count": 1, "modules": ["MulticoloredDigits"] },
+								{ "count": 1, "modules": ["GL_nokiaModule"] },
+								{ "count": 1, "modules": ["periodicWordsRB"] },
+								{ "count": 1, "modules": ["PolybiusSquare"] },
+								{ "count": 1, "modules": ["quantumPasswords"] },
+								{ "count": 1, "modules": ["wasdModule"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["GSTwentyFour"] },
+								{ "count": 1, "modules": ["bigBikeRepair"] },
+								{ "count": 1, "modules": ["grandPiano"] },
+								{ "count": 1, "modules": ["jobApplication"] },
+								{ "count": 1, "modules": ["LengthyLockdown"] },
+								{ "count": 1, "modules": ["mazeSwap"] },
+								{ "count": 1, "modules": ["numbrix"] },
+								{ "count": 1, "modules": ["PointGrid"] },
+								{ "count": 1, "modules": ["rasterPrime"] },
+								{ "count": 1, "modules": ["Sporglers"] },
+								{ "count": 1, "modules": ["zoomModule"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["CrazyMazeModule"] },
+								{ "count": 1, "modules": ["diamonds"] },
+								{ "count": 1, "modules": ["HaikuModule"] },
+								{ "count": 1, "modules": ["NavigationDeterminationModule"] },
+								{ "count": 1, "modules": ["patternWires"] },
+								{ "count": 1, "modules": ["simultaneousSimons"] },
+								{ "count": 1, "modules": ["soilClassification"] },
+								{ "count": 1, "modules": ["swish"] },
+								{ "count": 1, "modules": ["TechnicalKeypad"] },
+								{ "count": 1, "modules": ["toeTactics"] },
+								{ "count": 1, "modules": ["XORShiftModule"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["clappingMusic"] },
+								{ "count": 1, "modules": ["cityPlanning"] },
+								{ "count": 1, "modules": ["encoloryption"] },
+								{ "count": 1, "modules": ["keypass"] },
+								{ "count": 1, "modules": ["nim"] },
+								{ "count": 1, "modules": ["GSNumberCruncher"] },
+								{ "count": 1, "modules": ["QModule"] },
+								{ "count": 1, "modules": ["settingCharges"] },
+								{ "count": 1, "modules": ["soda"] },
+								{ "count": 1, "modules": ["SubtractionModule"] },
+								{ "count": 1, "modules": ["GSWinningLine"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["binarySquares"] },
+								{ "count": 1, "modules": ["ducks"] },
+								{ "count": 1, "modules": ["karnaugh"] },
+								{ "count": 1, "modules": ["labyrinthMadness"] },
+								{ "count": 1, "modules": ["metalmaths"] },
+								{ "count": 1, "modules": ["GSNormalProbability"] },
+								{ "count": 1, "modules": ["hexaterminals"] },
+								{ "count": 1, "modules": ["snatchersMap"] },
+								{ "count": 1, "modules": ["supermarketScramble"] },
+								{ "count": 1, "modules": ["MultiverseHotline"] },
+								{ "count": 1, "modules": ["theTissueBox"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						},
+						{
+							"time": 1200,
+							"pools": [
+								{ "count": 1, "modules": ["lyingButtons"] },
+								{ "count": 1, "modules": ["BaseConversion"] },
+								{ "count": 1, "modules": ["LogicCircuits"] },
+								{ "count": 1, "modules": ["someButtons"] },
+								{ "count": 1, "modules": ["curlyWires"] },
+								{ "count": 1, "modules": ["ballDial"] },
+								{ "count": 1, "modules": ["theLight"] },
+								{ "count": 1, "modules": ["alcoholicRampageModule"] },
+								{ "count": 1, "modules": ["breakers"] },
+								{ "count": 1, "modules": ["scattershot"] },
+								{ "count": 1, "modules": ["triskaideka"] }
+							],
+							"modules": 11,
+							"strikes": 5,
+							"widgets": 5
+						}
+					]
+				},
+				"logfile": "https://ktane.timwi.de/lfa#file=4e12311d49ee1042680d6dc024538fd47ad878d6"
+			}
+		},
+		{
+			"id": 1786,
+			"userId": "486602438103531520",
+			"model": "Mission",
+			"recordId": "10845",
+			"name": "[[UPDATE]] Module Marathon",
+			"action": "delete",
+			"timestamp": "2025-01-08T20:38:12.778Z",
+			"before": {
+				"id": 10845,
+				"name": "[[UPDATE]] Module Marathon",
+				"notes": null,
+				"authors": ["Blan"],
+				"factory": "Sequence",
+				"logfile": "https://ktane.timwi.de/lfa#file=4e12311d49ee1042680d6dc024538fd47ad878d6",
+				"tpSolve": false,
+				"variant": null,
+				"inGameId": "mod_theBombsBlanMade_moduleMarathon",
+				"timeMode": "Local",
+				"verified": false,
+				"dateAdded": "2025-01-08T20:37:35.453Z",
+				"inGameName": null,
+				"strikeMode": "Local",
+				"uploadedBy": "486602438103531520",
+				"designedForTP": false,
+				"missionPackId": 430
+			}
+		},
+		{
+			"id": 1787,
+			"userId": "424696431345926144",
+			"model": "Completion",
+			"recordId": "61005",
+			"name": "Crocell||Poke",
+			"action": "create",
+			"timestamp": "2025-01-08T21:00:59.395Z"
+		},
+		{
+			"id": 1788,
+			"userId": "459108669636739072",
+			"model": "Completion",
+			"recordId": "61006",
+			"name": "Arleen's Favorite 47||Kugel",
+			"action": "create",
+			"timestamp": "2025-01-09T05:41:15.316Z"
+		},
+		{
+			"id": 1789,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "61005",
+			"name": "Crocell||Poke",
+			"action": "update",
+			"timestamp": "2025-01-09T08:09:25.622Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1790,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "61006",
+			"name": "Arleen's Favorite 47||Kugel",
+			"action": "update",
+			"timestamp": "2025-01-09T08:10:13.172Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1791,
+			"userId": "118831126239248397",
+			"model": "Completion",
+			"recordId": "61007",
+			"name": "Seven Deadly Sins||denial140",
+			"action": "create",
+			"timestamp": "2025-01-09T15:45:23.329Z"
+		},
+		{
+			"id": 1792,
+			"userId": "150650873884704769",
+			"model": "Completion",
+			"recordId": "61008",
+			"name": "Australia Bomb||AzaFTW, Megum, Termet",
+			"action": "create",
+			"timestamp": "2025-01-09T15:52:57.327Z"
+		},
+		{
+			"id": 1793,
+			"userId": "192330681987235840",
+			"model": "Completion",
+			"recordId": "61009",
+			"name": "You Can't Theoretically Lose||Sierra",
+			"action": "create",
+			"timestamp": "2025-01-09T16:09:12.464Z"
+		},
+		{
+			"id": 1794,
+			"userId": "455035517872898050",
+			"model": "Completion",
+			"recordId": "61010",
+			"name": "Pandora||_Play_",
+			"action": "create",
+			"timestamp": "2025-01-09T19:54:22.950Z"
+		},
+		{
+			"id": 1795,
+			"userId": "689219553531658292",
+			"model": "Completion",
+			"recordId": "61011",
+			"name": "Tyler-Why||Faith",
+			"action": "create",
+			"timestamp": "2025-01-09T21:05:55.140Z"
+		},
+		{
+			"id": 1796,
+			"userId": "486602438103531520",
+			"model": "Completion",
+			"recordId": "61007",
+			"name": "Seven Deadly Sins||denial140",
+			"action": "update",
+			"timestamp": "2025-01-09T21:55:03.474Z",
+			"before": { "verified": false },
+			"after": { "verified": true }
+		},
+		{
+			"id": 1797,
+			"userId": "495546834010505216",
+			"model": "Completion",
+			"recordId": "61012",
+			"name": "Baka, Baka, Baka||Megum",
+			"action": "create",
+			"timestamp": "2025-01-09T22:53:01.512Z"
 		}
 	],
 	"User": [
@@ -21208,6 +27237,13 @@
 			"permissions": []
 		},
 		{
+			"id": "1279629280535511141",
+			"username": "NormaMagno1956",
+			"discordName": "normamagno1956",
+			"avatar": "8569adcbd36c70a7578c017bf5604ea5",
+			"permissions": []
+		},
+		{
 			"id": "129967554042003456",
 			"username": "Enoral",
 			"discordName": "enoraltheoutcast",
@@ -21239,7 +27275,7 @@
 			"id": "134114144096878593",
 			"username": "NinjaBorn",
 			"discordName": "ninjaborn",
-			"avatar": "a_530d6acbfecb85458337351a05602480",
+			"avatar": "a_e85f1b5091fa75c4d5347c700e88acdd",
 			"permissions": []
 		},
 		{
@@ -21290,6 +27326,13 @@
 			"username": "FranEagle",
 			"discordName": "franeagle",
 			"avatar": "3fb0564ddb4932e0484202206515b8c5",
+			"permissions": []
+		},
+		{
+			"id": "161957577851142145",
+			"username": "Letanda",
+			"discordName": "letanda",
+			"avatar": "2a5e80076fa211ed1e48145433a1bd11",
 			"permissions": []
 		},
 		{
@@ -21352,7 +27395,7 @@
 			"id": "186087112435695617",
 			"username": "GuonuoTW",
 			"discordName": "guonuotw",
-			"avatar": "c08654816acb75d5e8067d71528f9b3f",
+			"avatar": "c115963ed5f143fc1e07f2a68cffcf4f",
 			"permissions": []
 		},
 		{
@@ -21415,7 +27458,7 @@
 			"id": "192330681987235840",
 			"username": "Sierra",
 			"discordName": "sierra.tango",
-			"avatar": "3a0ec5a02ac4fdbdfd030cbaed3d2f0d",
+			"avatar": "fb6529026b902cc703df27631dbeb4a8",
 			"permissions": []
 		},
 		{
@@ -21450,7 +27493,7 @@
 			"id": "198971491398713345",
 			"username": "VFlyer",
 			"discordName": "vflyer",
-			"avatar": "49c52aa4788f54a4535056d109312e75",
+			"avatar": "194a1c0842cd6052894592e6612ef45e",
 			"permissions": []
 		},
 		{
@@ -21629,6 +27672,13 @@
 			"permissions": []
 		},
 		{
+			"id": "236746928505880577",
+			"username": "Eyevy",
+			"discordName": "eyeballvandalist",
+			"avatar": "d7c7efec2ae98ada30d86c42b4325103",
+			"permissions": []
+		},
+		{
 			"id": "238380142143995905",
 			"username": "seltlec",
 			"discordName": "seltlec#2696",
@@ -21730,7 +27780,7 @@
 			"id": "256088262911721482",
 			"username": "Maldevar",
 			"discordName": "maldevar",
-			"avatar": "dddad9ef5b8936e8eccc2bb3f87348da",
+			"avatar": "34523a139964205ee32444ba5bacbe1c",
 			"permissions": []
 		},
 		{
@@ -21807,7 +27857,7 @@
 			"id": "265294329709330432",
 			"username": "Blan",
 			"discordName": "blananas2",
-			"avatar": "019e6443667b1782a2577fffdea1d932",
+			"avatar": "0b40c7637ef4c3772111536cdce46d5e",
 			"permissions": []
 		},
 		{
@@ -22119,6 +28169,13 @@
 			"permissions": []
 		},
 		{
+			"id": "338768995899408394",
+			"username": "zwx",
+			"discordName": "zwx21",
+			"avatar": "8056c51a5b3a94cdab266176e66f669a",
+			"permissions": []
+		},
+		{
 			"id": "340005225358163968",
 			"username": "KosMos",
 			"discordName": "kosmos_pv",
@@ -22144,6 +28201,13 @@
 			"username": "Lunaria1 (🌟 Luna 🌙)",
 			"discordName": "lunaria1",
 			"avatar": "55944a36e8c4b7c9422ebeb7f304e6a2",
+			"permissions": []
+		},
+		{
+			"id": "345531925445738498",
+			"username": "MAXANGE2B",
+			"discordName": "maxange2b",
+			"avatar": "beb2ef1cf44562c7562e50eb4713a6fd",
 			"permissions": []
 		},
 		{
@@ -22207,6 +28271,13 @@
 			"username": "Thomaz Brito",
 			"discordName": "thomazbrito",
 			"avatar": "3aea33ed273a964fce3ddb2d2e7c851f",
+			"permissions": []
+		},
+		{
+			"id": "353996042603331586",
+			"username": "JaeGia19",
+			"discordName": "jaegia19",
+			"avatar": "40eec0bcf4401bf51897a8d8902fd49b",
 			"permissions": []
 		},
 		{
@@ -22329,6 +28400,13 @@
 			"permissions": []
 		},
 		{
+			"id": "385672905616392214",
+			"username": "Azzaman",
+			"discordName": "azzaman02",
+			"avatar": "2fd3747f09d96c59ab4b536b177afa13",
+			"permissions": []
+		},
+		{
 			"id": "386319360974651394",
 			"username": "ManiaMate",
 			"discordName": "maniamate",
@@ -22339,7 +28417,7 @@
 			"id": "389555807634587678",
 			"username": "Danumbah",
 			"discordName": "danumbah3#0",
-			"avatar": "62b555605b828c28724d2e74b4bf9c18",
+			"avatar": "770db93c26e2e60587425134a4544fd7",
 			"permissions": []
 		},
 		{
@@ -22497,6 +28575,13 @@
 			"permissions": []
 		},
 		{
+			"id": "451491537705107457",
+			"username": "MeliTheMelon",
+			"discordName": "melithemelon",
+			"avatar": "c54f18074b3cefb582dd56819ca94f86",
+			"permissions": []
+		},
+		{
 			"id": "453728831048646666",
 			"username": "Kilo Bites",
 			"discordName": "kilocloudvii",
@@ -22528,7 +28613,7 @@
 			"id": "459108669636739072",
 			"username": "Kugel",
 			"discordName": ".kugel",
-			"avatar": "15cfc4b82c01dbb7c85b494a0d1c872a",
+			"avatar": "4a4890f6759cc0af45b9d8d5b1df830f",
 			"permissions": []
 		},
 		{
@@ -22746,7 +28831,7 @@
 			"id": "534166956652232755",
 			"username": "Fish",
 			"discordName": "superpawn87",
-			"avatar": "5aed9c6d770feb7bda464a5f61c65436",
+			"avatar": "5f64b3013a8135490d4b4c74defb6390",
 			"permissions": [1, 2, 3, 4]
 		},
 		{
@@ -22806,6 +28891,13 @@
 			"permissions": []
 		},
 		{
+			"id": "575228839903494157",
+			"username": "Birb",
+			"discordName": "earlybirbirl",
+			"avatar": "1a90198f6666fe47575e5a05b2e9e2d4",
+			"permissions": []
+		},
+		{
 			"id": "575368068872536091",
 			"username": "Short_c1rcuit",
 			"discordName": "short_c1rcuit_0481",
@@ -22830,7 +28922,7 @@
 			"id": "589237691691040798",
 			"username": "LitAiden",
 			"discordName": "slowly.dying.inside",
-			"avatar": "54a03e3b058ebca81ca9db8616beffd4",
+			"avatar": "cb3585bd48f4c6fb387363a86d3c8fca",
 			"permissions": []
 		},
 		{
@@ -22939,6 +29031,13 @@
 			"permissions": []
 		},
 		{
+			"id": "667939964448931842",
+			"username": "IHateLife",
+			"discordName": "ihatelife_",
+			"avatar": "8bc874d7e1f033c0be702868e298aa2a",
+			"permissions": []
+		},
+		{
 			"id": "670440198743523368",
 			"username": "Athena",
 			"discordName": "officialathena",
@@ -22948,8 +29047,8 @@
 		{
 			"id": "672301436998123551",
 			"username": "MemesAwesom",
-			"discordName": "memesawesom4207",
-			"avatar": "77d8a0410afe94792e6bc2a7df1e47fd",
+			"discordName": "memes.139",
+			"avatar": "a6a4e5af0469c2a28cf757f80f7e413f",
 			"permissions": []
 		},
 		{
@@ -23061,7 +29160,7 @@
 			"id": "705507300634263653",
 			"username": "PossessedHood416",
 			"discordName": "possessedhood416",
-			"avatar": "f2befaf9c24aea8c31cbbe8c694cbc68",
+			"avatar": "bff34d5403618cd4b4ca2bdad1feb8c7",
 			"permissions": []
 		},
 		{
@@ -23081,8 +29180,8 @@
 		{
 			"id": "710737028307746868",
 			"username": "sphere",
-			"discordName": "spherespheresphere#0",
-			"avatar": "941ba4e387170a144378d5f04d747531",
+			"discordName": "spherespheresphere",
+			"avatar": "e5d6c027ddee668983d39ecd015a0438",
 			"permissions": []
 		},
 		{
@@ -23258,7 +29357,7 @@
 			"id": "779013250367881216",
 			"username": "GoodHood",
 			"discordName": "goodhood",
-			"avatar": "5756e4b6626a202ad525193396b148f5",
+			"avatar": "f77a828a40d3ce11e1b213d1ef5dfb53",
 			"permissions": []
 		},
 		{
@@ -23314,7 +29413,7 @@
 			"id": "832703757615497298",
 			"username": "Axodeau",
 			"discordName": "axodeau",
-			"avatar": "782a33300a98f8426d38f71dabb0af3b",
+			"avatar": "f0e484ea00f85a41f8d8d0ce60586d1b",
 			"permissions": []
 		},
 		{
@@ -23343,6 +29442,20 @@
 			"username": "Bomie1",
 			"discordName": "Bomie1#7915",
 			"avatar": "8ca97a88904db746ea85ebe95c82cdcf",
+			"permissions": []
+		},
+		{
+			"id": "877179000684941383",
+			"username": "sideral9999",
+			"discordName": "sideral9999#0",
+			"avatar": "69daf715d6ac156ff5d28633a50990b4",
+			"permissions": []
+		},
+		{
+			"id": "886990195138904084",
+			"username": "dronky",
+			"discordName": "hauntedfurret",
+			"avatar": "6f11e48c3f97b925e4d94fc2bdcb2f3f",
 			"permissions": []
 		},
 		{
@@ -23407,7 +29520,7 @@
 			"id": "996401106819235840",
 			"username": "ghdyo1",
 			"discordName": "ghdyo1",
-			"avatar": "2e9ea3d7abe401bc2fa0a836f0292639",
+			"avatar": "96d132fc9a3c30e833babea2fb04ec3b",
 			"permissions": []
 		}
 	]

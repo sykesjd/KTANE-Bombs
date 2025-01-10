@@ -6,18 +6,19 @@
 	export let labelAfter: boolean = false;
 	export let disabled: boolean = false;
 	export let title: string = '';
+	export let classes: string = '';
 </script>
 
 <div class:hstack={sideLabel}>
 	{#if !labelAfter}
-		<label {title} for={id}>
+		<label class={classes} {title} for={id}>
 			{label}
 			<slot />
 		</label>
 	{/if}
-	<input {id} type="checkbox" bind:checked {disabled} on:change />
+	<input class={classes} {title} {id} type="checkbox" bind:checked {disabled} on:change />
 	{#if labelAfter}
-		<label {title} for={id}>
+		<label class={classes} {title} for={id}>
 			{label}
 			<slot />
 		</label>
@@ -31,7 +32,7 @@
 		border: none;
 		box-sizing: border-box;
 	}
-	label {
+	label:not(.help) {
 		cursor: pointer;
 		user-select: none;
 	}

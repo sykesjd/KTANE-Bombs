@@ -63,7 +63,7 @@
 			{title}
 			labelClass="help"
 			sideLabel
-			classes="search-field {classes}"
+			classes="search-field help {classes}"
 			on:input={updateSearch}
 			on:change
 			{autoExpand}
@@ -76,7 +76,7 @@
 			{title}
 			labelClass="help"
 			sideLabel
-			classes="search-field {classes}"
+			classes="search-field help {classes}"
 			on:input={updateSearch}
 			on:change
 			bind:value={rawSearchText} />

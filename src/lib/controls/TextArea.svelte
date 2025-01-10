@@ -83,6 +83,7 @@
 	<textarea
 		{id}
 		{placeholder}
+		{title}
 		class={classes}
 		class:autoresize={autoExpand}
 		{required}
