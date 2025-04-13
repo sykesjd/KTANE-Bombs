@@ -5,6 +5,13 @@
 	<h1 class="header">What’s New?</h1>
 </div>
 <div class="block update">
+	<h3>15 April 2025</h3>
+	<ul>
+		<li>Updated <a href="/rules">rule</a> about Logging and Sword of Damocles.</li>
+		<li>New <a href="/rules">rule</a> about tools and decryptors.</li>
+	</ul>
+</div>
+<div class="block update">
 	<h3>15 December 2024</h3>
 	<ul>
 		<li>Improved logfile parsing for Mission ID string. Now ignores <code>mod_toc_*</code> text.</li>

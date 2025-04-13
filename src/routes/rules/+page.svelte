@@ -7,6 +7,10 @@
 </svelte:head>
 
 <h1 class="header">Rules</h1>
+<div class="block">
+	At the maintainers' discretion, any upload may be denied if it is believed to violate the integrity or intent of the
+	CBS.
+</div>
 
 <div class="block">
 	<h2>Rules for Uploading Solves</h2>
@@ -29,15 +33,19 @@
 		<li>Using the Twitch Plays or Unity Explorer mods during a solve.</li>
 		<li>Using advantageous features from the Command Line mod.</li>
 		<li>Using the Magic Stopwatch, Manual Viewer, or Tally Counter mods during your solve.</li>
+		<li>
+			Using any tools or decryptors more advanced than base <a href="https://files.timwi.de/Tools/Calculator.html"
+				>Text Field Calculator</a> functions, with the exception of Caesar cipher decryptors and base converters.
+		</li>
 		<li>Playing in the Manual room.</li>
 		<li>Setting the mission seed to anything besides -1.</li>
 		<li>Using a mod to change the fonts on the bomb.</li>
 		<li>Viewing the logfile of the bomb before it is solved.</li>
-		<li>Having Logging appear on a bomb with an ALL_MODS pool.</li>
+		<li>Having Logging or Sword of Damocles appear on a bomb with an ALL_MODS pool.</li>
 		<li>Revealing module names using Profile Revealer.</li>
 		<li>
-			Using mod settings to make a module easier than default, unless for accessibility reasons. An exception applies 
-			in the case of modules or module combinations which are provably impossible.
+			Using mod settings to make a module easier than default, unless for accessibility reasons. An exception applies in
+			the case of modules or module combinations which are provably impossible.
 		</li>
 		<li>Using a <a class="link" href="/restrictedmanuals">Restricted Manual</a>.</li>
 		<li>Using a manual not accessible on the repo.</li>
